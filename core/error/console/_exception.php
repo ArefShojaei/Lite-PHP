@@ -23,7 +23,7 @@ function setCustomException(object $exception): void {
     $tableLength = 85; 
 
     createTable(function () use ($exception, $extractedMessage, $tableLength) {
-        echo addRow("PHP Debugger - {$exception['title']}", length: $tableLength);
+        echo addRow("PHP {$exception['title']} Reporter", length: $tableLength);
         echo addSeparator(length:$tableLength);
         echo addColumn("File: {$exception['file']}", length:$tableLength - 5) . addColumn("Line: {$exception['line']}", STR_PAD_BOTH, $tableLength - 71) . "|" . PHP_EOL;
         echo addSeparator("-", length:$tableLength);

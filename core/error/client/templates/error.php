@@ -1,9 +1,9 @@
 <?php include __DIR__ . "/includes/header.php" ?>
     <div class="container">
         <h1>
-            PHP Debugger
-            <span>|</span>
+            PHP
             <strong>Error</strong>
+            Reporter
         </h1>
 
         <div class="error-info">
