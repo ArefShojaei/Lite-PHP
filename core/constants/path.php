@@ -16,3 +16,5 @@ const CACHE_PATH = "/storage/cache";
 const LOGS_PATH = "/storage/logs";
 
 const UPLOADS_PATH = "/storage/uploads";
+
+const COMPILED_VIEWS_PATH = "/storage/views";
