@@ -20,6 +20,3 @@ directive("endstyle", fn(): string => "</style>");
 directive("linkScript", fn(string $url): string => "<script src='{$url}' defer>", true);
 directive("script", fn(): string => "<>");
 directive("endscript", fn(): string => "</script>");
-
-directive("php", fn(): string => "<?php");
-directive("endphp", fn(): string => "?>");
