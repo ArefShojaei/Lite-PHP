@@ -9,7 +9,9 @@ function _replaceTemplateDirective(string $content): string {
     return preg_replace_callback("/(?<directive>\@\w+)\s*\((?<expression>.+)\)|(?<singleDirective>\@\w+)/", function($matches) use ($directives) {
         $key = $matches["singleDirective"] ?? $matches["directive"];
 
-        $directive = $directives[$key];
+        $directive = $directives[$key] ?? false;
+
+        if (!$directive) return $key;
 
         return $directive['hasExpression'] ? call_user_func($directive['action'], $matches['expression']) : call_user_func($directive['action']);
     }, $content);
