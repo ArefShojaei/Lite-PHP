@@ -12,7 +12,7 @@ import("@core/hooks/useError");
  * @param $data view data
  */
 function view(string $name, array $data = []): void {
-    $filePath = buildPath(VIEWS_PATH, "/{$name}");
+    $filePath = buildPath(COMPILED_VIEWS_PATH, "/{$name}");
 
     if(!file_exists($filePath)) useError("\"{$name}\" view not found!");
 
