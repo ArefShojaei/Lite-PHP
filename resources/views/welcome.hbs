@@ -1,0 +1,19 @@
+@include("/includes/header")
+    <div id="container">
+        <h1>
+            Lite&nbsp; 
+            <span>PHP</span>&nbsp;
+            <img src="{{ icon("php.svg") }}" alt="logo" width="60" height="60">
+        </h1>
+        <ul class="links">
+            <li><a href="https://github.com/ArefShojaei/Lite-PHP#categories-">{{ __("public.docs") }}</a></li>
+            <li><a href="https://github.com/ArefShojaei">{{ __("public.author") }}</a></li>
+            <li><a href="https://github.com/ArefShojaei/Lite-PHP">{{ __("public.repository") }}</a></li>
+        </ul>
+    </div>
+
+    @php
+        $user = 1;
+    @endphp
+
+@include("/includes/footer")
