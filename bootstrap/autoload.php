@@ -1,5 +1,5 @@
 <?php
 
-$autoload = dirname(__DIR__) . "/vendor/autoload.php";
+$autoloadFile = dirname(__DIR__) . "/vendor/autoload.php";
 
-return file_exists($autoload) && $autoload;
+return file_exists($autoloadFile) && $autoloadFile;
