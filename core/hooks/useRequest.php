@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @desc get header value by name
+ * @desc request http
  * @function useRequest
  * @param {string} $name
  * @return {string}
