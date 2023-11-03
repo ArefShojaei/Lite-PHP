@@ -7,7 +7,7 @@
  * @param {string} $includeType 
  * @return {void}
  */
-function useLoad(string $path, string $includeType): void {
+function useLoad(string $path, string $includeType = "include"): void {
     $aliases = $GLOBALS['container']['aliases'];
 
     $pattern = "/(?<alias>\@\w+)\b/";
