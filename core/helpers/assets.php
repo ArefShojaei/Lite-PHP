@@ -19,3 +19,13 @@ function asset(string $assetPath): string {
 function css(string $filename): string {
     return "public/css/{$filename}.css";
 }
+
+/**
+ * @desc get js path
+ * @function js
+ * @param {string} $filename
+ * @return {string}
+ */
+function js(string $filename): string {
+    return "public/js/{$filename}.js";
+}
