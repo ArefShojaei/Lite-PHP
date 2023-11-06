@@ -35,3 +35,13 @@ function protocol(): string {
 function url(): string {
     return protocol() . "://" . host() . route();    
 }
+
+/**
+ * @desc build route pointer
+ * @function toRoute
+ * @param {string} $route - to route
+ * @return {string}
+ */
+function toRoute(string $route): string {
+    return protocol() . "://" . host() . $route;    
+}
