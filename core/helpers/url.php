@@ -26,3 +26,12 @@ function host(): string {
 function protocol(): string {
     return $_SERVER["REQUEST_SCHEME"];
 }
+
+/**
+ * @desc current url
+ * @function protocol
+ * @return {string}
+ */
+function url(): string {
+    return protocol() . "://" . host() . route();    
+}
