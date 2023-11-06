@@ -29,3 +29,13 @@ function css(string $filename): string {
 function js(string $filename): string {
     return "public/js/{$filename}.js";
 }
+
+/**
+ * @desc get img path
+ * @function img
+ * @param {string} $file + ext
+ * @return {string}
+ */
+function img(string $file): string {
+    return "public/img/{$file}";
+}
