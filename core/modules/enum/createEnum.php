@@ -2,7 +2,7 @@
 
 /**
  * @desc register enum
- * @function createEnu,
+ * @function createEnum
  * @param {string} $name - enum name
  * @param {array} $enums - enum array of constants
  * @return {void}
