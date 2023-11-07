@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useHTTP");
+
+
+/**
  * @desc request http
  * @function useRequest
  * @param {string} $name
@@ -8,27 +14,27 @@
  */
 function useRequest(string $name): string {
     function method(): string {
-        return $_SERVER["REQUEST_METHOD"];
+        return useHTTP("REQUEST_METHOD");
     }
 
     function route(): string {
-        return $_SERVER["REQUEST_URI"];
+        return useHTTP("REQUEST_URI");
     }
 
     function host(): string {
-        return $_SERVER["HTTP_HOST"];
+        return useHTTP("HTTP_HOST");
     }
 
     function userAgent(): string {
-        return $_SERVER["HTTP_USER_AGENT"];
+        return useHTTP("HTTP_USER_AGENT");
     }
 
     function protocol(): string {
-        return $_SERVER["REQUEST_SCHEME"];
+        return useHTTP("REQUEST_SCHEME");
     }
 
     function ip(): string {
-        return $_SERVER["REMOTE_ADDR"];
+        return useHTTP("REMOTE_ADDR");
     }
 
     return $name();
