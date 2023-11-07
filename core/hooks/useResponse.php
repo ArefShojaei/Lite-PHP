@@ -11,7 +11,7 @@ import("@core/hooks/useType");
  * @function useResponse
  * @param {string} $name
  * @param {string|array} $value
- * @return {mixed}
+ * @return {string}
  */
 function useResponse(string $name, string|array $value=null): string {
     function json($value): string {
