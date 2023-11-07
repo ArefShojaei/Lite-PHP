@@ -8,5 +8,5 @@
  * @return {void}
  */
 function useHeader(string $name, mixed $defaultValue): void {
-    $_SERVER[$key] = $defaultValue;
+    $_SERVER[$name] = $defaultValue;
 }
