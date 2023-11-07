@@ -1,16 +1,22 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useHTTP");
+
+
+/**
  * @desc register all routes
  * @function createRouter
  * @return {void}
  */
 function createRouter() {
     # request url
-    $url = $_SERVER["REQUEST_URI"];
+    $url = useHTTP("REQUEST_URI");
     
     # request method
-    $method = $_SERVER["REQUEST_METHOD"];
+    $method = useHTTP("REQUEST_METHOD");
 
     # get all routes of the request method
     $routes = $GLOBALS["container"]["routes"][$method];
