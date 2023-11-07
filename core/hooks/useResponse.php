@@ -1,33 +1,35 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useType");
+
+
+/**
  * @desc response http
  * @function useResponse
  * @param {string} $name
  * @param {string|array} $value
  * @return {mixed}
  */
-function useResponse(string $name, string|array $value=null): mixed {
-    function type(string $mimeType): void {
-        header("Content-Type: {$mimeType}");
-    }
-
+function useResponse(string $name, string|array $value=null): string {
     function json($value): string {
-        type("application/json");
+        useType("application/json");
 
         return json_encode($value);
     }
 
     function html($value): string {
-        type("text/html");
+        useType("text/html");
 
-        echo $value;
+        return $value;
     }
 
     function text($value): string {
-        type("text/plain");
+        useType("text/plain");
         
-        echo $value;
+        return $value;
     }
 
     return $name($value);
