@@ -4,8 +4,8 @@
  * @desc get header by name
  * @function useHTTP
  * @param {string} $name
- * @return {mixed}
+ * @return {string}
  */
-function useHTTP(string $name): mixed {
+function useHTTP(string $name): string {
     return $_SERVER[$name];
 }
