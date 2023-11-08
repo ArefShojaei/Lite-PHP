@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @desc register app
+ * @desc init app
  * @function createApp
  * @param {callback} $aciton
  * @return {void}
