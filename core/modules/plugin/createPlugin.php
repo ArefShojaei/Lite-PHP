@@ -11,11 +11,11 @@
 function createPlugin(string $name, callable $action, bool $hasUsageMode = true): void {
     $keyboard = "helper";
 
-    if(!$usageMode) {
+    if(!$hasUsageMode) {
         $keyboard = "runner";
 
         $GLOBALS["container"]["plugins"][$keyboard][$name] = $action();
-        exit;
+        return;
     }
     
     $GLOBALS["container"]["plugins"][$keyboard][$name] = $action();
