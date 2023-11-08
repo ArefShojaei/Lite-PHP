@@ -5,6 +5,6 @@
  * @param {string} $module - module name
  * @return {void}
  */
-function regsiterModule(string $module): void {
+function registerModule(string $module): void {
     import("@modules/{$module}/main");
 }
