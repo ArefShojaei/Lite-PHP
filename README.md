@@ -21,9 +21,9 @@
 4. [Tutorial](#tutorial)
     * [core/modules/](#coremodules)
         * [app](#app)
-        * [alias]()
-        * [module]()
-        * [plugin]()
+        * [alias](#alias)
+        * [module](#module)
+        * [plugin](#plugin)
         * [router]()
         * [config]()
         * [enum]()
@@ -151,6 +151,7 @@ This is main file for launching the app
 ## Tutorial
 
 ### core/modules/
+
 #### app
 App module is **main module** to init the app project .
 And You must use it **once** in the **server.php** file
@@ -163,9 +164,10 @@ createApp(function() {
     # Logic code...
 });
 ```
+
 #### alias
-Alias module is for declaring path or more path for a file **as alias**
-And You must use it **once** in the **bootstrap/app.php** file
+Alias module is for **declaring path** or more path for a file **as alias**
+And You must use it **once** in the **server.php** file
 ```php
 <?php
 
@@ -176,21 +178,52 @@ include "../../core/hooks/useHTTP.php";
 import("@hooks/useHTTP");
 ```
 ```php
-> bootstrap/app.php
+> server.php
 
 <?php
 
-# register all aliases
-createAlias([
-    "@core" => "core", # core folder path as pointer
-    "@bootstrap" => "bootstrap",
-    "@modules" => "modules", 
-    "@hooks" => "hooks",
-    "@plugins" => "plugins",
-]);
+# init app
+createApp(function() {
+    # register all aliases
+    createAlias([
+        "@core" => "core", # core folder path as pointer
+        "@bootstrap" => "bootstrap",
+        "@modules" => "modules", 
+        "@hooks" => "hooks",
+        "@plugins" => "plugins",
+    ]);
+});
 
 # use the alias
 import("@core/hooks/useHTTP");
 
 echo useHTTP("HTTP_HOST"); # localhost | ...
+```
+
+#### module
+module of modules folder is for register all modules for running in the app .
+And You must use it **once** in the **bootstrap/app.php** file
+```php
+> bootstrap/app.php
+
+<?php
+
+createModule(function() {
+    registerModule("app");
+});
+```
+
+#### plugin
+plugin module is for creating new plugin.
+And You must use it **once** in every plugins/[name].php file!
+
+Don't Forget it .
+```php
+> plugins/[name].php
+
+<?php
+
+createPlugin("name", function() {
+    # Logic code...
+});
 ```
