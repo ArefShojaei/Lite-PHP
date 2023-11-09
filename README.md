@@ -7,20 +7,20 @@
     * [What is Lite-PHP ?](#what-is-lite-php)
     * [Why Lite-PHP ?](#why-lite-php)
     * [How can I use Lite-PHP ?](#how-can-i-use-lite-php)
-3. [Folder Structure](#folder-structure)
+2. [Folder Structure](#folder-structure)
     * [core/](#core)
     * [bootstrap/](#bootstrap)
     * [modules/](#modules)
     * [hooks/](#hooks)
     * [plugins/](#plugins)
-4. [Root Files](#root-files)
+3. [Root Files](#root-files)
     * [.gitignore](#gitignore)
     * [.htaccess](#htaccess)
     * [README.md](#readmemd)
     * [server.php](#serverphp)
-5. [Tutorial]()
-    * [core/modules/]()
-        * [app]()
+4. [Tutorial](#tutorial)
+    * [core/modules/](#coremodules)
+        * [app](#app)
         * [alias]()
         * [module]()
         * [plugin]()
@@ -146,4 +146,51 @@ This is an info for Lite-PHP
 ### server.php
 ```text
 This is main file for launching the app
+```
+
+## Tutorial
+
+### core/modules/
+#### app
+App module is **main module** to init the app project .
+And You must use it **once** in the **server.php** file
+```php
+> server.php
+
+<?php
+
+createApp(function() {
+    # Logic code...
+});
+```
+#### alias
+Alias module is for declaring path or more path for a file **as alias**
+And You must use it **once** in the **bootstrap/app.php** file
+```php
+<?php
+
+# Before
+include "../../core/hooks/useHTTP.php";
+
+# After
+import("@hooks/useHTTP");
+```
+```php
+> bootstrap/app.php
+
+<?php
+
+# register all aliases
+createAlias([
+    "@core" => "core", # core folder path as pointer
+    "@bootstrap" => "bootstrap",
+    "@modules" => "modules", 
+    "@hooks" => "hooks",
+    "@plugins" => "plugins",
+]);
+
+# use the alias
+import("@core/hooks/useHTTP");
+
+echo useHTTP("HTTP_HOST"); # localhost | ...
 ```
