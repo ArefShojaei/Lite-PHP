@@ -2,13 +2,12 @@
 **PHP Library** - **Modular Structure** & **Functional Base**
 
 ---
-#### Categories :
-1. [About the Lite-PHP]()
-    * [What is the Lite-PHP ?]()
-    * [Why the Lite-PHP ?]()
-    * [How can I use the Lite-PHP ?]()
-2. [Flow & Architecture]()
-3. [Folder Structure]()
+### Categories :
+1. [About the Lite-PHP](#what-is-lite-php)
+    * [What is Lite-PHP ?](#what-is-lite-php)
+    * [Why Lite-PHP ?](#why-lite-php)
+    * [How can I use Lite-PHP ?](#how-can-i-use-lite-php)
+3. [Folder Structure](#folder-structure)
     * [core/]()
     * [bootstrap/]()
     * [modules/]()
@@ -58,9 +57,34 @@
         * [url]()
         * [view]()
 ---
-
-### [Folder Structure]()
+## What is Lite-PHP?
 ```text
+The Lite-PHP is a Library 
+for developing Back-end Applications by PHP
+```
+## Why Lite-PHP?
+```text
+Because Lite-PHP has:
+
+* Simple & Fast Development Env
+* More Modules - Hooks - Helpers & ...
+* Modular Strucutre
+* Custom Plugins & Hooks
+* Functional Programming Base
+* Has Folder Strucutre
+* No OOP & No Object
+```
+## How can I use Lite-PHP?
+```bash
+git clone https://github.com/ArefShojaei/Lite-PHP
+```
+**Note**: 
+1. This Folder of contents must be moved to 
+target web-server folder for running the project
+2. Your PHP version must be **8.0 >=**
+
+## Folder Structure
+```bash
 |- bootstrap
 |           |- app.php
 |- core
