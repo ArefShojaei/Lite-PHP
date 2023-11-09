@@ -63,7 +63,6 @@ The Lite-PHP is a Library
 for developing Back-end Applications by PHP
 ```
 ## Why Lite-PHP?
-```text
 Because Lite-PHP has:
 
 * Simple & Fast Development Env
@@ -73,7 +72,7 @@ Because Lite-PHP has:
 * Functional Programming Base
 * Has Folder Strucutre
 * No OOP & No Object
-```
+
 ## How can I use Lite-PHP?
 ```bash
 git clone https://github.com/ArefShojaei/Lite-PHP
@@ -105,25 +104,19 @@ target web-server folder for running the project
 |- server.php
 ```
 ### core/
-```text
 This folder is main files or Lite-PHP core files that
 can be provided base files for every projects!
-```
+
 ### bootstrap/
-```text
 This folder is for init app
-```
+
 ### modules/
-```text
 This folder is for using every modules for the app
 And by default has a "app" module for running
 every Lite-PHP project well 
-```
+
 ### hooks/
-```text
 This folder is for creating custom Hooks
-```
+
 ### plugins/
-```text
 This folder is custom Plugins
-```
