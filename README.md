@@ -8,11 +8,11 @@
     * [Why Lite-PHP ?](#why-lite-php)
     * [How can I use Lite-PHP ?](#how-can-i-use-lite-php)
 3. [Folder Structure](#folder-structure)
-    * [core/]()
-    * [bootstrap/]()
-    * [modules/]()
-    * [hooks/]()
-    * [plugins/]()
+    * [core/](#core)
+    * [bootstrap/](#bootstrap)
+    * [modules/](#modules)
+    * [hooks/](#hooks)
+    * [plugins/](#plugins)
 4. [Root Files]()
     * [.gitignore]()
     * [.htaccess]()
@@ -103,4 +103,27 @@ target web-server folder for running the project
 |- .htaccess
 |- .README.md
 |- server.php
+```
+### core/
+```text
+This folder is main files or Lite-PHP core files that
+can be provided base files for every projects!
+```
+### bootstrap/
+```text
+This folder is for init app
+```
+### modules/
+```text
+This folder is for using every modules for the app
+And by default has a "app" module for running
+every Lite-PHP project well 
+```
+### hooks/
+```text
+This folder is for creating custom Hooks
+```
+### plugins/
+```text
+This folder is custom Plugins
 ```
