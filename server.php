@@ -15,5 +15,6 @@ createApp(function() {
         "@core" => "core",
         "@modules" => "modules",
         "@plugins" => "plugins",
+        "@hooks" => "hooks",
     ]);
 });
