@@ -13,11 +13,11 @@
     * [modules/](#modules)
     * [hooks/](#hooks)
     * [plugins/](#plugins)
-4. [Root Files]()
-    * [.gitignore]()
-    * [.htaccess]()
-    * [README.md]()
-    * [server.php]()
+4. [Root Files](#root-files)
+    * [.gitignore](#gitignore)
+    * [.htaccess](#htaccess)
+    * [README.md](#readmemd)
+    * [server.php](#serverphp)
 5. [Tutorial]()
     * [core/modules/]()
         * [app]()
@@ -121,9 +121,28 @@ every Lite-PHP project well
 ```
 ### hooks/
 ```text
-This folder is for creating custom Hooks
+This will have custom Hooks
 ```
 ### plugins/
 ```text
-This folder is custom Plugins
+This will have custom Plugins
+```
+## Root Files
+
+### .gitignore
+```text
+This is a config to hide 
+files for pushing other files
+```
+### .htaccess
+```text
+This is a config for apache web-server
+```
+### README.md
+```text
+This is an info for Lite-PHP
+```
+### server.php
+```text
+This is main file for launching the app
 ```
