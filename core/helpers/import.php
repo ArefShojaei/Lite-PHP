@@ -7,7 +7,7 @@
  * @param {string} $includeType 
  * @return {void}
  */
-function import(string $path, string $includeType = "include"): void {
+function import(string $path, string $includeType = "require_once"): void {
     $aliases = $GLOBALS['container']['aliases'];
 
     $pattern = "/(?<alias>\@\w+)\b/";
