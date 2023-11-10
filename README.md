@@ -3,7 +3,7 @@
 
 ---
 ### Categories :
-1. [About the Lite-PHP](#about-the-lite-php)
+1. [Introduction](#introduction)
     * [What is Lite-PHP ?](#what-is-lite-php)
     * [Why Lite-PHP ?](#why-lite-php)
     * [How can I use Lite-PHP ?](#how-can-i-use-lite-php)
@@ -57,10 +57,10 @@
         * [url]()
         * [view]()
 ---
-## About the Lite-PHP
+## Introduction
 ### What is Lite-PHP?
 ```text
-The Lite-PHP is a Library 
+The Lite-PHP is a Ligth Freamework 
 for developing Back-end Applications by PHP
 ```
 ### Why Lite-PHP?
