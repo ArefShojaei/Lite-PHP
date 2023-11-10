@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @desc register alias
+ * register alias
  * @function createAlias
- * @param {array} $aliases
- * @return {void}
+ * @param array $aliases
+ * @return void
  */
 function createAlias(array $aliases): void {
     $GLOBALS['container']['aliases'] = [];

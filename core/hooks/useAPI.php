@@ -1,19 +1,18 @@
 <?php
 
 /**
- * @desc api http request
+ * api http request
  * @function useAPI
- * @param {string} $url
- * @param {array} $params
- * @return {array|object}
+ * @param string $url
+ * @param array $params
+ * @return array
  */
-function useAPI(string $url, array $params = []): array|object {
+function useAPI(string $url, array $params = []): array {
     # declare variables
     $method = $params['method'] ?? "GET";
     $headers = $params['headers'] ?? [];
-    $isArrayType = $params['isArrayType'] ?? true;
 
-    # int curl object
+    # int curl
     $curl = curl_init();
  
     # set the curl config
@@ -29,5 +28,5 @@ function useAPI(string $url, array $params = []): array|object {
     curl_close($curl);
 
     # output response
-    return json_decode($response, $isArrayType);
+    return json_decode($response, true);
 }

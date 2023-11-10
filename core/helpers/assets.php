@@ -1,40 +1,40 @@
 <?php
 
 /**
- * @desc get asset path
+ * get asset path
  * @function asset
- * @param {string} $assetPath
- * @return {string}
+ * @param string $src asset file path
+ * @return string
  */
-function asset(string $assetPath): string {
-    return "public/{$assetPath}";
+function asset(string $src): string {
+    return "public/{$src}";
 }
 
 /**
- * @desc get css path
+ * get css path
  * @function css
- * @param {string} $filename
- * @return {string}
+ * @param string $filename
+ * @return string
  */
 function css(string $filename): string {
     return "public/css/{$filename}.css";
 }
 
 /**
- * @desc get js path
+ * get js path
  * @function js
- * @param {string} $filename
- * @return {string}
+ * @param string $filename
+ * @return string
  */
 function js(string $filename): string {
     return "public/js/{$filename}.js";
 }
 
 /**
- * @desc get img path
+ * get img path
  * @function img
- * @param {string} $file + ext
- * @return {string}
+ * @param string $file file + ext
+ * @return string
  */
 function img(string $file): string {
     return "public/img/{$file}";

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @desc random number ID
+ * random number ID
  * @function useID
- * @return {number}
+ * @return int
  */
 function useID(): int {
     return rand();

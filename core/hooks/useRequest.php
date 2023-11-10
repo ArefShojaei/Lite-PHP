@@ -7,10 +7,10 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * @desc request http
+ * request http
  * @function useRequest
- * @param {string} $name
- * @return {string}
+ * @param string $name
+ * @return string
  */
 function useRequest(string $name): string {
     function method(): string {

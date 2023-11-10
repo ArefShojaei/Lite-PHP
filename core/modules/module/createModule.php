@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @desc register all modules
+ * register all modules
  * @function createModule
- * @param {callback} $action
- * @return {void}
+ * @param callable $action
+ * @return void
  */
 function createModule(callable $action): void {
     $action();

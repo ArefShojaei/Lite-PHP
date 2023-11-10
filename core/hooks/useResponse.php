@@ -7,13 +7,13 @@ import("@core/hooks/useType");
 
 
 /**
- * @desc response http
+ * response http
  * @function useResponse
- * @param {string} $name
- * @param {string|array} $value
- * @return {string}
+ * @param string $name
+ * @param string|array $value
+ * @return string
  */
-function useResponse(string $name, string|array $value=null): string {
+function useResponse(string $name, string|array $value = null): string {
     function json($value): string {
         useType("application/json");
 

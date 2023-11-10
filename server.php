@@ -8,7 +8,9 @@ require_once "core/modules/alias/createAlias.php";
 require_once "core/modules/env/createEnv.php";
 
 
-# init app
+/**
+ * init app
+ */
 createApp(function() {
     # register Aliases
     createAlias([

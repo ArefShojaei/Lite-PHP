@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @desc add header
+ * add header
  * @function useHeader
- * @param {string} $name - the header name
- * @param {mixed} $defaultValue - the header value
- * @return {void}
+ * @param string $name header name
+ * @param string $defaultValue header value
+ * @return void
  */
-function useHeader(string $name, mixed $defaultValue): void {
+function useHeader(string $name, string $defaultValue): void {
     $_SERVER[$name] = $defaultValue;
 }

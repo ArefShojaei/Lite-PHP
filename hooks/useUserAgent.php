@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @desc user-agent
+ * get user-agent
  * @function useUserAgent
- * @return {string}
+ * @return string
  */
 function useUserAgent(): string {
     return useHTTP("HTTP_USER_AGENT");

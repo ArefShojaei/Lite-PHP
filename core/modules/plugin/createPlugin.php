@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @desc register plugin
+ * register plugin
  * @function createPlugin
- * @param {string} $name
- * @param {callback} $action
- * @param {boolean} $hasUsageMode
- * @return {void}
+ * @param string $name
+ * @param callable $action
+ * @param bool $hasUsageMode
+ * @return void
  */
 function createPlugin(string $name, callable $action, bool $hasUsageMode = true): void {
     $keyboard = "helper";

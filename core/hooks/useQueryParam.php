@@ -7,10 +7,10 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * @desc route query string
+ * route query string
  * @function useQuery
- * @param {string} $key
- * @return {array|string}
+ * @param string $key query key
+ * @return array|string
  */
 function useQueryParam(string $key = null): array|string {
     $queries = useHTTP("QUERY_STRING");

@@ -1,11 +1,10 @@
 <?php
 
 /**
- * @desc use enum data
+ * use enum data
  * @function useEnum
- * @param {string} $enum - enum name
- * @example Auth@LOGIN => 'Login Form'
- * @return {string|number}
+ * @param string $enum enum name
+ * @return string|int
  */
 function useEnum(string $enum): string|int {
     list($enum, $key) = explode("@", $enum);

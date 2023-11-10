@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @desc get env by key
+ * get env by key
  * @function useEnv
- * @param {string} $key
- * @return {string|null}
+ * @param string} $key
+ * @return string|null
  */
-function useEnv(string $key): string|null {
+function useEnv(string $key): ?string {
     return $_ENV[$key] ?? null;
 }

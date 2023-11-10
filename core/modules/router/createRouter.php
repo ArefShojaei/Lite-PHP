@@ -7,11 +7,11 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * @desc register all routes
+ * register all routes
  * @function createRouter
- * @return {void}
+ * @return void
  */
-function createRouter() {
+function createRouter(): void {
     # request url
     $url = useHTTP("REQUEST_URI");
     

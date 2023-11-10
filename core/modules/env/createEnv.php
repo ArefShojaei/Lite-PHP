@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @desc register env
+ * register env
  * @function createEnv
- * @return {void}
+ * @return void
  */
 function createEnv(): void {
     $prasedContent = file_get_contents(".env");

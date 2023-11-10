@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @desc register enum
+ * register enum
  * @function createEnum
- * @param {string} $name - enum name
- * @param {array} $enums - enum array of constants
- * @return {void}
+ * @param string $name enum name
+ * @param array $enums enum array of constants
+ * @return void
  */
 function createEnum(string $name, array $enums): void {
     $GLOBALS['container']['enums'][$name] = [];

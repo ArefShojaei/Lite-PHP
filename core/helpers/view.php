@@ -1,14 +1,13 @@
 <?php
 
 /**
- * @desc render view
+ * render view
  * @function view
- * @param {string} $name - view name
- * @param {array} $data - view data
- * @example view('home', ['title' => 'Home Page']) # views/home.php + [...]
- * @return {string}
+ * @param string $name view name
+ * @param array $data view data
+ * @return void
  */
-function view(string $name, array $data = []) {
+function view(string $name, array $data = []): void {
     $filePath = "views/{$name}.php";
 
     extract($data);

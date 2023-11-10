@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @desc init app
+ * init app
  * @function createApp
- * @param {callback} $aciton
- * @return {void}
+ * @param callable $aciton
+ * @return void
  */
 function createApp(callable $aciton): void {
     require_once "core/helpers/import.php";

@@ -6,11 +6,14 @@
 import("@core/modules/module/createModule");
 
 
-# register all modules
+/**
+ * register modules
+ */
 createModule(function() {
     # plugins
     registerPlugin("logger");
     
     # modules
     registerModule("app");
+    registerModule("database");
 });

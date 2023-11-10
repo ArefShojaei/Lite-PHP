@@ -8,7 +8,7 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * @desc logger plugin
+ * Logger plugin
  * @type runner
  * @see "core/modules/plugin/createPlugin" module
  */
