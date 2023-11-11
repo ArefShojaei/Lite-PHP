@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useHTTP");
+
+
+/**
  * get user-agent
  * @function useUserAgent
  * @return string
