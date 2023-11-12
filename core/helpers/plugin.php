@@ -6,5 +6,5 @@
  * @return void
  */
 function registerPlugin(string $plugin): void {
-    import("@plugins/{$plugin}/{$plugin}");
+    import("@plugins/{$plugin}/main");
 }
