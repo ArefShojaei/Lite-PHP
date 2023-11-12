@@ -12,3 +12,16 @@ function isEmail(string $email): bool {
 
     return (bool) $isMatch;
 }
+
+/**
+ * url validation
+ * @function isEmail
+ * @param string $email
+ */
+function isURL(string $url): bool {
+    $pattern = "/\b(http|https):\/\/.*\b/";
+
+    preg_match($pattern, $url, $isMatch);
+
+    return (bool) $isMatch;
+}
