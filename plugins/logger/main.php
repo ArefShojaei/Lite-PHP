@@ -26,19 +26,22 @@ createPlugin("logger", function() {
     # declare log level
     $level = useEnum("Logger@LEVEL");
 
-    # declare base path
-    $basePath = useEnum("Logger@LOGS_PATH");
+    # declare logs path
+    $logsPath = useEnum("Logger@LOGS_PATH");
+
+    # decalre http status code
+    $code = http_response_code();
 
     # log file path
-    $filePath = "{$basePath}/{$filename}.log";
+    $filePath = "{$logsPath}/{$filename}.log";
 
     # log content for every request
-    $content = "[{$level}] {$protocol} {$method} {$url}" . PHP_EOL;
+    $content = "[{$level}] {$protocol} {$code} {$method} {$url}" . PHP_EOL;
 
-    # is dir for the base path
-    if(!is_dir($basePath)) {
+    # is dir for the logs path
+    if(!is_dir($logsPath)) {
         mkdir(useEnum("Logger@BASE_PATH"));
-        mkdir($basePath);
+        mkdir($logsPath);
     }
 
     # put the log content to the path
