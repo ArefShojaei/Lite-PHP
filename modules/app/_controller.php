@@ -17,6 +17,5 @@ import("@modules/app/_enum");
 function showHome(): void {
     view("index", [
         "title" => useConfig("app.name"),
-        "message" => useEnum("App@WELCOME"),
     ]);
 }
