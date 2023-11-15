@@ -19,7 +19,7 @@ function createRouter(): void {
     $method = useHTTP("REQUEST_METHOD");
 
     # get all routes of the request method
-    $routes = $GLOBALS["container"]["routes"][$method];
+    $routes = $GLOBALS["container"]["routes"][$method] ?? [];
     
     # is 404
     if(!array_key_exists($url, $routes)) {
