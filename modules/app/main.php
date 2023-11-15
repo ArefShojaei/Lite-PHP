@@ -4,5 +4,4 @@
  * use modules
  */
 import("@modules/app/_config");
-
-echo "App module!";
+import("@modules/app/_route");
