@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ?></title>
-    <link rel="stylesheet" href="<?php echo css('main'); ?>">
-</head>
-<body>
+<?php include "includes/header.php" ?>
     <div id="container">
         <h1>
             Lite&nbsp; 
@@ -20,7 +11,4 @@
             <li><a href="https://github.com/ArefShojaei/Lite-PHP">Repository</a></li>
         </ul>
     </div>
-
-    <script src="<?php echo js('app') ?>"></script>
-</body>
-</html>
+<?php include "includes/footer.php" ?>
