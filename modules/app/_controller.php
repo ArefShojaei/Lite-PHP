@@ -6,7 +6,6 @@
 import("@core/helpers/view");
 import("@core/hooks/useEnum");
 import("@core/hooks/useConfig");
-import("@modules/app/_enum");
 
 
 /**
