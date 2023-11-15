@@ -8,7 +8,7 @@
  * @param callable $aciton
  * @return void
  */
-function useRoute(string $method, string $route, callable $action): void {
+function useRoute(string $method, string $route, string $action): void {
     $method = strtoupper($method);
 
     $GLOBALS["container"]["routes"][$method][$route] = $action;
