@@ -4,6 +4,7 @@
  * @package
  */
 import("@core/modules/module/createModule");
+import("@core/modules/router/createRouter");
 
 
 /**
@@ -17,3 +18,5 @@ createModule(function() {
     registerModule("app");
     registerModule("database");
 });
+
+createRouter();
