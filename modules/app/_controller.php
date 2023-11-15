@@ -5,6 +5,7 @@
  */
 import("@core/helpers/view");
 import("@core/hooks/useEnum");
+import("@core/hooks/useConfig");
 import("@modules/app/_enum");
 
 
@@ -15,7 +16,7 @@ import("@modules/app/_enum");
  */
 function showHome(): void {
     view("index", [
-        "title" => useEnum("App@NAME"),
+        "title" => useConfig("app.name"),
         "message" => useEnum("App@WELCOME"),
     ]);
 }
