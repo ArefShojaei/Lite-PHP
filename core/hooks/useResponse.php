@@ -7,7 +7,7 @@ import("@core/hooks/useType");
 
 
 /**
- * response http
+ * use response http
  * @function useResponse
  * @param string $name
  * @param string|array $value

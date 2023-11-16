@@ -1,7 +1,7 @@
 <?php
 
 /**
- * api http request
+ * use api http request
  * @function useAPI
  * @param string $url
  * @param array $params

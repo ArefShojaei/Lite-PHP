@@ -1,19 +1,11 @@
 <?php
 
 /**
- * @package
- */
-import("@core/hooks/useGlobal");
-
-
-/**
- * get plugin
+ * use plugin by name
  * @function usePlugin
  * @param string $name plugin name
  * @return array
  */
 function usePlugin(string $name): array {
-    $plugins = useGlobal("plugins");
-
-    return $plugins["helper"][$name];
+    return $GLOBALS["container"]["plugins"]["helper"][$name];
 }

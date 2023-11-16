@@ -1,7 +1,7 @@
 <?php
 
 /**
- * request body data
+ * get request body data
  * @function useBody
  * @param null|string $key
  * @return string|array

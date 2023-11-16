@@ -1,7 +1,7 @@
 <?php
 
 /**
- * random number ID
+ * get random number ID
  * @function useID
  * @return int
  */

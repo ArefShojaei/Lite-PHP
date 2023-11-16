@@ -12,11 +12,11 @@ import("@core/modules/router/createRouter");
  */
 createModule(function() {
     # plugins
-    registerPlugin("logger");
+    // registerPlugin("logger");
     
     # modules
     registerModule("app");
-    registerModule("database");
+    // registerModule("database");
 });
 
 createRouter();

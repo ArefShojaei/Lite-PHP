@@ -1,7 +1,7 @@
 <?php
 
 /**
- * declare state
+ * use state
  * @param string|int|bool|array $value
  * @return array
  */

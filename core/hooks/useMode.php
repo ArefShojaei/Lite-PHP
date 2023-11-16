@@ -1,7 +1,7 @@
 <?php
 
 /**
- * env mode
+ * get env mode
  * @function useMode
  * @return string
  */

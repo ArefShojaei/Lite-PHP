@@ -17,7 +17,5 @@ import("@core/hooks/useGlobal");
 function useRoute(string $method, string $route, string $action): void {
     $method = strtoupper($method);
 
-    $routes = useGlobal("routes");
-
-    $routes[$method][$route] = $action;
+    $GLOBALS["container"]["routes"][$method][$route] = $action;
 }

@@ -7,7 +7,7 @@
  * @return string
  */
 function useQuery(string $query): bool|array|null {
-    $connection = $GLOBALS["mysql"];
+    $connection = $GLOBALS["container"]["mysql"];
 
     preg_match("/select|SELECT/", $query, $isMatch);
     

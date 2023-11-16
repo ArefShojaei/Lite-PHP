@@ -1,13 +1,7 @@
 <?php
 
 /**
- * @package
- */
-import("@core/hooks/useGlobal");
-
-
-/**
- * use enum data
+ * get enum by key from enum container
  * @function useEnum
  * @param string $enum enum name
  * @return string|int
@@ -15,7 +9,5 @@ import("@core/hooks/useGlobal");
 function useEnum(string $enum): string|int {
     list($enum, $key) = explode("@", $enum);
 
-    $enums = useGlobal("enums");
-
-    return $enums[$enum][$key];
+    return $GLOBALS['container']['enums'][$enum][$key];
 }

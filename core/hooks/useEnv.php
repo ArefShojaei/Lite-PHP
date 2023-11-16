@@ -1,7 +1,7 @@
 <?php
 
 /**
- * get env by key
+ * get variable by key from env container
  * @function useEnv
  * @param string} $key
  * @return string|null

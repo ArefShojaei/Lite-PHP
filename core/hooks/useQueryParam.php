@@ -7,7 +7,7 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * route query string
+ * get route query string
  * @function useQuery
  * @param string|null $key query key
  * @return array|string

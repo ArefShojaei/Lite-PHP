@@ -1,11 +1,11 @@
 <?php
 
 /**
- * get variable of $GLOBALS["container"]
+ * use global variables
  * @function useGlobal
  * @param string $key
  * @return string|array
  */
-function useGlobal(string $key): string|array {
-    return $GLOBALS["container"][$key];
+function useGlobal(string $key) {
+    # Logic code...
 }

@@ -5,7 +5,6 @@
  */
 import("@core/hooks/useGlobal");
 
-
 /**
  * register config
  * @function createConfig
@@ -14,7 +13,5 @@ import("@core/hooks/useGlobal");
  * @return void
  */
 function createConfig(string $name, array $params): void {
-    $configs = useGlobal("configs");
-
-    $configs[$name] = $params;
+    $GLOBALS["container"]["configs"][$name] = $params;
 }
