@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useGlobal");
+
+
+/**
  * register enum
  * @function createEnum
  * @param string $name enum name
@@ -8,9 +14,11 @@
  * @return void
  */
 function createEnum(string $name, array $enums): void {
-    $GLOBALS['container']['enums'][$name] = [];
+    $enums = useGlobal("enums");
+
+    $enums[$name] = [];
 
     foreach ($enums as $enum => $value) {
-        $GLOBALS['container']['enums'][$name][$enum] = $value;
+        $enums[$name][$enum] = $value;
     }
 }
