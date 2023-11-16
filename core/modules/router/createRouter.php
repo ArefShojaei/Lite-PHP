@@ -4,6 +4,7 @@
  * @package
  */
 import("@core/hooks/useHTTP");
+import("@core/hooks/useGlobal");
 
 
 /**
@@ -18,11 +19,15 @@ function createRouter(): void {
     # request method
     $method = useHTTP("REQUEST_METHOD");
 
-    # get all routes of the request method
-    $routes = $GLOBALS["container"]["routes"][$method] ?? [];
+    # get all routes
+    $routes = useGlobal("routes");
+
+    # get all specific routes by "Http Request Method"
+    $currentRoutes = $routes[$method] ?? [];
+    
     
     # is 404
-    if(!array_key_exists($url, $routes)) {
+    if(!array_key_exists($url, $currentRoutes)) {
         echo "404 Page!";
         exit;
     }
