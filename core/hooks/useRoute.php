@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useGlobal");
+
+/**
  * register route
  * @function useRoute
  * @param string $method
@@ -11,5 +16,7 @@
 function useRoute(string $method, string $route, string $action): void {
     $method = strtoupper($method);
 
-    $GLOBALS["container"]["routes"][$method][$route] = $action;
+    $routes = useGlobal("routes");
+
+    $routes[$method][$route] = $action;
 }
