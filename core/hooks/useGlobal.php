@@ -3,12 +3,9 @@
 /**
  * get variable of $GLOBALS["container"]
  * @function useGlobal
- * @param string $name
- * @param string|array $defaultValue
+ * @param string $key
  * @return string|array
  */
-function useGlobal(string $name, string|array $defaultValue): string|array {
-    $container = $GLOBALS["container"];
-
-    return $defaultValue ? $container[$name] = $defaultValue : $container[$name];
+function useGlobal(string $key): string|array {
+    return $GLOBALS["container"][$key];
 }
