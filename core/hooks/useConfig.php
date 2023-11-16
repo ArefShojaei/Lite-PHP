@@ -4,10 +4,10 @@
  * get config by key from config container
  * @function useConfig
  * @return string $key
- * @return string
+ * @return string|null
  */
-function useConfig(string $key): string {
+function useConfig(string $key): ?string {
     list($name, $key) = explode(".", $key);
     
-    return $GLOBALS["container"]["configs"][$name][$key];
+    return $GLOBALS["container"]["configs"][$name][$key] ?? "";
 }
