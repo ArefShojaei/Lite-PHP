@@ -14,6 +14,6 @@ function createEnv(): void {
     $values = $matches["value"];
 
     foreach ($keys as $number => $key) {
-        $_ENV[$key] = $values[$number];
+        $_ENV[$key] = trim($values[$number]);
     }
 }
