@@ -4,8 +4,16 @@
  * bcrypt password
  * @function useHash
  * @param string $password
- * @return string
+ * @return array
  */
-function useHash(string $password): string {
-    return password_hash($password, PASSWORD_BCRYPT);
+function useHash(string $password): array {
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+    function verify($password): bool {
+        global $hashedPassword;
+
+        return password_verify($password, $hashedPassword);
+    }
+
+    return [$hashedPassword, "verify"];
 }
