@@ -1,12 +1,18 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useHTTP");
+
+
+/**
  * current route
  * @function route
  * @return string
  */
 function route(): string {
-    return $_SERVER["REQUEST_URI"];
+    return useHTTP("REQUEST_URI");
 }
 
 /**
@@ -15,7 +21,7 @@ function route(): string {
  * @return string
  */
 function host(): string {
-    return $_SERVER["HTTP_HOST"];
+    return useHTTP("HTTP_HOST");
 }
 
 /**
@@ -24,7 +30,7 @@ function host(): string {
  * @return string
  */
 function protocol(): string {
-    return $_SERVER["REQUEST_SCHEME"];
+    return useHTTP("REQUEST_SCHEME");
 }
 
 /**
