@@ -7,9 +7,11 @@
  * @return void
  */
 function createAlias(array $aliases): void {
-    $GLOBALS['container']['aliases'] = [];
+    $aliases = $GLOBALS['container']['aliases'];
+
+    $aliases = [];
     
     foreach ($aliases as $alias => $path) {
-        $GLOBALS['container']['aliases'][$alias] = $path;
+        $aliases[$alias] = $path;
     }
 }
