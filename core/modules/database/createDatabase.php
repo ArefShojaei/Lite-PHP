@@ -10,5 +10,5 @@
  * @return void
  */
 function createDatabase(string $host, string $username, string $password, string $db): void {
-    $GLOBALS["mysql"] = mysqli_connect($host, $username, $password, $db); 
+    $GLOBALS["container"]["mysql"] = mysqli_connect($host, $username, $password, $db); 
 }
