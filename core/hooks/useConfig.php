@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useGlobal");
+
+
+/**
  * get config value
  * @function useConfig
  * @return string $key
@@ -9,5 +15,7 @@
 function useConfig(string $key): string {
     list($name, $key) = explode(".", $key);
 
-    return $GLOBALS["container"]["configs"][$name][$key];
+    $configs = useGlobal("configs");
+
+    return $configs[$name][$key];
 }
