@@ -6,8 +6,6 @@
  * @return array
  */
 function useState(string|int|bool|array $value): array {
-    global $state;
-
     $state = $value;
 
     $setState = function ($action) use (&$state) {
