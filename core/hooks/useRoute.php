@@ -3,6 +3,7 @@
 /**
  * @package
  */
+import("@core/hooks/useState");
 import("@core/hooks/useGlobal");
 
 
@@ -17,5 +18,5 @@ import("@core/hooks/useGlobal");
 function useRoute(string $method, string $route, string $action): void {
     $method = strtoupper($method);
 
-    $GLOBALS["container"]["routes"][$method][$route] = $action;
+    useState("routes", [$method, $route], $action);
 }

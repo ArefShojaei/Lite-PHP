@@ -3,7 +3,8 @@
 /**
  * @package
  */
-import("@core/hooks/useGlobal");
+import("@core/hooks/useState");
+
 
 /**
  * register enum
@@ -13,9 +14,9 @@ import("@core/hooks/useGlobal");
  * @return void
  */
 function createEnum(string $name, array $enums): void {
-    $GLOBALS['container']['enums'][$name] = [];
+    useState("enums", [$name], []);
 
     foreach ($enums as $enum => $value) {
-        $GLOBALS['container']['enums'][$name][$enum] = $value;
+        useState("enums", [$name, $enum], $value);
     }
 }

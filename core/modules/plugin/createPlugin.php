@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useState");
+
+
+/**
  * register plugin
  * @function createPlugin
  * @param string $name
@@ -14,9 +20,9 @@ function createPlugin(string $name, callable $action, bool $hasUsageMode = true)
     if(!$hasUsageMode) {
         $keyboard = "runner";
 
-        $GLOBALS["container"]["plugins"][$keyboard][$name] = $action();
+        useState("plugins", [$keyboard, $name], $action());
         return;
     }
     
-    $GLOBALS["container"]["plugins"][$keyboard][$name] = $action();
+    useState("plugins", [$keyboard, $name], $action());
 }

@@ -3,7 +3,8 @@
 /**
  * @package
  */
-import("@core/hooks/useGlobal");
+import("@core/hooks/useState");
+
 
 /**
  * register config
@@ -13,5 +14,5 @@ import("@core/hooks/useGlobal");
  * @return void
  */
 function createConfig(string $name, array $params): void {
-    $GLOBALS["container"]["configs"][$name] = $params;
+    useState("configs", [$name], $params);
 }
