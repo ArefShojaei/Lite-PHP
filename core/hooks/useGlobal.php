@@ -4,8 +4,11 @@
  * use global variable by key
  * @function useGlobal
  * @param string $key
- * @return string
+ * @return mixed
  */
 function useGlobal(string $key): mixed {
-    return $GLOBALS[$key];
+    $container = &$GLOBALS["container"][$key];
+    $default = &$GLOBALS[$key];
+
+    return isset($container) ? $container : $default;
 }
