@@ -4,7 +4,7 @@
  * use state
  * @param string $container
  * @param array $keys
- * @param string|int|bool|array|null $value
+ * @param mixed $value
  * @return void
  */
 function useState(string $state, array $keys, mixed $value): void {
