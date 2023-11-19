@@ -2,20 +2,25 @@
 
 /**
  * use state
- * @param string|int|bool|array $value
- * @return array
+ * @param string $container
+ * @param array $keys
+ * @param string|int|bool|array|null $value
+ * @return void
  */
-function useState(string|int|bool|array $value): array {
-    $state = $value;
+function useState(string $state, array $keys, string|int|bool|array|null $value): void {
+    $container = &$GLOBALS["container"][$state];
 
-    $setState = function ($action) use (&$state) {
-        $state = $action($state);
-    };
+    if (!isset($container) || !is_array($container)) {
+        $container = [];
+    }
 
-    $getState = function () use (&$state) {
-        return $state;
-    };
+    foreach ($keys as $key) {
+        if (!isset($container[$key])) {
+            $container[$key] = [];
+        }
 
+        $container = &$container[$key];
+    }
 
-    return [$getState, $setState];
+    $container = $value;
 }
