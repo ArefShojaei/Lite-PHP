@@ -7,7 +7,7 @@
  * @param string|int|bool|array|null $value
  * @return void
  */
-function useState(string $state, array $keys, string|int|bool|array|null $value): void {
+function useState(string $state, array $keys, mixed $value): void {
     $container = &$GLOBALS["container"][$state];
 
     if (!isset($container) || !is_array($container)) {
