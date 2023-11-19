@@ -4,8 +4,8 @@
  * use global variable by key
  * @function useGlobal
  * @param string $key
- * @return string|null
+ * @return string
  */
-function useGlobal(string $key): ?string {
-    return $GLOBALS[$key] ?? null;
+function useGlobal(string $key): string {
+    return $GLOBALS[$key];
 }
