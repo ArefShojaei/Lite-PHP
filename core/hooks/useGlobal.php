@@ -6,6 +6,6 @@
  * @param string $key
  * @return string
  */
-function useGlobal(string $key): string {
+function useGlobal(string $key): mixed {
     return $GLOBALS[$key];
 }
