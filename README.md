@@ -1,5 +1,5 @@
 # [Lite-PHP](https://github.com/ArefShojaei/Lite-PHP)
-**PHP Library** - **Modular Structure** & **Functional Base**
+**Mirco PHP Freamework** - **Modular Structure** & **Functional Programming !**
 
 ---
 ### Categories :
@@ -60,19 +60,19 @@
 ## Introduction
 ### What is Lite-PHP?
 ```text
-The Lite-PHP is a Ligth Freamework 
-for developing Back-end Applications by PHP
+The Lite-PHP is a Micro Freamework 
+for developing Back-end Applications
 ```
 ### Why Lite-PHP?
 ```text
 Because Lite-PHP has:
 
 * Simple & Fast Development Env
-* More Modules - Hooks - Helpers & ...
+* More Hooks - Helper Functions - Modules & ...
 * Modular Strucutre
 * Custom Plugins & Hooks
-* Functional Programming Base
-* Has Folder Strucutre
+* Functional Programming Structure
+* Folder Strucutre
 * No OOP & No Object
 ```
 ## How can I use Lite-PHP?
@@ -88,18 +88,42 @@ target web-server folder for running the project
 ```bash
 |- bootstrap
 |           |- app.php
+|
 |- core
 |      |- helpers/...
 |      |- hooks/...
 |      |- modules/...
+|
 |- hooks
 |       |- useUserAgent.php
+|
 |- modules
 |         |- app
+|         |     |- _config.php
+|         |     |- _controller.php
+|         |     |- _route.php
+|         |     |- main.php
+|         |
+|         |- database
+|               |- _config.php
 |               |- main.php
-|- plugins
-|         |- logger.php
 |
+|- plugins
+|         |- logger
+|                  |- _enum.php
+|                  |- main.php
+|
+|- public
+|        |- css/...
+|        |- fonts/...
+|        |- img/...
+|        |- js/...
+|
+|- views
+|         |- includes/...
+|         |- index.php
+|
+|- .env.example
 |- .gitignore
 |- .htaccess
 |- .README.md
