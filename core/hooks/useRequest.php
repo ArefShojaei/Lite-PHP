@@ -37,5 +37,13 @@ function useRequest(string $name): string {
         return useHTTP("REMOTE_ADDR");
     }
 
+    function params(): array {
+        return useHTTP("params");
+    }
+
+    function param(string $key): string {
+        return useHTTP("params")[$key];
+    }
+
     return $name();
 }
