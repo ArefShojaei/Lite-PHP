@@ -4,9 +4,9 @@
  * add header
  * @function useHeader
  * @param string $name header name
- * @param string $defaultValue header value
+ * @param mixed $defaultValue header value
  * @return void
  */
-function useHeader(string $name, string $defaultValue): void {
+function useHeader(string $name, mixed $defaultValue): void {
     $_SERVER[$name] = $defaultValue;
 }
