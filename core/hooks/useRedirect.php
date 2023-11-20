@@ -8,4 +8,5 @@
  */
 function useRedirect(string $route): void {
     header("Location: {$route}");
+    exit;
 }
