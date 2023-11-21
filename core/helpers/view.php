@@ -1,6 +1,13 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/helpers/assets");
+import("@core/helpers/url");
+
+
+/**
  * render view
  * @function view
  * @param string $name view name
