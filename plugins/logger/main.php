@@ -29,14 +29,12 @@ createPlugin("logger", function() {
     # declare logs path
     $logsPath = useEnum("Logger@LOGS_PATH");
 
-    # decalre http status code
-    $code = http_response_code();
-
+    
     # log file path
     $filePath = "{$logsPath}/{$filename}.log";
 
     # log content for every request
-    $content = "[{$level}] {$protocol} {$code} {$method} {$url}" . PHP_EOL;
+    $content = "[{$level}] {$protocol} {$method} {$url}" . PHP_EOL;
 
     # is dir for the logs path
     if(!is_dir($logsPath)) {
