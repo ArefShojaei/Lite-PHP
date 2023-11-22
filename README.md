@@ -13,12 +13,25 @@
     * [modules/](#modules)
     * [hooks/](#hooks)
     * [plugins/](#plugins)
+    * [public/]()
+    * [views/]()
 3. [Root Files](#root-files)
+    * [.env.example]()
     * [.gitignore](#gitignore)
     * [.htaccess](#htaccess)
     * [README.md](#readmemd)
     * [server.php](#serverphp)
 4. [Tutorial](#tutorial)
+    * [core/helpers/]()
+        * [assets]()
+        * [dd]()
+        * [import]()
+        * [module]()
+        * [parse]()
+        * [plugin]()
+        * [url]()
+        * [validator]()
+        * [view]()
     * [core/modules/](#coremodules)
         * [app](#app)
         * [alias](#alias)
@@ -36,6 +49,7 @@
         * [useURL]()
         * [useRoute]()
         * [useRedirect]()
+        * [useQuery]()
         * [useQueryParam]()
         * [usePlugin]()
         * [useMode]()
@@ -48,41 +62,38 @@
         * [useConfig]()
         * [useBody]()
         * [useAPI]()
-    * [core/helpers/]()
-        * [assets]()
-        * [import]()
-        * [module]()
-        * [parse]()
-        * [plugin]()
-        * [url]()
-        * [view]()
+        * [useState]()
+        * [useGlobal]()
+        * [useEnum]()
 ---
 ## Introduction
-### What is Lite-PHP?
-```text
+### What is Lite-PHP ?
 The Lite-PHP is a Micro Freamework 
 for developing Back-end Applications
-```
-### Why Lite-PHP?
-```text
+
+### Why Lite-PHP ?
 Because Lite-PHP has:
 
-* Simple & Fast Development Env
-* More Hooks - Helper Functions - Modules & ...
-* Modular Strucutre
-* Custom Plugins & Hooks
-* Functional Programming Structure
-* Folder Strucutre
-* No OOP & No Object
-```
-## How can I use Lite-PHP?
+1. **Simple & Fast Development Env**
+2. **Modular Strucutre**
+3. **DBMS Like Mysql**
+4. **Custom Plugins & Hooks**
+5. **Functional Programming Structure**
+6. **Folder Strucutre**
+7. **No OOP & No Object**
+
+## How can I use Lite-PHP ?
+
+**Note**: 
+1. Your PHP version must be **8.0 >=**
+
+2. This Folder of contents must be moved to 
+target web-server folder for running the project
+
+
 ```bash
 git clone https://github.com/ArefShojaei/Lite-PHP
 ```
-**Note**: 
-1. This Folder of contents must be moved to 
-target web-server folder for running the project
-2. Your PHP version must be **8.0 >=**
 
 ## Folder Structure
 ```bash
@@ -129,55 +140,44 @@ target web-server folder for running the project
 |- .README.md
 |- server.php
 ```
-### core/
-```text
-This folder is main files or Lite-PHP core files that
-can be provided base files for every projects!
-```
-### bootstrap/
-```text
-This folder is for init app
-```
-### modules/
-```text
-This folder is for using every modules for the app
-And by default has a "app" module for running
-every Lite-PHP project well 
-```
-### hooks/
-```text
-This will have custom Hooks
-```
-### plugins/
-```text
-This will have custom Plugins
-```
-## Root Files
 
+### core/
+**This folder is main files or Lite-PHP core files that
+can be provided base files for every projects!**
+
+### bootstrap/
+**This folder is for init app**
+
+### modules/
+**This folder is for using every modules for the app
+And by default has a "app" module for running
+every Lite-PHP project well** 
+
+### hooks/
+**This will have custom Hooks**
+
+### plugins/
+**This will have custom Plugins**
+
+## Root Files
 ### .gitignore
-```text
-This is a config to hide 
-files for pushing other files
-```
+**This is a config to hide 
+files for pushing other files**
+
 ### .htaccess
-```text
-This is a config for apache web-server
-```
+**This is a config for apache web-server**
+
 ### README.md
-```text
-This is an info for Lite-PHP
-```
+**This is an info for Lite-PHP**
+
 ### server.php
-```text
-This is main file for launching the app
-```
+**This is main file for launching the app**
 
 ## Tutorial
-
 ### core/modules/
 
 #### app
-App module is **main module** to init the app project .
+The app module is **main module** to init the app project .
 And You must use it **once** in the **server.php** file
 ```php
 > server.php
@@ -190,8 +190,9 @@ createApp(function() {
 ```
 
 #### alias
-Alias module is for **declaring path** or more path for a file **as alias**
+The alias module is for **declaring path** or more paths for a file **as alias**
 And You must use it **once** in the **server.php** file
+
 ```php
 <?php
 
@@ -225,7 +226,8 @@ echo useHTTP("HTTP_HOST"); # localhost | ...
 ```
 
 #### module
-module of modules folder is for register all modules for running in the app .
+The module of modules folder is for register all modules for running in the app.
+
 And You must use it **once** in the **bootstrap/app.php** file
 ```php
 > bootstrap/app.php
@@ -238,16 +240,11 @@ createModule(function() {
 ```
 
 #### plugin
-plugin module is for creating new plugin.
-And You must use it **once** in every plugins/[name].php file!
+The plugin module is for creating new plugin.
+And You must use it **once** in every plugins/[name]/main.php file!
 
 Don't Forget it .
-```php
-> plugins/[name].php
 
-<?php
-
-createPlugin("name", function() {
-    # Logic code...
-});
-```
+* All plugins can be had two type for using in the project : 
+1. Runner Type
+2. Usage Type
