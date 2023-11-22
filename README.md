@@ -22,7 +22,7 @@
     * [README.md](#readmemd)
     * [server.php](#serverphp)
 4. [Directives](#directives)
-    * [core/helpers/]()
+    * [core/helpers/](#corehelpers)
         * [assets]()
         * [dd]()
         * [import]()
@@ -41,7 +41,7 @@
         * [config](#config)
         * [enum](#enum)
         * [env](#env)
-    * [core/hooks/]()
+    * [core/hooks/](#corehooks)
         * [useHTTP]()
         * [useRequest]()
         * [useResponse]()
@@ -183,6 +183,10 @@ files for pushing other files**
 **This is main file for launching the app**
 
 ## Directives
+
+### core/helpers
+soon...
+
 ### core/modules/
 
 #### app
@@ -348,3 +352,6 @@ require_once "core/modules/env/createEnv.php";
 
 createEnv();
 ```
+
+### core/hooks
+soon...
