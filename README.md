@@ -37,9 +37,9 @@
         * [alias](#alias)
         * [module](#module)
         * [plugin](#plugin)
-        * [router]()
-        * [config]()
-        * [enum]()
+        * [router](#router)
+        * [config](#config)
+        * [enum](#enum)
         * [env]()
     * [core/hooks/]()
         * [useHTTP]()
@@ -245,6 +245,97 @@ And You must use it **once** in every plugins/[name]/main.php file!
 
 Don't Forget it .
 
-* All plugins can be had two type for using in the project : 
+* All plugins must be had two type for using in the project : 
 1. Runner Type
+```php
+> plugins/[name]/main.php
+
+<?php
+
+import("@core/modules/plugin/createPlugin");
+
+
+createPlugin("name", function() {
+    # logic code...
+}, false);
+```
+
 2. Usage Type
+```php
+> bootstrap/app.php
+
+<?php
+
+import("@core/modules/plugin/createPlugin");
+
+
+createPlugin("name", function() {
+    # logic code...
+}); # by default the third argument value of this function is "true"
+```
+
+#### router
+The router module is for handling routes in **HTTP Requests** , And You must use it **once** in the **bootstrap/app.php** file
+
+```php
+> bootstrap/app.php
+
+<?php
+
+import("@core/modules/router/createRouter");
+
+
+createRouter();
+```
+
+#### config
+The config module is for creating some configs for a module
+
+* Note: **You can use it once in every module file as '_config.php' file**
+```php
+> modules/[name]/_config.php
+
+<?php
+
+import("@core/modules/config/createConfig");
+
+
+createConfig("name", [
+    "key" => "value",
+]);
+```
+
+#### enum
+The enum module is for creating constant values as enum
+
+* Note: **You can use it once in every module file as '_enum.php' file**
+
+```php
+> modules/[name]/_config.php
+
+<?php
+
+import("@core/modules/enum/createEnum");
+
+
+createEnum("Name", [
+    # keys of this array must be upperCase
+    "KEY" => "value",
+]);
+```
+
+#### env
+The env module is for parsing .env file and adding to $_ENV super global .
+
+* Note: **You can use it once in main file**
+
+```php
+> server.php
+
+<?php
+
+require_once "core/modules/env/createEnv.php";
+
+
+createEnv();
+```
