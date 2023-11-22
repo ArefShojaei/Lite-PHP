@@ -13,24 +13,41 @@ import("@core/hooks/useType");
  * @param string|array $value
  * @return string
  */
-function useResponse(string $name, string|array $value = null): string {
-    function json($value): string {
+function useResponse(string $name, string|array $value): string {
+    /**
+     * JSON content
+     * @param array $value
+     * @return string
+     */
+    function json(array $value): string {
         useType("application/json");
 
         return json_encode($value);
     }
 
-    function html($value): string {
+    /**
+     * HTML content
+     * @param string $value
+     * @return string
+     */
+    function html(string $value): string {
         useType("text/html");
 
         return $value;
     }
 
-    function text($value): string {
+
+    /**
+     * Text content
+     * @param string $value
+     * @return string
+     */
+    function text(string $value): string {
         useType("text/plain");
         
         return $value;
     }
 
+    
     return $name($value);
 }
