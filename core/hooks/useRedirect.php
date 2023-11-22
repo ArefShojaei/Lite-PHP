@@ -7,6 +7,6 @@
  * @return void
  */
 function useRedirect(string $route): void {
-    header("Location: {$route}");
+    header("Location: {$route}", true, 302);
     exit;
 }
