@@ -21,7 +21,7 @@
     * [.htaccess](#htaccess)
     * [README.md](#readmemd)
     * [server.php](#serverphp)
-4. [Tutorial](#tutorial)
+4. [Directives](#directives)
     * [core/helpers/]()
         * [assets]()
         * [dd]()
@@ -40,7 +40,7 @@
         * [router](#router)
         * [config](#config)
         * [enum](#enum)
-        * [env]()
+        * [env](#env)
     * [core/hooks/]()
         * [useHTTP]()
         * [useRequest]()
@@ -173,7 +173,7 @@ files for pushing other files**
 ### server.php
 **This is main file for launching the app**
 
-## Tutorial
+## Directives
 ### core/modules/
 
 #### app
