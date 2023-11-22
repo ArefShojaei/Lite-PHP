@@ -1,4 +1,4 @@
-# [Lite-PHP](https://github.com/ArefShojaei/Lite-PHP)
+# Lite-PHP - Micro Freamework
 ![image](https://github.com/ArefShojaei/Lite-PHP/assets/134844185/9abfe4dc-b4eb-48c0-a9d0-d9323a5bfcc2)
 
 ---
@@ -13,8 +13,8 @@
     * [modules/](#modules)
     * [hooks/](#hooks)
     * [plugins/](#plugins)
-    * [public/]()
-    * [views/]()
+    * [public/](#public)
+    * [views/](#views)
 3. [Root Files](#root-files)
     * [.env.example]()
     * [.gitignore](#gitignore)
@@ -72,7 +72,7 @@ The Lite-PHP is a Micro Freamework
 for developing Back-end Applications
 
 ### Why Lite-PHP ?
-Because Lite-PHP has:
+Because the Lite-PHP has:
 
 1. **Simple & Fast Development Env**
 2. **Modular Strucutre**
@@ -96,6 +96,8 @@ git clone https://github.com/ArefShojaei/Lite-PHP
 ```
 
 ## Folder Structure
+Here is default folder structure for starting new project with the **Micro Freamework**
+
 ```bash
 |- bootstrap
 |           |- app.php
@@ -158,6 +160,13 @@ every Lite-PHP project well**
 
 ### plugins/
 **This will have custom Plugins**
+
+### public/
+**This will have asset files**
+
+### views/
+**This will have view content of the HTML template content**
+
 
 ## Root Files
 ### .gitignore
