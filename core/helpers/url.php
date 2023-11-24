@@ -11,7 +11,7 @@ import("@core/hooks/useHTTP");
  * @function route
  * @return string
  */
-function route(): string {
+function url(): string {
     return useHTTP("REQUEST_URI");
 }
 
@@ -38,8 +38,8 @@ function protocol(): string {
  * @function protocol
  * @return string
  */
-function url(): string {
-    return protocol() . "://" . host() . route();    
+function origin(): string {
+    return protocol() . "://" . host() . url();    
 }
 
 /**
