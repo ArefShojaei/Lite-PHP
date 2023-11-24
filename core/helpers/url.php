@@ -8,7 +8,7 @@ import("@core/hooks/useHTTP");
 
 /**
  * base url that includes "protocol & host"
- * @function url
+ * @function baseUrl
  * @return string
  */
 function baseUrl(): string {
