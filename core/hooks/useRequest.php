@@ -10,9 +10,9 @@ import("@core/hooks/useHTTP");
  * use request http
  * @function useRequest
  * @param string $name
- * @return string
+ * @return string|array
  */
-function useRequest(string $name): string {
+function useRequest(string $name): string|array {
     /**
      * request method
      * @return string
@@ -38,14 +38,6 @@ function useRequest(string $name): string {
     }
 
     /**
-     * request client user-agent
-     * @return string
-     */
-    function userAgent(): string {
-        return useHTTP("HTTP_USER_AGENT");
-    }
-
-    /**
      * request protocol
      * @return string
      */
@@ -54,27 +46,19 @@ function useRequest(string $name): string {
     }
 
     /**
+     * request client user-agent
+     * @return string
+     */
+    function userAgent(): string {
+        return useHTTP("HTTP_USER_AGENT");
+    }
+
+    /**
      * request client ip
      * @return string
      */
     function ip(): string {
         return useHTTP("REMOTE_ADDR");
-    }
-
-    /**
-     * request route params
-     * @return array
-     */
-    function params(): array {
-        return useHTTP("params");
-    }
-
-    /**
-     * request route param by key
-     * @return string
-     */
-    function param(string $key): string {
-        return useHTTP("params")[$key];
     }
 
 
