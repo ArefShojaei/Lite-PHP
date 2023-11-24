@@ -61,6 +61,14 @@ function useRequest(string $name): string|array {
         return useHTTP("REMOTE_ADDR");
     }
 
+    /**
+     * request route params
+     * @return array
+     */
+    function params(): array {
+        return useHTTP("params");
+    }
+
 
     return $name();
 }
