@@ -8,7 +8,7 @@ import("@core/hooks/useHTTP");
 
 /**
  * current route
- * @function route
+ * @function url
  * @return string
  */
 function url(): string {
@@ -34,12 +34,12 @@ function protocol(): string {
 }
 
 /**
- * current url
+ * full url as origin to combine "protocol" + "host" + "route"
  * @function protocol
  * @return string
  */
 function origin(): string {
-    return protocol() . "://" . host() . url();    
+    return protocol() . "://" . host() . url();
 }
 
 /**
