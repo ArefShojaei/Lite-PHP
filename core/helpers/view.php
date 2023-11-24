@@ -19,5 +19,5 @@ function view(string $name, array $data = []): void {
 
     extract($data);
 
-    include $filePath;
+    require_once $filePath;
 }
