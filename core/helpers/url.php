@@ -16,30 +16,12 @@ function url(): string {
 }
 
 /**
- * current host
- * @function host
- * @return string
- */
-function host(): string {
-    return useHTTP("HTTP_HOST");
-}
-
-/**
- * current protocol
- * @function protocol
- * @return string
- */
-function protocol(): string {
-    return useHTTP("REQUEST_SCHEME");
-}
-
-/**
  * full url as origin to combine "protocol" + "host" + "route"
  * @function protocol
  * @return string
  */
 function origin(): string {
-    return protocol() . "://" . host() . url();
+    return useHTTP("REQUEST_SCHEME") . "://" . useHTTP("HTTP_HOST") . url();
 }
 
 /**
@@ -49,5 +31,5 @@ function origin(): string {
  * @return string
  */
 function toRoute(string $route): string {
-    return protocol() . "://" . host() . $route;    
+    return useHTTP("REQUEST_SCHEME") . "://" . useHTTP("HTTP_HOST") . $route;    
 }
