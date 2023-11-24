@@ -69,6 +69,14 @@ function useRequest(string $name): string|array {
         return useHTTP("params");
     }
 
+    /**
+     * request route query string
+     * @return array
+     */
+    function query(): array {
+        return useHTTP("QUERY_STRING");
+    }
+
 
     return $name();
 }
