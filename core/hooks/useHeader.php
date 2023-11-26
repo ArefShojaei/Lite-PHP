@@ -8,5 +8,5 @@
  * @return void
  */
 function useHeader(string $name, mixed $defaultValue): void {
-    $_SERVER[$name] = $defaultValue;
+    header("{$name}: {$defaultValue}");
 }
