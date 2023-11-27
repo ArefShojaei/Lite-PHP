@@ -13,6 +13,8 @@ import("@core/modules/router/createRouter");
 createModule(function() {
     # plugins
     registerPlugin("logger");
+    registerPlugin("security");
+    registerPlugin("cors");
     
     # modules
     registerModule("app");
