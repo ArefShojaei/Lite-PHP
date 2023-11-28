@@ -39,3 +39,13 @@ function js(string $filename): string {
 function img(string $file): string {
     return "/public/img/{$file}";
 }
+
+/**
+ * get icon path
+ * @function img
+ * @param string $file file + ext
+ * @return string
+ */
+function icon(string $file): string {
+    return "/public/icons/{$file}";
+}
