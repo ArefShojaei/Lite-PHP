@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * int session
+ */
+session_start();
+
+/**
  * init app
  * @function createApp
  * @param callable $aciton
