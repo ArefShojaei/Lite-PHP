@@ -46,7 +46,8 @@ function createRouter(): void {
     if(!$isMatchedRoute) {
         http_response_code(404);
         
-        die("404 Page!");
+        require_once "views/errors/404.php";
+        exit;
     }
 
     # add "params" header as request params
