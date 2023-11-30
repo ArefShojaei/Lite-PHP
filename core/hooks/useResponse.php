@@ -11,9 +11,12 @@ import("@core/hooks/useType");
  * @function useResponse
  * @param string $name
  * @param string|array $value
+ * @param int $code HTTP status code
  * @return string
  */
-function useResponse(string $name, string|array $value): string {
+function useResponse(string $name, string|array $value, int $code = null): string {
+    isset($code) && http_response_code($code);
+    
     /**
      * JSON content
      * @param array $value
