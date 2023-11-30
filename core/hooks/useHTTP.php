@@ -3,9 +3,16 @@
 /**
  * get header by name
  * @function useHTTP
- * @param string $name
- * @return string|array
+ * @param string $key
+ * @param mixed $defaultValue
+ * @return mixed
  */
-function useHTTP(string $name): string|array {
-    return $_SERVER[$name];
+function useHTTP(string $key, mixed $defaultValue): mixed {
+    if(!isset($defaultValue)) {
+        return $_SERVER[$key];
+    }
+
+    $_SERVER[$key] = $defaultValue;
+
+    return true;
 }
