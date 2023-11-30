@@ -20,4 +20,5 @@ function view(string $name, array $data = []): void {
     extract($data);
 
     require_once $filePath;
+    exit;
 }
