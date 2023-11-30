@@ -7,7 +7,7 @@
  * @param mixed $defaultValue
  * @return mixed
  */
-function useHTTP(string $key, mixed $defaultValue): mixed {
+function useHTTP(string $key, mixed $defaultValue = null): mixed {
     if(!isset($defaultValue)) {
         return $_SERVER[$key];
     }
