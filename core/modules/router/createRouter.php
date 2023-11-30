@@ -5,7 +5,6 @@
  */
 import("@core/hooks/useHTTP");
 import("@core/hooks/useGlobal");
-import("@core/hooks/useServer");
 
 
 /**
@@ -51,7 +50,7 @@ function createRouter(): void {
     }
 
     # add "params" header as request params
-    useServer("params", $params);
+    useHTTP("params", $params);
 
     # show content
     echo $action();
