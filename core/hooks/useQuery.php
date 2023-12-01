@@ -10,9 +10,9 @@ import("@core/hooks/useGlobal");
  * run mysql query
  * @function useQuery
  * @param string $query sql query
- * @return bool|array
+ * @return true|array
  */
-function useQuery(string $query, array $params = []): bool|array {
+function useQuery(string $query, array $params = []): true|array {
     $connection = useGlobal("mysql");
 
     preg_match("/select|SELECT/", $query, $isMatch);
@@ -36,6 +36,11 @@ function useQuery(string $query, array $params = []): bool|array {
         while($row = mysqli_fetch_assoc($result)) {
             array_push($response, $row);
         }
+        
+        if(!count($response)) {
+            return $response;
+        }
+
         return count($response) > 1 ? $response : $response[0];
     }
 
