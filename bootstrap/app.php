@@ -26,4 +26,8 @@ createModule(function() {
     ];
 });
 
+
+/**
+ * init router system
+ */
 createRouter();
