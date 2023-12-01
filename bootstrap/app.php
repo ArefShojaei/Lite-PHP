@@ -11,14 +11,19 @@ import("@core/modules/router/createRouter");
  * register modules
  */
 createModule(function() {
-    # plugins
-    registerPlugin("logger");
-    registerPlugin("security");
-    registerPlugin("cors");
-    
-    # modules
-    registerModule("app");
-    registerModule("database");
+    return [
+        # list of plugins that has runner type
+        "plugins" => [
+            registerPlugin("logger"),
+            registerPlugin("security"),
+            registerPlugin("cors")
+        ],
+        # list of modules to must be run in main process
+        "modules" => [
+            registerModule("app"),
+            registerModule("database")
+        ],
+    ];
 });
 
 createRouter();
