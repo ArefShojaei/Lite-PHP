@@ -74,7 +74,11 @@ function useRequest(string $name): string|array {
      * @return array
      */
     function query(): array {
-        return useHTTP("QUERY_STRING");
+        parse_str(useHTTP("QUERY_STRING"), $queries);
+        
+        array_shift($queries);
+
+        return $queries;
     }
 
 
