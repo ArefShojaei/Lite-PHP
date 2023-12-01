@@ -14,7 +14,7 @@ import("@core/hooks/useType");
  * @param int $code HTTP status code
  * @return string
  */
-function useResponse(string $name, string|array $value, int $code = null): string {
+function useResponse(string $name, string|array $value, int $code = 200): string {
     isset($code) && http_response_code($code);
     
     /**
