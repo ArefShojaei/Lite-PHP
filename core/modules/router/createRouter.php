@@ -5,6 +5,7 @@
  */
 import("@core/hooks/useHTTP");
 import("@core/hooks/useGlobal");
+import("@core/hooks/useURL");
 
 
 /**
@@ -22,13 +23,13 @@ function createRouter(): void {
     $method = useHTTP("REQUEST_METHOD");
 
     # get all routes of the request method
-    $routes = useGlobal("routes")[$method] ?? [];
+    $routes = useGlobal("routes")[$method];
 
     # get matched route
     foreach ($routes as $route => $action) {
         $pattern = "/^" . str_replace(["/", "{", "}"], ["\/", "(?<", ">\w+)"], $route) . "$/";
         
-        preg_match($pattern, $url, $matches);
+        preg_match($pattern, useURL($url)['path'], $matches);
 
         if(count($matches)) break;
     }
