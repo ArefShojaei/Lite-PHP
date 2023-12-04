@@ -10,11 +10,11 @@ import("@core/hooks/useConfig");
 
 /**
  * GET - show home page
- * @function showHome
+ * @function index
  * @return void
  */
-function showHome(): void {
-    view("index", [
+function index(): void {
+    view("welcome", [
         "title" => useConfig("app.name"),
     ]);
 }

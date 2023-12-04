@@ -9,4 +9,4 @@ import("@modules/app/_controller");
 /**
  * app routes
  */
-useRoute("GET", "/", "showHome");
+useRoute("GET", "/", "index");
