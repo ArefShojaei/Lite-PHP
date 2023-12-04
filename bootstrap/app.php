@@ -28,7 +28,7 @@ createModule(function() {
         # list of modules to must be run in main process
         "modules" => [
             registerModule("app"),
-            // registerModule("database")
+            registerModule("database")
         ],
     ];
 });
