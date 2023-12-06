@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * @package
+ */
+require_once "core/helpers/element.php";
+
+
+/**
  * dump and die an Array
  * @param array $input
  * @param bool $isDied
@@ -8,30 +14,30 @@
  */
 function dd(array $input, bool $isDied = true): void {
     $styles = [
-        "div" => "padding: 4px 8px;background-color: #202020;color: white;",
+        "div" => "padding: 4px 8px;background-color: #202020;color: white;border-radius:4px;font-family: sans-serif",
         "p" => "color: #e5e5e5;",
         "strong" => "color: #37ff25;",
         "pre" => "color: #37ff25;",
     ];
 
-    # start container as "div" element
-    echo "<div style='{$styles['div']}'>";
-        # start count of the input array as "p" element 
-        echo "<p style='{$styles['p']}'>Count: <strong style='{$styles['strong']}'>" . count($input) . "</strong></p>";
-        # end count of the input array as "p" element
-    
-        # start row line as "hr" element 
-        echo "<hr>";
-        # end row line as "hr" element 
+
+    # div element
+    echo createElement("div", ["style" => $styles['div']], [
+        # p element
+        createElement("p", ["style" => $styles['p']], [
+            "Count:&nbsp;",
         
-        # end row line as "hr" element 
-        echo "<pre style='{$styles['pre']}'>";
-        print_r($input);
-        # end row line as "hr" element 
-        echo "</pre>";
+            # strong element
+            createElement("strong", ["style" => $styles["strong"]], [count($input)])
+        ]),
+        
+        # hr element
+        createSingleElement("hr", []),
+
+        # pre element
+        createElement("pre", ["style" => $styles['pre']], [print_r($input, true)]),
+    ]);
     
-    # end container as "div" element
-    echo "</div>";
-    
+
     if($isDied) exit;
 }
