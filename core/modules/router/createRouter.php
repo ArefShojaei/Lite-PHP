@@ -6,6 +6,7 @@
 import("@core/hooks/useHTTP");
 import("@core/hooks/useGlobal");
 import("@core/hooks/useURL");
+import("@core/hooks/useRedirect");
 
 
 /**
@@ -44,10 +45,7 @@ function createRouter(): void {
 
     # is 404
     if(!$isMatchedRoute) {
-        http_response_code(404);
-        
-        require_once "views/errors/404.php";
-        exit;
+        useRedirect("/404");
     }
 
     # add "params" header as request params
