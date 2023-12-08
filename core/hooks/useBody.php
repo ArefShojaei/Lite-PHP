@@ -15,5 +15,5 @@ require_once "core/helpers/parse.php";
 function useBody(string $key = null): string|array {
     $parsedBody = json_decode(parse("php://input"), true);
 
-    return $key ? $parsedBody[$key] : $parsedBody;
+    return isset($key) ? $parsedBody[$key] : $parsedBody;
 }
