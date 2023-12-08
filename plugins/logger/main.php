@@ -31,7 +31,7 @@ createPlugin("logger", function() {
 
     
     # log file path
-    $filePath = "{$logsPath}/{$filename}.log";
+    $filePath = "{$logsPath}/{$filename}" . LOG_FILE_EXTENTION;
 
     # log content for every request
     $content = "[{$level}] {$protocol} {$method} {$url}" . PHP_EOL;
