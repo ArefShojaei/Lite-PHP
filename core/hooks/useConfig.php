@@ -17,5 +17,5 @@ function useConfig(string $key): ?string {
     
     $configs = useGlobal("configs");
 
-    return $configs[$name][$key] ?? "";
+    return $configs[$name][$key] ?? null;
 }
