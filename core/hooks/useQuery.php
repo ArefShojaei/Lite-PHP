@@ -10,9 +10,9 @@ import("@core/hooks/useGlobal");
  * use mysql query
  * @function useQuery
  * @param string $query sql query
- * @return true|array
+ * @return bool|array
  */
-function useQuery(string $query, array $params = []): true|array {
+function useQuery(string $query, array $params = []): bool|array {
     # get mysql connection
     $connection = useGlobal("mysql");
 
