@@ -1,7 +1,7 @@
 <?php
 
 /**
- * use post data in $_POST super global
+ * get request data from $_POST super global
  * @function usePOST
  * @param string $key
  * @return string|array
