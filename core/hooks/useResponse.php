@@ -7,14 +7,14 @@ import("@core/hooks/useType");
 
 
 /**
- * use response http
+ * use the response http
  * @function useResponse
  * @param string $name
  * @param string|array $value
  * @param int $code HTTP status code
  * @return string
  */
-function useResponse(string $name, string|array $value, int $code = 200): string {
+function useResponse(string $action, string|array $value, int $code = 200): string {
     isset($code) && http_response_code($code);
     
     /**
@@ -23,8 +23,10 @@ function useResponse(string $name, string|array $value, int $code = 200): string
      * @return string
      */
     function json(array $value): string {
+        # set content-type
         useType("application/json");
 
+        # reutrn the $value as json
         return json_encode($value);
     }
 
@@ -34,8 +36,10 @@ function useResponse(string $name, string|array $value, int $code = 200): string
      * @return string
      */
     function html(string $value): string {
+        # set content-type
         useType("text/html");
-
+        
+        # reutrn the $value as HTML
         return $value;
     }
 
@@ -46,11 +50,14 @@ function useResponse(string $name, string|array $value, int $code = 200): string
      * @return string
      */
     function text(string $value): string {
+        # set content-type
         useType("text/plain");
         
+        # return the $value as pure text
         return $value;
     }
 
     
-    return $name($value);
+    # call the $action
+    return $action($value);
 }
