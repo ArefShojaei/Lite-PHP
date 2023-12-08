@@ -9,7 +9,7 @@ import("@core/hooks/useType");
 /**
  * use the response http
  * @function useResponse
- * @param string $name
+ * @param string $action
  * @param string|array $value
  * @param int $code HTTP status code
  * @return string
