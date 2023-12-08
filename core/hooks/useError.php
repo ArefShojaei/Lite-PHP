@@ -1,7 +1,7 @@
 <?php
 
 /**
- * use custom error message
+ * thorw custom error message
  * @function useError
  * @param string $message error message
  * @return void
