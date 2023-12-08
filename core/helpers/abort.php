@@ -9,11 +9,12 @@ import("@core/helpers/view");
 /**
  * show error page
  * @param int $code status code
- * @param int $message
+ * @param string $message
+ * @param array $data view data
  * @return void
  */
-function abort(int $code, string $message): void {
+function abort(int $code, string $message, $data = []): void {
     http_response_code($code);
 
-    view("errors/{$code}", ["title" => $code, "message" => $message]);
+    view("errors/{$code}", array_merge(["title" => $code, "message" => $message], $data));
 }
