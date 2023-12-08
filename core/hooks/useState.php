@@ -8,12 +8,15 @@
  * @return void
  */
 function useState(string $state, array $keys, mixed $value): void {
+    # get the $state form the container
     $container = &$GLOBALS["container"][$state];
 
     if (!isset($container) || !is_array($container)) {
+        # decalre the $state
         $container = [];
     }
 
+    # add nested keys to the $state
     foreach ($keys as $key) {
         if (!isset($container[$key])) {
             $container[$key] = [];
@@ -22,5 +25,6 @@ function useState(string $state, array $keys, mixed $value): void {
         $container = &$container[$key];
     }
 
+    # define value to the $state
     $container = $value;
 }
