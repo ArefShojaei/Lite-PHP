@@ -1,18 +1,21 @@
 <?php
 
 /**
- * use api http request
+ * send http request
  * @function useAPI
  * @param string $url
  * @param array $params
  * @return array
  */
 function useAPI(string $url, array $params = []): array {
-    # declare variables
+    # get http method
     $method = $params['method'] ?? "GET";
+    
+    # get http headers
     $headers = $params['headers'] ?? [];
 
-    # int curl
+
+    # init curl
     $curl = curl_init();
  
     # set the curl config
