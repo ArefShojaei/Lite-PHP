@@ -1,10 +1,16 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useEnv");
+
+
+/**
  * get env mode
  * @function useMode
  * @return string
  */
 function useMode(): string {
-    return $_ENV["APP_MODE"];
+    return useEnv("APP_MODE");
 }
