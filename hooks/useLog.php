@@ -14,9 +14,12 @@ import("@core/hooks/useEnum");
  * @return void
  */
 function useLog(string $filename, string $message): void {
-    $file = useEnum("Logger@LOGS_PATH") . "/" . $filename . ".log";
+    # get file path
+    $filePath = useEnum("Logger@LOGS_PATH") . "/" . $filename . LOG_FILE_EXTENTION;
 
+    # log content
     $content = "[ADDITION] {$message}";
 
-    file_put_contents($file, $content . PHP_EOL, FILE_APPEND);
+    # append the log content to the file
+    file_put_contents($filePath, $content . PHP_EOL, FILE_APPEND);
 }
