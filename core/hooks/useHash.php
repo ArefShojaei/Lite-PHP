@@ -9,9 +9,7 @@
 function useHash(string $password): array {
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
-    function verify($password): bool {
-        global $hashedPassword;
-
+    function verify($password, $hashedPassword): bool {
         return password_verify($password, $hashedPassword);
     }
 
