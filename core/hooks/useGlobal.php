@@ -1,14 +1,18 @@
 <?php
 
 /**
- * use global variable by key
+ * get variable from $_GLOBALS
  * @function useGlobal
- * @param string $key
+ * @param string $state
  * @return mixed
  */
-function useGlobal(string $key): mixed {
-    $container = &$GLOBALS["container"][$key];
-    $default = &$GLOBALS[$key];
+function useGlobal(string $state): mixed {
+    # get the $state from container as global data
+    $container = &$GLOBALS["container"][$state];
 
+    # get the $state from $_GLOBALS if the $state is not exists in the $GLOBALS["container"] 
+    $default = &$GLOBALS[$state];
+
+    # return the $state
     return isset($container) ? $container : $default;
 }
