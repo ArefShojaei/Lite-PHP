@@ -15,10 +15,9 @@ import("@core/helpers/url");
  * @return void
  */
 function view(string $name, array $data = []): void {
-    $filePath = "views/{$name}.php";
+    $filePath = "views/{$name}" . PHP_FILE_EXTENTION;
 
     extract($data);
 
     require_once $filePath;
-    exit;
 }
