@@ -7,7 +7,7 @@
  * @return string
  */
 function asset(string $src): string {
-    return "/public/{$src}";
+    return BASE_ASSET_PATH . "/{$src}";
 }
 
 /**
@@ -17,7 +17,7 @@ function asset(string $src): string {
  * @return string
  */
 function css(string $filename): string {
-    return "/public/css/{$filename}.css";
+    return BASE_ASSET_PATH . "/css/{$filename}.css";
 }
 
 /**
@@ -27,7 +27,7 @@ function css(string $filename): string {
  * @return string
  */
 function js(string $filename): string {
-    return "/public/js/{$filename}.js";
+    return BASE_ASSET_PATH . "/js/{$filename}.js";
 }
 
 /**
@@ -37,7 +37,7 @@ function js(string $filename): string {
  * @return string
  */
 function img(string $file): string {
-    return "/public/img/{$file}";
+    return BASE_ASSET_PATH . "/img/{$file}";
 }
 
 /**
@@ -47,5 +47,5 @@ function img(string $file): string {
  * @return string
  */
 function icon(string $file): string {
-    return "/public/icons/{$file}";
+    return BASE_ASSET_PATH . "/icons/{$file}";
 }
