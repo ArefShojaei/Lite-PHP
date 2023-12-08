@@ -7,12 +7,12 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * use request http
+ * use the request http
  * @function useRequest
- * @param string $name
+ * @param string $action
  * @return string|array
  */
-function useRequest(string $name): string|array {
+function useRequest(string $action): string|array {
     /**
      * request method
      * @return string
@@ -74,13 +74,17 @@ function useRequest(string $name): string|array {
      * @return array
      */
     function query(): array {
+        # parse the query string
         parse_str(useHTTP("QUERY_STRING"), $queries);
         
+        # remove first data from the $queries
         array_shift($queries);
 
+        # return the $queries
         return $queries;
     }
 
 
-    return $name();
+    # call the $aciton
+    return $action();
 }
