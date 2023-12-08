@@ -6,7 +6,7 @@
  * @param string $email
  */
 function isEmail(string $email): bool {
-    $pattern = "/\b[^0-9]\w+@gmail.com\b/";
+    $pattern = "/\b[^0-9].+@gmail.com\b/";
 
     preg_match($pattern, $email, $isMatch);
 
