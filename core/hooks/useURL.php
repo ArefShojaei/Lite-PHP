@@ -13,5 +13,5 @@ import("@core/hooks/useHTTP");
  * @return array
  */
 function useURL(string $url = null): array {
-    return $url ? parse_url($url) : parse_url(useHTTP("REQUEST_URI"));
+    return isset($url) ? parse_url($url) : parse_url(useHTTP("REQUEST_URI"));
 }
