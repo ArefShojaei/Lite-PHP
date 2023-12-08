@@ -15,9 +15,12 @@ import("@core/helpers/url");
  * @return void
  */
 function view(string $name, array $data = []): void {
+    # decalre file path
     $filePath = "views/{$name}" . PHP_FILE_EXTENTION;
 
+    # extract array of "key & value" as view data to "variable"
     extract($data);
 
+    # render template
     require_once $filePath;
 }

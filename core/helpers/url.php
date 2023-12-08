@@ -7,7 +7,7 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * base url that includes "protocol & host"
+ * get base url that includes "protocol & host"
  * @function baseUrl
  * @return string
  */
@@ -16,7 +16,7 @@ function baseUrl(): string {
 }
 
 /**
- * current route
+ * get current route
  * @function url
  * @return string
  */
@@ -25,7 +25,7 @@ function url(): string {
 }
 
 /**
- * full url as origin to combine "protocol" + "host" + "route"
+ * get full url as origin to combine "protocol" + "host" + "route"
  * @function protocol
  * @return string
  */

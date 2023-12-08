@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Register new plugin
+ * register new plugin
  * @param string $plugin plugin name
  * @return void
  */

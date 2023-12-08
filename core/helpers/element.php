@@ -43,16 +43,16 @@ function _applyChildren(&$element, $children): void {
  * @return string
  */
 function createSingleElement(string $tag, array $attributes): string {
+    # open the tag
     $element = _applyTagElement($tag);
     
-    if(count($attributes)) {
-        foreach ($attributes as $attribute => $value) {
-            $element .= " {$attribute}='{$value}'";
-        }
-    }
+    # add attributes
+    if(count($attributes)) _applyAttributes($element, $attributes);
 
+    # close the tag
     $element .= " />";
     
+    # return the element
     return $element;
 }
 
@@ -65,15 +65,21 @@ function createSingleElement(string $tag, array $attributes): string {
  * @return string
  */
 function createElement(string $tag, array $attributes, array $children): string {
+    # open the tag
     $element = _applyTagElement($tag);
 
+    # add attributes
     if (count($attributes)) _applyAttributes($element, $attributes);
 
+    # close the before tag
     $element .= ">";
 
+    # add children
     if (count($children)) _applyChildren($element, $children);
 
+    # close the after tag
     $element .= "</{$tag}>";
-
+    
+    # return the element
     return $element;
 }
