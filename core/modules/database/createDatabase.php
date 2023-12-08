@@ -15,7 +15,8 @@ import("@core/hooks/useState");
  * @param string $db mysql database
  * @return void
  */
-function createDatabase(string $host, string $username, string $password, string $db): void {
+function createDatabase(string $host, string $username, string $password = "", string $db = null): void {
+    # mysql connection
     $connection = mysqli_connect($host, $username, $password, $db);
     
     useState("mysql", [], $connection);

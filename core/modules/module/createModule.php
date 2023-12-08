@@ -7,5 +7,6 @@
  * @return void
  */
 function createModule(callable $action): void {
+    # call the $action for register all modules and plugins
     $action();
 }

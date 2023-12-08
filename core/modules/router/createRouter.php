@@ -15,8 +15,6 @@ import("@core/hooks/useRedirect");
  * @return void
  */
 function createRouter(): void {
-    $params = [];
-
     # request url
     $url = useHTTP("REQUEST_URI");
     
@@ -38,7 +36,10 @@ function createRouter(): void {
     # check to exist the matched route
     $isMatchedRoute = isset($matches[0]) ? $matches[0] : false;
 
-    # set route params
+    # list of route params
+    $params = [];
+
+    # add route params to the $params
     foreach ($matches as $key => $value) {
         if(isset($key) && is_string($key)) $params[$key] = $value;
     }
