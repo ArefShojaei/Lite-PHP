@@ -14,11 +14,14 @@ import("@core/hooks/useError");
  * @return array
  */
 function usePlugin(string $name): array|string {
+    # get plugin from container
     $plugins = useGlobal("plugins");
 
+    # check to not exist the plugin
     if(!is_array($plugins)) {
-        useError("The response is not an Array!");
+        useError("The plguin is not eixsts!");
     }
 
+    # return the plguin
     return $plugins["helper"][$name];
 }
