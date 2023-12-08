@@ -3,6 +3,8 @@
 /**
  * @package
  */
+import("@core/helpers/module");
+import("@core/helpers/plugin");
 import("@core/modules/module/createModule");
 import("@core/modules/router/createRouter");
 import("@core/hooks/useMode");
@@ -25,7 +27,7 @@ createModule(function() {
             registerPlugin("security"),
             registerPlugin("cors")
         ],
-        # list of modules to must be run in main process
+        # list of modules that must be run in main process
         "modules" => [
             registerModule("app"),
             registerModule("database")
