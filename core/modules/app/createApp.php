@@ -14,7 +14,7 @@ session_start();
  */
 function createApp(callable $aciton): void {
     # init base files
-    require_once "core/constants.php";
+    require_once "core/constants/index.php";
     require_once "core/helpers/import.php";
     require_once "core/helpers/dd.php";
 
