@@ -8,17 +8,17 @@
  * @return array|bool
  */
 function useFlash(string $key, string $message, string $type = FLASH_INFO_LEVEL): array|bool {
-    $flash = $_SESSION["flash"][$key];
-    
-    if(isset($flash)) {
-        $message = $flash;
+    # get flash
+    if(isset($_SESSION["flash"][$key])) {
+        $message = $_SESSION["flash"][$key];
 
-        unset($flash);
+        unset($_SESSION["flash"][$key]);
 
         return [$message, $type];
     }
 
-    $flash = $message;
+    # set falsh
+    $_SESSION["flash"][$key] = $message;
 
     return true;
 }
