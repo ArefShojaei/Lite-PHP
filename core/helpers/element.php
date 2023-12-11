@@ -2,6 +2,8 @@
 
 /**
  * create HTML tag
+ * @function _applyTagElement
+ * @private
  * @param string $tag
  * @return string
  */
@@ -11,6 +13,8 @@ function _applyTagElement(string $tag): string {
 
 /**
  * add attributes to the element
+ * @function _applyAttributes
+ * @private
  * @param string $element
  * @param array $attributes
  * @return void
@@ -23,6 +27,8 @@ function _applyAttributes(string &$element, array &$attributes): void {
 
 /**
  * add elements as children to the element
+ * @function _applyChildren
+ * @private
  * @param string $element
  * @param array $children
  * @return void
@@ -38,6 +44,7 @@ function _applyChildren(&$element, $children): void {
 
 /**
  * create single HTML element
+ * @function createSingleElement
  * @param string $tag
  * @param array $attributes
  * @return string
@@ -59,6 +66,7 @@ function createSingleElement(string $tag, array $attributes): string {
 
 /**
  * create HTML element
+ * @function createElement
  * @param string $tag
  * @param array $attributes
  * @param array $children
