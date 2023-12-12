@@ -17,7 +17,7 @@ function asset(string $src): string {
  * @return string
  */
 function css(string $filename): string {
-    return BASE_ASSET_PATH . "/css/{$filename}.css";
+    return BASE_ASSET_PATH . "/css/{$filename}" . CSS_FILE_EXTENTION;
 }
 
 /**
@@ -27,7 +27,7 @@ function css(string $filename): string {
  * @return string
  */
 function js(string $filename): string {
-    return BASE_ASSET_PATH . "/js/{$filename}.js";
+    return BASE_ASSET_PATH . "/js/{$filename}" . JS_FILE_EXTENTION;
 }
 
 /**
