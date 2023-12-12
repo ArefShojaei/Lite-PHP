@@ -25,3 +25,17 @@ const LOG_FILE_EXTENTION = ".log";
  * @return string
  */
 const ENV_FILE_EXTENTION = ".env";
+
+/**
+ * css file ext
+ * @constant string
+ * @return string
+ */
+const CSS_FILE_EXTENTION = ".css";
+
+/**
+ * js file ext
+ * @constant string
+ * @return string
+ */
+const JS_FILE_EXTENTION = ".js";
