@@ -14,7 +14,6 @@ require_once "core/modules/env/createEnv.php";
 createApp(function() {
     # register Aliases
     createAlias([
-        "@root" => "",
         "@core" => "core",
         "@modules" => "modules",
         "@plugins" => "plugins",
