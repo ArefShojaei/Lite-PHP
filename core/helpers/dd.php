@@ -16,7 +16,7 @@ require_once "core/private/helpers/dd/_render.php";
 function dd(array $input, bool $isDied = true): void {
     # declare styles as constant
     $styles = [
-        "div" => "padding: 4px 8px;background-color: #202020;color: white;border-radius:4px;font-family: sans-serif",
+        "div" => "padding: 8px 12px;background-color: #202020;color: white;border-radius:4px;font-family: sans-serif; overflow-x: scroll;",
         "p" => "color: #e5e5e5;",
         "strong" => "color: #37ff25;",
         "pre" => "color: #37ff25;",
