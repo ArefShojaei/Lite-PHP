@@ -27,9 +27,10 @@ function dd(array $input, bool $isDied = true): void {
      * render template to show $input info
      * @function _render
      * @private
+     * @param array $params
      * @return string
      */
-    function _render($params): string {
+    function _render(array $params): string {
         list($input, $styles) = $params; 
 
         return createElement("div", ["style" => $styles['div']], [
