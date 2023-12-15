@@ -22,9 +22,16 @@ function dd(array $input, bool $isDied = true): void {
     ];
 
 
-    # -- Start Element --
-        # div element
-        echo createElement("div", ["style" => $styles['div']], [
+    /**
+     * render template to show $input info
+     * @function render
+     * @private
+     * @return string
+     */
+    function render(): string {
+        global $input, $styles;
+
+        return createElement("div", ["style" => $styles['div']], [
             # p element
             createElement("p", ["style" => $styles['p']], [
                 "Count:&nbsp;",
@@ -39,9 +46,12 @@ function dd(array $input, bool $isDied = true): void {
             # pre element
             createElement("pre", ["style" => $styles['pre']], [print_r($input, true)]),
         ]);
-    # -- End Element --
+    }
 
 
-    # exit process if the $isDied is true
+    # call to render template
+    echo render();
+
+    # exit process if the $isDied is true after rendering the template
     if($isDied) exit;
 }
