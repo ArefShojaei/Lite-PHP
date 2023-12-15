@@ -1,5 +1,7 @@
 <?php
 
+require_once "core/hooks/useState.php";
+
 /**
  * register alias
  * @function createAlias
@@ -7,11 +9,11 @@
  * @return void
  */
 function createAlias(array $aliases): void {
-    # decalre aliases container
-    $GLOBALS['container']['aliases'] = [];
-    
+    # decalre aliases container if the aliases is empty!
+    if(empty($aliases)) useState("aliases", [], []);
+
     # add alias to the aliases container
     foreach ($aliases as $alias => $path) {
-        $GLOBALS['container']['aliases'][$alias] = $path;
+        useState("aliases", [$alias], $path);
     }
 }
