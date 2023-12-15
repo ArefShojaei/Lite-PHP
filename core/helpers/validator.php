@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/hooks/useMatch");
+
+
+/**
  * email validation
  * @function isEmail
  * @param string $email
@@ -10,7 +16,7 @@ function isEmail(string $email): bool {
     $pattern = "/\b[^0-9].+@gmail.com\b/";
 
     # get matches for the pattern
-    preg_match($pattern, $email, $isMatch);
+    $isMatch = useMatch($pattern, $email);
 
     # return the $isMatch as boolean
     return (bool) $isMatch;
@@ -26,7 +32,7 @@ function isURL(string $url): bool {
     $pattern = "/\b(http|https):\/\/.*\b/";
 
     # get matches for the pattern
-    preg_match($pattern, $url, $isMatch);
+    $isMatch = useMatch($pattern, $url);
 
     # return the $isMatch as boolean
     return (bool) $isMatch;
