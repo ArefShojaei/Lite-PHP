@@ -25,12 +25,12 @@ function dd(array $input, bool $isDied = true): void {
 
     /**
      * render template to show $input info
-     * @function render
+     * @function _render
      * @private
      * @return string
      */
-    function render(): string {
-        global $input, $styles;
+    function _render($params): string {
+        list($input, $styles) = $params; 
 
         return createElement("div", ["style" => $styles['div']], [
             # p element
@@ -51,7 +51,7 @@ function dd(array $input, bool $isDied = true): void {
 
 
     # call to render template
-    echo render();
+    echo _render([$input, $styles]);
 
     # exit process if the $isDied is true after rendering the template
     if($isDied) exit;
