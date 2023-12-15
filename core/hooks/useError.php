@@ -7,5 +7,5 @@
  * @return void
  */
 function useError(string $message): void {
-    throw new \Exception($message);
+    die($message);
 }
