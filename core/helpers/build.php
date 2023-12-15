@@ -3,7 +3,7 @@
 /**
  * @package
  */
-import("@core/hooks/useHTTP");
+import("@core/helpers/url");
 
 
 /**
@@ -12,7 +12,7 @@ import("@core/hooks/useHTTP");
  * @return string 
  */
 function buildURL(string $url): string {
-    return useHTTP("HTTP_HOST") . $url;
+    return baseURL() . $url;
 }
 
 /**
