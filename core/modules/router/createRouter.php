@@ -5,12 +5,15 @@
  */
 import("@core/hooks/useHTTP");
 import("@core/hooks/useGlobal");
-import("@core/hooks/useURL");
 import("@core/hooks/useRedirect");
+import("@core/modules/router/_findRoute");
+import("@core/modules/router/_isMatchedRoute");
+import("@core/modules/router/_addRouteParams");
+import("@core/modules/router/_executeRoute");
 
 
 /**
- * register all routes
+ * router system
  * @function createRouter
  * @return void
  */
@@ -25,36 +28,17 @@ function createRouter(): void {
     $routes = useGlobal("routes")[$method];
 
     # get matched route
-    foreach ($routes as $route => $action) {
-        $pattern = "/^" . str_replace(["/", "{", "}"], ["\/", "(?<", ">\w+)"], $route) . "$/";
-        
-        preg_match($pattern, useURL($url)['path'], $matches);
-
-        if(count($matches)) break;
-    }
+    list($matches, $action) = _findRoute($routes, $url);
 
     # check to exist the matched route
-    $isMatchedRoute = isset($matches[0]) ? $matches[0] : false;
-
-    # list of route params
-    $params = [];
-
-    # add route params to the $params
-    foreach ($matches as $key => $value) {
-        if(isset($key) && is_string($key)) $params[$key] = $value;
-    }
+    $isMatchedRoute = _isMatchedRoute($matches);
 
     # is 404
-    if(!$isMatchedRoute) {
-        useRedirect("/404");
-    }
+    if(!$isMatchedRoute) useRedirect("/404");
 
-    # add "params" header as request params
-    useHTTP("params", $params);
+    # add route params
+    if(count($matches) >= 3) _addRouteParams($matches);
 
-    # show content
-    echo $action();
-
-    # exit processes
-    exit;
+    # execute the route
+    _executeRoute($action);
 }
