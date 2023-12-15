@@ -8,6 +8,7 @@ import("@core/helpers/view");
 
 /**
  * throw HTTP exception
+ * @function abort
  * @param int $code status code
  * @param string $message
  * @param array $data view data

@@ -48,7 +48,7 @@ function img(string $file): string {
 
 /**
  * get icon path
- * @function img
+ * @function icon
  * @param string $file file + ext
  * @return string
  */

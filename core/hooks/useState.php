@@ -2,6 +2,7 @@
 
 /**
  * use state
+ * @function useState
  * @param string $container
  * @param array $keys
  * @param mixed $value

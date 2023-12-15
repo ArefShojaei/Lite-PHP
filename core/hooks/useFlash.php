@@ -2,6 +2,7 @@
 
 /**
  * use flash message
+ * @function useFlash
  * @param string $key flash key
  * @param string $message flash message
  * @param string $type flash level

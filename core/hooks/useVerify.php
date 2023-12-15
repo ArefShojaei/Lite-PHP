@@ -2,6 +2,7 @@
 
 /**
  * verify password
+ * @function useVerify
  * @param string $password
  * @param string $hashedPassword
  * @return bool

@@ -8,6 +8,7 @@ import("@core/helpers/url");
 
 /**
  * build url
+ * @function buildURL
  * @param string $url
  * @return string 
  */
@@ -17,6 +18,7 @@ function buildURL(string $url): string {
 
 /**
  * build path
+ * @function buildPath
  * @param string $basePath
  * @param string $src
  * @param string $ext

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @summary base path
+ ** @summary base path
  */
 
 

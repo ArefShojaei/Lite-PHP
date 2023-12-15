@@ -26,7 +26,7 @@ function url(): string {
 
 /**
  * get full url as origin to combine "protocol" + "host" + "route"
- * @function protocol
+ * @function origin
  * @return string
  */
 function origin(): string {

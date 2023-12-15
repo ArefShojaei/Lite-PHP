@@ -8,6 +8,7 @@ require_once "core/helpers/element.php";
 
 /**
  * dump and die an Array
+ * @function dd
  * @param array $input
  * @param bool $isDied
  * @return void
