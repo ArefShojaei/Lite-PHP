@@ -1,7 +1,7 @@
 <?php
 
 /**
- * register new module
+ * register module
  * @function registerModule
  * @param string $module module name
  * @return void

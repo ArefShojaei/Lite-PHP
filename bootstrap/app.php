@@ -17,7 +17,7 @@ if(useMode() !== 'development') error_reporting(0);
 
 
 /**
- * register modules
+ * init modules
  */
 createModule(function() {
     return [
