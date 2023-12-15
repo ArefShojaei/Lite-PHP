@@ -4,6 +4,7 @@
  * @package
  */
 require_once "core/helpers/parse.php";
+require_once "core/hooks/useMatch.php";
 
 
 /**
@@ -19,7 +20,7 @@ function createEnv(): void {
     $pattern = "/(?<key>[A-Z_]+)\s*=\s*?(?<value>.+)/";
 
     # get matches for the pattern
-    preg_match_all($pattern, $prasedContent, $matches);
+    $matches = useMatch($pattern, $prasedContent, true);
 
     # get keys
     $keys = $matches["key"];
