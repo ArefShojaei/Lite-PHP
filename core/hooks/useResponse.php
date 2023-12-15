@@ -3,52 +3,9 @@
 /**
  * @package
  */
-import("@core/hooks/useType");
-
-
-/**
- * JSON content
- * @function _json
- * @private
- * @param array $value
- * @return string
- */
-function _json(array $value): string {
-    # set content-type
-    useType("application/json");
-    # reutrn the $value as json
-    return json_encode($value);
-}
-
-/**
- * HTML content
- * @function _html
- * @private
- * @param string $value
- * @return string
- */
-function _html(string $value): string {
-    # set content-type
-    useType("text/html");
-    
-    # reutrn the $value as HTML
-    return $value;
-}
-
-/**
- * Text content
- * @function _text
- * @param string $value
- * @return string
- */
-function _text(string $value): string {
-    # set content-type
-    useType("text/plain");
-    
-    # return the $value as pure text
-    return $value;
-}
-
+import("@core/private/hooks/useResponse/_json");
+import("@core/private/hooks/useResponse/_html");
+import("@core/private/hooks/useResponse/_text");
 
 
 /**

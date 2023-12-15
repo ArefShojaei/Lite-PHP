@@ -1,45 +1,8 @@
 <?php
 
-/**
- * create HTML tag
- * @function _applyTagElement
- * @private
- * @param string $tag
- * @return string
- */
-function _applyTagElement(string $tag): string {
-    return "<{$tag}";
-}
-
-/**
- * add attributes to the element
- * @function _applyAttributes
- * @private
- * @param string $element
- * @param array $attributes
- * @return void
- */
-function _applyAttributes(string &$element, array &$attributes): void {
-    foreach ($attributes as $attribute => $value) {
-        $element .= " {$attribute}='{$value}'";
-    }
-}
-
-/**
- * add elements as children to the element
- * @function _applyChildren
- * @private
- * @param string $element
- * @param array $children
- * @return void
- */
-function _applyChildren(&$element, $children): void {
-    foreach ($children as $child) {
-        $element .= "{$child}";
-    }
-}
-
-
+require_once "core/private/helpers/element/_applyAttributes.php";
+require_once "core/private/helpers/element/_applyChildren.php";
+require_once "core/private/helpers/element/_applyTagElement.php";
 
 
 /**

@@ -5,38 +5,8 @@
  */
 require_once "core/hooks/useGlobal.php";
 require_once "core/hooks/useMatch.php";
-
-
-/**
- * extract alias
- * @function _extractAlias
- * @private
- * @param string $path
- * @return string
- */
-function _extractAlias(string $path): string {
-    # decalre pattern
-    $pattern = "/(?<alias>\@\w+)\b/";
-
-    # get matches for the pattern
-    preg_match($pattern, $path, $matches);
-
-    # return alias
-    return $matches["alias"];
-}
-
-/**
- * replace alias to path
- * @function _replaceAliasToPath
- * @private
- * @param array $aliases
- * @param string $alias
- * @param string $path
- * @return string
- */
-function _replaceAliasToPath(array $aliases, string $alias, string $path): string {
-    return str_replace($alias, $aliases[$alias], $path);
-}
+require_once "core/private/helpers/import/_extractAlias.php";
+require_once "core/private/helpers/import/_replaceAliasToPath.php";
 
 
 /**
