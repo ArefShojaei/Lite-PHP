@@ -8,81 +8,81 @@ import("@core/hooks/useHTTP");
 
 /**
  * request method
- * @function method
+ * @function _method
  * @private
  * @return string
  */
-function method(): string {
+function _method(): string {
     return useHTTP("REQUEST_METHOD");
 }
 
 /**
  * request url as "route"
- * @function route
+ * @function _route
  * @private
  * @return string
  */
-function route(): string {
+function _route(): string {
     return useHTTP("REQUEST_URI");
 }
 
 /**
  * server host
- * @function host
+ * @function _host
  * @private
  * @return string
  */
-function host(): string {
+function _host(): string {
     return useHTTP("HTTP_HOST");
 }
 
 /**
  * request protocol
- * @function protocol
+ * @function _protocol
  * @private
  * @return string
  */
-function protocol(): string {
+function _protocol(): string {
     return useHTTP("REQUEST_SCHEME");
 }
 
 /**
  * request client user-agent
- * @function userAgent
+ * @function _userAgent
  * @private
  * @return string
  */
-function userAgent(): string {
+function _userAgent(): string {
     return useHTTP("HTTP_USER_AGENT");
 }
 
 /**
  * request client ip
- * @function ip
+ * @function _ip
  * @private
  * @return string
  */
-function ip(): string {
+function _ip(): string {
     return useHTTP("REMOTE_ADDR");
 }
 
 /**
  * request route params
- * @function params 
+ * @function _params 
  * @private
  * @return array
  */
-function params(): array {
+function _params(): array {
     return useHTTP("params");
 }
 
 /**
  * request route query string
- * @function query
+ * @function _query
  * @private
  * @return array
  */
-function query(): array {
+function _query(): array {
     # parse the query string
     parse_str(useHTTP("QUERY_STRING"), $queries);
         
@@ -103,5 +103,5 @@ function query(): array {
  */
 function useRequest(string $action): string|array {
     # call $aciton dynamicly
-    return $action();
+    return ("_" . $action)();
 }
