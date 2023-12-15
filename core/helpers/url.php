@@ -8,10 +8,10 @@ import("@core/hooks/useHTTP");
 
 /**
  * get base url that includes "protocol & host"
- * @function baseUrl
+ * @function baseURL
  * @return string
  */
-function baseUrl(): string {
+function baseURL(): string {
     return useHTTP("REQUEST_SCHEME") . "://" . useHTTP("HTTP_HOST");
 }
 
@@ -30,7 +30,7 @@ function url(): string {
  * @return string
  */
 function origin(): string {
-    return baseUrl() . url();
+    return baseURL() . url();
 }
 
 /**
@@ -40,5 +40,5 @@ function origin(): string {
  * @return string
  */
 function toRoute(string $route): string {
-    return baseUrl() . $route;    
+    return baseURL() . $route;    
 }
