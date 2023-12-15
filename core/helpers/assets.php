@@ -1,13 +1,19 @@
 <?php
 
 /**
+ * @package
+ */
+import("@core/helpers/build");
+
+
+/**
  * get asset path
  * @function asset
  * @param string $src asset file path
  * @return string
  */
 function asset(string $src): string {
-    return BASE_ASSET_PATH . "/{$src}";
+    return buildURL(BASE_ASSET_PATH . "/{$src}");
 }
 
 /**
@@ -17,7 +23,7 @@ function asset(string $src): string {
  * @return string
  */
 function css(string $filename): string {
-    return BASE_ASSET_PATH . "/css/{$filename}" . CSS_FILE_EXTENTION;
+    return buildURL(BASE_ASSET_PATH . "/css/{$filename}" . CSS_FILE_EXTENTION);
 }
 
 /**
@@ -27,7 +33,7 @@ function css(string $filename): string {
  * @return string
  */
 function js(string $filename): string {
-    return BASE_ASSET_PATH . "/js/{$filename}" . JS_FILE_EXTENTION;
+    return buildURL(BASE_ASSET_PATH . "/js/{$filename}" . JS_FILE_EXTENTION);
 }
 
 /**
@@ -37,7 +43,7 @@ function js(string $filename): string {
  * @return string
  */
 function img(string $file): string {
-    return BASE_ASSET_PATH . "/img/{$file}";
+    return buildURL(BASE_ASSET_PATH . "/img/{$file}");
 }
 
 /**
@@ -47,5 +53,5 @@ function img(string $file): string {
  * @return string
  */
 function icon(string $file): string {
-    return BASE_ASSET_PATH . "/icons/{$file}";
+    return buildURL(BASE_ASSET_PATH . "/icons/{$file}");
 }
