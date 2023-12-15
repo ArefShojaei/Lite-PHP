@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * @package
+ */
+require_once "core/helpers/element.php";
+
+
+/**
  * render template to show $input info
  * @function _render
  * @private

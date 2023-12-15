@@ -3,7 +3,6 @@
 /**
  * @package
  */
-require_once "core/helpers/element.php";
 require_once "core/private/helpers/dd/_render.php";
 
 
