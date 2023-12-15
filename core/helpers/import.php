@@ -4,7 +4,6 @@
  * @package
  */
 require_once "core/hooks/useGlobal.php";
-require_once "core/hooks/useMatch.php";
 require_once "core/private/helpers/import/_extractAlias.php";
 require_once "core/private/helpers/import/_replaceAliasToPath.php";
 
