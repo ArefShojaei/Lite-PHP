@@ -15,16 +15,12 @@ import("@core/hooks/useState");
  * @return void
  */
 function createPlugin(string $name, callable $action, bool $hasUsageMode = true): void {
-    # usage plugin type as helper
-    $keyboard = "helper";
-
+    # is runner type
     if(!$hasUsageMode) {
-        # runner plugin type as function
-        $keyboard = "runner";
-
-        useState("plugins", [$keyboard, $name], $action());
+        useState("plugins", [PLUGIN_RUNNER_TYPE, $name], $action);
         return;
     }
     
-    useState("plugins", [$keyboard, $name], $action());
+    # is usage type
+    useState("plugins", [PLUGIN_USAGE_TYPE, $name], $action());
 }
