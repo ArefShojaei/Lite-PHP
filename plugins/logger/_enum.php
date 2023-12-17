@@ -12,6 +12,6 @@ import("@core/modules/enum/createEnum");
 createEnum("Logger", [
     "NAME" => "app",
     "LEVEL" => "INFO",
-    "BASE_PATH" => "storage",
+    "STORAGE_PATH" => "storage",
     "LOGS_PATH" => "storage/logs",
 ]);
