@@ -5,3 +5,8 @@ RewriteRule ^(.*)$ server.php?path=$1 [NC,L,QSA]
 DirectoryIndex server.php
 
 Options All -Indexes
+
+<FilesMatch "\.(log|htaccess)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
