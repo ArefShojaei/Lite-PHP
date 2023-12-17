@@ -15,7 +15,7 @@ import("@core/hooks/useGlobal");
  */
 function registerPlugin(string $plugin, array $params = []): void {
     # import plugin
-    import("@plugins/{$plugin}/main");
+    import("@plugins/{$plugin}/" . MAIN_PLUGIN_FILE);
 
     # get plugins container
     $plugins = useGlobal("plugins");
@@ -23,6 +23,6 @@ function registerPlugin(string $plugin, array $params = []): void {
     # get the plugin as "runner type"
     $action = $plugins[PLUGIN_RUNNER_TYPE][$plugin];
     
-    # call the plugin and pass input as $parmas
+    # call the plugin and pass input as $params
     $action($params);
 }
