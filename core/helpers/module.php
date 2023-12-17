@@ -7,5 +7,5 @@
  * @return void
  */
 function registerModule(string $module): void {
-    import("@modules/{$module}/main");
+    import("@modules/{$module}/" . MAIN_MODULE_FILE);
 }

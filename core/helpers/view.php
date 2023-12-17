@@ -17,7 +17,7 @@ import("@core/helpers/build");
  */
 function view(string $name, array $data = []): void {
    # decalre file path
-    $filePath = buildPath("views", "/{$name}");
+    $filePath = buildPath(BASE_VIEWS_PATH, "/{$name}");
 
     # extract array of "key & value" as view data to "variable"
     extract($data);
