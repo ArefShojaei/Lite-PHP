@@ -12,9 +12,9 @@ function _clearLogs(string $filePath): void {
         $fileCreationTime = fileatime($filePath);
 
         # after 24h time
-        $after24hTime = $fileCreationTime + (60 * 60 * 24); # 24H
+        $nextTime = $fileCreationTime + (60 * 60 * 24); # 24H
 
         # delete the log file
-        $currentTime > $after24hTime && unlink($filePath);
+        $currentTime > $nextTime && unlink($filePath);
     }
 }
