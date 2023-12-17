@@ -19,7 +19,7 @@ function useLog(string $message, string $filename = "app"): void {
     $filePath = useEnum("Logger@LOGS_PATH") . "/" . $filename . LOG_FILE_EXTENTION;
 
     # log content
-    $content = "[ADDITION] {$message}";
+    $content = "[INFO] {$message}";
 
     # append the log content to the file
     file_put_contents($filePath, $content . PHP_EOL, FILE_APPEND);
