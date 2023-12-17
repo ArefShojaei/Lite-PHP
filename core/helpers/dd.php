@@ -22,7 +22,7 @@ function dd(array $input, bool $isDied = true): void {
         "pre" => "color: #37ff25;",
     ];
 
-    # call to render template
+    # render template
     echo _render([$input, $styles]);
 
     # exit process if the $isDied is true after rendering the template
