@@ -15,6 +15,9 @@ import("@core/hooks/useEnum");
  * @return void
  */
 function _makeLogsDir(string $basePath): void {
+    # make "storage" folder
     mkdir(useEnum("Logger@STORAGE_PATH"));
+    
+    # make "logs" folder
     mkdir($basePath);
 }

@@ -11,7 +11,11 @@ import("@core/modules/enum/createEnum");
  */
 createEnum("Logger", [
     "NAME" => "app",
-    "LEVEL" => "INFO",
+    "LEVELS" => [
+        "short" => "SHORT",
+        "common" => "COMMON",
+        "combined" => "COMBINED",
+    ],
     "STORAGE_PATH" => "storage",
     "LOGS_PATH" => "storage/logs",
 ]);
