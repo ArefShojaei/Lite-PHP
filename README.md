@@ -935,30 +935,87 @@ echo img("user.png"); # /public/img/user.png
 echo icon("logo.svg"); # /public/img/logo.svg
 ```
 
-#### build
-#### dd
-#### element
 #### import
-#### module
-#### parse
-#### plugin
-#### url
-#### validator
 #### view
+#### dd
+#### url
+#### parse
+#### validator
+#### module
+#### plugin
+#### element
+#### build
 
 ****
 
 ### core/constants
 
 #### extention
-#### flash
-#### include
-#### path
-#### plugin
-#### index
+the extention file is list of file constants
 
+```
+extentions => [
+    ".php",
+    ".log",
+    ".env",
+    ".css",
+    ".js",
+]
+```
+
+#### flash
+the falsh file is list of file constants
+
+```
+levels => [
+    "info",
+    "success",
+    "warning",
+    "error",
+]
+```
+
+#### include
+the include file is list of file constants
+
+```
+types => [
+    "include",
+    "include_once",
+    "require",
+    "require_once",
+]
+```
+
+#### path
+the path file is list of file constants
+
+```
+paths => [
+    "/public",
+    "views",
+]
+```
+
+#### plugin
+the plugin file is list of file constants
+
+```
+types => [
+    "runner",
+    "usage",
+]
+```
+
+#### index
+the index file is main file for importing the constants + decalre main constants like
+
+```
+mainFiles => [
+    "module" => "main",
+    "plugin" => "main",
+]
+```
 ****
 
 ### core/private
-
-****
