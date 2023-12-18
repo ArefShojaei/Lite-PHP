@@ -672,21 +672,224 @@ echo useID();
 ```
 
 #### useHash
+the useHash hook is used to hash **password**
+
+```php
+import("@core/hooks/useHash");
+
+# usage
+echo useHash("12345"); # $2y$10$f3zyPBDa32nc5iBGMv5hmeapv.Tpi4uKeyQduvwB09hHeliw7b2yi
+```
+
 #### useVerify
-#### useHeader
+the useVerify hook is used to verify a **password** with the **hashed password**
+
+```php
+import("@core/hooks/useVerify");
+
+# usage
+$hashedPassword = '$2y$10$f3zyPBDa32nc5iBGMv5hmeapv.Tpi4uKeyQduvwB09hHeliw7b2yi';
+
+$password = "12345";
+
+$isValidPassword = useVerify($password, $hashedPassword);
+
+var_dump($isValidPassword); # true | false
+```
+
 #### useHTTP
-#### useQuery
-#### useRedirect
-#### useRequest
-#### useResponse
-#### useRoute
+the useHTTP hook is used to get header info from **$_SERVER super global**
+
+```php
+import("@core/hooks/useHTTP");
+
+
+/**
+ * usage
+*/
+
+# getter
+echo useHTTP("HTTP_HOST");
+
+# setter
+useHTTP("name", "default value");
+
+echo useHTTP("name");
+```
+
+#### useHeader
+the useHeader hook is used to **set and remove**  header
+
+```php
+import("@core/hooks/useHeader");
+
+
+/**
+ * usage
+*/
+
+# set header
+useHeader("X-Token", "value");
+
+# remove header
+useHeader("X-Powered-By");
+```
+
 #### useType
-#### usePlugin
+the useType hook is used to set **content type**
+
+```php
+import("@core/hooks/useType");
+
+
+/**
+ * usage
+*/
+
+# text type
+useType("text/plain");
+echo "Hello";
+
+# HTML type
+useType("text/html");
+echo "<h1>Hello<h1/>";
+```
+
+#### useRequest
+the useRequest hook is used to use the request http options
+
+```php
+import("@core/hooks/useRequest");
+
+
+/**
+ * usage
+*/
+echo useRequest("method"); # request method
+echo useRequest("ip"); # request client ip
+echo useRequest("host"); # request http host
+echo useRequest("params"); # request route params
+echo useRequest("query"); # request query string
+echo useRequest("route"); # request route
+echo useRequest("protocol"); # request http protocol
+echo useRequest("userAgent"); # request client user agent
+```
+
+#### useResponse
+the useResponse hook is used to use the response http options
+
+```php
+import("@core/hooks/useResponse");
+
+
+/**
+ * usage
+*/
+
+# text
+echo useResponse("text", "Hello");
+
+# HTML
+echo useResponse("text", "<h1>Hello</h1>");
+
+# JSON
+echo useResponse("text", [
+    "message" => "JSON Response"
+]);
+```
+
+#### useRoute
+the useRoute hook is used to declare new route
+
+```php
+import("@core/hooks/useRoute");
+
+
+function showProducts() {
+    # logic code ...
+}
+function showProductByID() {
+    # logic code ...
+}
+
+
+/**
+ * usage
+*/
+
+# simple route
+useRoute("GET", "/products", "showProducts");
+
+# route params
+useRoute("GET", "/products/{id}", "showProductByID");
+```
+
+#### useRedirect
+the useRedirect hook is used to redirect to a route
+
+```php
+import("@core/hooks/useRedirect");
+
+function doLogin() {
+    # logic code ...
+
+    useRedirect("/dashboard");
+}
+```
+
+#### useQuery
+the useQuery hook is used to run sql query for **MYSQL database**
+
+```php
+import("@core/hooks/useQuery");
+
+/**
+ * usage
+*/
+
+# get users
+$users = useQuery("SELECT * FROM users");
+
+# get user by ID
+$user = useQuery("SELECT * FROM users WHERE id = 1");
+
+# get user by ID + ( escape query with "?" )
+$user = useQuery("SELECT * FROM users WHERE id = ?", [1]);
+```
+
 #### useLog
-#### useFile
+the useLog hook is used to add custom log to **app.log** file
+
+```php
+import("@core/hooks/useLog");
+
+/**
+ * usage
+*/
+useLog("This is custom Log!");
+```
+
 #### useFlash
+the useFlash hook is used to add falsh message in **$_SESSION super global**
+
+```php
+import("@core/hooks/useFlash");
+
+/**
+ * usage
+*/
+
+# set flash
+useFlash("register", "Your registeration was successfully.");
+
+# get flash
+echo useFlash("register"); # Your registeration was successfully.
+```
+
+#### useFile
 #### useCookie
 #### useSession
+#### usePlugin
 
 
 ****
