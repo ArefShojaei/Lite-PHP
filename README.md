@@ -78,9 +78,10 @@ Because the Lite-PHP has:
 2. **Modular Strucutre**
 3. **DBMS Like Mysql**
 4. **Custom Plugins & Hooks**
+8. **REST API Development**
 5. **Functional Programming Structure**
 6. **Folder Strucutre**
-7. **No OOP & No Object**
+7. **No OOP & No Object & No Class**
 
 ## How can I use Lite-PHP ?
 
@@ -94,21 +95,25 @@ target web-server folder for running the project
 ```bash
 git clone https://github.com/ArefShojaei/Lite-PHP
 ```
+Then run mysql & web-server<br>
+Finally , you will see the welcome page
 
 ## Folder Structure
-Here is default folder structure for starting new project with the **Micro Freamework**
+Here is default folder structure for starting new project !
 
 ```bash
 |- bootstrap
 |           |- app.php
 |
 |- core
+|      |- constants/...
 |      |- helpers/...
 |      |- hooks/...
 |      |- modules/...
+|      |- private/...
 |
 |- hooks
-|       |- useUserAgent.php
+|       |- useAgent.php
 |
 |- modules
 |         |- app
@@ -118,23 +123,28 @@ Here is default folder structure for starting new project with the **Micro Fream
 |         |     |- main.php
 |         |
 |         |- database
-|               |- _config.php
-|               |- main.php
+|                    |- _config.php
+|                    |- main.php
 |
 |- plugins
-|         |- logger
-|                  |- _enum.php
-|                  |- main.php
+|         |- cors
+|         |      |- main.php
+|         |  
+|         |- logger/...
+|         |  
+|         |- security
+|                    |- main.php
 |
 |- public
 |        |- css/...
 |        |- fonts/...
-|        |- img/...
+|        |- icons/...
 |        |- js/...
 |
 |- views
+|         |- errors/...
 |         |- includes/...
-|         |- index.php
+|         |- welcome.php
 |
 |- .env.example
 |- .gitignore
@@ -144,7 +154,7 @@ Here is default folder structure for starting new project with the **Micro Fream
 ```
 
 ### core/
-**This folder is main files or Lite-PHP core files that
+**This folder is main files or the Lite-PHP core files that
 can be provided base files for every projects!**
 
 ### bootstrap/
@@ -153,7 +163,9 @@ can be provided base files for every projects!**
 ### modules/
 **This folder is for using every modules for the app
 And by default has a "app" module for running
-every Lite-PHP project well** 
+every the Lite-PHP project well**
+
+for developing every project , the folder is important , **because project structure is modular !**
 
 ### hooks/
 **This will have custom Hooks**
@@ -165,7 +177,7 @@ every Lite-PHP project well**
 **This will have asset files**
 
 ### views/
-**This will have view content of the HTML template content**
+**This will have view content of HTML template files as php file to render that in DOM**
 
 
 ## Root Files
@@ -177,15 +189,12 @@ files for pushing other files**
 **This is a config for apache web-server**
 
 ### README.md
-**This is an info for Lite-PHP**
+**This is an info for the Lite-PHP**
 
 ### server.php
 **This is main file for launching the app**
 
 ## Directives
-
-### core/helpers
-soon...
 
 ### core/modules/
 
@@ -352,6 +361,147 @@ require_once "core/modules/env/createEnv.php";
 
 createEnv();
 ```
+****
 
 ### core/hooks
-soon...
+
+#### useAPI
+the useAPI hook is used to send HTTP request
+
+```php
+import("@core/hooks/useAPI");
+
+
+/**
+ * send request with "GET method" by "default"
+*/
+
+# get list of users data
+$usersPayload = useAPI("http://api.com/users");
+
+# get response
+dd($usersPayload); # [...]
+
+/**
+ * send request with "POST or other method ..."
+*/
+
+
+# save new user data as the POST method
+$userPayload = useAPI("http://api.com/users", [
+    "method" => "POST",
+    "body" => [...],
+    "headers" => []
+]);
+
+# get response
+dd($userPayload); # [...]
+```
+
+#### useBody
+the useAPI hook is used to get request body data
+
+```php
+import("@core/hooks/useBody");
+
+function doLogin() {
+    # first way
+    $email = useBody("email");
+    $password = useBody("password");
+
+    dd([$email, $password]);
+    
+    # second way
+    dd(useBody());
+}
+```
+
+#### useConfig
+the useConfig hook is used to get configs from a module
+
+```php
+import("@core/module/config/createConfig");
+import("@core/hooks/useConfig");
+
+
+/**
+ * database config
+*/
+createConfig("database", [
+    "host" => "",
+    "db" => "",
+    "username" => "",
+    "password" => "",
+]);
+
+/**
+ * use the config
+*/
+useConfig("database.host");
+useConfig("database.password");
+...
+```
+
+#### useCookie
+#### useEnum
+#### useEnv
+#### useError
+#### useFile
+#### useFlash
+#### useGET
+#### useGlobal
+#### useHash
+#### useHeader
+#### useHTML
+#### useHTTP
+#### useID
+#### useLog
+#### useMatch
+#### useMode
+#### usePlugin
+#### usePOST
+#### useQuery
+#### useRedirect
+#### useRequest
+#### useResponse
+#### useRoute
+#### useSession
+#### useState
+#### useType
+#### useURL
+#### useVerify
+
+****
+
+
+### core/helpers
+
+#### abort
+#### assets
+#### build
+#### dd
+#### element
+#### import
+#### module
+#### parse
+#### plugin
+#### url
+#### validator
+#### view
+
+****
+
+### core/constants
+
+#### extention
+#### flash
+#### include
+#### path
+#### plugin
+#### index
+
+****
+
+### core/private
+
+****
