@@ -8,9 +8,9 @@
  * @param string $type flash level
  * @return array|bool
  */
-function useFlash(string $key, string $message, string $type = FLASH_INFO_LEVEL): array|bool {
+function useFlash(string $key, string $message = null, string $type = FLASH_INFO_LEVEL): array|bool {
     # get flash
-    if(isset($_SESSION["flash"][$key])) {
+    if(empty($message) && isset($_SESSION["flash"][$key])) {
         $message = $_SESSION["flash"][$key];
 
         unset($_SESSION["flash"][$key]);
