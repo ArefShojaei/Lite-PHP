@@ -13,7 +13,7 @@ import("@core/helpers/build");
  * @return string
  */
 function asset(string $src): string {
-    return buildURL(BASE_ASSET_PATH . "/{$src}");
+    return buildURL(BASE_ASSET_PATH . "{$src}");
 }
 
 /**
