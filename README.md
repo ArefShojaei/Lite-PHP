@@ -398,29 +398,11 @@ $userPayload = useAPI("http://api.com/users", [
 dd($userPayload); # [...]
 ```
 
-#### useBody
-the useAPI hook is used to get request body data
-
-```php
-import("@core/hooks/useBody");
-
-function doLogin() {
-    # first way
-    $email = useBody("email");
-    $password = useBody("password");
-
-    dd([$email, $password]);
-    
-    # second way
-    dd(useBody());
-}
-```
-
 #### useConfig
 the useConfig hook is used to get configs from a module
 
 ```php
-import("@core/module/config/createConfig");
+import("@core/modules/config/createConfig");
 import("@core/hooks/useConfig");
 
 
@@ -442,34 +424,270 @@ useConfig("database.password");
 ...
 ```
 
-#### useCookie
 #### useEnum
+the useEnum hook is used to get enum from a module
+
+```php
+import("@core/modules/enum/createEnum");
+import("@core/hooks/useEnum");
+
+
+/**
+ * create enum
+*/
+createEnum("Logger", [
+    "NAME" => "app",
+    "LEVEL" => "INFO"
+]);
+
+/**
+ * use the enum
+*/
+useEnum("Logger@NAME");
+useEnum("Logger@LEVEL");
+...
+```
+
 #### useEnv
-#### useError
-#### useFile
-#### useFlash
-#### useGET
-#### useGlobal
-#### useHash
-#### useHeader
-#### useHTML
-#### useHTTP
-#### useID
-#### useLog
-#### useMatch
+the useEnv hook is used to get variables from **.env** file **as** "env"
+
+```php
+import("@core/hooks/useEnv");
+
+# .env
+APP_NAME = Lite-PHP
+APP_MODE = development
+...
+
+
+# usage
+useEnv("APP_NAME");
+useEnv("APP_MODE");
+...
+```
+
 #### useMode
-#### usePlugin
+the useMode hook is used to get APP_MODE from **.env** file
+
+```php
+import("@core/hooks/useMode");
+
+# .env
+APP_MODE = development
+...
+
+
+# usage
+useMode();
+```
+
+#### useError
+the useError hook is used to die the project and **show message** as **error**
+
+```php
+import("@core/hooks/useError");
+
+$age = 20;
+
+if($age <= 15) useError("The age is not valid!");
+
+echo "The age is valid.";
+```
+
+#### useGET
+the useGET hook is used to get request data from **$_GET super global**
+
+```php
+import("@core/hooks/useGET");
+
+function doLogin() {
+    # first way: get specific request data
+    $email = useGET("email");
+    $password = useGET("password");
+    
+    dd([$email, $password]);
+
+    # second way: get all request data
+    dd(useGET());
+}
+```
+
 #### usePOST
+the usePOST hook is used to get request data from **$_POST super global**
+
+```php
+import("@core/hooks/usePOST");
+
+function doLogin() {
+    # first way: get specific request data
+    $email = usePOST("email");
+    $password = usePOST("password");
+    
+    dd([$email, $password]);
+
+    # second way: get all request data
+    dd(usePOST());
+}
+```
+
+#### useBody
+the useBody hook is used to get request body data
+
+```php
+import("@core/hooks/useBody");
+
+function doLogin() {
+    # first way
+    $email = useBody("email");
+    $password = useBody("password");
+
+    dd([$email, $password]);
+    
+    # second way
+    dd(useBody());
+}
+```
+
+#### useGlobal
+the useGlobal hook is used to get variable from **$_GLOBALS['container']** or **$_GLOBALS[]**
+
+```php
+import("@core/hooks/useGlobal");
+
+# get aliases from container
+$aliases = useGlobal("aliases");
+
+# get plugins from container
+$plugins = useGlobal("plugins");
+
+# get plugins from container
+$variables = useGlobal();
+
+
+# dump all data
+dd([$aliases, $plugins, $variables]);
+```
+
+#### useState
+the useState hook is used to decalre variable in **$_GLOBALS['container']**
+
+```php
+import("@core/hooks/useState");
+import("@core/hooks/useGlobal");
+
+# anatomy
+useState("name", ["nested array"], "value");
+
+# example
+[
+    "a" => [
+        "b" => "c"
+    ]
+]
+useState("a", ["b"], "c"); 
+----------
+
+[
+    "a" => [
+        "b" => [
+            "c" => [
+                "d" => [
+                    "e" => "f"
+                ]
+            ]
+        ]
+    ]
+]
+useState("a", ["b", "c", "d", "e"], "f");
+
+
+
+
+# usage
+$array = useGlobal("a");
+
+# dump the array
+dd($array);
+```
+
+#### useHTML
+the useHTML hook is used to get HTML content **from a url as request to the target**
+
+```php
+import("@core/hooks/useHTML");
+
+# get html content
+$html = useHTML("http://google.com");
+
+# show the content
+var_dump($html);
+```
+
+#### useURL
+the useURL hook is used to parse URL
+
+```php
+import("@core/hooks/useURL");
+
+$parsedURL = useURL("http://app.com/products/mobile?q=apple")
+
+
+dd($parsedURL);
+[
+    "scheme" => "http"
+    "host" => "app.com"
+    "path" => "/products/mobile"
+    "query" => "q=apple"
+]
+
+```
+
+#### useMatch
+the useMatch hook is used to get **regex matches for a pattern**
+
+```php
+import("@core/hooks/useMatch");
+
+# declare regex
+$pattern = "/message/";
+
+# content to apply the regex
+$text = "This is a new message!";
+
+# get response
+$isMatch = useMatch($pattern, $text);
+
+# dump the response
+var_dump((bool) $isMatch);
+```
+
+#### useID
+the useID hook is used to get **random number id**
+
+```php
+import("@core/hooks/useID");
+
+# usage
+echo useID();
+```
+
+#### useHash
+#### useVerify
+#### useHeader
+#### useHTTP
 #### useQuery
 #### useRedirect
 #### useRequest
 #### useResponse
 #### useRoute
-#### useSession
-#### useState
 #### useType
-#### useURL
-#### useVerify
+#### usePlugin
+#### useLog
+#### useFile
+#### useFlash
+#### useCookie
+#### useSession
+
 
 ****
 
