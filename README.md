@@ -898,7 +898,43 @@ echo useFlash("register"); # Your registeration was successfully.
 ### core/helpers
 
 #### abort
+the abort helper function is used to throw HTTP exception
+
+```php
+import("@core/helpers/abort");
+import("@core/hooks/useRoute");
+
+/**
+ * usage
+*/
+show404() {
+    abort(404, "Page not found!"); # render 404 template
+}
+
+useRoute("GET", "/404", "show404");
+```
+
 #### assets
+the assets helper is list of functions for asset files ! <br>
+for example:
+
+```php
+import("@core/helpers/assets");
+
+/**
+ * usage
+*/
+echo asset("/img/user.png"); # /public/img/user.png
+
+echo css("style"); # /public/css/style.css
+
+echo js("app"); # /public/js/app.js
+
+echo img("user.png"); # /public/img/user.png
+
+echo icon("logo.svg"); # /public/img/logo.svg
+```
+
 #### build
 #### dd
 #### element
