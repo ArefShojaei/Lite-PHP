@@ -1019,3 +1019,4 @@ mainFiles => [
 ****
 
 ### core/private
+**This folder is private helper functions for helpers, hooks & plugins !**
