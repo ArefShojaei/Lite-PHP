@@ -6,7 +6,7 @@ DirectoryIndex server.php
 
 Options All -Indexes
 
-<FilesMatch "\.(log|htaccess|.env|gitignore)$">
+<FilesMatch "\.(log|htaccess|env|gitignore)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
