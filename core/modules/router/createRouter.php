@@ -6,6 +6,7 @@
 import("@core/hooks/useHTTP");
 import("@core/hooks/useGlobal");
 import("@core/hooks/useRedirect");
+import("@core/hooks/useError");
 import("@core/modules/router/_findRoute");
 import("@core/modules/router/_isMatchedRoute");
 import("@core/modules/router/_addRouteParams");
@@ -24,8 +25,8 @@ function createRouter(): void {
     # request method
     $method = useHTTP("REQUEST_METHOD");
 
-    # get all routes of the request method
-    $routes = useGlobal("routes")[$method];
+    # get all routes of the request method if is exists aleardy!
+    $routes = useGlobal("routes")[$method] ?? useError("The `{$method}` method is not supported!");
 
     # get matched route
     list($matches, $action) = _findRoute($routes, $url);
