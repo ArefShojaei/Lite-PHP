@@ -15,9 +15,9 @@ import("@core/hooks/useGlobal");
  * @param string $aciton
  * @return void
  */
-function useRoute(string $method, string $route, string $action): void {
+function useRoute(string $method, string $route, string $action, array $middlewares = []): void {
     # convert the $method to upper string 
     $method = strtoupper($method);
 
-    useState("routes", [$method, $route], $action);
+    useState("routes", [$method, $route], [$middlewares, $action]);
 }

@@ -16,7 +16,7 @@ import("@core/hooks/useURL");
  * @return array
  */
 function _findRoute(array $routes, string $url): array {
-    foreach ($routes as $route => $action) {
+    foreach ($routes as $route => $params) {
         # decalre pattern as regex
         $pattern = "/^" . str_replace(["/", "{", "}"], ["\/", "(?<", ">\w+)"], $route) . "$/";
         
@@ -27,6 +27,8 @@ function _findRoute(array $routes, string $url): array {
         if(count($matches)) break;
     }
 
+    list($middlewares, $action) = $params;
+
     # return the route data
-    return [$matches, $action];
+    return [$matches, $middlewares,$action];
 }

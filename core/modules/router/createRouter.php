@@ -11,6 +11,8 @@ import("@core/modules/router/_findRoute");
 import("@core/modules/router/_isMatchedRoute");
 import("@core/modules/router/_addRouteParams");
 import("@core/modules/router/_executeRoute");
+import("@core/modules/router/_executeRoute");
+import("@core/modules/router/_applyMiddlewares");
 
 
 /**
@@ -29,13 +31,16 @@ function createRouter(): void {
     $routes = useGlobal("routes")[$method] ?? useError("The `{$method}` method is not supported!");
 
     # get matched route
-    list($matches, $action) = _findRoute($routes, $url);
+    list($matches, $middlewares, $action) = _findRoute($routes, $url);
 
     # check to exist the matched route
     $isMatchedRoute = _isMatchedRoute($matches);
 
     # is 404
     if(!$isMatchedRoute) useRedirect("/404");
+
+    # apply middlewares if the middleares is exists!
+    if(count($middlewares)) _applyMiddlewares($middlewares);
 
     # add route params
     if(count($matches) >= 3) _addRouteParams($matches);
