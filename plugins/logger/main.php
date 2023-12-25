@@ -30,7 +30,7 @@ createPlugin("logger", function($params) {
     $filePath = buildPath($basePath, "/{$filename}", LOG_FILE_EXTENTION);
 
     # log level
-    $level = strtolower($params['level']) ?? LOGGER_DEFAULT_SHORT_LEVEL;
+    $level = strtolower($params['level']) ?? LOGGER_DEFAULT_LEVEL;
     
     # log expire time
     $expireTime = $params['expireTime'] ?? LOGGER_EXPIRE_TIME_FOR_24H;

@@ -10,7 +10,7 @@
  * @constant string
  * @return string
  */
-const LOGGER_DEFAULT_SHORT_LEVEL = "SHORT";
+const LOGGER_DEFAULT_LEVEL = "SHORT";
 
 /**
  * logger short level
