@@ -31,12 +31,12 @@ function __(string $key, array $attributes = []): string {
     # parsed locale words
     $parsedLocaleWords = require $file;
     
-    # get value by key
-    $value = $parsedLocaleWords[$key];
+    # get translated word as "value" by key
+    $translatedWord = $parsedLocaleWords[$key];
 
     # return the value if attributes doesn't exist!
-    if (!count($attributes)) return $value;
+    if (!count($attributes)) return $translatedWord;
 
     # set the attributes
-    return _setAttributes($attributes, $value);
+    return _setAttributes($attributes, $translatedWord);
 }
