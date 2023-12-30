@@ -21,10 +21,10 @@ import("@plugins/logger/_clearLogs");
  */
 createPlugin("logger", function($params) {
     # log filename
-    $filename = $params["name"] ?? useEnum("Logger@NAME");
+    $filename = $params["name"] ?? useEnum("Logger::NAME");
 
     # base path as logs path 
-    $basePath = useEnum("Logger@LOGS_PATH");
+    $basePath = useEnum("Logger::LOGS_PATH");
 
     # log file path
     $filePath = buildPath($basePath, "/{$filename}", LOG_FILE_EXTENTION);

@@ -13,7 +13,7 @@ import("@core/hooks/useGlobal");
  * @return string|int|array
  */
 function useEnum(string $enum): string|int|array {
-    list($enum, $key) = explode("@", $enum);
+    list($enum, $key) = explode("::", $enum);
 
     $enums = useGlobal("enums");
 

@@ -17,7 +17,7 @@ import("@core/hooks/useHTTP");
  */
 function _makeLogContent(string $level): string {
     # log level
-    $level = useEnum("Logger@LEVELS")[$level];
+    $level = useEnum("Logger::LEVELS")[$level];
     
     # request url
     $url = useHTTP("REQUEST_URI");
