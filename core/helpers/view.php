@@ -6,6 +6,7 @@
 import("@core/helpers/assets");
 import("@core/helpers/url");
 import("@core/helpers/build");
+import("@core/helpers/__");
 
 
 /**
