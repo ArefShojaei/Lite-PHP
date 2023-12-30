@@ -8,8 +8,11 @@ import("@core/hooks/useEnv");
 
 
 /**
- * decalre app configs
+ * app configs
  */
 createConfig("app", [
-    "name" => useEnv("APP_NAME")
+    "name" => useEnv("APP_NAME"),
+    "timezone" => useEnv("TIMEZONE"),
+    "locale" => EN_LOCALE,
+    "fallback_locale" => FA_LOCALE
 ]);
