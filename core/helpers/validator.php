@@ -10,6 +10,7 @@ import("@core/hooks/useMatch");
  * email validation
  * @function isEmail
  * @param string $email
+ * @return bool
  */
 function isEmail(string $email): bool {
     # declare pattern
@@ -26,6 +27,7 @@ function isEmail(string $email): bool {
  * url validation
  * @function isEmail
  * @param string $email
+ * @return bool
  */
 function isURL(string $url): bool {
     # declare pattern
