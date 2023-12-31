@@ -21,7 +21,7 @@ if (useMode() !== "development") error_reporting(0);
 /**
  * set default timezone for date
  */
-date_default_timezone_set(useEnv("TIMEZONE"));
+date_default_timezone_set(useEnv("APP_TIMEZONE"));
 
 
 /**
