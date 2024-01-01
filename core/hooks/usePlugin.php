@@ -19,9 +19,9 @@ function usePlugin(string $name): array|string {
 
     # check to not exist the plugin
     if(!is_array($plugins)) {
-        useError("The plugin is not eixsts!");
+        useError("The {$name} plugin doesn't eixst!");
     }
 
     # return the plugin
-    return $plugins["helper"][$name];
+    return $plugins[PLUGIN_USAGE_TYPE][$name];
 }
