@@ -9,7 +9,7 @@
  * @param array $params
  * @return void
  */
-function _escapeQuery(object $connection, string $query, array $params): void {
+function _escapeQuery(object $connection, string &$query, array $params): void {
     # replace ( ? to '?' ) in the query as string
     $query = str_replace("?", "'?'", $query);
 

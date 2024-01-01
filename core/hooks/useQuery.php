@@ -32,7 +32,7 @@ function useQuery(string $query, array $params = []): bool|array {
     $result = mysqli_query($connection, $query);
 
     # is the "select" query
-    if((bool) $isMatch) _getDataFromDatabase($result);
+    if((bool) $isMatch) return _getDataFromDatabase($result);
 
     # the query was run successfully
     return true;
