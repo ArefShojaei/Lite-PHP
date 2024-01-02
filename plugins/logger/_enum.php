@@ -7,7 +7,7 @@ import("@core/modules/enum/createEnum");
 
 
 /**
- * Logger Enums
+ * logger enums
  */
 createEnum("Logger", [
     "NAME" => "app",
