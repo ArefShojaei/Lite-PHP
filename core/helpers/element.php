@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @package
+ */
 require_once "core/private/helpers/element/_applyAttributes.php";
 require_once "core/private/helpers/element/_applyChildren.php";
 require_once "core/private/helpers/element/_applyTagElement.php";
