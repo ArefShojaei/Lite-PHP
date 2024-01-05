@@ -24,7 +24,7 @@ const BASE_VIEWS_PATH = "views";
  * @constant string
  * @return string
  */
-const BASE_CACHE_PATH = "storage/cache/";
+const BASE_CACHE_PATH = "storage/cache";
 
 /**
  * logs path
