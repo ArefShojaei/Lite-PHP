@@ -16,6 +16,6 @@ createEnum("Logger", [
         "common" => "COMMON",
         "combined" => "COMBINED",
     ],
-    "STORAGE_PATH" => "storage",
-    "LOGS_PATH" => "storage/logs",
+    "DEFAULT_LEVEL" => "SHORT",
+    "EXPIRE_TIME_FOR_24H" => 60 * 60 * 24
 ]);

@@ -6,13 +6,6 @@
 
 
 /**
- * logger default level
- * @constant string
- * @return string
- */
-const LOGGER_DEFAULT_LEVEL = "SHORT";
-
-/**
  * logger short level
  * @constant string
  * @return string
@@ -32,10 +25,3 @@ const LOGGER_COMMON_LEVEL = "COMMON";
  * @return string
  */
 const LOGGER_COMBINED_LEVEL = "COMBINED";
-
-/**
- * logger expire time for 24H
- * @constant int
- * @return int
- */
-const LOGGER_EXPIRE_TIME_FOR_24H = 60 * 60 * 24;
