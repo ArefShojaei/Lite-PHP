@@ -32,3 +32,10 @@ const BASE_CACHE_PATH = "storage/cache/";
  * @return string
  */
 const BASE_LOGS_PATH = "storage/logs";
+
+/**
+ * uploads path
+ * @constant string
+ * @return string
+ */
+const BASE_UPLOADS_PATH = "storage/uploads";
