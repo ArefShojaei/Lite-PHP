@@ -25,3 +25,10 @@ const BASE_VIEWS_PATH = "views";
  * @return string
  */
 const BASE_CACHE_PATH = "storage/cache/";
+
+/**
+ * logs path
+ * @constant string
+ * @return string
+ */
+const BASE_LOGS_PATH = "storage/logs";
