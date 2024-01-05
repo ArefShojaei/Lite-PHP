@@ -4,6 +4,8 @@
  * @package
  */
 import("@core/hooks/useState");
+import("@core/hooks/useType");
+import("@core/hooks/useError");
 
 
 /**
@@ -16,8 +18,22 @@ import("@core/hooks/useState");
  * @return void
  */
 function createDatabase(string $host, string $username, string $password = "", string $db = null): void {
-    # mysql connection
-    $connection = mysqli_connect($host, $username, $password, $db);
+    try {
+        # mysql connection
+        $connection = mysqli_connect($host, $username, $password, $db);
     
-    useState("mysql", [], $connection);
+        useState("mysql", [], $connection);
+    } catch (Exception $e){
+        # add content type
+        useType("application/json");
+
+        # error info
+        $response = [
+            "message" => "Database can't be connected!",
+            "error" => $e->getMessage()
+        ];
+
+        # show the info as json content
+        useError(json_encode($response));
+    }
 }
