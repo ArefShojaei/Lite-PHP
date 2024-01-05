@@ -1,2 +1,11 @@
 vendor
 .env
+node_modules
+composer.lock
+package.lock.json
+yarn-error.log
+npm-debug.log
+yarn-error.log
+package-lock.json
+.vscode
+.DS_store
