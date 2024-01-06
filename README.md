@@ -112,11 +112,15 @@ Here is default folder structure for starting new project !
 |
 |- hooks/
 |
+|- lang/
+|
 |- modules/
 |
 |- plugins/
 |
 |- public/
+|
+|- storage/
 |
 |- views/
 |
@@ -132,14 +136,14 @@ Here is default folder structure for starting new project !
 can be provided base files for every projects!**
 
 ### bootstrap/
-**This folder is for init app**
+**This folder is to init app**
 
 ### modules/
-**This folder is for using every modules for the app
+This folder is for using every modules for the app
 And by default has a "app" module for running
-every the Lite-PHP project well**
+every the Lite-PHP project well** + you can **register every modules** for the project
 
-for developing every project , the folder is important , **because project structure is modular !**
+for developing every project , this folder is important , **because project structure is modular!**
 
 ### hooks/
 **This will have custom Hooks**
@@ -155,6 +159,10 @@ for developing every project , the folder is important , **because project struc
 
 
 ## Root Files
+
+### .env.example
+**This is a config for env** , Then before starting the project you must changed it from **.env.example** to **.env** file! 
+
 ### .gitignore
 **This is a config to hide 
 files for pushing other files**
@@ -168,4 +176,202 @@ files for pushing other files**
 ### server.php
 **This is main file for launching the app**
 
-Soon...
+
+## Modules
+
+### alias
+This module is to register every alias
+
+#### 1-Example:
+```php
+# Before
+require_once "../../modules/user/_model";
+
+# After
+import("@modules/user/_model")
+```
+
+#### 2-How can I use that ?
+```php
+require_once "core/modules/alias/createAlias";
+
+createAlias([
+    # guide
+    "@<alias name>" => "path",
+    
+    # usage
+    "@auth" => "modules/auth",
+    "@hooks" => "core/hooks",
+    "@logger" => "plugins/logger",
+]);
+
+# using in the project
+import("@auth/_model");
+import("@auth/_route");
+import("@logger/_enum");
+...
+```
+
+### config
+This module is to register config
+
+#### 1-How can I create a config ?
+```php
+import("@core/modules/config/createConfig");
+
+createConfig("configName", [
+    "key" => "value"
+])
+```
+
+#### 2-How can I use the config ?
+```php
+import("@core/hooks/useConfig");
+
+useConfig("configName.key")
+```
+
+### enum
+This module is to register enum as constant
+
+#### 1-How can I create an enum ?
+```php
+import("@core/modules/enum/createEnum");
+
+createEnum("ConfigName", [
+    "KEY" => "value"
+])
+```
+
+#### 2-How can I use the enum ?
+```php
+import("@core/hooks/useEnum");
+
+useEnum("ConfigName::KEY")
+```
+
+### plugin
+This module is to register plugin
+
+Note: We have two types for using plugin :
+
+1. **Runner Type**
+2. **Usage Type**
+
+#### 1-How can I create an enum ?
+```php
+import("@core/modules/plugin/createPlugin");
+
+# usage type
+createPlugin("pluginName", function () {});
+
+# runner type
+createPlugin("pluginName", function ($params) {}, false);
+```
+
+#### 2-How can I use the plugin ?
+```php
+# Runner Type
+registerPlugin("pluginName")
+
+# Usage Type
+import("@core/hooks/usePlugin");
+usePlugin("pluginName"); # usage type
+```
+
+
+
+
+
+
+
+## Helpers
+
+### import
+This helper is for load file by alias that you've **already decalred** that in the **createAlias module**
+
+```php
+# Before
+require "../hooks/useAgent.php";
+
+# After
+import("@hooks/useAgent");
+```
+
+### module
+This helper is to register module in **bootstrap/app.php** file!
+
+```php
+# helper function to register new module
+registerModule();
+
+# usage
+createModule(function () {
+    return [
+        # list of plugins that has runner type
+        "plugins" => [],
+        # list of modules that must be run in main process
+        "modules" => [
+            registerModule("moduleName"),
+        ],
+    ];
+});
+```
+
+### plugin
+This helper is to register plugin in **bootstrap/app.php** file!
+
+```php
+# helper function to register new plugin
+registerPlugin();
+
+# usage
+createModule(function () {
+    return [
+        # list of plugins that has runner type
+        "plugins" => [
+            registerPlugin("pluginName"),
+        ],
+        # list of modules that must be run in main process
+        "modules" => [],
+    ];
+});
+```
+
+### view
+This helper is to render HTML template
+
+```php
+import("@core/helpers/view");
+
+function index() {
+    view("login", ["title" => "Login Page"]);
+}
+```
+
+### dd
+This helper is to dump & die an Array info
+
+```php
+$numbers = [1,2,3,4,5];
+
+dd($numbers);
+```
+
+### abort
+This helper is to throw HTTP exception
+
+```php
+import("@core/helpers/abort");
+
+abort(404, "Page not found!")
+```
+
+### parse
+This helper is to prase file content
+
+```php
+import("@core/helpers/parse");
+
+parse("links.txt")
+```
