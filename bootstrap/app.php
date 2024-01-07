@@ -15,7 +15,7 @@ import("@core/hooks/useEnv");
 /**
  * disable to show errors in "production mode"
  */
-if (useMode() !== "development") error_reporting(0);
+if (useMode() !== DEV_MODE) error_reporting(0);
 
 
 /**
