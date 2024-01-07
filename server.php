@@ -1,25 +1,13 @@
-<?php declare(strict_types=1);
+<?php
 
 /**
- * @package
+ * Lite-PHP - Micro PHP Freamework
+ * 
+ * @package Lite-PHP
+ * @author Aref Shojaei
+ * @copyright Copyright (c) 2024
+ * @license MIT
+ * @link https://github.com/ArefShojaei/Lite-PHP
+ * @tutorial https://github.com/ArefShojaei/Lite-PHP#categories
  */
-require_once "core/modules/app/createApp.php";
-require_once "core/modules/alias/createAlias.php";
-require_once "core/modules/env/createEnv.php";
-
-
-/**
- * init app
- */
-createApp(function() {
-    # register Aliases
-    createAlias([
-        "@core" => "core",
-        "@modules" => "modules",
-        "@plugins" => "plugins",
-        "@hooks" => "hooks",
-    ]);
-
-    # init Env
-    createEnv();
-});
+require_once "public/index.php";
