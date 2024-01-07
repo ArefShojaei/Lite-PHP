@@ -6,18 +6,25 @@
 
 
 /**
- * asset path as url for loading files
+ * assets path in "Production Mode"
  * @constant string
  * @return string
  */
-const BASE_ASSET_PATH = "/public";
+const BASE_ASSETS_PATH__PUBLIC = "/public/assets";
+
+/**
+ * assets path in "Development Mode"
+ * @constant string
+ * @return string
+ */
+const BASE_ASSETS_PATH__RESOURCES = "/resources/assets";
 
 /**
  * views path
  * @constant string
  * @return string
  */
-const BASE_VIEWS_PATH = "views";
+const BASE_VIEWS_PATH = "resources/views";
 
 /**
  * cache path
