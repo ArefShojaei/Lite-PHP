@@ -4,7 +4,17 @@
  * @package
  */
 import("@core/helpers/build");
+import("@core/hooks/useMode");
 
+
+/**
+ * get assets base path
+ * @function getAssetsBasePath
+ * @return string
+ */
+function getAssetsBasePath(): string {
+    return useMode() !== PROD_MODE ? BASE_ASSETS_PATH__RESOURCES : BASE_ASSETS_PATH__PUBLIC;
+}
 
 /**
  * get asset path
@@ -13,7 +23,7 @@ import("@core/helpers/build");
  * @return string
  */
 function asset(string $src): string {
-    return buildURL(BASE_ASSET_PATH . "{$src}");
+    return buildURL(getAssetsBasePath() . "{$src}");
 }
 
 /**
@@ -23,7 +33,7 @@ function asset(string $src): string {
  * @return string
  */
 function css(string $filename): string {
-    return buildURL(BASE_ASSET_PATH . "/css/{$filename}" . CSS_FILE_EXTENTION);
+    return buildURL(getAssetsBasePath() . "/css/{$filename}" . CSS_FILE_EXTENTION);
 }
 
 /**
@@ -33,7 +43,7 @@ function css(string $filename): string {
  * @return string
  */
 function js(string $filename): string {
-    return buildURL(BASE_ASSET_PATH . "/js/{$filename}" . JS_FILE_EXTENTION);
+    return buildURL(getAssetsBasePath() . "/js/{$filename}" . JS_FILE_EXTENTION);
 }
 
 /**
@@ -43,7 +53,7 @@ function js(string $filename): string {
  * @return string
  */
 function img(string $file): string {
-    return buildURL(BASE_ASSET_PATH . "/img/{$file}");
+    return buildURL(getAssetsBasePath() . "/img/{$file}");
 }
 
 /**
@@ -53,5 +63,5 @@ function img(string $file): string {
  * @return string
  */
 function icon(string $file): string {
-    return buildURL(BASE_ASSET_PATH . "/icons/{$file}");
+    return buildURL(getAssetsBasePath() . "/icons/{$file}");
 }
