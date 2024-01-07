@@ -12,6 +12,20 @@ require_once "core/constants/locale.php";
 
 
 /**
+ * development mode
+ * @constant string
+ * @return string
+ */
+const DEV_MODE = "development";
+
+/**
+ * production mode
+ * @constant string
+ * @return string
+ */
+const PROD_MODE = "production";
+
+/**
  * main module filename
  * @constant string
  * @return string
