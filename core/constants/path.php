@@ -27,6 +27,13 @@ const BASE_ASSETS_PATH__RESOURCES = "/resources/assets";
 const BASE_VIEWS_PATH = "resources/views";
 
 /**
+ * lang path
+ * @constant string
+ * @return string
+ */
+const BASE_LANG_PATH = "resources/lang";
+
+/**
  * cache path
  * @constant string
  * @return string
