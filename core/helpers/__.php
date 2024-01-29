@@ -23,7 +23,7 @@ function __(string $key, array $attributes = []): string {
     $locale = useConfig("app.locale") ?? useConfig("app.fallback_locale");
 
     # the locale file path
-    $file = buildPath("lang/{$locale}", "/{$filename}");
+    $file = buildPath(BASE_LANG_PATH . "/{$locale}", "/{$filename}");
     
     # check to exist the locale file
     if(!file_exists($file)) useError("The '{$file}' doesn't exist!");
