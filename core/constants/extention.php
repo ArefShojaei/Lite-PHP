@@ -39,3 +39,10 @@ const CSS_FILE_EXTENTION = ".css";
  * @return string
  */
 const JS_FILE_EXTENTION = ".js";
+
+/**
+ * json file ext
+ * @constant string
+ * @return string
+ */
+const JSON_FILE_EXTENTION = ".json";
