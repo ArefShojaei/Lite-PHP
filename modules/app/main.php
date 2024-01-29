@@ -3,7 +3,7 @@
 /**
  * use modules
  */
-import("@core/hooks/useRoute");
+import("@core/helpers/addRoute");
 import("@modules/app/_config");
 import("@modules/app/_controller");
 
@@ -11,5 +11,5 @@ import("@modules/app/_controller");
 /**
  * app routes
  */
-useRoute("GET", "/", "index");
-useRoute("GET", "/404", "show404");
+addRoute("GET", "/", "index");
+addRoute("GET", "/404", "show404");
