@@ -9,6 +9,7 @@ import("@core/hooks/useType");
 /**
  * Text content
  * @function _text
+ * @private
  * @param string $value
  * @return string
  */
