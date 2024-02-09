@@ -1,7 +1,7 @@
 <?php
 
 /**
- * use modules
+ * @package
  */
 import("@core/helpers/addRoute");
 import("@modules/app/_config");

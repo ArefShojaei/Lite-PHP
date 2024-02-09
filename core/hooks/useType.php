@@ -1,7 +1,7 @@
 <?php
 
 /**
- * add content type to the header
+ * add content-type to header
  * @function useType
  * @param string $mimeType
  * @return void

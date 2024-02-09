@@ -9,7 +9,7 @@ import("@core/private/hooks/useResponse/_text");
 
 
 /**
- * use the response http
+ * response info
  * @function useResponse
  * @param string $action
  * @param string|array $value

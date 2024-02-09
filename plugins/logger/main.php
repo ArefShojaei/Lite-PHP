@@ -14,7 +14,7 @@ import("@plugins/logger/_clearLogs");
 
 
 /**
- * Logger plugin
+ * logger plugin
  * @type runner
  */
 createPlugin("logger", function($params) {

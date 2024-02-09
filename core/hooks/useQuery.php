@@ -10,7 +10,7 @@ import("@core/private/hooks/useQuery/_getDataFromDatabase");
 
 
 /**
- * use mysql query
+ * query to database
  * @function useQuery
  * @param string $query sql query
  * @return bool|array

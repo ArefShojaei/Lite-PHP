@@ -19,7 +19,7 @@ if (useMode() !== DEV_MODE) error_reporting(0);
 
 
 /**
- * set default timezone for date
+ * set default timezone
  */
 date_default_timezone_set(useEnv("APP_TIMEZONE"));
 
@@ -45,6 +45,6 @@ createModule(function () {
 
 
 /**
- * init router system
+ * init router
  */
 createRouter();

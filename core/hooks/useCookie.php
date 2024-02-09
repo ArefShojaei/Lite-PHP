@@ -1,7 +1,7 @@
 <?php
 
 /**
- * use cookie
+ * get & set cookie
  * @function useCookie
  * @param string $key 
  * @param mixed $defaultValue

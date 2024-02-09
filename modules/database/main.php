@@ -1,7 +1,7 @@
 <?php
 
 /**
- * use modules
+ * @package
  */
 import("@modules/database/_config");
 import("@core/modules/database/createDatabase");

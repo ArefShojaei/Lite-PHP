@@ -1,11 +1,16 @@
+# refactor url config 
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ server.php?path=$1 [NC,L,QSA]
+
+# executable file to run app
 DirectoryIndex server.php
 
+# hide root web-server folders
 Options All -Indexes
 
+# protect specific file extentions
 <FilesMatch "\.(log|htaccess|env|gitignore)$">
     Order allow,deny
     Deny from all

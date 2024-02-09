@@ -14,7 +14,7 @@ import("@core/private/hooks/useRequest/_userAgent");
 
 
 /**
- * use the request http
+ * request info
  * @function useRequest
  * @param string $action
  * @return string|array

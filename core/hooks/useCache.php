@@ -8,7 +8,7 @@ import("@core/helpers/parse");
 
 
 /**
- * cache file
+ * cache data by file
  * @function useCache
  * @param string $file file path
  * @param mixed $data file data

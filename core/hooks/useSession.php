@@ -1,7 +1,7 @@
 <?php
 
 /**
- * use session
+ * get & set session
  * @function useSession
  * @param string $key
  * @param mixed $defaultValue

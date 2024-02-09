@@ -8,7 +8,7 @@ import("@core/hooks/useError");
 
 
 /**
- * use plugin by name
+ * get plugin by name
  * @function usePlugin
  * @param string $name plugin name
  * @return array

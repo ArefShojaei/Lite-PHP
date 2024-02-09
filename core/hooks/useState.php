@@ -1,7 +1,7 @@
 <?php
 
 /**
- * use state
+ * set state
  * @function useState
  * @param string $container
  * @param array $keys

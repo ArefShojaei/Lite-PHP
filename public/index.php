@@ -9,10 +9,10 @@ require_once "core/modules/env/createEnv.php";
 
 
 /**
- * init app
+ * bootstrap app
  */
 createApp(function() {
-    # register Aliases
+    # int aliases
     createAlias([
         "@core" => "core",
         "@modules" => "modules",
@@ -20,6 +20,6 @@ createApp(function() {
         "@hooks" => "hooks",
     ]);
 
-    # init Env
+    # init env
     createEnv();
 });
