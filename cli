@@ -5,6 +5,7 @@
  */
 require_once "core/loader.php";
 require_once "core/modules/console/createCli.php";
+require_once "bootstrap/providers.php";
 
 
 /**
