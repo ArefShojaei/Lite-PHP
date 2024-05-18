@@ -22,7 +22,7 @@ function createDatabase(string $host, string $username, string $password = "", s
         # mysql connection
         $connection = mysqli_connect($host, $username, $password, $db);
     
-        useState("mysql", [], $connection);
+        useState("database", ["mysql"], $connection);
     } catch (Exception $e){
         # add content type
         useType("application/json");
