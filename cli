@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @package
+ */
+require_once "core/loader.php";
+require_once "core/modules/console/createCli.php";
+
+
+/**
+ * bootstrap CLI
+ */
+createCli($argv);
