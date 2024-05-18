@@ -11,7 +11,12 @@ DirectoryIndex server.php
 Options All -Indexes
 
 # protect specific file extentions
-<FilesMatch "\.(log|htaccess|env|gitignore)$">
+<FilesMatch "\.(log|htaccess|env|gitignore|json)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
+
+<Files "cli">
+    Order allow,deny
+    Deny from all
+</Files>
