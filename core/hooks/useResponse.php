@@ -3,9 +3,9 @@
 /**
  * @package
  */
-import("@core/private/hooks/useResponse/_json");
-import("@core/private/hooks/useResponse/_html");
-import("@core/private/hooks/useResponse/_text");
+import("@core/shared/hooks/useResponse/_json");
+import("@core/shared/hooks/useResponse/_html");
+import("@core/shared/hooks/useResponse/_text");
 
 
 /**
@@ -19,7 +19,7 @@ import("@core/private/hooks/useResponse/_text");
 function useResponse(string $action, string|array $value, int $code = 200): string {
     # set http status code
     isset($code) && http_response_code($code);
-    
+
     # call $action dynamicly
     return ("_" . $action)($value);
 }

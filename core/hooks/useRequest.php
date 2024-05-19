@@ -3,14 +3,14 @@
 /**
  * @package
  */
-import("@core/private/hooks/useRequest/_host");
-import("@core/private/hooks/useRequest/_ip");
-import("@core/private/hooks/useRequest/_method");
-import("@core/private/hooks/useRequest/_params");
-import("@core/private/hooks/useRequest/_protocol");
-import("@core/private/hooks/useRequest/_query");
-import("@core/private/hooks/useRequest/_route");
-import("@core/private/hooks/useRequest/_userAgent");
+import("@core/shared/hooks/useRequest/_host");
+import("@core/shared/hooks/useRequest/_ip");
+import("@core/shared/hooks/useRequest/_method");
+import("@core/shared/hooks/useRequest/_params");
+import("@core/shared/hooks/useRequest/_protocol");
+import("@core/shared/hooks/useRequest/_query");
+import("@core/shared/hooks/useRequest/_route");
+import("@core/shared/hooks/useRequest/_userAgent");
 
 
 /**

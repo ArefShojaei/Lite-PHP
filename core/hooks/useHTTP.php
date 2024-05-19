@@ -10,7 +10,7 @@
 function useHTTP(string $key, mixed $defaultValue = null): mixed {
     # get HTTP
     if(!isset($defaultValue)) {
-        return $_SERVER[$key];
+        return $_SERVER[$key] ?? null;
     }
 
     # set HTTP

@@ -5,8 +5,8 @@
  */
 import("@core/hooks/useGlobal");
 import("@core/hooks/useMatch");
-import("@core/private/hooks/useQuery/_escapeQuery");
-import("@core/private/hooks/useQuery/_getDataFromDatabase");
+import("@core/shared/hooks/useQuery/_escapeQuery");
+import("@core/shared/hooks/useQuery/_getDataFromDatabase");
 
 
 /**
@@ -26,13 +26,13 @@ function useQuery(string $query, array $params = []): bool|array {
     $isMatch = useMatch($pattern, $query);
 
     # escape the query
-    if(count($params)) _escapeQuery($connection, $query, $params);
+    if (count($params)) _escapeQuery($connection, $query, $params);
 
     # run the query
     $result = mysqli_query($connection, $query);
 
     # is the "select" query
-    if((bool) $isMatch) return _getDataFromDatabase($result);
+    if ((bool) $isMatch) return _getDataFromDatabase($result);
 
     # the query was run successfully
     return true;

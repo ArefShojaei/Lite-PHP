@@ -3,10 +3,10 @@
 /**
  * @package
  */
-import("@core/private/hooks/useAPI/_openHttpRequest");
-import("@core/private/hooks/useAPI/_closeHttpRequest");
-import("@core/private/hooks/useAPI/_sendHttpRequest");
-import("@core/private/hooks/useAPI/_setHttpRequestOptions");
+import("@core/shared/hooks/useAPI/_openHttpRequest");
+import("@core/shared/hooks/useAPI/_closeHttpRequest");
+import("@core/shared/hooks/useAPI/_sendHttpRequest");
+import("@core/shared/hooks/useAPI/_setHttpRequestOptions");
 
 
 /**
@@ -23,10 +23,9 @@ function useAPI(string $url, array $params = []): array {
     # get http headers
     $headers = $params['headers'] ?? [];
 
-
     # init curl
     $curl = _openHttpRequest();
- 
+    
     # set the curl config
     _setHttpRequestOptions($curl, [$url, $method, $headers]);
 
