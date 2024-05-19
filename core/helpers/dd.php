@@ -3,7 +3,7 @@
 /**
  * @package
  */
-require_once "core/private/helpers/dd/_render.php";
+require_once "core/shared/helpers/dd/_render.php";
 
 
 /**
@@ -26,5 +26,5 @@ function dd(array $input, bool $isDied = true): void {
     echo _render([$input, $styles]);
 
     # exit process if the $isDied is true after rendering the template
-    if($isDied) exit;
+    if ($isDied) exit;
 }

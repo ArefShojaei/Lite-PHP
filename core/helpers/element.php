@@ -3,9 +3,9 @@
 /**
  * @package
  */
-require_once "core/private/helpers/element/_applyAttributes.php";
-require_once "core/private/helpers/element/_applyChildren.php";
-require_once "core/private/helpers/element/_applyTagElement.php";
+require_once "core/shared/helpers/element/_applyAttributes.php";
+require_once "core/shared/helpers/element/_applyChildren.php";
+require_once "core/shared/helpers/element/_applyTagElement.php";
 
 
 /**
@@ -18,13 +18,13 @@ require_once "core/private/helpers/element/_applyTagElement.php";
 function createSingleElement(string $tag, array $attributes): string {
     # open the tag
     $element = _applyTagElement($tag);
-    
+
     # add attributes
-    if(count($attributes)) _applyAttributes($element, $attributes);
+    if (count($attributes)) _applyAttributes($element, $attributes);
 
     # close the tag
     $element .= " />";
-    
+
     # return the element
     return $element;
 }
@@ -53,7 +53,7 @@ function createElement(string $tag, array $attributes, array $children): string 
 
     # close the after tag
     $element .= "</{$tag}>";
-    
+
     # return the element
     return $element;
 }

@@ -6,7 +6,7 @@
 import("@core/hooks/useConfig");
 import("@core/hooks/useError");
 import("@core/helpers/build");
-import("@core/private/helpers/__/_setAttributes");
+import("@core/shared/helpers/__/_setAttributes");
 
 
 /**
@@ -24,13 +24,13 @@ function __(string $key, array $attributes = []): string {
 
     # the locale file path
     $file = buildPath(BASE_LANG_PATH . "/{$locale}", "/{$filename}");
-    
+
     # check to exist the locale file
-    if(!file_exists($file)) useError("The '{$file}' doesn't exist!");
-    
+    if (!file_exists($file)) useError("The '{$file}' doesn't exist!");
+
     # parsed locale words
     $parsedLocaleWords = require $file;
-    
+
     # get translated word as "value" by key
     $translatedWord = $parsedLocaleWords[$key];
 

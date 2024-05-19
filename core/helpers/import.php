@@ -4,8 +4,8 @@
  * @package
  */
 require_once "core/hooks/useGlobal.php";
-require_once "core/private/helpers/import/_extractAlias.php";
-require_once "core/private/helpers/import/_replaceAliasToPath.php";
+require_once "core/shared/helpers/import/_extractAlias.php";
+require_once "core/shared/helpers/import/_replaceAliasToPath.php";
 
 
 /**
@@ -30,7 +30,7 @@ function import(string $path, string $includeType = REQUIRE_ONCE_TYPE): void {
 
 
     # include the file by the $incldueType
-    match($includeType) {
+    match ($includeType) {
         INCLUDE_TYPE => include $filePath,
         INCLUDE_ONCE_TYPE => include_once $filePath,
         REQUIRE_TYPE => require $filePath,
