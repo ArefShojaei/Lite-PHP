@@ -14,6 +14,11 @@ import("@core/hooks/useGlobal");
  * @return void
  */
 function registerPlugin(string $plugin, array $params = []): void {
+    global $argc;
+
+    # check to not run plugin in CLI
+    if($argc) return;
+    
     # import plugin
     import("@plugins/{$plugin}/" . MAIN_PLUGIN_FILE);
 
