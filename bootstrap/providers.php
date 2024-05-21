@@ -3,7 +3,7 @@
 /**
  * @package
  */
-import("@core/helpers/registration");
+import("@core/helpers/register");
 
 
 /**
