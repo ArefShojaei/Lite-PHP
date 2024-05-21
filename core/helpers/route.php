@@ -29,7 +29,7 @@ function addRoute(string $method, string $route, string $action, array $middlewa
  * @param string $aciton
  * @return void
  */
-function groupRoute($prefix, $action): void {
+function groupRoute(string $prefix, callable $action): void {
     useState("route-prefix", [], $prefix);
 
     $action();
