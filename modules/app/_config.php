@@ -13,6 +13,6 @@ import("@core/hooks/useEnv");
 createConfig("app", [
     "name" => useEnv("APP_NAME"),
     "timezone" => useEnv("TIMEZONE"),
-    "locale" => EN_LOCALE,
-    "fallback_locale" => FA_LOCALE
+    "locale" => "en",
+    "fallback_locale" => "fa"
 ]);
