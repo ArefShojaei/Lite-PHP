@@ -26,7 +26,7 @@ function addRoute(string $method, string $route, string $action, array $middlewa
  * group route
  * @function groupRoute
  * @param string $prefix
- * @param string $aciton
+ * @param callable $aciton
  * @return void
  */
 function groupRoute(string $prefix, callable $action): void {
