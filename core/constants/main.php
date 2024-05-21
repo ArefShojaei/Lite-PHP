@@ -8,7 +8,6 @@ require_once "core/constants/extention.php";
 require_once "core/constants/flash.php";
 require_once "core/constants/include.php";
 require_once "core/constants/plugin.php";
-require_once "core/constants/locale.php";
 
 
 /**
@@ -23,18 +22,18 @@ const DEV_MODE = "development";
  * @constant string
  * @return string
  */
-const PROD_MODE = "production";
+const PROD_MODE = "development";
 
 /**
- * main module filename
+ * main executable filename
  * @constant string
  * @return string
  */
-const MAIN_MODULE_FILE = "main";
+const MAIN_EXECUTABLE_FILE = "main";
 
 /**
- * main plugin filename
+ * check to load file | "security" tip
  * @constant string
  * @return string
  */
-const MAIN_PLUGIN_FILE = "main";
+const IS_ACCESSED_FILE = true;
