@@ -28,17 +28,22 @@ function loadModule(string $module): void {
 function makeTable(array $params): void {
     list($passedTests, $failedTests) = $params;
 
+    # table size
+    $length = 18;
+
+
+    # table
     createTable(function() use ($passedTests, $failedTests) {
-        addRow("TOTAL");
+        echo addRow("TOTAL");
         
-        addSeparator();
+        echo addSeparator();
         
         echo addColumn("PASSED", length:9, position:STR_PAD_BOTH) . addColumn("FAILED", length:8, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
         
-        addSeparator(fill:"-");
+        echo addSeparator(fill:"-");
         
         echo addColumn($passedTests, length:9, position:STR_PAD_BOTH) . addColumn($failedTests, length:8, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
-    });
+    }, $length);
 }
 
 
