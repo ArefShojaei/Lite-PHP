@@ -40,3 +40,22 @@ function makeTable(array $params): void {
         echo addColumn($passedTests, length:9, position:STR_PAD_BOTH) . addColumn($failedTests, length:8, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
     });
 }
+
+
+
+/**
+ * get all modules
+ * @function getAllModules
+ * @return array
+ */
+function getAllModules(): array {
+    # scan modules DIR to get module names
+    $modules = scandir("modules");
+
+    # remove "." & ".." to clean $modules
+    array_shift($modules);
+    array_shift($modules);   
+    
+    
+    return $modules;
+}
