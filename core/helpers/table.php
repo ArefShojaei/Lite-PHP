@@ -7,84 +7,84 @@ import("@core/hooks/useState");
 import("@core/hooks/useGlobal");
 
 
+
 /**
- * set header to table
- * @function _header
+ * add header to table
+ * @function _addHeaderTable
  * @private
- * @param string $left
- * @param string $fill
- * @param string $rigth
- * @param string $length
+ * @param int $position
+ * @param int $length
  * @return void
  */
-function _header(string $left = "+", string $fill = "-", string $right = "+", int $length = 18): void {
-    $length = useGlobal("table-length");
-
-    echo $left . str_pad("", $length, $fill, STR_PAD_BOTH) . $right . PHP_EOL;
+function _addHeaderTable(int $position = STR_PAD_BOTH, int $length = 18): void {
+    echo "+" . str_pad("", $length, "-", $position) . "+" . PHP_EOL;
 }
 
+
 /**
- * set footer to table
- * @function _footer
+ * add footer to table
+ * @function _addFooterTable
  * @private
- * @param string $left
- * @param string $fill
- * @param string $rigth
- * @param string $length
+ * @param int $position
+ * @param int $length
  * @return void
  */
-function _footer(string $left = "+", string $fill = "-", string $right = "+", int $length = 18): void {
-    $length = useGlobal("table-length");
+function _addFooterTable(int $position = STR_PAD_BOTH, int $length = 18): void {
+    echo "+" . str_pad("", $length, "-", $position) . "+" . PHP_EOL;
+}
 
-    echo $left . str_pad("", $length, $fill, STR_PAD_BOTH) . $right . PHP_EOL;
+
+/**
+ * add column to table
+ * @function addColumn
+ * @param string $title
+ * @param int $position
+ * @param int $length
+ * @return void
+ */
+function addColumn(string $title, $position = STR_PAD_RIGHT, int $length = 18, $isLast = false): string {
+    return "|" . str_pad($title, $length, " ", $position) . ($isLast ? "|" : "");
 }
 
 /**
- * set row to table
- * @function row
- * @param string $left
- * @param string $fill
- * @param string $rigth
- * @param string $length
+ * add row to table
+ * @function addRow
+ * @param string $title
+ * @param int $position
+ * @param int $length
  * @return void
  */
-function row(string $title, string $left = "|", string $fill = " ", string $right = "|", int $length = 18): void {
-    $length = useGlobal("table-length");
-
-    echo $left . str_pad($title, $length, $fill, STR_PAD_BOTH) . $right . PHP_EOL;
+function addRow(string $title, $position = STR_PAD_BOTH, int $length = 18): void {
+    echo "|" . str_pad($title, $length, " ", $position) . "|" . PHP_EOL;
 }
+
 
 /**
- * set separator to table
- * @function separator
- * @param string $left
+ * add separator to table
+ * @function addSeparator
  * @param string $fill
- * @param string $rigth
- * @param string $length
+ * @param int $position
+ * @param int $length
  * @return void
  */
-function separator(string $left = "+", string $fill = "=", string $right = "+", int $length = 18): void {
-    $length = useGlobal("table-length");
-    
-    echo $left . str_pad("", $length, $fill, STR_PAD_BOTH) . $right . PHP_EOL;
+function addSeparator(string $fill = "=", int $position = STR_PAD_BOTH, int $length = 18): void {
+    echo "+" . str_pad("", $length, $fill, $position) . "+" . PHP_EOL;
 }
+
 
 /**
  * create table
- * @function table
+ * @function createTable
  * @param callable $callback
  * @return void
  */
-function table(callable $callback, int $length = 18): void {
-    # declare state
-    useState("table-length", [], $length);
-
-    # set header
-    _header();
+function createTable(callable $callback): void {
+    # add header
+    _addHeaderTable();
     
-    # set body
+    # add body
     $callback();
     
-    # set footer
-    _footer();
+    # add footer
+    _addFooterTable();
 }
