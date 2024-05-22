@@ -8,7 +8,7 @@ import("@commands/test/_helpers");
 
 
 /**
- * welcome command
+ * test command
  * 
  * 
  * ----------- comamnds -----------
