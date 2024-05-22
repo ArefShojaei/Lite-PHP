@@ -3,7 +3,7 @@
 /**
  * @package
  */
-import("@core/helpers/addRoute");
+import("@core/helpers/route");
 import("@modules/app/_config");
 import("@modules/app/_controller");
 
