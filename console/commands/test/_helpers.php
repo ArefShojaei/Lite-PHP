@@ -14,23 +14,17 @@ import("@commands/test/_shared");
 function testAllModules(): void {
     global $passedTests, $failedTests;
 
-    # scan modules DIR to get module names
-    $modules = scandir("modules");
-
-    # remove "." & ".." to clean $modules
-    array_shift($modules);
-    array_shift($modules);
-
+    $modules = getAllModules();
 
     # load all modules
     foreach ($modules as $module) {
-        _loadModule($module);
+        loadModule($module);
     }
 
     # show result
     echo "\r\nFinish Tests." . PHP_EOL;
 
-    _makeTable([$passedTests, $failedTests]);
+    makeTable([$passedTests, $failedTests]);
 }
 
 
@@ -44,10 +38,10 @@ function testModule($module): void {
     global $passedTests, $failedTests;
     
     # load moudle by name
-    _loadModule($module);
+    loadModule($module);
 
     # show result
     echo "\r\nFinish Test." . PHP_EOL;
 
-    _makeTable([$passedTests, $failedTests]);
+    makeTable([$passedTests, $failedTests]);
 }
