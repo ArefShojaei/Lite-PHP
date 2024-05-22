@@ -8,12 +8,11 @@ import("@core/helpers/table");
 
 /**
  * load module
- * @function _loadModule
- * @private
+ * @function loadModule
  * @param string $module module name
  * @return void
  */
-function _loadModule(string $module): void {
+function loadModule(string $module): void {
     $path = "modules/{$module}/_test.php";
     
     file_exists($path) && require_once $path;
@@ -22,19 +21,22 @@ function _loadModule(string $module): void {
 
 /**
  * make table
- * @function _makeTable
- * @private
- * @param array $param
+ * @function makeTable
+ * @param array $params
  * @return void
  */
-function _makeTable(array $param, $length = 18): void {
-    list($passedTests, $failedTests) = $param;
+function makeTable(array $params): void {
+    list($passedTests, $failedTests) = $params;
 
-    table(function () use ($passedTests, $failedTests) {
-        row("TOTAL");
-        separator();
-        row("PASSED | FAILED");
-        separator(fill: "-");
-        row("   {$passedTests}   |    {$failedTests}  ");
-    }, $length);
+    createTable(function() use ($passedTests, $failedTests) {
+        addRow("TOTAL");
+        
+        addSeparator();
+        
+        echo addColumn("PASSED", length:9, position:STR_PAD_BOTH) . addColumn("FAILED", length:8, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
+        
+        addSeparator(fill:"-");
+        
+        echo addColumn($passedTests, length:9, position:STR_PAD_BOTH) . addColumn($failedTests, length:8, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
+    });
 }
