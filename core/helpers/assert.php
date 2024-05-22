@@ -3,7 +3,7 @@
 /**
  * @package
  */
-import("@core/shared/assert/_validateAssertion");
+import("@core/shared/helpers/assert/_validateAssertion");
 
 
 
