@@ -14,10 +14,10 @@ import("@core/hooks/useGlobal");
  * @private
  * @param int $position
  * @param int $length
- * @return void
+ * @return string
  */
-function _addHeaderTable(int $position = STR_PAD_BOTH, int $length = 18): void {
-    echo "+" . str_pad("", $length, "-", $position) . "+" . PHP_EOL;
+function _addHeaderTable(int $position = STR_PAD_BOTH, int $length = 18): string {
+    return "+" . str_pad("", $length, "-", $position) . "+" . PHP_EOL;
 }
 
 
@@ -27,10 +27,10 @@ function _addHeaderTable(int $position = STR_PAD_BOTH, int $length = 18): void {
  * @private
  * @param int $position
  * @param int $length
- * @return void
+ * @return string
  */
-function _addFooterTable(int $position = STR_PAD_BOTH, int $length = 18): void {
-    echo "+" . str_pad("", $length, "-", $position) . "+" . PHP_EOL;
+function _addFooterTable(int $position = STR_PAD_BOTH, int $length = 18): string {
+    return "+" . str_pad("", $length, "-", $position) . "+" . PHP_EOL;
 }
 
 
@@ -40,7 +40,7 @@ function _addFooterTable(int $position = STR_PAD_BOTH, int $length = 18): void {
  * @param string $title
  * @param int $position
  * @param int $length
- * @return void
+ * @return string
  */
 function addColumn(string $title, $position = STR_PAD_RIGHT, int $length = 18, $isLast = false): string {
     return "|" . str_pad($title, $length, " ", $position) . ($isLast ? "|" : "");
@@ -52,10 +52,10 @@ function addColumn(string $title, $position = STR_PAD_RIGHT, int $length = 18, $
  * @param string $title
  * @param int $position
  * @param int $length
- * @return void
+ * @return string
  */
-function addRow(string $title, $position = STR_PAD_BOTH, int $length = 18): void {
-    echo "|" . str_pad($title, $length, " ", $position) . "|" . PHP_EOL;
+function addRow(string $title, $position = STR_PAD_BOTH, int $length = 18): string {
+    return "|" . str_pad($title, $length, " ", $position) . "|" . PHP_EOL;
 }
 
 
@@ -65,10 +65,10 @@ function addRow(string $title, $position = STR_PAD_BOTH, int $length = 18): void
  * @param string $fill
  * @param int $position
  * @param int $length
- * @return void
+ * @return string
  */
-function addSeparator(string $fill = "=", int $position = STR_PAD_BOTH, int $length = 18): void {
-    echo "+" . str_pad("", $length, $fill, $position) . "+" . PHP_EOL;
+function addSeparator(string $fill = "=", int $position = STR_PAD_BOTH, int $length = 18): string {
+    return "+" . str_pad("", $length, $fill, $position) . "+" . PHP_EOL;
 }
 
 
@@ -76,15 +76,16 @@ function addSeparator(string $fill = "=", int $position = STR_PAD_BOTH, int $len
  * create table
  * @function createTable
  * @param callable $callback
+ * @param int $length
  * @return void
  */
-function createTable(callable $callback): void {
+function createTable(callable $callback, int $length): void {
     # add header
-    _addHeaderTable();
+    echo _addHeaderTable(length:$length);
     
     # add body
     $callback();
     
     # add footer
-    _addFooterTable();
+    echo _addFooterTable(length:$length);
 }
