@@ -8,7 +8,12 @@
  * @return void
  */
 function describe(string $description, callable $action): void {
-    echo "📌 Describing {$description}:" . PHP_EOL;
+    # decalre test states
+    static $passedTests = 0;
+    static $failedTests = 0;
+
+    
+    echo "\n📌 Describing \"{$description}\":" . PHP_EOL;
 
     $action();
 }
@@ -22,7 +27,7 @@ function describe(string $description, callable $action): void {
  * @return void
  */
 function it(string $description, callable $action) {
-    echo "🧪️ Running {$description}:" . PHP_EOL;
+    echo "  🧪️ Running {$description}:" . PHP_EOL;
 
     $action();
 }
