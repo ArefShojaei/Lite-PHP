@@ -6,7 +6,7 @@
 import("@core/helpers/assets");
 import("@core/helpers/url");
 import("@core/helpers/build");
-import("@core/helpers/__");
+import("@core/helpers/translate");
 import("@core/hooks/useError");
 
 

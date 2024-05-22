@@ -6,7 +6,7 @@
 import("@core/hooks/useConfig");
 import("@core/hooks/useError");
 import("@core/helpers/build");
-import("@core/shared/helpers/__/_setAttributes");
+import("@core/shared/helpers/translate/_setAttributes");
 
 
 /**
