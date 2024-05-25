@@ -22,7 +22,7 @@ const DEV_MODE = "development";
  * @constant string
  * @return string
  */
-const PROD_MODE = "development";
+const PROD_MODE = "production";
 
 /**
  * main executable filename
