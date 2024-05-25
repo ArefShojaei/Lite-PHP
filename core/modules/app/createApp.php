@@ -12,5 +12,5 @@ session_start();
  * @return void
  */
 function createApp(): void {
-    require_once "bootstrap/app.php";
+    require_once dirname(__DIR__, 3) . "/bootstrap/app.php";
 }
