@@ -22,7 +22,7 @@ function _findCommand(array $input): array {
     # search to find exact command
     foreach ($commands as $command => $data) {
         # declare regex pattern
-        $pattern = "/^" . str_replace(["{", "}"], ["(?<", ">.+)"], $command) . "$/";
+        $pattern = "/^" . str_replace(["{", "}"], ["(?<", ">(\w|[-_])+)"], $command) . "$/";
 
         # is matched comamnd with the regex
         preg_match($pattern, join(" ", $input), $result);
