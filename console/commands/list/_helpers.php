@@ -22,12 +22,12 @@ function listRoute(): void {
     $count = 0;
 
     # table size
-    $length = 40;
+    $length = 45;
 
     # column sizes
     $firstColumn = 5;
     $secoundColumn = 16;
-    $thirdColumn = 20;
+    $thirdColumn = 22;
 
 
     # table
