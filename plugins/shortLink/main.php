@@ -12,7 +12,7 @@ import("@plugins/shortLink/_enum");
 
 
 /**
- * short link
+ * short link plugin
  * @type usage
  */
 createPlugin("shortLink", function() {
