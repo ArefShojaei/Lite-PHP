@@ -3,7 +3,7 @@
 /**
  * @package
  */
-require_once "core/helpers/element.php";
+require_once dirname(__DIR__, 3) . "/helpers/element.php";
 
 
 /**

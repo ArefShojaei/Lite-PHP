@@ -3,9 +3,9 @@
 /**
  * @package
  */
-require_once "core/shared/helpers/element/_applyAttributes.php";
-require_once "core/shared/helpers/element/_applyChildren.php";
-require_once "core/shared/helpers/element/_applyTagElement.php";
+require_once dirname(__DIR__) . "/shared/helpers/element/_applyAttributes.php";
+require_once dirname(__DIR__) . "/shared/helpers/element/_applyChildren.php";
+require_once dirname(__DIR__) . "/shared/helpers/element/_applyTagElement.php";
 
 
 /**

@@ -5,11 +5,11 @@
  * 
  * init base files 
  */
-require_once "core/constants/main.php";
-require_once "core/helpers/import.php";
-require_once "bootstrap/alias.php";
-require_once "core/helpers/dd.php";
-require_once "core/modules/env/createEnv.php";
+require_once __DIR__ . "/constants/main.php";
+require_once __DIR__ . "/helpers/import.php";
+require_once __DIR__ . "/helpers/dd.php";
+require_once __DIR__ . "/modules/env/createEnv.php";
+require_once dirname(__DIR__) . "/bootstrap/alias.php";
 
 
 /**

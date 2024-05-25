@@ -3,11 +3,11 @@
 /**
  * import constants
  */
-require_once "core/constants/path.php";
-require_once "core/constants/extention.php";
-require_once "core/constants/flash.php";
-require_once "core/constants/include.php";
-require_once "core/constants/plugin.php";
+require_once __DIR__ . "/path.php";
+require_once __DIR__ . "/extention.php";
+require_once __DIR__ . "/flash.php";
+require_once __DIR__ . "/include.php";
+require_once __DIR__ . "/plugin.php";
 
 
 /**

@@ -3,9 +3,9 @@
 /**
  * @package
  */
-require_once "core/hooks/useGlobal.php";
-require_once "core/shared/helpers/import/_extractAlias.php";
-require_once "core/shared/helpers/import/_replaceAliasToPath.php";
+require_once dirname(__DIR__) . "/hooks/useGlobal.php";
+require_once dirname(__DIR__) . "/shared/helpers/import/_extractAlias.php";
+require_once dirname(__DIR__) . "/shared/helpers/import/_replaceAliasToPath.php";
 
 
 /**

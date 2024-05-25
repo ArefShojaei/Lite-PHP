@@ -3,8 +3,8 @@
 /**
  * @package
  */
-require_once "core/helpers/parse.php";
-require_once "core/hooks/useMatch.php";
+require_once dirname(__DIR__, 2) . "/helpers/parse.php";
+require_once dirname(__DIR__, 2) . "/hooks/useMatch.php";
 
 
 /**

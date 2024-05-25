@@ -3,8 +3,8 @@
 /**
  * @package
  */
-require_once "core/loader.php";
-require_once "core/modules/app/createApp.php";
+require_once dirname(__DIR__) . "/core/loader.php";
+require_once dirname(__DIR__) . "/core/modules/app/createApp.php";
 
 
 /**

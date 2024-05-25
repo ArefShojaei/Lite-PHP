@@ -3,7 +3,7 @@
 /**
  * @package
  */
-require_once "core/hooks/useMatch.php";
+require_once dirname(__DIR__, 3) . "/hooks/useMatch.php";
 
 /**
  * extract alias

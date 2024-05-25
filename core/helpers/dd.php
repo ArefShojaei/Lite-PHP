@@ -3,7 +3,7 @@
 /**
  * @package
  */
-require_once "core/shared/helpers/dd/_render.php";
+require_once dirname(__DIR__) . "/shared/helpers/dd/_render.php";
 
 
 /**

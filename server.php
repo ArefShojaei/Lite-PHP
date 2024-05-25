@@ -10,4 +10,4 @@
  * @link https://github.com/ArefShojaei/Lite-PHP
  * @tutorial https://github.com/ArefShojaei/Lite-PHP#categories
  */
-require_once "public/index.php";
+require_once __DIR__ . "/public/index.php";

@@ -3,7 +3,7 @@
 /**
  * @package
  */
-require_once "core/helpers/parse.php";
+import("@core/helpers/parse");
 
 
 /**
