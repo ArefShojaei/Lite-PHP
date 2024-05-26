@@ -15,8 +15,8 @@ function welcomeCommand(): string {
 
                     Micro PHP Framework
 
-                        Welcome
+                        Welcome!
 
-                Use \"php cli help\" command
+                Use \"php cli list\" command
 ";
 }
