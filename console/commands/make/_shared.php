@@ -33,6 +33,8 @@ function _checkFileToExist(string $src, string $filename, string $tag): bool {
     
         return true;
     }
+
+    return false;
 }
 
 
