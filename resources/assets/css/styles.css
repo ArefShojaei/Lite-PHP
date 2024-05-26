@@ -1,19 +1,25 @@
 @font-face {
-    font-family: "poppins-regular";
-    src: url("../fonts/Inter-Regular.ttf");
+    font-family: "Inter-Regular";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/Inter-Regular.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: "poppins-bold";
-    src: url("../fonts/Inter-Bold.ttf");
+    font-family: "Inter-Bold";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/Inter-Bold.woff2") format("woff2");
 }
 
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: poppins-bold;
-    color: #3C486B;
+    font-family: inter;
+    color: #3c486b;
 }
 
 body {
@@ -22,7 +28,7 @@ body {
     justify-content: center;
     width: 100%;
     height: 100vh;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
 }
 
 #container {
@@ -39,7 +45,7 @@ h1 {
 }
 
 h1 > span {
-    color: #F45050;
+    color: #f45050;
 }
 
 h1 > img {
@@ -60,7 +66,7 @@ h1 > img {
 
 .links li a {
     font-size: 20px;
-    font-family: "poppins-regular";
+    font-family: inter;
     text-decoration: none;
     padding: 4px 8px;
     color: rgba(60, 72, 107, 0.5);
