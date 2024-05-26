@@ -18,7 +18,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: inter;
+    font-family: Inter-Bold;
     color: #3c486b;
 }
 
@@ -66,7 +66,7 @@ h1 > img {
 
 .links li a {
     font-size: 20px;
-    font-family: inter;
+    font-family: Inter-Regular;
     text-decoration: none;
     padding: 4px 8px;
     color: rgba(60, 72, 107, 0.5);
