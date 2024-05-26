@@ -1,0 +1,36 @@
+{
+  "name": "lite-php",
+  "version": "",
+  "description": "Micro PHP Web Framework",
+  "main": "gulpfile.mjs",
+  "scripts": {
+    "start": "gulp default",
+    "watch": "gulp watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArefShojaei/Lite-PHP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArefShojaei/Lite-PHP/issues"
+  },
+  "homepage": "https://github.com/ArefShojaei/Lite-PHP#readme",
+  "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "gulp": "^5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-cli": "^3.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-rev": "^11.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-size": "^5.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.77.1"
+  }
+}
