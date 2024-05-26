@@ -4,8 +4,8 @@
   "description": "Micro PHP Web Framework",
   "main": "gulpfile.mjs",
   "scripts": {
-    "start": "gulp default",
-    "watch": "gulp watch"
+    "start": "node ./node_modules/gulp-cli/bin/gulp.js default",
+    "watch": "node ./node_modules/gulp-cli/bin/gulp.js watch"
   },
   "repository": {
     "type": "git",
