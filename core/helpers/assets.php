@@ -27,13 +27,23 @@ function asset(string $src): string {
 }
 
 /**
+ * get mixed asset file
+ * @function _mix
+ * @private
+ * @return string
+ */
+function _mix(): string {
+    return useMode() == PROD_MODE ? ".min" : "";
+}
+
+/**
  * get css path
  * @function css
  * @param string $filename
  * @return string
  */
 function css(string $filename): string {
-    return buildURL(getAssetsBasePath() . "/css/{$filename}" . CSS_FILE_EXTENTION);
+    return buildURL(getAssetsBasePath() . "/css/{$filename}" . _mix() . CSS_FILE_EXTENTION);
 }
 
 /**
@@ -43,7 +53,7 @@ function css(string $filename): string {
  * @return string
  */
 function js(string $filename): string {
-    return buildURL(getAssetsBasePath() . "/js/{$filename}" . JS_FILE_EXTENTION);
+    return buildURL(getAssetsBasePath() . "/js/{$filename}". _mix() . JS_FILE_EXTENTION);
 }
 
 /**
