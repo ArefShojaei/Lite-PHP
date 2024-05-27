@@ -9,64 +9,76 @@
 2. [Folder Structure](#folder-structure)
     * [core/](#core)
     * [bootstrap/](#bootstrap)
-    * [modules/](#modules)
-    * [hooks/](#hooks)
-    * [plugins/](#plugins)
     * [public/](#public)
-    * [views/](#views)
+    * [modules/](#modules)
+    * [plugins/](#plugins)
+    * [console/](#console)
+    * [resources/](#resources)
+    * [hooks/](#hooks)
+    * [storage/](#storage)
 3. [Root Files](#root-files)
     * [.env.example]()
-    * [.gitignore](#gitignore)
-    * [.htaccess](#htaccess)
-    * [README.md](#readmemd)
-    * [server.php](#serverphp)
+    * [.gitignore]()
+    * [.htaccess]()
+    * [cli]()
+    * [gulpfile.mjs]()
+    * [package.json]()
+    * [README.md]()
+    * [server.php]()
 4. [Modules]()
-    * [alias]()
+    * [alias](#Alias)
     * [config]()
     * [enum]()
     * [plugin]()
 5. [Helpers]()
     * [import]()
-    * [module]()
-    * [plugin]()
-    * [view]()
-    * [dd]()
-    * [url]()
-    * [assets]()
-    * [validator]()
     * [abort]()
-    * [parse]()
+    * [assert]()
+    * [assets]()
     * [build]()
-    * [element]()
+    * [command]()
+    * [dd]()
+    * [parse]()
+    * [table]()
+    * [route]()
+    * [test]()
+    * [translate]()
+    * [url]()
+    * [view]()
+    * [validator]()
 6. [Hooks]()
     * [useHTTP]()
-    * [useHeader]()
-    * [useType]()
-    * [useRequest]()
-    * [useResponse]()
-    * [useCookie]()
-    * [useSession]()
-    * [useRoute]()
-    * [useRedirect]()
-    * [useQuery]()
     * [useGET]()
     * [usePOST]()
-    * [useBody]()
-    * [useFile]()
-    * [useEnv]()
-    * [useMode]()
-    * [useEnum]()
-    * [useConfig]()
-    * [useHash]()
-    * [useVerify]()
     * [useAPI]()
+    * [useBody]()
+    * [useCache]()
+    * [useConfig]()
+    * [useEnum]()
+    * [useFile]()
+    * [useGlobal]()
+    * [useState]()
+    * [useHash]()
+    * [usePasswordVerfiy]()
+    * [useHeader]()
     * [useHTML]()
     * [useID]()
-    * [useFlash]()
-    * [usePlugin]()
-    * [useMatch]()
+    * [useRedirect]()
     * [useURL]()
+    * [useType]()
+    * [useCookie]()
+    * [useSession]()
+    * [useMode]()
+    * [useMatch]()
+    * [useLog]()
+    * [useFlash]()
     * [useError]()
+    * [useEnv]()
+    * [usePlugin]()
+    * [useQuery]()
+    * [useRequest]()
+    * [useResponse]()
+    * [useUpload]()
 ---
 
 ## Introduction
@@ -81,6 +93,7 @@ Because the Lite-PHP has:
 2. **Modular Strucutre**
 3. **DBMS Like Mysql**
 4. **Custom Plugins & Hooks**
+5. **Custom Command Line in console**
 8. **REST API Development**
 5. **Functional Programming Structure**
 6. **Folder Strucutre**
@@ -91,9 +104,7 @@ Because the Lite-PHP has:
 **Note**: 
 1. Your PHP version must be **8.0 >=**
 
-2. This Folder of contents must be moved to 
-target web-server folder for running the project
-
+2. Clone this framework in a folder then run that by a web-server
 
 ```bash
 git clone https://github.com/ArefShojaei/Lite-PHP
@@ -107,11 +118,11 @@ Here is default folder structure for starting new project !
 ```bash
 |- bootstrap/
 |
+|- console/
+|
 |- core/
 |
 |- hooks/
-|
-|- lang/
 |
 |- modules/
 |
@@ -119,13 +130,17 @@ Here is default folder structure for starting new project !
 |
 |- public/
 |
+|- resources/
+|
 |- storage/
 |
-|- views/
 |
 |- .env.example
 |- .gitignore
 |- .htaccess
+|- .cli
+|- gulpfile.mjs
+|- package.json
 |- .README.md
 |- server.php
 ```
@@ -135,26 +150,25 @@ Here is default folder structure for starting new project !
 can be provided base files for every projects!**
 
 ### bootstrap/
-**This folder is to init app**
+**This folder is to init bade app files**
 
 ### modules/
-This folder is for using every modules for the app
-And by default has a "app" module for running
-every the Lite-PHP project well** + you can **register every modules** for the project
-
-for developing every project , this folder is important , **because project structure is modular!**
+This folder is modules that the app needs to run as main files
 
 ### hooks/
-**This will have custom Hooks**
+**In this folder you can development own custom hooks that you will use it in your project soon**
 
 ### plugins/
-**This will have custom Plugins**
+**In this folder you can development own custom plugin that you will use it in your project soon**
 
 ### public/
-**This will have asset files**
+**This folder is entry point to run the app**
 
-### views/
-**This will have view content of HTML template files as php file to render that in DOM**
+### resources/
+**This folder has asset and view files**
+
+### storage/
+**This folder management log, cache and upload files**
 
 
 ## Root Files
@@ -179,36 +193,35 @@ files for pushing other files**
 ## Modules
 
 ### alias
-This module is to register every alias
+This module provides to register custom Alias
 
 #### 1-Example:
 ```php
 # Before
-require_once "../../modules/user/_model";
+require_once "../../../modules/user/_controller.php";
+require_once "../console/commands/package/_main.php";
 
 # After
-import("@modules/user/_model")
+import("@modules/user/_controller") # without using '.php' ext
+import("@commands/package/_main") # without using '.php' ext
 ```
 
 #### 2-How can I use that ?
+Move to "bootstrap/alias.php"
+Then, register own alias by this way:
 ```php
-require_once "core/modules/alias/createAlias";
-
+/**
+ * init aliases
+ */
 createAlias([
-    # guide
-    "@<alias name>" => "path",
-    
-    # usage
-    "@auth" => "modules/auth",
-    "@hooks" => "core/hooks",
-    "@logger" => "plugins/logger",
-]);
+   # Guide
+   "@<alias-name>" => dirname(__DIR__) . "path",
 
-# using in the project
-import("@auth/_model");
-import("@auth/_route");
-import("@logger/_enum");
-...
+   # Example
+    "@core" => dirname(__DIR__) . "/core",
+    "@modules" => dirname(__DIR__) . "/modules",
+    ...
+]);
 ```
 
 ### config
@@ -374,3 +387,7 @@ import("@core/helpers/parse");
 
 parse("links.txt")
 ```
+
+
+
+### Soon 
