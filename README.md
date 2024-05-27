@@ -51,19 +51,19 @@
     * [useGET](#useget)
     * [usePOST](#usepost)
     * [useAPI](#usefetch---needs-to-refactore)
-    * [useID]()
-    * [useConfig]()
+    * [useID](#useid)
+    * [useConfig](#useconfig)
+    * [useEnum](#useenum)
+    * [useState](#usestate)
+    * [useGlobal](#useglobal)
+    * [useHash](#usehash)
+    * [usePasswordVerfiy](#useverifypassword)
+    * [useHTML](#usehtml)
+    * [useHeader]()
+    * [useRedirect]()
     * [useBody]()
     * [useCache]()
-    * [useEnum]()
     * [useFile]()
-    * [useGlobal]()
-    * [useState]()
-    * [useHash]()
-    * [usePasswordVerfiy]()
-    * [useHeader]()
-    * [useHTML]()
-    * [useRedirect]()
     * [useURL]()
     * [useType]()
     * [useCookie]()
@@ -402,7 +402,7 @@ $file = "links.txt";
 
 # Usage
 $links = prase($file);
-$links = @prase($file); # use @ to get boolean or content if you don't get error
+$links = @prase($file); # use @ to get boolean or content if you don't want to get error
 
 forach ($links as $link) {
     echo "[Link] {$link}" . PHP_EOL;
@@ -576,11 +576,7 @@ import("@core/hooks/useFetch");
 
 # Send GET Request
 function sendGetRequest() {
-    $params = [
-        "method" => "GET"
-    ];
-
-    $response = useFetch("http://domain.com/end-point", $params);
+    $response = useFetch("http://domain.com/end-point");
 
 
     dd($response);
@@ -626,5 +622,170 @@ function sendPatchRequest() {
 
 
     dd($response);
+}
+```
+
+### UseID
+This hooks provides to get random number ID
+
+```php
+import("@core/hooks/useID");
+
+
+function createUser($name, $email, $passowrd) {
+    $id = useID();
+
+    # logic code ...
+}
+```
+
+### UseConfig
+This hooks provides to get Config by key
+
+Note: sometimes you dont' want to get error for getting value from the hook usage, First you should load target module configuration in current file or script !
+
+```php
+import("@core/hooks/useConfig");
+
+
+function createUser($name, $email, $passowrd) {
+    $applicationName = useConfig("app.name");
+
+    # logic code ...
+}
+```
+
+### UseEnum
+This hooks provides to get Enum by key
+
+Note: sometimes you dont' want to get error for getting value from the hook usage, First you should load target module configuration in current file or script !
+
+```php
+import("@core/hooks/useEnum");
+
+
+function createUser($name, $email, $passowrd) {
+    # User SQL Table
+    $userTable = useEnum("User::TABLE");
+    
+    # HTTP Statuses
+    $HTTP_200 = useEnum("HTTP::OK");
+    $HTTP_201 = useEnum("HTTP::SUCCESS");
+    $HTTP_400 = useEnum("HTTP::BAD");
+    
+    # logic code ...
+}
+```
+
+
+### UseState
+This hooks provides to define state in **container** as **$GLOBALS['container']** super global
+
+Note: The hook has more option that you will like that
+
+1. Define state as "value"
+2. Define state as "key" & "value"
+3. Define state as "key" (Nested) & "value"
+
+```php
+import("@core/hooks/useState");
+
+
+function createUser($id, $name, $email, $password) {
+    $user = [
+        "email" => $email,
+        "password" => $password
+    ];
+
+
+    # First Way => Key & Value
+    useState("users", [], $user);
+    
+    # Second Way => Key & Value
+    useState("users", [$name], $user);
+    
+    # Third Way => Nested Keys & Value
+    useState("users", [$id, $name], $user);
+
+
+    # Then inspect $GLOBALS['container']['users']
+
+
+
+
+    # logic code ...
+}
+```
+
+### UseGlobal
+This hooks provides to get value from **container** as **$GLOBALS['container']** super global
+
+```php
+import("@core/hooks/useGlobal");
+
+
+function listComamnds() {
+    $comamnds = useGlobal("commands"); # $GLOBALS['container']['commands']
+
+
+    # logic code ...
+}
+```
+
+
+
+### UseHash
+This hooks provides to hash password
+
+```php
+import("@core/hooks/useHash");
+
+
+function createUser($name, $email, $passowrd) {
+    $hashedPassword = useHash($password);
+
+    # logic code ...
+}
+```
+
+### UseVerifyPassword
+This hooks provides to verify hashed password
+
+```php
+import("@core/hooks/useVerifyPassword");
+
+
+function checkPassword($password,  $hashedPassowrd) {
+    $isValidPassword = useVerifyPassword($password, $hashedPassword);
+
+    # logic code ...
+}
+```
+
+### UseVerifyPassword
+This hooks provides to verify hashed password
+
+```php
+import("@core/hooks/useVerifyPassword");
+
+
+function checkPassword($password,  $hashedPassowrd) {
+    $isValidPassword = useVerifyPassword($password, $hashedPassword);
+
+    # logic code ...
+}
+```
+
+### UseHTML
+This hooks provides to get html content by url
+
+```php
+import("@core/hooks/useHTML");
+
+
+function getSiteHtmlContent($url) {
+    $html = useHTML($url);
+
+    # logic code ...
 }
 ```
