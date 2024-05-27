@@ -36,16 +36,16 @@
     * [dd]()
     * [parse]()
     * [view]()
-    * [validator]()
-    * [build]()
     * [command]()
-    * [table]()
     * [test]()
+    * [build]()
+    * [table]()
+    * [abort]()
     * [translate]()
     * [url]()
     * [assets]()
+    * [validator]()
     * [assert]()
-    * [abort]()
 6. [Hooks]()
     * [useHTTP]()
     * [useGET]()
@@ -327,19 +327,7 @@ list(...) = usePlugin("plugin-name");
 ## > Helpers
 
 ### import
-This helper load file by Alias
-
-```php
-import("@modules/user/_controller")
-
-
-$user = getUser();
-
-print_r($user);
-```
-
-### import
-This helper load file by Alias
+This helper loads file by Alias
 
 ```php
 import("@modules/user/_controller")
@@ -351,7 +339,7 @@ print_r($user);
 ```
 
 ### Route
-This helper lets you to register Route in a module
+This helper lets you to add a new Route in a module
 
 Note: You can use it by two ways: <br>
 
@@ -374,3 +362,115 @@ addGroupRoute("/page", function() {
     addRoute("GET", "/courses", "showCourses"); # /page/courses
 });
 ```
+
+### DD
+This helper lets you to dump and die an Array in Browser as Client
+
+Note : You don't need to load the helper, Because the helper has loaded ! 
+
+```php
+$user = [
+    "id" => 1,
+    "name" => "Robert",
+    "skills" => ["PHP", ...]
+];
+
+# Usage
+dd($user); # to dump and die
+
+dd($user, false); # just to dump and no die
+```
+
+### Parse
+This helper lets you to get file content
+
+```php
+import("@core/helpers/parse");
+
+$file = "links.txt";
+
+# Usage
+$links = prase($file);
+$links = @prase($file); # use @ to get boolean or content if you don't get error
+
+forach ($links as $link) {
+    echo "[Link] {$link}" . PHP_EOL;
+}
+```
+
+### View
+This helper lets you to render view template
+
+```php
+import("@core/helpers/view");
+
+# Example 1
+view("welcome");
+
+# Example 2
+$user = [
+    "id" => 267
+    "title" => "User Page",
+    "name" => "Robert",
+]
+
+view("user", $user);
+```
+
+### Command
+This helper lets you to add a new Command to use in console
+
+Note: You can use it by two ways: <br>
+
+1. Add Single Command
+2. Group Commands
+
+```php
+# Usage
+import("@core/helpers/command");
+
+
+# Single Command
+addCommand("sayHi", fn() => "Hi from Lite PHP", "show Framework"); # php cli sayHi
+
+
+# Group Command
+addGroupCommand("fake:", function() {
+    addCommand("city", "action", "description"); # php cli fake:city
+    addCommand("company", "action", "description"); # php cli fake:company
+    addCommand("user", "action", "description"); # php cli fake:user
+    addCommand("book", "action", "description"); # php cli fake:book
+});
+```
+
+### Test
+This helper lets you to test module
+
+Note: You can test by two ways: <br>
+
+1. Test single module by name
+2. Test all modules
+
+```php
+# Usage
+import("@core/helpers/test");
+
+
+# Definition
+describe('test-info', function() {
+    it("test-description", function() {
+        # use Asserts ...
+        # Read "core/helpers/assertion.php" to use in this logic code !
+    });
+});
+
+
+# Usage
+
+    # Test All Modules 
+    php cli test
+    
+    # Test Single Module 
+    php cli test [module-name]
+```
+Finally, you will see the result in console.
