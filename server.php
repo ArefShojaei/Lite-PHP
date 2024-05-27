@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Lite-PHP - Micro PHP Freamework
+ * Lite-PHP - Micro PHP Framework
  * 
  * @package Lite-PHP
  * @author Aref Shojaei
