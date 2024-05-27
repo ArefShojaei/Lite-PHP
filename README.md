@@ -17,43 +17,44 @@
     * [hooks/](#hooks)
     * [storage/](#storage)
 3. [Root Files](#root-files)
-    * [.env.example]()
-    * [.gitignore]()
-    * [.htaccess]()
-    * [cli]()
-    * [gulpfile.mjs]()
-    * [package.json]()
-    * [README.md]()
-    * [server.php]()
-4. [Modules]()
+    * [.env.example](#envexample)
+    * [.gitignore](#gitignore)
+    * [.htaccess](#htaccess)
+    * [cli](#cli)
+    * [gulpfile.mjs](#gulpfilemjs)
+    * [package.json](#packagejson)
+    * [README.md](#readmemd)
+    * [server.php](#serverphp)
+4. [Modules](#modules)
     * [alias](#Alias)
-    * [config]()
-    * [enum]()
-    * [plugin]()
-5. [Helpers]()
-    * [import]()
-    * [route]()
-    * [dd]()
-    * [parse]()
-    * [view]()
-    * [command]()
-    * [test]()
+    * [config](#config)
+    * [enum](#enum)
+    * [plugin](#plugin)
+5. [Helpers](#helpers)
+    * [import](#import)
+    * [route](#route)
+    * [dd](#dd)
+    * [parse](#parse)
+    * [view](#view)
+    * [command](#command)
+    * [test](#test)
+    * [abort]()
     * [build]()
     * [table]()
-    * [abort]()
     * [translate]()
     * [url]()
     * [assets]()
     * [validator]()
     * [assert]()
 6. [Hooks]()
-    * [useHTTP]()
-    * [useGET]()
-    * [usePOST]()
-    * [useAPI]()
+    * [useHTTP](#usehttp)
+    * [useGET](#useget)
+    * [usePOST](#usepost)
+    * [useAPI](#usefetch---needs-to-refactore)
+    * [useID]()
+    * [useConfig]()
     * [useBody]()
     * [useCache]()
-    * [useConfig]()
     * [useEnum]()
     * [useFile]()
     * [useGlobal]()
@@ -62,7 +63,6 @@
     * [usePasswordVerfiy]()
     * [useHeader]()
     * [useHTML]()
-    * [useID]()
     * [useRedirect]()
     * [useURL]()
     * [useType]()
@@ -82,6 +82,7 @@
 ---
 
 ## > Introduction
+
 ### What is Lite-PHP ?
 Lite-PHP is a Micro Freamework 
 for developing Back-end Applications
@@ -170,6 +171,7 @@ This folder lets you to development **custom plugin**
 ### storage/
 This folder management the **log, cache and upload files**
 
+---
 
 ## > Root Files
 
@@ -183,13 +185,22 @@ files** to not push on Github
 ### .htaccess
 This is a config for **Apache web-server**
 
+### Cli
+This is console configuration to **use commands**
+
+### Gulpfile.mjs
+This is **Task-runner configuration** for assets
+
+### Package.json
+This is list of **pacakge dependencies that the Task-runner needs to run**
+
 ### README.md
 **This is an info about Lite-PHP**
 
 ### server.php
 This is **main file for launching the app**
 
-
+---
 ## > Modules
 
 ### Alias
@@ -323,7 +334,7 @@ import("@core/hooks/usePlugin");
 # Usage
 list(...) = usePlugin("plugin-name");
 ```
-
+---
 ## > Helpers
 
 ### import
@@ -474,3 +485,146 @@ describe('test-info', function() {
     php cli test [module-name]
 ```
 Finally, you will see the result in console.
+
+
+### Build
+This helper lets you to build new path & URL
+
+```php
+import("@core/helpers/build");
+
+# Guide
+buildURL("/products"); # [pre defined => (host:port)] + route
+
+
+buildPath("/resources", "/lang/en/public"); # base path + path + file ext
+```
+
+
+### Build
+This helper lets you to build new path & URL
+
+```php
+import("@core/helpers/build");
+
+# Guide
+buildURL("/products"); # [pre defined => (host:port)] + route
+
+
+buildPath("/resources", "/lang/en/public"); # base path + path + file ext
+```
+
+---
+## > Hooks
+
+Note: You should use hooks in logic code and don't use that outer of logic code!
+
+### UseHTTP
+This hook provides to use http as **$_SERVER** super global
+
+```php
+import("@core/hooks/useHTTP");
+
+
+function inspectRequest() {
+    $method = useHTTP("REQUEST_METHOD");
+
+    echo $method; # GET, POST, PUT, PATCH, DELETE
+}
+```
+
+### UseGET
+This hook provides to use **$_GET** super global
+
+```php
+import("@core/hooks/useGET");
+
+
+function inspectRequest() {
+    $username = useGET("username");
+    $password = useGET("password");
+
+
+    dd([
+        "username" => $username,
+        "password" => $password
+    ]);
+}
+```
+
+### UsePOST
+This hook provides to use **$_POST** super global
+
+```php
+import("@core/hooks/usePOST");
+
+
+function inspectRequest() {
+    $token = usePOST("token");
+
+    echo $token;
+}
+```
+
+### UseFetch - (Needs to Refactore)
+This hook provides to send http request
+
+```php
+import("@core/hooks/useFetch");
+
+# Examples
+
+# Send GET Request
+function sendGetRequest() {
+    $params = [
+        "method" => "GET"
+    ];
+
+    $response = useFetch("http://domain.com/end-point", $params);
+
+
+    dd($response);
+}
+
+// Send POST Request
+function sendPostRequest() {
+    $params = [
+        "method" => "POST",
+        "data" => [],
+        "headers" => [],
+    ];
+
+    $response = useFetch("http://domain.com/end-point", $params);
+
+
+    dd($response);
+}
+
+// Send PUT Request
+function sendPutRequest() {
+    $params = [
+        "method" => "PUT",
+        "data" => [],
+        "headers" => [],
+    ];
+
+    $response = useFetch("http://domain.com/end-point", $params);
+
+
+    dd($response);
+}
+
+// Send PATCH Request
+function sendPatchRequest() {
+    $params = [
+        "method" => "PATCH",
+        "data" => [],
+        "headers" => [],
+    ];
+
+    $response = useFetch("http://domain.com/end-point", $params);
+
+
+    dd($response);
+}
+```
