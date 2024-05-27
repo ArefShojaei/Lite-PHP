@@ -32,20 +32,20 @@
     * [plugin]()
 5. [Helpers]()
     * [import]()
-    * [abort]()
-    * [assert]()
-    * [assets]()
-    * [build]()
-    * [command]()
+    * [route]()
     * [dd]()
     * [parse]()
+    * [view]()
+    * [validator]()
+    * [build]()
+    * [command]()
     * [table]()
-    * [route]()
     * [test]()
     * [translate]()
     * [url]()
-    * [view]()
-    * [validator]()
+    * [assets]()
+    * [assert]()
+    * [abort]()
 6. [Hooks]()
     * [useHTTP]()
     * [useGET]()
@@ -81,38 +81,38 @@
     * [useUpload]()
 ---
 
-## Introduction
+## > Introduction
 ### What is Lite-PHP ?
 Lite-PHP is a Micro Freamework 
 for developing Back-end Applications
 
 ### Why Lite-PHP ?
-Because the Lite-PHP has:
+Because Lite-PHP has:
 
 1. **Simple & Fast Development Env**
 2. **Modular Strucutre**
 3. **DBMS Like Mysql**
-4. **Custom Plugins & Hooks**
-5. **Custom Command Line in console**
-8. **REST API Development**
-5. **Functional Programming Structure**
-6. **Folder Strucutre**
-7. **No OOP & No Object & No Class**
+4. **Testing Module**
+5. **Custom Plugins & Hooks**
+6. **Custom Command-line in console**
+7. **REST API Development**
+8. **Functional Programming Structure**
+9. **Folder Strucutre**
+10. **No OOP & No Object & No Class**
 
 ## How can I use Lite-PHP ?
 
 **Note**: 
 1. Your PHP version must be **8.0 >=**
 
-2. Clone this framework in a folder then run that by a web-server
+2. Clone this framework in a folder then run that by a Web-server + Mysql 
 
 ```bash
 git clone https://github.com/ArefShojaei/Lite-PHP
 ```
-Then run mysql & web-server<br>
 Finally , you will see the welcome page
 
-## Folder Structure
+## > Folder Structure
 Here is default folder structure for starting new project !
 
 ```bash
@@ -146,53 +146,53 @@ Here is default folder structure for starting new project !
 ```
 
 ### core/
-**This folder is main files or Lite-PHP core files that
-can be provided base files for every projects!**
+This folder is main files or **Lite-PHP core** files that
+can be provided base files for every projects!
 
 ### bootstrap/
-**This folder is to init bade app files**
+This folder is base files to **init the app**
 
 ### modules/
-This folder is modules that the app needs to run as main files
+This folder is modules that the app needs to run as main file
 
 ### hooks/
-**In this folder you can development own custom hooks that you will use it in your project soon**
+This folder lets you to development **custom hooks**
 
 ### plugins/
-**In this folder you can development own custom plugin that you will use it in your project soon**
+This folder lets you to development **custom plugin**
 
 ### public/
 **This folder is entry point to run the app**
 
 ### resources/
-**This folder has asset and view files**
+**This folder is asset and view files**
 
 ### storage/
-**This folder management log, cache and upload files**
+This folder management the **log, cache and upload files**
 
 
-## Root Files
+## > Root Files
 
 ### .env.example
 **This is a config for env** , Then before starting the project you must changed it from **.env.example** to **.env** file! 
 
 ### .gitignore
-**This is a config to hide 
-files for pushing other files**
+This is a config to **hide 
+files** to not push on Github
 
 ### .htaccess
-**This is a config for apache web-server**
+This is a config for **Apache web-server**
 
 ### README.md
-**This is an info for the Lite-PHP**
+**This is an info about Lite-PHP**
 
 ### server.php
-**This is main file for launching the app**
+This is **main file for launching the app**
 
 
-## Modules
+## > Modules
 
-### alias
+### Alias
 This module provides to register custom Alias
 
 #### 1-Example:
@@ -207,8 +207,9 @@ import("@commands/package/_main") # without using '.php' ext
 ```
 
 #### 2-How can I use that ?
-Move to "bootstrap/alias.php"
-Then, register own alias by this way:
+Move to **"bootstrap/alias.php"**
+Then, register an Alias by this way :
+
 ```php
 /**
  * init aliases
@@ -224,170 +225,152 @@ createAlias([
 ]);
 ```
 
-### config
-This module is to register config
+### Config
+This module registers new configuration for a module
 
 #### 1-How can I create a config ?
+
 ```php
 import("@core/modules/config/createConfig");
 
-createConfig("configName", [
+createConfig("config-name", [
     "key" => "value"
 ])
 ```
 
 #### 2-How can I use the config ?
+
 ```php
 import("@core/hooks/useConfig");
 
-useConfig("configName.key")
+
+# Usage
+useConfig("config-name.key")
 ```
 
-### enum
-This module is to register enum as constant
+### Enum
+This module registers an Enum as constant
 
-#### 1-How can I create an enum ?
+#### 1-How can I create an Enum ?
+
 ```php
 import("@core/modules/enum/createEnum");
 
-createEnum("ConfigName", [
+createEnum("enum-name", [
     "KEY" => "value"
 ])
 ```
 
-#### 2-How can I use the enum ?
+#### 2-How can I use the Enum ?
+
 ```php
 import("@core/hooks/useEnum");
 
-useEnum("ConfigName::KEY")
+
+# Usage
+useEnum("enum-name::KEY")
 ```
 
-### plugin
-This module is to register plugin
+### Plugin
+This module registers new Plugin
 
-Note: We have two types for using plugin :
+Note: We have **two types** for using plugin :
 
-1. **Runner Type**
-2. **Usage Type**
+1. **Runner Type** needs to register in         **"bootstrap/providers.php"**
 
-#### 1-How can I create an enum ?
+2. **Usage Type** needs to use in **logic code**
+
+#### 1-How can I create a Runner Plugin ?
+
 ```php
 import("@core/modules/plugin/createPlugin");
 
-# usage type
-createPlugin("pluginName", function () {});
-
-# runner type
-createPlugin("pluginName", function ($params) {}, false);
+# Usage
+createPlugin("plugin-name", function ($params) {}, false);
 ```
 
-#### 2-How can I use the plugin ?
+#### 2-How can I use the Runner Plugin ?
+Move to **"bootstrap/providers.php"** , then use this way to register the Runner Plugin
+
 ```php
-# Runner Type
-registerPlugin("pluginName")
+"plugins" => [
+    # Examples
+    registerPlugin("logger", ["level" => "short"]),
+    registerPlugin("security"),
+    registerPlugin("cors"),
 
-# Usage Type
-import("@core/hooks/usePlugin");
-usePlugin("pluginName"); # usage type
+    # Usage
+    registerPlugin("plugin-name"),
+],
 ```
 
+#### 3-How can I create a Usage Plugin ?
+
+```php
+import("@core/modules/plugin/createPlugin");
+
+# Usage
+createPlugin("plugin-name", function () {});
+```
+
+#### 4-How can I use the Usage Plugin ?
+Note: for using the plugin, you should use this way 
+
+```php
+import("@core/hooks/usePlugin");
 
 
+# Usage
+list(...) = usePlugin("plugin-name");
+```
 
-
-
-
-## Helpers
+## > Helpers
 
 ### import
-This helper is for load file by alias that you've **already decalred** that in the **createAlias module**
+This helper load file by Alias
 
 ```php
-# Before
-require "../hooks/useAgent.php";
+import("@modules/user/_controller")
 
-# After
-import("@hooks/useAgent");
+
+$user = getUser();
+
+print_r($user);
 ```
 
-### module
-This helper is to register module in **bootstrap/app.php** file!
+### import
+This helper load file by Alias
 
 ```php
-# helper function to register new module
-registerModule();
+import("@modules/user/_controller")
 
-# usage
-createModule(function () {
-    return [
-        # list of plugins that has runner type
-        "plugins" => [],
-        # list of modules that must be run in main process
-        "modules" => [
-            registerModule("moduleName"),
-        ],
-    ];
+
+$user = getUser();
+
+print_r($user);
+```
+
+### Route
+This helper lets you to register Route in a module
+
+Note: You can use it by two ways: <br>
+
+1. Add Single Route
+2. Group Routes
+
+```php
+# Usage
+import("@core/helpers/route");
+
+
+# Single Route
+addRoute("GET", "/user", "showUser"); # /user
+
+
+# Group Route
+addGroupRoute("/page", function() {
+    addRoute("GET", "/home", "showHome"); # /page/home
+    addRoute("GET", "/users", "showUsers"); # /page/users
+    addRoute("GET", "/courses", "showCourses"); # /page/courses
 });
 ```
-
-### plugin
-This helper is to register plugin in **bootstrap/app.php** file!
-
-```php
-# helper function to register new plugin
-registerPlugin();
-
-# usage
-createModule(function () {
-    return [
-        # list of plugins that has runner type
-        "plugins" => [
-            registerPlugin("pluginName"),
-        ],
-        # list of modules that must be run in main process
-        "modules" => [],
-    ];
-});
-```
-
-### view
-This helper is to render HTML template
-
-```php
-import("@core/helpers/view");
-
-function index() {
-    view("login", ["title" => "Login Page"]);
-}
-```
-
-### dd
-This helper is to dump & die an Array info
-
-```php
-$numbers = [1,2,3,4,5];
-
-dd($numbers);
-```
-
-### abort
-This helper is to throw HTTP exception
-
-```php
-import("@core/helpers/abort");
-
-abort(404, "Page not found!")
-```
-
-### parse
-This helper is to prase file content
-
-```php
-import("@core/helpers/parse");
-
-parse("links.txt")
-```
-
-
-
-### Soon 
