@@ -50,7 +50,7 @@
     * [useHTTP](#usehttp)
     * [useGET](#useget)
     * [usePOST](#usepost)
-    * [useAPI](#usefetch---needs-to-refactore)
+    * [useFetch](#usefetch---needs-to-refactore)
     * [useID](#useid)
     * [useConfig](#useconfig)
     * [useEnum](#useenum)
@@ -68,16 +68,16 @@
     * [useResponse](#useresponse)
     * [useRequest](#userequest)
     * [useRedirect](#useredirect)
-    * [useBody]()
-    * [useHeader]()
-    * [useCache]()
-    * [useURL]()
+    * [useURL](#useurl)
+    * [useBody](#usebody)
+    * [useHeader](#useheader)
+    * [useMatch](#usematch)
+    * [useFlash](#useflash)
     * [useFile]()
+    * [useUpload]()
+    * [useCache]()
     * [useCookie]()
     * [useSession]()
-    * [useMatch]()
-    * [useFlash]()
-    * [useUpload]()
 ---
 
 ## > Introduction
@@ -585,7 +585,7 @@ function sendGetRequest() {
 function sendPostRequest() {
     $params = [
         "method" => "POST",
-        "data" => [],
+        "body" => [],
         "headers" => [],
     ];
 
@@ -599,7 +599,7 @@ function sendPostRequest() {
 function sendPutRequest() {
     $params = [
         "method" => "PUT",
-        "data" => [],
+        "body" => [],
         "headers" => [],
     ];
 
@@ -613,7 +613,7 @@ function sendPutRequest() {
 function sendPatchRequest() {
     $params = [
         "method" => "PATCH",
-        "data" => [],
+        "body" => [],
         "headers" => [],
     ];
 
@@ -930,6 +930,88 @@ function inspectRequest() {
         useRedirect("/dashboard");
     }
 
+    # logic code ...
+}
+```
+
+### UseURL
+This hooks provides to parse URL
+
+```php
+import("@core/hooks/useURL");
+
+
+function inspectRequest() {
+    $parsedURL = useURL("http://localhost:5000/api/v1/products/?limit=25");
+
+    dd($parsedURL);
+    # logic code ...
+}
+```
+
+### UseBody
+This hooks provides to get the request body data
+
+```php
+import("@core/hooks/useBody");
+
+
+function inspectRequest() {
+    $token = useBody("token");
+
+    # logic code ...
+}
+```
+
+### UseHeader
+This hooks provides to add & remove header by **key and value**
+
+```php
+import("@core/hooks/useHeader");
+
+
+function inspectRequest() {
+    $fakeUserAgent = "...";
+
+    # add
+    useHeader("HTTP_USER_AGENT", $fakeUserAgent);
+    
+    # remove
+    useHeader("X-Powered-By");
+
+
+    # logic code ...
+}
+```
+
+### UseMatch
+This hooks provides to use regex
+
+```php
+import("@core/hooks/useMatch");
+
+
+function isValidEmail($email) {
+    $regexPattern = "/^\w+@gmail.com$/";
+
+    $result = useMatch($regexPattern, $email);
+
+    dd($result);
+
+    # logic code ...
+}
+```
+
+### UseFlash
+This hooks provides to add & remove falsh message
+
+```php
+import("@core/hooks/useFlash");
+
+
+function doLogin() {
+    useFlash("login", "Invalid Email or Password!");
+    
     # logic code ...
 }
 ```
