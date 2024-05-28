@@ -59,25 +59,24 @@
     * [useHash](#usehash)
     * [usePasswordVerfiy](#useverifypassword)
     * [useHTML](#usehtml)
-    * [useHeader]()
-    * [useRedirect]()
+    * [useMode](#usemode)
+    * [useEnv](#useenv)
+    * [useLog](#uselog)
+    * [useError](#useerror)
+    * [usePlugin](#useplugin)
+    * [useQuery](#usequery)
+    * [useResponse](#useresponse)
+    * [useRequest](#userequest)
+    * [useRedirect](#useredirect)
     * [useBody]()
+    * [useHeader]()
     * [useCache]()
-    * [useFile]()
     * [useURL]()
-    * [useType]()
+    * [useFile]()
     * [useCookie]()
     * [useSession]()
-    * [useMode]()
     * [useMatch]()
-    * [useLog]()
     * [useFlash]()
-    * [useError]()
-    * [useEnv]()
-    * [usePlugin]()
-    * [useQuery]()
-    * [useRequest]()
-    * [useResponse]()
     * [useUpload]()
 ---
 
@@ -785,6 +784,151 @@ import("@core/hooks/useHTML");
 
 function getSiteHtmlContent($url) {
     $html = useHTML($url);
+
+    # logic code ...
+}
+```
+
+### UseMode
+This hooks provides to get current app mode from ".env" as APP_MODE **( Production | Development )**
+
+```php
+import("@core/hooks/useMode");
+
+
+function getApplicationModeStatus() {
+    $mode = useMode(); # Production | Development
+
+    # logic code ...
+}
+```
+
+### UseEnv
+This hooks provides to get env from ".env" by key
+
+```php
+import("@core/hooks/useEnv");
+
+
+function createDatabaseConnection() {
+    $db = useEnv("DATABASE_DB");
+    $host = useEnv("DATABASE_HOST");
+    $username = useEnv("DATABASE_USER");
+    $password = useEnv("DATABASE_PASS");
+
+    # logic code ...
+}
+```
+
+### UseLog
+This hooks provides to put log message
+
+```php
+import("@core/hooks/useLog");
+
+
+function showDashboardPage() {
+    useLog("Admin Logged in!");
+
+    # logic code ...
+}
+```
+
+### UsePlugin
+This hooks provides to use plugins that has **usage type**
+
+```php
+import("@core/hooks/usePlugin");
+
+
+function getShortLink($longURL) {
+    [...] = usePlugin("shortLink");
+
+    # logic code ...
+}
+```
+
+### UseQuery
+This hooks provides to run **SQL query**
+
+```php
+import("@core/hooks/useQuery");
+
+
+function createUser($name, $email, $passowrd) {
+    useQuery("INSERT INTO `users` (name, email, password) VALUES (?, ?, ?)", [$name, $email, $passowrd]);
+    
+    # logic code ...
+}
+
+function doLogin($email, $passowrd) {
+    $user = useQuery("SELECT * FROM `users` WHERE email = ?", [$email]);
+
+    dd($user);
+    # logic code ...
+}
+```
+
+### UseResponse
+This hooks provides to return content output to the response as JSON | HTML | TEXT
+
+Note : You don't need to set content-type in header, Because the hook has done it 
+
+@Reference : core/hooks/useType <br>
+@Reference : core/hooks/useResponse
+
+```php
+import("@core/hooks/useResponse");
+
+
+function showLoginPage() {
+    $form = "
+        <form action='' method='POST'>
+            <input type='email' name='email' />
+            <input type='password' name='password' />
+            <button type='submit'>Login</button>
+        </form>
+    ";
+    
+    return useResponse("html", $form);
+}
+```
+
+### UseRequest
+This hooks provides the request data
+
+```php
+import("@core/hooks/useRequest");
+
+
+function inspectRequest() {
+    $host = useRequest("host"); # site.com
+    $ip = useRequest("ip"); # 192.168.1.1
+    $method = useRequest("method"); # GET | POST | PUT | PATCH | DELETE
+    $protocol = useRequest("protocol"); # HTTP | HTTPS
+    $query = useRequest("query"); # LIKE /product/?category='mobile'&limit=10
+    $route = useRequest("route"); # /products
+    $routeParams = useRequest("params"); # /product/{id} => ["id" => 171]
+    $userAgent = useRequest("userAgent"); # ...
+
+
+    # logic code ...
+}
+```
+
+### UseRedirect
+This hooks provides to redirect to a route
+
+```php
+import("@core/hooks/useRedirect");
+
+
+function inspectRequest() {
+    $isValidUser = true;
+
+    if($isValidUser) {
+        useRedirect("/dashboard");
+    }
 
     # logic code ...
 }
