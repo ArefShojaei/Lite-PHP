@@ -565,7 +565,7 @@ function inspectRequest() {
 }
 ```
 
-### UseFetch - (Needs to Refactore)
+### UseFetch
 This hook provides to send http request
 
 ```php
