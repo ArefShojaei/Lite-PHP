@@ -1,18 +1,27 @@
 <?php
 
 /**
- * get variable from $_GLOBALS
+ * get state from $_GLOBALS super global
  * @function useGlobal
  * @param string $state
  * @return mixed
  */
 function useGlobal(string $state): mixed {
-    # get the $state from container as global data
-    $container = &$GLOBALS["container"][$state];
+    # get container as global
+    $container = $GLOBALS["container"];
 
-    # get the $state from $_GLOBALS if the $state is not exists in the $GLOBALS["container"] 
-    $default = &$GLOBALS[$state];
+    # extract state keys
+    $keys = explode(".", $state);
 
-    # return the $state
-    return isset($container) ? $container : $default;
+    # dive into nested keys
+    foreach ($keys as $key) {
+        if(!isset($container[$key])) {
+            return null;
+        }
+
+        $state = &$container[$key];
+    }
+
+    # return the state
+    return isset($state) ? $state : $GLOBALS[$state];
 }
