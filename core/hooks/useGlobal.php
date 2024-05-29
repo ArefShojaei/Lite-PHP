@@ -19,9 +19,9 @@ function useGlobal(string $state): mixed {
             return null;
         }
 
-        $state = &$container[$key];
+        $container = &$container[$key];
     }
 
     # Get the state
-    return isset($state) ? $state : $GLOBALS[$state];
+    return isset($container) ? $container : $GLOBALS[$state];
 }
