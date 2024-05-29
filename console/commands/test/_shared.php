@@ -42,7 +42,7 @@ function makeTable(array $params): void {
         
         echo addSeparator(fill:"-");
         
-        echo addColumn($passedTests, length:9, position:STR_PAD_BOTH) . addColumn($failedTests, length:8, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
+        echo addColumn($passedTests ?? 0, length:9, position:STR_PAD_BOTH) . addColumn($failedTests ?? 0, length:8, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
     }, $length);
 }
 
