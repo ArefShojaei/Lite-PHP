@@ -1,7 +1,7 @@
 <?php
 
 /**
- * get header by name
+ * Get header by name
  * @function useHTTP
  * @param string $key
  * @param mixed $defaultValue

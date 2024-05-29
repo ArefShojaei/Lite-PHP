@@ -7,7 +7,7 @@ import("@core/hooks/useEnv");
 
 
 /**
- * get env mode
+ * Get ENV mode
  * @function useMode
  * @return string
  */

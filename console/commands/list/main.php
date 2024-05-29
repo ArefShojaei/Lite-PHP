@@ -8,10 +8,10 @@ import("@commands/list/_helpers");
 
 
 /**
- * list command
+ * List command
  * 
  * 
- * ----------- comamnds -----------
+ * ----------- Comamnds -----------
  ** php cli list
  ** php cli list:command
  ** php cli list:route

@@ -8,7 +8,7 @@ import("@core/shared/helpers/assert/_validateAssertion");
 
 
 /**
- * assert true
+ * Assert true
  * @function assertTrue
  * @param bool $actual
  * @return void
@@ -19,7 +19,7 @@ function assertTrue(bool $actual): void {
 
 
 /**
- * assert false
+ * Assert false
  * @function assertFalse
  * @param bool $actual
  * @return void
@@ -30,7 +30,7 @@ function assertFalse(bool $actual): void {
 
 
 /**
- * assert same
+ * Assert same
  * @function assertSame
  * @param mixed $expected
  * @param mixed $actual
@@ -44,7 +44,7 @@ function assertSame(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert equals
+ * Assert equals
  * @function assertEquals
  * @param mixed $expected
  * @param mixed $actual
@@ -58,7 +58,7 @@ function assertEquals(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert array has key
+ * Assert array has key
  * @function assertArrayHasKey
  * @param mixed $expected
  * @param mixed $actual
@@ -72,7 +72,7 @@ function assertArrayHasKey(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert contains
+ * Assert contains
  * @function assertContains
  * @param mixed $expected
  * @param mixed $actual
@@ -86,7 +86,7 @@ function assertContains(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert count
+ * Assert count
  * @function assertContains
  * @param mixed $expected
  * @param mixed $actual
@@ -100,7 +100,7 @@ function assertCount(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert same size
+ * Assert same size
  * @function assertSameSize
  * @param mixed $expected
  * @param mixed $actual
@@ -114,7 +114,7 @@ function assertSameSize(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert empty
+ * Assert empty
  * @function assertEmpty
  * @param mixed $actual
  * @return void
@@ -127,7 +127,7 @@ function assertEmpty(mixed $actual): void {
 
 
 /**
- * assert greater than
+ * Assert greater than
  * @function assertGreaterThan
  * @param mixed $expected
  * @param mixed $actual
@@ -141,7 +141,7 @@ function assertGreaterThan(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert greater than or equal
+ * Assert greater than or equal
  * @function assertGreaterThanOrEqual
  * @param mixed $expected
  * @param mixed $actual
@@ -155,7 +155,7 @@ function assertGreaterThanOrEqual(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert less than
+ * Assert less than
  * @function assertLessThan
  * @param mixed $expected
  * @param mixed $actual
@@ -169,7 +169,7 @@ function assertLessThan(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert less than or equal
+ * Assert less than or equal
  * @function assertLessThanOrEqual
  * @param mixed $expected
  * @param mixed $actual
@@ -183,7 +183,7 @@ function assertLessThanOrEqual(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert is array
+ * Assert is array
  * @function assertIsArray
  * @param mixed $actual
  * @return void
@@ -196,7 +196,7 @@ function assertIsArray(mixed $actual): void {
 
 
 /**
- * assert is list
+ * Assert is list
  * @function assertIsList
  * @param mixed $actual
  * @return void
@@ -209,7 +209,7 @@ function assertIsList(mixed $actual): void {
 
 
 /**
- * assert is bool
+ * Assert is bool
  * @function assertIsBool
  * @param mixed $actual
  * @return void
@@ -222,7 +222,7 @@ function assertIsBool(mixed $actual): void {
 
 
 /**
- * assert is callable
+ * Assert is callable
  * @function assertIsCallable
  * @param mixed $actual
  * @return void
@@ -235,7 +235,7 @@ function assertIsCallable(mixed $actual): void {
 
 
 /**
- * assert is float
+ * Assert is float
  * @function assertIsFloat
  * @param mixed $actual
  * @return void
@@ -248,7 +248,7 @@ function assertIsFloat(mixed $actual): void {
 
 
 /**
- * assert is int
+ * Assert is int
  * @function assertIsInt
  * @param mixed $actual
  * @return void
@@ -261,7 +261,7 @@ function assertIsInt(mixed $actual): void {
 
 
 /**
- * assert is iterable
+ * Assert is iterable
  * @function assertIsIterable
  * @param mixed $actual
  * @return void
@@ -274,7 +274,7 @@ function assertIsIterable(mixed $actual): void {
 
 
 /**
- * assert is numberic
+ * Assert is numberic
  * @function assertIsNumeric
  * @param mixed $actual
  * @return void
@@ -287,7 +287,7 @@ function assertIsNumeric(mixed $actual): void {
 
 
 /**
- * assert is resource
+ * Assert is resource
  * @function assertIsResource
  * @param mixed $actual
  * @return void
@@ -300,7 +300,7 @@ function assertIsResource(mixed $actual): void {
 
 
 /**
- * assert is string
+ * Assert is string
  * @function assertIsString
  * @param mixed $actual
  * @return void
@@ -313,7 +313,7 @@ function assertIsString(mixed $actual): void {
 
 
 /**
- * assert is null
+ * Assert is null
  * @function assertNull
  * @param mixed $actual
  * @return void
@@ -326,7 +326,7 @@ function assertNull(mixed $actual): void {
 
 
 /**
- * assert string starts with
+ * Assert string starts with
  * @function assertStringStartsWith
  * @param mixed $expected
  * @param mixed $actual
@@ -340,7 +340,7 @@ function assertStringStartsWith(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert string ends with
+ * Assert string ends with
  * @function assertStringEndsWith
  * @param mixed $expected
  * @param mixed $actual
@@ -354,7 +354,7 @@ function assertStringEndsWith($expected, $actual): void {
 
 
 /**
- * assert string contains string
+ * Assert string contains string
  * @function assertStringContainsString
  * @param mixed $expected
  * @param mixed $actual
@@ -368,7 +368,7 @@ function assertStringContainsString(mixed $expected, mixed $actual): void {
 
 
 /**
- * assert json
+ * Assert json
  * @function assertJson
  * @param mixed $actual
  * @return void

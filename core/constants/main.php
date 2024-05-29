@@ -1,7 +1,7 @@
 <?php
 
 /**
- * import constants
+ * Import constants
  */
 require_once __DIR__ . "/path.php";
 require_once __DIR__ . "/extention.php";
@@ -11,28 +11,28 @@ require_once __DIR__ . "/plugin.php";
 
 
 /**
- * development mode
+ * Development mode
  * @constant string
  * @return string
  */
 const DEV_MODE = "development";
 
 /**
- * production mode
+ * Production mode
  * @constant string
  * @return string
  */
 const PROD_MODE = "production";
 
 /**
- * main executable filename
+ * Main executable filename
  * @constant string
  * @return string
  */
 const MAIN_EXECUTABLE_FILE = "main";
 
 /**
- * check to load file | "security" tip
+ * Check to load file => "security" tip
  * @constant string
  * @return string
  */

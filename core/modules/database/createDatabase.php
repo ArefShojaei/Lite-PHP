@@ -9,32 +9,32 @@ import("@core/hooks/useError");
 
 
 /**
- * init database
+ * Setup database
  * @function createDatabase
- * @param string $host mysql host
- * @param string $username mysql username
- * @param string $passowrd mysql password
- * @param string $db mysql database
+ * @param string $host Mysql host
+ * @param string $username Mysql username
+ * @param string $passowrd Mysql password
+ * @param string $db mysql Mysql database name
  * @return void
  */
 function createDatabase(string $host, string $username, string $password = "", string $db = null): void {
     try {
-        # mysql connection
+        # Mysql connection
         $connection = mysqli_connect($host, $username, $password, $db);
     
-        # set state
+        # Set state
         useState("database", $connection);
     } catch (Exception $e){
-        # add content type
+        # Add content type
         useType("application/json");
 
-        # error info
+        # Error info
         $response = [
             "message" => "Database can't be connected!",
             "error" => $e->getMessage()
         ];
 
-        # show the info as json content
+        # Show the info as json content
         useError(json_encode($response));
     }
 }

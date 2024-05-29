@@ -7,7 +7,7 @@ import("@core/modules/enum/createEnum");
 
 
 /**
- * shortLink enums
+ * ShortLink enums
  */
 createEnum("ShortLink", [
     "TABLE" => "links",

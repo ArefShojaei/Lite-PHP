@@ -1,7 +1,7 @@
 <?php
 
 /**
- * close http request as "close the curl"
+ * Close http request as "close the curl"
  * @function _closeHttpRequest
  * @private
  * @param object $curl

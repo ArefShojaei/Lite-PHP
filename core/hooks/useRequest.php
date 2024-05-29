@@ -14,12 +14,12 @@ import("@core/shared/hooks/useRequest/_userAgent");
 
 
 /**
- * request info
+ * Request info
  * @function useRequest
  * @param string $action
  * @return string|array
  */
 function useRequest(string $action): string|array {
-    # call $aciton dynamicly
+    # Call $aciton dynamicly
     return ("_" . $action)();
 }

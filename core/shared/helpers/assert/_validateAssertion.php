@@ -1,7 +1,7 @@
 <?php
 
 /**
- * validate assertion
+ * Validate assertion
  * @function _validateAssertion
  * @private
  * @param bool $result
@@ -10,7 +10,7 @@
 function _validateAssertion(bool $result): void {
     global $passedTests, $failedTests;
 
-    # is not valid result as falsly value
+    # Check to not be valid result as falsly value
     if (!$result) {
         $failedTests++;
 
@@ -18,7 +18,8 @@ function _validateAssertion(bool $result): void {
         return;
     }
 
-    # valid result
+    # Valid result
     $passedTests++;
+    
     echo "     ✔️  Success test.\n";
 }

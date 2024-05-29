@@ -1,7 +1,7 @@
 <?php
 
 /**
- * show welcome message
+ * Show welcome message
  * @function welcomeCommand
  * @return string
  */

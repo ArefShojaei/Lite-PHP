@@ -1,20 +1,20 @@
 <?php
 
 /**
- * get & set cookie
+ * Get & Set cookie
  * @function useCookie
  * @param string $key 
  * @param mixed $defaultValue
- * @param array $params cookie options
+ * @param array $params Cookie options
  * @return mixed
  */
 function useCookie(string $key, mixed $defaultValue = null, array $params = []): mixed {
-    # get cookie
+    # Get cookie
     if(!isset($defaultValue)) {
         return $_COOKIE[$key];
     }
 
-    # set cookie
+    # Set cookie
     setcookie(
         $key, 
         $defaultValue,

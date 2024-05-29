@@ -1,7 +1,7 @@
 <?php
 
 /**
- * public persian words
+ * Public Persian words
  * @return array
  */
 return [

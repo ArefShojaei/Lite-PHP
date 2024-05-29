@@ -7,7 +7,7 @@ import("@core/hooks/useState");
 
 
 /**
- * register plugin
+ * Register plugin
  * @function createPlugin
  * @param string $name
  * @param callable $action
@@ -15,14 +15,12 @@ import("@core/hooks/useState");
  * @return void
  */
 function createPlugin(string $name, callable $action, bool $hasUsageMode = true): void {
-    # is runner type
+    # Is runner type
     if(!$hasUsageMode) {
-        // useState("plugins", [PLUGIN_RUNNER_TYPE, $name], $action);
         useState("plugins." . PLUGIN_RUNNER_TYPE . ".{$name}", $action);
         return;
     }
     
-    # is usage type
-    // useState("plugins", [PLUGIN_USAGE_TYPE, $name], $action());
+    # Is usage type
     useState("plugins." . PLUGIN_RUNNER_TYPE . ".{$name}", $action());
 }

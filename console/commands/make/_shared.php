@@ -1,17 +1,17 @@
 <?php
 
 /**
- * get file path info in a DIR 
+ * Get file path info in a DIR 
  * @function _getPathInfo
  * @param string $DIR
  * @param string $filename
  * @return void
  */
 function _getPathInfo(string $DIR, string $filename = MAIN_EXECUTABLE_FILE): array {
-    # filename + file ext
+    # Filename + file ext
     $file = $filename . PHP_FILE_EXTENTION;
 
-    # full file path
+    # Full file path
     $src = "{$DIR}/{$file}";
 
 
@@ -20,7 +20,7 @@ function _getPathInfo(string $DIR, string $filename = MAIN_EXECUTABLE_FILE): arr
 
 
 /**
- * check file if it exists
+ * Check file if it exists
  * @function _checkFileToExist
  * @param string $src
  * @param string $filename
@@ -39,7 +39,7 @@ function _checkFileToExist(string $src, string $filename, string $tag): bool {
 
 
 /**
- * make file by src
+ * Make file by src
  * @function _makeFile
  * @param string $src
  * @param string $content
@@ -51,7 +51,7 @@ function _makeFile(string $src, string $content): void {
 
 
 /**
- * make files by input
+ * Make files by input
  * @function _makeFile
  * @param array $files
  * @return void
@@ -64,7 +64,7 @@ function _makeFiles(array $files): void {
 
 
 /**
- * show message after completed task
+ * Show message after completed task
  * @function _showCompletedTaskMessage
  * @param string $tag
  * @param string $DIR

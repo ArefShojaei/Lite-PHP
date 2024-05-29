@@ -5,10 +5,11 @@
  */
 import("@core/helpers/build");
 import("@core/hooks/useMode");
+import("@core/shared/assets/_mix");
 
 
 /**
- * get assets base path
+ * Get assets base path
  * @function getAssetsBasePath
  * @return string
  */
@@ -17,7 +18,7 @@ function getAssetsBasePath(): string {
 }
 
 /**
- * get asset path
+ * Get asset path
  * @function asset
  * @param string $src asset file path
  * @return string
@@ -27,17 +28,7 @@ function asset(string $src): string {
 }
 
 /**
- * get mixed asset file
- * @function _mix
- * @private
- * @return string
- */
-function _mix(): string {
-    return useMode() == PROD_MODE ? ".min" : "";
-}
-
-/**
- * get css path
+ * Get css path
  * @function css
  * @param string $filename
  * @return string
@@ -47,7 +38,7 @@ function css(string $filename): string {
 }
 
 /**
- * get js path
+ * Get js path
  * @function js
  * @param string $filename
  * @return string
@@ -57,7 +48,7 @@ function js(string $filename): string {
 }
 
 /**
- * get img path
+ * Get img path
  * @function img
  * @param string $file file + ext
  * @return string
@@ -67,7 +58,7 @@ function img(string $file): string {
 }
 
 /**
- * get icon path
+ * Get icon path
  * @function icon
  * @param string $file file + ext
  * @return string

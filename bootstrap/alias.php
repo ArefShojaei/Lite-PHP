@@ -7,7 +7,7 @@ require_once dirname(__DIR__) . "/core/modules/alias/createAlias.php";
 
 
 /**
- * init aliases
+ * Register Alias
  */
 createAlias([
     "@core" => dirname(__DIR__) . "/core",

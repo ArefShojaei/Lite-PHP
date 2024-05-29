@@ -7,7 +7,7 @@ import("@core/helpers/parse");
 
 
 /**
- * get request body data
+ * Get the Request body data
  * @function useBody
  * @param string $key
  * @return string|array

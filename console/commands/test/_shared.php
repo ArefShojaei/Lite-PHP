@@ -7,7 +7,7 @@ import("@core/helpers/table");
 
 
 /**
- * load module
+ * Load module
  * @function loadModule
  * @param string $module module name
  * @return void
@@ -20,7 +20,7 @@ function loadModule(string $module): void {
 
 
 /**
- * make table
+ * Make table
  * @function makeTable
  * @param array $params
  * @return void
@@ -28,11 +28,11 @@ function loadModule(string $module): void {
 function makeTable(array $params): void {
     list($passedTests, $failedTests) = $params;
 
-    # table size
+    # Table size
     $length = 18;
 
 
-    # table
+    # Table structure
     createTable(function() use ($passedTests, $failedTests) {
         echo addRow("TOTAL");
         
@@ -49,15 +49,15 @@ function makeTable(array $params): void {
 
 
 /**
- * get all modules
+ * Get all modules
  * @function getAllModules
  * @return array
  */
 function getAllModules(): array {
-    # scan modules DIR to get module names
+    # Scan modules DIR to get module names
     $modules = scandir("modules");
 
-    # remove "." & ".." to clean $modules
+    # Remove "." & ".." to clean $modules
     array_shift($modules);
     array_shift($modules);   
     

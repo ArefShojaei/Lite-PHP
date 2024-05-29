@@ -9,7 +9,7 @@ import("@core/shared/hooks/useResponse/_text");
 
 
 /**
- * response info
+ * Response info
  * @function useResponse
  * @param string $action
  * @param string|array $value
@@ -17,9 +17,9 @@ import("@core/shared/hooks/useResponse/_text");
  * @return string
  */
 function useResponse(string $action, string|array $value, int $code = 200): string {
-    # set http status code
+    # Set http status code
     isset($code) && http_response_code($code);
 
-    # call $action dynamicly
+    # Call $action dynamicly
     return ("_" . $action)($value);
 }

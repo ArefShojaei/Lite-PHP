@@ -1,7 +1,7 @@
 <?php
 
 /**
- * set word attributes
+ * Set word attributes
  * @function _setAttributes
  * @private
  * @param array $attributes
@@ -9,10 +9,10 @@
  * @return string
  */
 function _setAttributes(array $attributes, string $translatedWord): string {
-    # decalre regex pattern
+    # Decalre regex pattern
     $pattern = "/\:(?<attribute>\w+)/";
 
-    # set attributes
+    # Set attributes
     return preg_replace_callback($pattern, function ($matches) use ($attributes) {
         $key = $matches["attribute"];
 

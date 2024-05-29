@@ -9,29 +9,29 @@ require_once dirname(__DIR__) . "/shared/helpers/element/_applyTagElement.php";
 
 
 /**
- * create single HTML element
+ * Create single HTML element
  * @function createSingleElement
  * @param string $tag
  * @param array $attributes
  * @return string
  */
 function createSingleElement(string $tag, array $attributes): string {
-    # open the tag
+    # Open the tag
     $element = _applyTagElement($tag);
 
-    # add attributes
+    # Add attributes
     if (count($attributes)) _applyAttributes($element, $attributes);
 
-    # close the tag
+    # Close the tag
     $element .= " />";
 
-    # return the element
+    # Get the element as output
     return $element;
 }
 
 
 /**
- * create HTML element
+ * Create HTML element
  * @function createElement
  * @param string $tag
  * @param array $attributes
@@ -39,21 +39,21 @@ function createSingleElement(string $tag, array $attributes): string {
  * @return string
  */
 function createElement(string $tag, array $attributes, array $children): string {
-    # open the tag
+    # Open the tag
     $element = _applyTagElement($tag);
 
-    # add attributes
+    # Add attributes
     if (count($attributes)) _applyAttributes($element, $attributes);
 
-    # close the before tag
+    # Close the before tag
     $element .= ">";
 
-    # add children
+    # Add children
     if (count($children)) _applyChildren($element, $children);
 
-    # close the after tag
+    # Close the after tag
     $element .= "</{$tag}>";
 
-    # return the element
+    # Get the element as output
     return $element;
 }

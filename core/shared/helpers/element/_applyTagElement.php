@@ -1,7 +1,7 @@
 <?php
 
 /**
- * create HTML tag
+ * Create HTML tag element
  * @function _applyTagElement
  * @private
  * @param string $tag

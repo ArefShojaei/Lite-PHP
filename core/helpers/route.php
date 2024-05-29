@@ -8,7 +8,7 @@ import("@core/hooks/useGlobal");
 
 
 /**
- * add route
+ * Add route
  * @function addRoute
  * @param string $method
  * @param string $route
@@ -23,7 +23,7 @@ function addRoute(string $method, string $route, string $action, array $middlewa
 
 
 /**
- * group route
+ * Group route
  * @function groupRoute
  * @param string $prefix
  * @param callable $aciton

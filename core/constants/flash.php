@@ -1,26 +1,26 @@
 <?php
 
 /**
- ** @summary flash level constants
+ ** @summary Flash level constants
  */
 
  
 /**
- * flash info level
+ * Flash info level
  * @constant string
  * @return string
  */
 const FLASH_INFO_LEVEL = "info";
 
 /**
- * flash success level
+ * Flash success level
  * @constant string
  * @return string
  */
 const FLASH_SUCCESS_LEVEL = "success";
 
 /**
- * flash error level
+ * Flash error level
  * @constant string
  * @return string
  */
@@ -28,7 +28,7 @@ const FLASH_SUCCESS_LEVEL = "success";
 const FLASH_ERROR_LEVEL = "error";
 
 /**
- * flash warning level
+ * Flash warning level
  * @constant string
  * @return string
  */

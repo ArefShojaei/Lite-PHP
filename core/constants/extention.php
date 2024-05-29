@@ -1,47 +1,47 @@
 <?php
 
 /**
- ** @summary file ext constatns
+ ** @summary File ext constatns
  */
 
 
 /**
- * php file ext
+ * PHP file ext
  * @constant string
  * @return string
  */
 const PHP_FILE_EXTENTION = ".php";
 
 /**
- * log file ext
+ * Log file ext
  * @constant string
  * @return string
  */
 const LOG_FILE_EXTENTION = ".log";
 
 /**
- * env file ext
+ * Env file ext
  * @constant string
  * @return string
  */
 const ENV_FILE_EXTENTION = ".env";
 
 /**
- * css file ext
+ * Css file ext
  * @constant string
  * @return string
  */
 const CSS_FILE_EXTENTION = ".css";
 
 /**
- * js file ext
+ * Js file ext
  * @constant string
  * @return string
  */
 const JS_FILE_EXTENTION = ".js";
 
 /**
- * json file ext
+ * Json file ext
  * @constant string
  * @return string
  */

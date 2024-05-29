@@ -14,9 +14,9 @@ import("@core/hooks/useType");
  * @return string
  */
 function _text(string $value): string {
-    # set content-type
+    # Set content-type
     useType("text/plain");
     
-    # return the $value as pure text
+    # Get the value as pure text
     return $value;
 }

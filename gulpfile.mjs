@@ -13,7 +13,7 @@ import path from "path";
 
 
 
-// asset contracts for path
+// Asset contracts for path
 const ASSETS = {
     base: path.resolve(),
 
@@ -31,7 +31,7 @@ const ASSETS = {
 
 
 
-// tasks
+// Tasks
 gulp.task("minify-img", async () => {
     gulp.src(`${ASSETS.base}${ASSETS.src}${ASSETS.img}/*`)
         .pipe(imagemin())
@@ -87,7 +87,14 @@ gulp.task("copy-font-files", async () => {
     .pipe(gulp.dest(`${ASSETS.base}${ASSETS.dist}${ASSETS.font}`))
 })
 
-// start tasks once proccess
+
+
+
+
+
+
+
+// Start tasks once proccess
 gulp.task("default", gulp.parallel(
     "minify-img",
     "minify-css",
@@ -97,7 +104,7 @@ gulp.task("default", gulp.parallel(
     "copy-font-files",
 ))
 
-// start tasks as watch mode (LIVE)
+// Start tasks as watch mode (LIVE)
 gulp.task("watch", async () => {
     gulp.watch(`${ASSETS.base}${ASSETS.src}${ASSETS.js}`, gulp.series("minify-js"));
     gulp.watch(`${ASSETS.base}${ASSETS.src}${ASSETS.css}`, gulp.series("minify-css"));

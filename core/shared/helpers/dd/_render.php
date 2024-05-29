@@ -7,7 +7,7 @@ require_once dirname(__DIR__, 3) . "/helpers/element.php";
 
 
 /**
- * render template to show $input info
+ * Render template to show info by params
  * @function _render
  * @private
  * @param array $params
@@ -16,19 +16,20 @@ require_once dirname(__DIR__, 3) . "/helpers/element.php";
 function _render(array $params): string {
     list($input, $styles) = $params; 
 
+    # Element structure
     return createElement("div", ["style" => $styles['div']], [
-        # p element
+        # <p> element
         createElement("p", ["style" => $styles['p']], [
             "Count:&nbsp;",
         
-            # strong element
+            # <strong> element
             createElement("strong", ["style" => $styles["strong"]], [count($input)])
         ]),
         
-        # hr element
+        # <hr> element
         createSingleElement("hr", []),
 
-        # pre element
+        # <pre> element
         createElement("pre", ["style" => $styles['pre']], [print_r($input, true)]),
     ]);
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * run command in console
+ * Run command in console
  * @function _executeCommand
  * @param array $command command data
  * @param array $params command params

@@ -7,7 +7,7 @@ import("@core/helpers/parse");
 
 
 /**
- * parse HTML by URL
+ * Parse HTML by URL
  * @function useHTML
  * @param string $url
  * @return string|false

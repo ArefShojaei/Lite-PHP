@@ -8,7 +8,7 @@ import("@core/hooks/useEnv");
 
 
 /**
- * database config
+ * Database config
  */
 createConfig("database", [
     "host" => useEnv("MYSQL_HOST"),

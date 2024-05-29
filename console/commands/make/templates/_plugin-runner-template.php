@@ -7,9 +7,9 @@ import("@core/modules/plugin/createPlugin");
 
 
 /**
- * [description] plugin
- * @type runner
+ * [Description] plugin
+ * @type Runner
  */
 createPlugin("", function() {
-    # logic code ...
+    # Logic code ...
 }, false);

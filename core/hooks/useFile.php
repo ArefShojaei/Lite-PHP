@@ -1,7 +1,7 @@
 <?php
 
 /**
- * get file data from $_FILES super global
+ * Get file data from $_FILES super global
  * @function useFile
  * @param string $key
  * @return array

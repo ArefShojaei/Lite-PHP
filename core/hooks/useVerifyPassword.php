@@ -1,7 +1,7 @@
 <?php
 
 /**
- * verify password
+ * Verify password
  * @function useVerify
  * @param string $password
  * @param string $hashedPassword

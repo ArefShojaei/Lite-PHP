@@ -11,26 +11,26 @@ import("@commands/list/_shared");
 
 
 /**
- * show list of routes
+ * Show list of routes
  * @function listRoute
  * @return void
  */
 function listRoute(): void {
     $routes = useGlobal("routes");
     
-    # table chilren index    
+    # Table chilren index    
     $count = 0;
 
-    # table size
+    # Table size
     $length = 45;
 
-    # column sizes
+    # Column sizes
     $firstColumn = 5;
     $secoundColumn = 16;
     $thirdColumn = 22;
 
 
-    # table
+    # Table structure
     createTable(function () use ($length, $routes, $count, $firstColumn, $secoundColumn, $thirdColumn) {
         echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Method", length: $secoundColumn, position: STR_PAD_BOTH) .
@@ -52,26 +52,26 @@ function listRoute(): void {
 
 
 /**
- * show list of aliases
+ * Show list of aliases
  * @function listAlias
  * @return void
  */
 function listAlias(): void {
     $aliases = useGlobal("aliases");
     
-    # table chilren index
+    # Table chilren index
     $count = 0;
 
-    # table size
+    # Table size
     $length = 40;
 
-    # column sizes
+    # Column sizes
     $firstColumn = 5;
     $secoundColumn = 16;
     $thirdColumn = 20;
 
 
-    # table
+    # Table structure
     createTable(function () use ($length, $aliases, $count, $firstColumn, $secoundColumn, $thirdColumn) {
         echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Alias", length: $secoundColumn, position: STR_PAD_BOTH) .
@@ -91,26 +91,26 @@ function listAlias(): void {
 
 
 /**
- * show list of commands
+ * Show list of commands
  * @function listCommand
  * @return void
  */
 function listCommand(): void {
     $commands = useGlobal("commands");
     
-    # table chilren index
+    # Table chilren index
     $count = 0;
 
-    # table size
+    # Table size
     $length = 90;
 
-    # column sizes
+    # Column sizes
     $firstColumn = 5;
     $secoundColumn = 40;
     $thirdColumn = 43;
     
     
-    # table
+    # Table structure
     createTable(function () use ($length, $commands, $count, $firstColumn, $secoundColumn, $thirdColumn) {
         echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Command", length: $secoundColumn, position: STR_PAD_BOTH) .
@@ -130,24 +130,24 @@ function listCommand(): void {
 
 
 /**
- * show list of ENV
+ * Show list of ENV
  * @function listEnv
  * @return void
  */
 function listEnv(): void {
-    # table chilren index
+    # Table chilren index
     $count = 0;
 
-    # table size
+    # Table size
     $length = 43;
 
-    # column sizes
+    # Column sizes
     $firstColumn = 5;
     $secoundColumn = 16;
     $thirdColumn = 20;
 
 
-    # table
+    # Table structure
     createTable(function () use ($length, $count, $firstColumn, $secoundColumn, $thirdColumn) {
         echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Alias", length: $secoundColumn, position: STR_PAD_BOTH) .
@@ -167,25 +167,25 @@ function listEnv(): void {
 
 
 /**
- * show list of modules
+ * Show list of modules
  * @function listModule
  * @return void
  */
 function listModule(): void {
     $modules = getAllModules();
 
-    # table chilren index
+    # Table chilren index
     $count = 0;
 
-    # table size
+    # Table size
     $length = 21;
 
-    # column sizes
+    # Column sizes
     $firstColumn = 5;
     $secoundColumn = 15;
 
 
-    # table
+    # Table structure
     createTable(function () use ($length, $count, $modules, $firstColumn, $secoundColumn) {
         echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Module", length: $secoundColumn, position: STR_PAD_BOTH, isLast:true) . PHP_EOL;
@@ -203,25 +203,25 @@ function listModule(): void {
 
 
 /**
- * show list of plugins
+ * Show list of plugins
  * @function listPlugin
  * @return void
  */
 function listPlugin(): void {
     $plugins = getAllPlugins();
     
-    # table chilren index
+    # Table chilren index
     $count = 0;
 
-    # table size
+    # Table size
     $length = 21;
 
-    # column sizes
+    # Column sizes
     $firstColumn = 5;
     $secoundColumn = 15;
 
 
-    # table
+    # Table
     createTable(function () use ($length, $count, $plugins, $firstColumn, $secoundColumn) {
         echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Plugin", length: $secoundColumn, position: STR_PAD_BOTH, isLast:true) . PHP_EOL;

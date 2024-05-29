@@ -1,7 +1,7 @@
 <?php
 
 /**
- * set curl option
+ * Set curl option
  * @function _setHttpRequestOptions
  * @private
  * @param object $curl
@@ -9,10 +9,10 @@
  * @return void
  */
 function _setHttpRequestOptions(object $curl, array $params): void {
-    # extract params
+    # Extract params
     list($url, $method, $body, $headers) = $params;
 
-    # set curl options
+    # Set curl options
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);

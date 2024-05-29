@@ -14,9 +14,9 @@ import("@core/hooks/useType");
  * @return string
  */
 function _html(string $value): string {
-    # set content-type
+    # Set content-type
     useType("text/html");
     
-    # reutrn the $value as HTML
+    # Get the value as HTML
     return $value;
 }

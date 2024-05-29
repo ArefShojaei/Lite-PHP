@@ -10,7 +10,7 @@ import("@core/shared/helpers/translate/_setAttributes");
 
 
 /**
- * translate word
+ * Translate word
  * @function __
  * @param string $key
  * @param array $attributes
@@ -19,24 +19,24 @@ import("@core/shared/helpers/translate/_setAttributes");
 function __(string $key, array $attributes = []): string {
     list($filename, $key) = explode(".", $key);
 
-    # current locale
+    # Current locale
     $locale = useConfig("app.locale") ?? useConfig("app.fallback_locale");
 
-    # the locale file path
+    # The locale file path
     $file = buildPath(BASE_LANG_PATH . "/{$locale}", "/{$filename}");
 
-    # check to exist the locale file
+    # Check to exist the locale file
     if (!file_exists($file)) useError("The '{$file}' doesn't exist!");
 
-    # parsed locale words
+    # Parsed locale words
     $parsedLocaleWords = require $file;
 
-    # get translated word as "value" by key
+    # Get translated word as "value" by key
     $translatedWord = $parsedLocaleWords[$key];
 
-    # return the value if attributes doesn't exist!
+    # Get the value if attributes doesn't exist!
     if (!count($attributes)) return $translatedWord;
 
-    # set the attributes
+    # Set the attributes
     return _setAttributes($attributes, $translatedWord);
 }

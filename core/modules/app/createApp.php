@@ -7,7 +7,7 @@ session_start();
 
 
 /**
- * init app
+ * Setup app
  * @function createApp
  * @return void
  */

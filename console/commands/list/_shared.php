@@ -2,15 +2,15 @@
 
 
 /**
- * get all plugins
+ * Get all plugins
  * @function getAllPlugins
  * @return array
  */
 function getAllPlugins(): array {
-    # scan plugins DIR to get module names
+    # Scan plugins DIR to get module names
     $plugins = scandir("plugins");
 
-    # remove "." & ".." to clean $plugins
+    # Remove "." & ".." to clean $plugins
     array_shift($plugins);
     array_shift($plugins);   
     

@@ -1,15 +1,15 @@
 <?php
 
 /**
- * execute route
+ * Execute route
  * @function _executeRoute
  * @param string $action
  * @return void
  */
 function _executeRoute(string $action): void {
-    # show content
+    # Show content
     echo $action();
 
-    # exit processes
+    # Stop processes
     exit;
 }

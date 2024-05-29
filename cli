@@ -9,6 +9,6 @@ require_once __DIR__ . "/bootstrap/providers.php";
 
 
 /**
- * bootstrap CLI
+ * Bootstrap CLI
  */
 createCli($argv);

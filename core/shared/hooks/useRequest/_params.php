@@ -7,7 +7,7 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * request route params
+ * Request route params
  * @function _params 
  * @private
  * @return array

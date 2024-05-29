@@ -7,7 +7,7 @@ import("@core/helpers/register");
 
 
 /**
- * init providers
+ * Register Providers
  */
 return [
     "plugins" => [

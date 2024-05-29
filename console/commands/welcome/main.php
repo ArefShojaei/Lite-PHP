@@ -8,10 +8,10 @@ import("@commands/welcome/_helpers");
 
 
 /**
- * welcome command
+ * Welcome command
  * 
  * 
- * ----------- comamnds -----------
+ * ----------- Comamnds -----------
  ** php cli
  ** php cli welcome
  * --------------------------------

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * thorw custom error message
+ * Thorw custom error message
  * @function useError
- * @param string $message error message
+ * @param string $message Error message
  * @return void
  */
 function useError(string $message): void {

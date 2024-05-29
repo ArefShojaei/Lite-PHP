@@ -1,7 +1,7 @@
 <?php
 
 /**
- * get matched route status
+ * Get matched route status
  * @function _isMatchedRoute
  * @private
  * @param array $matches

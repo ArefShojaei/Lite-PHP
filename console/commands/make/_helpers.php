@@ -8,32 +8,32 @@ import("@commands/make/_shared");
 
 
 /**
- * make command by name
+ * Make command by name
  * @function makeCommand
  * @param string $name command name
  * @return void
  */
 function makeCommand($name): void {
-    # define tag
+    # Define tag
     $tag = "command";
 
-    # register license
+    # Register license
     list($src, $DIR) = _getPathInfo("console/commands/{$name}");
 
-    # check to exist file as Middleware 
+    # Check to exist file as Middleware 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # stop proccess if file exists!
+    # Stop proccess if file exists!
     if($fileStatus) return;
 
-    # make DIR
+    # Make DIR
     mkdir($DIR);
 
-    # get file content by pre-defined templates
+    # Get file content by pre-defined templates
     $content = file_get_contents("console/commands/make/templates/_command-template.php");
 
 
-    # make specific files
+    # Make specific files
     _makeFiles([
         $src => $content,
         "{$DIR}/_helpers.php" => "",
@@ -41,38 +41,38 @@ function makeCommand($name): void {
     ]);
 
 
-    # show final message about the task
+    # Show final message about the task
     _showCompletedTaskMessage($tag, $DIR);
 }
 
 
 /**
- * make module by name
+ * Make module by name
  * @function makeModule
  * @param string $name module name
  * @return void
  */
 function makeModule($name): void {
-    # define tag
+    # Define tag
     $tag = "module";
 
     # register license
     list($src, $DIR) = _getPathInfo("modules/{$name}");
 
-    # check to exist file as Middleware 
+    # Check to exist file as Middleware 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # stop proccess if file exists!
+    # Stop proccess if file exists!
     if($fileStatus) return;
 
-    # make DIR
+    # Make DIR
     mkdir($DIR);
 
-    # get file content by pre-defined templates
+    # Get file content by pre-defined templates
     $content = file_get_contents("console/commands/make/templates/_module-template.php");
 
 
-    # make specific files
+    # Make specific files
     _makeFiles([
         $src => $content,
         "{$DIR}/_config.php" => "",
@@ -84,103 +84,103 @@ function makeModule($name): void {
     ]);
 
     
-    # show final message about the task
+    # Show final message about the task
     _showCompletedTaskMessage($tag, $DIR);
 }
 
 
 /**
- * make plugin by name
+ * Make plugin by name
  * @function makePlugin
- * @param string $name plugin name
- * @param string $type types like "--runner" & "--usage" 
+ * @param string $name Plugin name
+ * @param string $type Types like "--runner" & "--usage" 
  * @return void
  */
 function makePlugin($name, $type): void {
-    # define tag
+    # Define tag
     $tag = "plugin";
 
-    # register license
+    # Register license
     list($src, $DIR) = _getPathInfo("plugins/{$name}");
 
-    # check to exist file as Middleware 
+    # Check to exist file as Middleware 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # stop proccess if file exists!
+    # Stop proccess if file exists!
     if($fileStatus) return;
 
 
-    # make DIR
+    # Make DIR
     mkdir($DIR);
 
-    # get plugin type
+    # Get plugin type
     $pluginType = $type == "--usage" ? "usage" : "runner";
     
-    # get file content by pre-defined templates
+    # Get file content by pre-defined templates
     $content = file_get_contents("console/commands/make/templates/_plugin-{$pluginType}-template.php");
 
-    # make specific file
+    # Make specific file
     _makeFile($src, $content);
 
-    # show final message about the task
+    # Show final message about the task
     _showCompletedTaskMessage($tag, $DIR);
 }
 
 
 /**
- * make hook by name
+ * Make hook by name
  * @function makeHook
- * @param string $name hook name
+ * @param string $name Hook name
  * @return void
  */
 function makeHook($name): void {
-    # define tag
+    # Define tag
     $tag = "hook";
 
-    # register license
+    # Register license
     list($src, $DIR) = _getPathInfo("hooks", $name);
 
-    # check to exist file as Middleware 
+    # Check to exist file as Middleware 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # stop proccess if file exists!
+    # Stop proccess if file exists!
     if($fileStatus) return;
 
 
-    # get file content by pre-defined templates
+    # Get file content by pre-defined templates
     $content = file_get_contents("console/commands/make/templates/_hook-template.php");
 
-    # make specific file
+    # Make specific file
     _makeFile($src, $content);
 
-    # show final message about the task
+    # Show final message about the task
     _showCompletedTaskMessage($tag, $DIR);
 }
 
 
 /**
- * make view by name
+ * Make view by name
  * @function makeView
- * @param string $name view name
+ * @param string $name View name
  * @return void
  */
 function makeView($name): void {
-    # define tag
+    # Define tag
     $tag = "view";
 
-    # register license
+    # Register license
     list($src, $DIR) = _getPathInfo("resources/views", $name);
 
-    # check to exist file as Middleware 
+    # Check to exist file as Middleware 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # stop proccess if file exists!
+    # Stop proccess if file exists!
     if($fileStatus) return;
 
     
-    # make specific file
+    # Make specific file
     _makeFile($src, "");
 
-    # show final message about the task
+    # Show final message about the task
     _showCompletedTaskMessage($tag, $DIR);
 }

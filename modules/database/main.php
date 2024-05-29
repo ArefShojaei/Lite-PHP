@@ -9,7 +9,7 @@ import("@core/hooks/useConfig");
 
 
 /**
- * create database 
+ * Init database 
  */
 createDatabase(
     useConfig("database.host"),

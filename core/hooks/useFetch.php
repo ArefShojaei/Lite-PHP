@@ -10,34 +10,34 @@ import("@core/shared/hooks/useFetch/_setHttpRequestOptions");
 
 
 /**
- * send http request
+ * Send http request
  * @function useFetch
  * @param string $url
  * @param array $params
  * @return array
  */
 function useFetch(string $url, array $params = []) {
-    # get http method
+    # Get http method
     $method = $params['method'] ?? "GET";
     
-    # get http headers
+    # Get http headers
     $headers = $params['headers'] ?? [];
 
-    # get http body
+    # Get http body
     $body = $params['body'] ?? [];
 
-    # init curl
+    # Init curl
     $curl = _openHttpRequest();
     
-    # set the curl config
+    # Set the curl config
     _setHttpRequestOptions($curl, [$url, $method, $body, $headers]);
 
-    # get the curl response
+    # Get the curl response
     $response = _sendHttpRequest($curl);
 
-    # close the curl
+    # Close the curl
     _closeHttpRequest($curl);
 
-    # return response
+    # Get response
     return json_decode($response, true);
 }

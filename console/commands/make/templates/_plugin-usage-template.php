@@ -7,9 +7,9 @@ import("@core/modules/plugin/createPlugin");
 
 
 /**
- * [description] plugin
- * @type usage
+ * [Description] plugin
+ * @type Usage
  */
 createPlugin("shortLink", function() {
-    # logic code ...
+    # Logic code ...
 });

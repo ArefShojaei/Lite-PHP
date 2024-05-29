@@ -9,7 +9,7 @@ import("@core/hooks/useGlobal");
 
 
 /**
- * add header to table
+ * Add header to table
  * @function _addHeaderTable
  * @private
  * @param int $position
@@ -22,7 +22,7 @@ function _addHeaderTable(int $position = STR_PAD_BOTH, int $length = 18): string
 
 
 /**
- * add footer to table
+ * Add footer to table
  * @function _addFooterTable
  * @private
  * @param int $position
@@ -35,7 +35,7 @@ function _addFooterTable(int $position = STR_PAD_BOTH, int $length = 18): string
 
 
 /**
- * add column to table
+ * Add column to table
  * @function addColumn
  * @param string $title
  * @param int $position
@@ -47,7 +47,7 @@ function addColumn(string $title, $position = STR_PAD_RIGHT, int $length = 18, $
 }
 
 /**
- * add row to table
+ * Add row to table
  * @function addRow
  * @param string $title
  * @param int $position
@@ -60,7 +60,7 @@ function addRow(string $title, $position = STR_PAD_BOTH, int $length = 18): stri
 
 
 /**
- * add separator to table
+ * Add separator to table
  * @function addSeparator
  * @param string $fill
  * @param int $position
@@ -73,19 +73,19 @@ function addSeparator(string $fill = "=", int $position = STR_PAD_BOTH, int $len
 
 
 /**
- * create table
+ * Create table
  * @function createTable
  * @param callable $callback
  * @param int $length
  * @return void
  */
 function createTable(callable $callback, int $length): void {
-    # add header
+    # Add header
     echo _addHeaderTable(length:$length);
     
-    # add body
+    # Add body
     $callback();
     
-    # add footer
+    # Add footer
     echo _addFooterTable(length:$length);
 }

@@ -14,9 +14,9 @@ import("@core/hooks/useType");
  * @return string
  */
 function _json(array $value): string {
-    # set content-type
+    # Set content-type
     useType("application/json");
     
-    # reutrn the $value as json
+    # Get the value as json
     return json_encode($value);
 }

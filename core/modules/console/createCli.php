@@ -12,26 +12,26 @@ import("@core/modules/console/_executeCommand");
 
 
 /**
- * init CLI
- * @param array $input command input data
+ * Setup CLI
+ * @param array $input Command input data
  * @return void
  */
 function createCli(array $input): void {
-    # load comamnds
+    # Load comamnds
     _loadCommands();
 
-    # find command
+    # Find command
     list($command, $data) = _findCommand($input);
 
-    # check to match command 
+    # Check to match command 
     _isMatchedCommand($command);
 
-    # add command params
+    # Add command params
     $minCommandParamCount = 1;
 
     $params = (count($command) > $minCommandParamCount) ? _addCommandParams($command) : [];
 
 
-    # run command 
+    # Run command 
     _executeCommand($data, $params);
 }

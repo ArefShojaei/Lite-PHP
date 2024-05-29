@@ -9,18 +9,18 @@ import("@bootstrap/providers");
 
 
 /**
- * disable to show errors in "production mode"
+ * Disable to show errors in "Production mode"
  */
 if (useMode() !== DEV_MODE) error_reporting(0);
 
 
 /**
- * set default timezone
+ * Set default timezone
  */
 date_default_timezone_set("America/New_York");
 
 
 /**
- * init router
+ * Init Router system
  */
 createRouter();

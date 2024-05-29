@@ -7,27 +7,27 @@ import("@core/hooks/useGlobal");
 
 
 /**
- * find exact command
+ * Find exact command
  * @function _findCommand
  * @param array $input input data about command
  * @return array
  */
 function _findCommand(array $input): array {
-    # list of command patterns
+    # List of command patterns
     $commands = useGlobal("commands");
 
-    # remove "cli" value of the input
+    # Remove "cli" value of the input
     array_shift($input);
 
-    # search to find exact command
+    # Search to find exact command
     foreach ($commands as $command => $data) {
-        # declare regex pattern
+        # Declare regex pattern
         $pattern = "/^" . str_replace(["{", "}"], ["(?<", ">(\w|[-_])+)"], $command) . "$/";
 
-        # is matched comamnd with the regex
+        # Is matched comamnd with the regex
         preg_match($pattern, join(" ", $input), $result);
 
-        # return matched command
+        # Get matched command
         if(count($result)) break;
     }
     

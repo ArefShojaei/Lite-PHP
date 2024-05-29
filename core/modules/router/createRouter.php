@@ -16,36 +16,35 @@ import("@core/modules/router/_applyMiddlewares");
 
 
 /**
- * router system
+ * Router system
  * @function createRouter
  * @return void
  */
 function createRouter(): void {
-    # request url
+    # Request url
     $url = useHTTP("REQUEST_URI");
     
-    # request method
+    # Request method
     $method = useHTTP("REQUEST_METHOD");
 
-    # get all routes of the request method if is exists aleardy!
-    // $routes = useGlobal("routes")[$method] ?? useError("The `{$method}` method is not supported!");
+    # Get all routes of the request method if is aleardy exists!
     $routes = useGlobal("routes.{$method}") ?? useError("`{$method}` method is not supported!");
 
-    # get matched route
+    # Get matched route
     list($matches, $middlewares, $action) = _findRoute($routes, $url);
 
-    # check to exist the matched route
+    # Check to exist the matched route
     $isMatchedRoute = _isMatchedRoute($matches);
 
-    # is 404
+    # Is 404
     if(!$isMatchedRoute) useRedirect("/404");
 
-    # apply middlewares if the middleares is exists!
+    # Apply middlewares if the middleares is exists!
     if(count($middlewares)) _applyMiddlewares($middlewares);
 
-    # add route params
+    # Add route params
     if(count($matches) >= 3) _addRouteParams($matches);
 
-    # execute the route
+    # Execute the route
     _executeRoute($action);
 }

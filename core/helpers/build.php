@@ -7,7 +7,7 @@ import("@core/helpers/url");
 
 
 /**
- * build url
+ * Build URL
  * @function buildURL
  * @param string $url
  * @return string 
@@ -17,13 +17,13 @@ function buildURL(string $url): string {
 }
 
 /**
- * build path
+ * Build path
  * @function buildPath
  * @param string $basePath
- * @param string $src
+ * @param string $file
  * @param string $ext
  * @return string
  */
-function buildPath(string $basePath, string $src, string $ext = PHP_FILE_EXTENTION): string {
-    return $basePath . $src . $ext;
+function buildPath(string $basePath, string $file, string $ext = PHP_FILE_EXTENTION): string {
+    return $basePath . $file . $ext;
 }

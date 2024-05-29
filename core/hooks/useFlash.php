@@ -1,11 +1,11 @@
 <?php
 
 /**
- * use flash message
+ * Get & Set Flash message
  * @function useFlash
- * @param string $key flash key
- * @param string $message flash message
- * @param string $type flash level
+ * @param string $key Flash key
+ * @param string $message Flash message
+ * @param string $type Flash level
  * @return array|bool
  */
 function useFlash(string $key, string $message = null, string $type = FLASH_INFO_LEVEL): array|bool {

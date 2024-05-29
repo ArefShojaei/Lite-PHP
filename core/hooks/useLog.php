@@ -8,7 +8,7 @@ import("@core/hooks/useEnum");
 
 
 /**
- * add custom log message
+ * Add custom Log message
  * @function useLog
  * @param string $message
  * @param string $filename

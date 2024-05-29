@@ -1,7 +1,7 @@
 <?php
 
 /**
- * upload file
+ * Upload file
  * @function useUpload
  * @param array $file
  * @return bool

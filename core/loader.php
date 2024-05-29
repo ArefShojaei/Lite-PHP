@@ -3,7 +3,7 @@
 /**
  * @package
  * 
- * init base files 
+ * Init base files 
  */
 require_once __DIR__ . "/constants/main.php";
 require_once __DIR__ . "/helpers/import.php";
@@ -13,6 +13,6 @@ require_once dirname(__DIR__) . "/bootstrap/alias.php";
 
 
 /**
- * init Env
+ * Init Env
  */
 createEnv();

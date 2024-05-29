@@ -9,27 +9,27 @@ require_once dirname(__DIR__) . "/shared/helpers/import/_replaceAliasToPath.php"
 
 
 /**
- * import file
+ * Load file
  * @function import
- * @param string $path alias + path 
+ * @param string $path Alias + Path 
  * @param string $includeType
  * @return void
  */
 function import(string $path, string $includeType = REQUIRE_ONCE_TYPE): void {
-    # get aliases
+    # Get Aliases
     $aliases = useGlobal("aliases");
 
-    # get the alias
+    # Get the Alias
     $alias = _extractAlias($path);
 
-    # replace the alias with a "real path"
+    # Replace the Alias with a "Real path"
     $path = _replaceAliasToPath($aliases, $alias, $path);
 
-    # get file path
+    # Get file path
     $filePath = $path . PHP_FILE_EXTENTION;
 
 
-    # include the file by the $incldueType
+    # Load the file by the include type
     match ($includeType) {
         INCLUDE_TYPE => include $filePath,
         INCLUDE_ONCE_TYPE => include_once $filePath,

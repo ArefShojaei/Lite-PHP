@@ -1,26 +1,26 @@
 <?php
 
 /**
- ** @summary logger constants
+ ** @summary Logger constants
  */
 
 
 /**
- * logger short level
+ * Logger short level
  * @constant string
  * @return string
  */
 const LOGGER_SHORT_LEVEL = "SHORT";
 
 /**
- * logger common level
+ * Logger common level
  * @constant string
  * @return string
  */
 const LOGGER_COMMON_LEVEL = "COMMON";
 
 /**
- * logger combined level
+ * Logger combined level
  * @constant string
  * @return string
  */

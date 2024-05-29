@@ -12,19 +12,19 @@ import("@plugins/shortLink/_enum");
 
 
 /**
- * short link plugin
- * @type usage
+ * Short link plugin
+ * @type Usage
  */
 createPlugin("shortLink", function() {
     /**
-     * table name
+     * Table name
      * @prop
      * @return string
      */
     $table = useEnum("ShortLink::TABLE");
     
     /**
-     * columns of table
+     * Columns of table
      * @prop
      * @return array
      */
@@ -32,7 +32,7 @@ createPlugin("shortLink", function() {
 
 
     /**
-     * save link in database
+     * Save link in database
      * @param string $shortLink
      * @param string $refererLink
      * @return bool
@@ -42,7 +42,7 @@ createPlugin("shortLink", function() {
     };
     
     /**
-     * get all links from database
+     * Get all links from database
      * @return array
      */
     $getLinks = function() use($table): array {
@@ -50,7 +50,7 @@ createPlugin("shortLink", function() {
     };
     
     /**
-     * get link by short link from database
+     * Get link by short link from database
      * @param string $shortLink
      * @return array
      */
@@ -59,6 +59,6 @@ createPlugin("shortLink", function() {
     };
     
 
-    # return as array for using this plugin
+    # Return as array for using this plugin
     return [$saveLink, $getLinks, $getLinkByShortLink];
 });

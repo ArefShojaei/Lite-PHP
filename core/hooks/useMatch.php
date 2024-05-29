@@ -1,7 +1,7 @@
 <?php
 
 /**
- * use regular expression as regex
+ * Get matched expression as Regex
  * @function useMatch
  * @param string $pattern
  * @param string $subject

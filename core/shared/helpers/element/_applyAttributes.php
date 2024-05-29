@@ -1,7 +1,7 @@
 <?php
 
 /**
- * add attributes to the element
+ * Add attributes to the element
  * @function _applyAttributes
  * @private
  * @param string $element

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * send http request as "execute the curl"
+ * Send http request as "execute the curl"
  * @function _sendHttpRequest
  * @private
  * @param object $curl

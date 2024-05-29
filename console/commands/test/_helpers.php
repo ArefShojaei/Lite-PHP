@@ -7,7 +7,7 @@ import("@commands/test/_shared");
 
 
 /**
- * test all modules
+ * Test all modules
  * @function testAllModules
  * @return void
  */
@@ -18,7 +18,7 @@ function testAllModules(): void {
 
     $startTime = microtime(true);
 
-    # load all modules
+    # Load all modules
     foreach ($modules as $module) {
         loadModule($module);
     }
@@ -27,7 +27,7 @@ function testAllModules(): void {
 
     $timeDuration = number_format(abs($startTime - $endTime), 2);
 
-    # show result
+    # Show result
     echo "Finished Tests." . PHP_EOL;
     echo "\r\nDuration: {$timeDuration} sec" . PHP_EOL;
 
@@ -37,7 +37,7 @@ function testAllModules(): void {
 
 
 /**
- * test module by name
+ * Test module by name
  * @function testModule
  * @param string $moudle module name
  * @return void
@@ -47,7 +47,7 @@ function testModule($module): void {
 
     $startTime = microtime(true);
 
-    # load moudle by name
+    # Load moudle by name
     loadModule($module);
 
     $endTime = microtime(true);
@@ -55,7 +55,7 @@ function testModule($module): void {
 
     $timeDuration = number_format(abs($startTime - $endTime), 2);
 
-    # show result
+    # Show result
     echo "Finished Test." . PHP_EOL;
     echo "\r\nDuration: {$timeDuration} sec" . PHP_EOL;
 

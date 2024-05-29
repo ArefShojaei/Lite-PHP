@@ -1,33 +1,33 @@
 <?php
 
 /**
- ** @summary incldue type constants
+ ** @summary Incldue type constants
  */
 
 
 /**
- * include file type
+ * Include file type
  * @constant string
  * @return string
  */
 const INCLUDE_TYPE = "include";
 
 /**
- * include once file type
+ * Include once file type
  * @constant string
  * @return string
  */
 const INCLUDE_ONCE_TYPE = "include_once";
 
 /**
- * require file type
+ * Require file type
  * @constant string
  * @return string
  */
 const REQUIRE_TYPE = "require";
 
 /**
- * require once file type
+ * Require once file type
  * @constant string
  * @return string
  */

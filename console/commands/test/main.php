@@ -8,10 +8,10 @@ import("@commands/test/_helpers");
 
 
 /**
- * test command
+ * Test command
  * 
  * 
- * ----------- comamnds -----------
+ * ----------- Comamnds -----------
  ** php cli test
  ** php cli test [module]
  * --------------------------------

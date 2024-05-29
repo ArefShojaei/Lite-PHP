@@ -8,9 +8,9 @@ import("@core/hooks/useHeader");
 
 
 /**
- * security plugin
- * @type runner
- * @summary adding and removing specific headers for attacks!
+ * Security plugin
+ * @type Runner
+ * @summary Adding and removing specific headers for attacks!
  */
 createPlugin("security", function() {
     # ADD

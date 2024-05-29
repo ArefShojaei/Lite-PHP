@@ -1,10 +1,10 @@
 <?php
 
 /**
- * add & remove header
+ * Add & Remove header
  * @function useHeader
- * @param string $name header name
- * @param string $defaultValue header value
+ * @param string $name Header name
+ * @param string $defaultValue Header value
  * @return void
  */
 function useHeader(string $name, string $defaultValue = null): void {

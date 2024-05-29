@@ -5,18 +5,19 @@
  */
 require_once dirname(__DIR__, 3) . "/hooks/useMatch.php";
 
+
 /**
- * extract alias
+ * Extract Alias
  * @function _extractAlias
  * @private
  * @param string $path
  * @return string
  */
 function _extractAlias(string $path): string {
-    # decalre pattern
+    # Decalre pattern
     $pattern = "/(?<alias>\@\w+)\b/";
 
-    # get matches for the pattern
+    # Get matches for the pattern
     $matches = useMatch($pattern, $path);
     # return alias
     return $matches["alias"];

@@ -9,42 +9,42 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * make log content
+ * Mmake log content
  * @function _makeLogContent
  * @private
- * @param string $level log level
+ * @param string $level Log level
  * @return string
  */
 function _makeLogContent(string $level): string {
-    # log level
+    # Log level
     $level = useEnum("Logger::LEVELS")[$level];
     
-    # request url
+    # Request url
     $url = useHTTP("REQUEST_URI");
     
-    # request method
+    # Request method
     $method = useHTTP("REQUEST_METHOD");
     
-    # request protocol
+    # Request protocol
     $protocol = useHTTP("REQUEST_SCHEME");
     
-    # request ip
+    # Request ip
     $ip = useHTTP("REMOTE_ADDR");
     
-    # http version
+    # Http version
     $httpVersion = useHTTP("SERVER_PROTOCOL");
     
-    # client user agent
+    # Request client user agent
     $userAgent = useHTTP("HTTP_USER_AGENT");
     
-    # request host
+    # Request host
     $host = useHTTP("HTTP_HOST");
     
-    # current date
+    # Current date
     $date = date("Y:m:d H:i:s -");
 
 
-    # return log content
+    # Return log content
     return match ($level) {
         LOGGER_SHORT_LEVEL => "[{$level}] {$date} {$method} {$url}" . PHP_EOL,
         LOGGER_COMMON_LEVEL => "[{$level}] {$date} {$ip} {$protocol} {$method} {$url}" . PHP_EOL,

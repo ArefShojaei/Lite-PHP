@@ -8,7 +8,7 @@ import("@core/hooks/useEnv");
 
 
 /**
- * app config
+ * App config
  */
 createConfig("app", [
     "name" => useEnv("APP_NAME"),

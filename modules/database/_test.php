@@ -10,7 +10,7 @@ import("@modules/database/main");
 
 
 /**
- * database tests
+ * Database test
  */
 describe("Database Tests", function() {
     it("should connect to the database", function() {

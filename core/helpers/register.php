@@ -7,36 +7,33 @@ import("@core/hooks/useGlobal");
 
 
 /**
- * register plugin
+ * Register plugin
  * @function registerPlugin
- * @param string $plugin plugin name
- * @param array $params plugin options
+ * @param string $plugin Plugin name
+ * @param array $params Plugin options
  * @return void
  */
 function registerPlugin(string $plugin, array $params = []): void {
     global $argc;
 
-    # check to not run plugin in CLI
+    # Check to not run plugin in CLI
     if($argc) return;
     
-    # import plugin
+    # Load plugin
     import("@plugins/{$plugin}/" . MAIN_EXECUTABLE_FILE);
 
-    # get plugins container
-    $plugins = useGlobal("plugins");
+    # Get the plugin action as "Runner type"
+    $action = useGlobal("plugins." . PLUGIN_RUNNER_TYPE . ".{$plugin}");
 
-    # get the plugin as "runner type"
-    $action = $plugins[PLUGIN_RUNNER_TYPE][$plugin];
-    
-    # call the plugin and pass input as $params
+    # Call the plugin and pass input as $params
     $action($params);
 }
 
 
 /**
- * register module
+ * Register module
  * @function registerModule
- * @param string $module module name
+ * @param string $module Module name
  * @return void
  */
 function registerModule(string $module): void {

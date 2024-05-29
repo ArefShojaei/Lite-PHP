@@ -7,6 +7,6 @@ import("@core/helpers/route");
 
 
 /**
- * [description] routes
+ * [Description] route
  */
 addRoute("GET", "", "");

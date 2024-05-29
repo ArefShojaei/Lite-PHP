@@ -7,7 +7,7 @@ import("@core/hooks/useGlobal");
 
 
 /**
- * get config by key from config container
+ * Get Config by key from config container
  * @function useConfig
  * @return string $key
  * @return string|null

@@ -7,10 +7,10 @@ import("@core/helpers/command");
 
 
 /**
- * [description] command
+ * [Description] command
  * 
  * 
- * ----------- comamnds -----------
+ * ----------- Comamnds -----------
  ** php cli
  * --------------------------------
  */

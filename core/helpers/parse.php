@@ -1,9 +1,9 @@
 <?php
 
 /**
- * parse file content
+ * Parse file content
  * @function parse
- * @param string $src file path
+ * @param string $src File path
  * @return string
  */
 function parse(string $src): string {

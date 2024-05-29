@@ -7,7 +7,7 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * get user agent of the request
+ * Get user agent of the Request
  * @function useAgent
  * @return string
  */

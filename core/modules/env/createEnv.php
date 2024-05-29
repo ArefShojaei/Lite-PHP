@@ -8,27 +8,27 @@ require_once dirname(__DIR__, 2) . "/hooks/useMatch.php";
 
 
 /**
- * register env
+ * Register env
  * @function createEnv
  * @return void
  */
 function createEnv(): void {
-    # get '.env' file content
+    # Get '.env' file content
     $prasedContent = parse("\\" . ENV_FILE_EXTENTION);
 
-    # declare pattern
+    # Declare pattern
     $pattern = "/(?<key>[A-Z_]+)\s*=\s*?(?<value>.+)/";
 
-    # get matches for the pattern
+    # Get matches for the pattern
     $matches = useMatch($pattern, $prasedContent, true);
 
-    # get keys
+    # Get keys
     $keys = $matches["key"];
     
-    # get values
+    # Get values
     $values = $matches["value"];
 
-    # add data to $_ENV
+    # Add data to $_ENV
     foreach ($keys as $number => $key) {
         $_ENV[$key] = trim($values[$number]);
     }

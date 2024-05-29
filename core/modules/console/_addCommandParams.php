@@ -1,7 +1,7 @@
 <?php
 
 /**
- * add command params
+ * Add command params
  * @function _addCommandParams
  * @param array $data command data
  * @return array

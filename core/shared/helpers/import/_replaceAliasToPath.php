@@ -1,7 +1,7 @@
 <?php
 
 /**
- * replace alias to path
+ * Replace Alias to path
  * @function _replaceAliasToPath
  * @private
  * @param array $aliases

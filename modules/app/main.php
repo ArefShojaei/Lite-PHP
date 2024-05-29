@@ -9,7 +9,7 @@ import("@modules/app/_controller");
 
 
 /**
- * app routes
+ * App route
  */
 addRoute("GET", "/", "index");
 addRoute("GET", "/404", "show404");

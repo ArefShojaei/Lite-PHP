@@ -1,7 +1,7 @@
 <?php
 
 /**
- * redirect to a route
+ * Redirect to a route
  * @function useRedirect
  * @param string $route
  * @return void

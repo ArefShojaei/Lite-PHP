@@ -7,7 +7,7 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * parse url
+ * Parse url
  * @function useURL
  * @param string $url
  * @return array

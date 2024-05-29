@@ -1,7 +1,7 @@
 <?php
 
 /**
- * init curl as "open http request"
+ * Setup curl as "open http request"
  * @function _openHttpRequest
  * @private
  * @return object

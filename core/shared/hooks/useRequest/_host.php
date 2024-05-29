@@ -7,7 +7,7 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * server host
+ * Server host
  * @function _host
  * @private
  * @return string

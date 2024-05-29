@@ -8,7 +8,7 @@ import("@core/hooks/useURL");
 
 
 /**
- * find route
+ * Find route
  * @function _findRoute
  * @private
  * @param array $routes
@@ -17,18 +17,18 @@ import("@core/hooks/useURL");
  */
 function _findRoute(array $routes, string $url): array {
     foreach ($routes as $route => $params) {
-        # decalre pattern as regex
+        # Decalre pattern as regex
         $pattern = "/^" . str_replace(["/", "{", "}"], ["\/", "(?<", ">\w+)"], $route) . "$/";
         
-        # get matched route by the pattern
+        # Get matched route by the pattern
         $matches = useMatch($pattern, useURL($url)['path']);
 
-        # exit of loop if exists the route
+        # Exit of loop if exists the route
         if(count($matches)) break;
     }
 
     list($middlewares, $action) = $params;
 
-    # return the route data
+    # Get the route data
     return [$matches, $middlewares,$action];
 }

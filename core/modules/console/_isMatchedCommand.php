@@ -1,7 +1,7 @@
 <?php
 
 /**
- * check to exist command
+ * Check to exist command
  * @function _isMatchedCommand
  * @param array $command command data
  * @return void

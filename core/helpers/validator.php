@@ -7,7 +7,7 @@ import("@core/hooks/useMatch");
 
 
 /**
- * email validation
+ * Email validation
  * @function isEmail
  * @param string $email
  * @return bool
@@ -24,7 +24,7 @@ function isEmail(string $email): bool {
 }
 
 /**
- * url validation
+ * URL validation
  * @function isEmail
  * @param string $email
  * @return bool

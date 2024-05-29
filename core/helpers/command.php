@@ -9,11 +9,11 @@ import("@core/hooks/useGlobal");
 
 
 /**
- * add command
+ * Add command
  * @function addCommand
- * @param string $command command name
- * @param string|callable $action command action
- * @param string $description command description
+ * @param string $command Command name
+ * @param string|callable $action Command action
+ * @param string $description Command description
  * @return void
  */
 function addCommand(string $command, string|callable $action, string $description = ""): void {
@@ -29,14 +29,14 @@ function addCommand(string $command, string|callable $action, string $descriptio
 
 
 /**
- * group command
+ * Group command
  * @function groupCommand
- * @param string $command preifx command name
+ * @param string $prefix Command prefix
  * @param callable $action bind commands action
  * @return void
  */
-function groupCommand(string $command, callable $aciton): void {
-    useState("command-prefix", $command);
+function groupCommand(string $preifx, callable $aciton): void {
+    useState("command-prefix", $preifx);
     
     $aciton();
     

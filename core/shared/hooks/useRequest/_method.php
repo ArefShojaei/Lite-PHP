@@ -7,7 +7,7 @@ import("@core/hooks/useHTTP");
 
 
 /**
- * request method
+ * Request method
  * @function _method
  * @private
  * @return string

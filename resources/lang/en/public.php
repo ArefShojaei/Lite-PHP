@@ -1,7 +1,7 @@
 <?php
 
 /**
- * public english words
+ * Public English words
  * @return array
  */
 return [

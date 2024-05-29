@@ -8,8 +8,8 @@ import("@core/hooks/useHeader");
 
 
 /**
- * cors plugin
- * @type runner
+ * CORS plugin
+ * @type Runner
  */
 createPlugin("cors", function() {
     useHeader("Access-Control-Allow-Origin", "*");

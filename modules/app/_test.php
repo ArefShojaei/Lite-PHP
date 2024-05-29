@@ -8,7 +8,7 @@ import("@core/helpers/assert");
 
 
 /**
- * app tests
+ * App test
  */
 describe("App tests", function() {
     it("should pass test", function() {

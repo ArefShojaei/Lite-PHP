@@ -8,6 +8,6 @@ require_once dirname(__DIR__) . "/core/modules/app/createApp.php";
 
 
 /**
- * bootstrap app
+ * Bootstrap app
  */
 createApp();

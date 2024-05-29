@@ -7,7 +7,7 @@ import("@core/hooks/useState");
 
 
 /**
- * register config
+ * Register config
  * @function createConfig
  * @param string $name
  * @param array $params

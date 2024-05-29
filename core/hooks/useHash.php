@@ -1,7 +1,7 @@
 <?php
 
 /**
- * hash password
+ * Hash password
  * @function useHash
  * @param string $password
  * @return array

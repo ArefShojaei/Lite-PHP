@@ -7,10 +7,10 @@ import("");
 
 
 /**
- * [description]
+ * [Description]
  * @function _
  * @return void
  */
 function _(): void {
-    # logic code ...
+    # Logic code ...
 }

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * get request data from $_GET super global
+ * Get the Request data from $_GET super global
  * @function useGET
  * @param string $key
  * @return string|array
