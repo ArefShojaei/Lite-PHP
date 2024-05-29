@@ -5,7 +5,7 @@
  */
 import("@core/helpers/build");
 import("@core/hooks/useMode");
-import("@core/shared/assets/_mix");
+import("@core/shared/helpers/assets/_mix");
 
 
 /**
