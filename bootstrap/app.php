@@ -5,6 +5,7 @@
  */
 import("@core/modules/router/createRouter");
 import("@core/hooks/useMode");
+import("@bootstrap/autoload");
 import("@bootstrap/providers");
 
 
