@@ -7,6 +7,6 @@
  * @param string $hashedPassword
  * @return bool
  */
-function useVerify(string $password, string $hashedPassword): bool {
+function useVerifyPassword(string $password, string $hashedPassword): bool {
     return password_verify($password, $hashedPassword);
 }
