@@ -19,7 +19,9 @@ import("@core/hooks/useGlobal");
 function addCommand(string $command, string|callable $action, string $description = ""): void {
     $prefix = useGlobal("command-prefix");
 
-    useState("commands", [$prefix . $command], [
+    $combinedComamnd = $prefix . $command;
+
+    useState("commands.{$combinedComamnd}", [
         "action" => $action,
         "description" => $description
     ]);
@@ -27,16 +29,16 @@ function addCommand(string $command, string|callable $action, string $descriptio
 
 
 /**
- * add group command
+ * group command
  * @function groupCommand
  * @param string $command preifx command name
  * @param callable $action bind commands action
  * @return void
  */
 function groupCommand(string $command, callable $aciton): void {
-    useState("command-prefix", [], $command);
+    useState("command-prefix", $command);
     
     $aciton();
     
-    useState("command-prefix", [], "");
+    useState("command-prefix", "");
 }

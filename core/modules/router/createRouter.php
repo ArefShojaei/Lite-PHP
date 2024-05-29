@@ -28,7 +28,8 @@ function createRouter(): void {
     $method = useHTTP("REQUEST_METHOD");
 
     # get all routes of the request method if is exists aleardy!
-    $routes = useGlobal("routes")[$method] ?? useError("The `{$method}` method is not supported!");
+    // $routes = useGlobal("routes")[$method] ?? useError("The `{$method}` method is not supported!");
+    $routes = useGlobal("routes.{$method}") ?? useError("`{$method}` method is not supported!");
 
     # get matched route
     list($matches, $middlewares, $action) = _findRoute($routes, $url);

@@ -30,9 +30,9 @@ function addRoute(string $method, string $route, string $action, array $middlewa
  * @return void
  */
 function groupRoute(string $prefix, callable $action): void {
-    useState("route-prefix", [], $prefix);
+    useState("route-prefix", $prefix);
 
     $action();
 
-    useState("route-prefix", [], "");
+    useState("route-prefix", "");
 }

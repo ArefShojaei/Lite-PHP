@@ -15,10 +15,10 @@ import("@core/hooks/useState");
  */
 function createEnum(string $name, array $enums): void {
     # decalre enums container if the enums is empty!
-    if(empty($enums)) useState("enums", [$name], []);
+    if(empty($enums)) useState("enums.{$name}", []);
 
     # add enum to the enums container
     foreach ($enums as $enum => $value) {
-        useState("enums", [$name, $enum], $value);
+        useState("enums.{$name}.{$enum}", $value);
     }
 }

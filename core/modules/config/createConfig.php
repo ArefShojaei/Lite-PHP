@@ -14,5 +14,5 @@ import("@core/hooks/useState");
  * @return void
  */
 function createConfig(string $name, array $params): void {
-    useState("configs", [$name], $params);
+    useState("configs.{$name}", $params);
 }

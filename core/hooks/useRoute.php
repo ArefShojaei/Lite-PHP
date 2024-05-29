@@ -19,5 +19,5 @@ function useRoute(string $method, string $route, string $action, array $middlewa
     # convert the $method to upper string 
     $method = strtoupper($method);
 
-    useState("routes", [$method, $route], [$middlewares, $action]);
+    useState("routes.{$method}.{$route}", [$middlewares, $action]);
 }

@@ -13,11 +13,11 @@ require_once dirname(__DIR__, 2) . "/hooks/useState.php";
  * @return void
  */
 function createAlias(array $aliases): void {
-    # decalre aliases container if the aliases is empty!
-    if(empty($aliases)) useState("aliases", [], []);
+    # decalre aliases state if the aliases is empty!
+    if(empty($aliases)) useState("aliases", []);
 
     # add alias to the aliases container
     foreach ($aliases as $alias => $path) {
-        useState("aliases", [$alias], $path);
+        useState("aliases.{$alias}", $path);
     }
 }

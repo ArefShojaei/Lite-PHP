@@ -17,10 +17,12 @@ import("@core/hooks/useState");
 function createPlugin(string $name, callable $action, bool $hasUsageMode = true): void {
     # is runner type
     if(!$hasUsageMode) {
-        useState("plugins", [PLUGIN_RUNNER_TYPE, $name], $action);
+        // useState("plugins", [PLUGIN_RUNNER_TYPE, $name], $action);
+        useState("plugins." . PLUGIN_RUNNER_TYPE . ".{$name}", $action);
         return;
     }
     
     # is usage type
-    useState("plugins", [PLUGIN_USAGE_TYPE, $name], $action());
+    // useState("plugins", [PLUGIN_USAGE_TYPE, $name], $action());
+    useState("plugins." . PLUGIN_RUNNER_TYPE . ".{$name}", $action());
 }
