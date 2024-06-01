@@ -71,7 +71,7 @@ function addSeparator(string $fill = "=", int $position = STR_PAD_BOTH, int $len
  * @param int $length
  * @return void
  */
-function createTable(callable $callback, int $length): void {
+function createTable(callable $callback, int $length = 18): void {
     # Add header
     echo _addHeaderTable(length:$length);
     
