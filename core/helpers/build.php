@@ -25,5 +25,5 @@ function buildURL(string $url): string {
  * @return string
  */
 function buildPath(string $basePath, string $file, string $ext = PHP_FILE_EXTENTION): string {
-    return $basePath . $file . $ext;
+    return dirname(__DIR__, 2) .  $basePath . $file . $ext;
 }
