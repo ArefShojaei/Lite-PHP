@@ -9,6 +9,15 @@ import("@core/shared/helpers/assets/_mix");
 
 
 /**
+ * Get views path to include partial file
+ * @param string $path
+ * @return string
+ */
+function partial(string $path): string {
+    return dirname(__DIR__, 2) . BASE_VIEWS_PATH . $path . PHP_FILE_EXTENTION;
+}
+
+/**
  * Get assets base path
  * @function getAssetsBasePath
  * @return string
