@@ -1,14 +1,6 @@
 <?php
 
 /**
- * @package
- */
-import("@core/hooks/useState");
-import("@core/hooks/useGlobal");
-
-
-
-/**
  * Add header to table
  * @function _addHeaderTable
  * @private
