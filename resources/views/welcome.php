@@ -1,4 +1,4 @@
-<?php include "includes/header.php" ?>
+<?php include partial("/includes/header") ?>
     <div id="container">
         <h1>
             Lite&nbsp; 
@@ -11,4 +11,4 @@
             <li><a href="https://github.com/ArefShojaei/Lite-PHP"><?php echo __("public.repository") ?></a></li>
         </ul>
     </div>
-<?php include "includes/footer.php" ?>
+<?php include partial("/includes/footer") ?>

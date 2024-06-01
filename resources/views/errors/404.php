@@ -1,3 +1,3 @@
-<?php include "views/includes/header.php" ?>
+<?php include partial("/includes/header") ?>
     <h1><?php echo $message ?></h1>
-<?php include "views/includes/footer.php" ?>
+<?php include partial("/includes/footer") ?>
