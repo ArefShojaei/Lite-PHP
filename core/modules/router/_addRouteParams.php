@@ -3,7 +3,7 @@
 /**
  * @package
  */
-import("@core/hooks/useHTTP");
+import("@core/hooks/useState");
 
 
 /**
@@ -22,6 +22,6 @@ function _addRouteParams(array $matches): void {
         if(isset($key) && is_string($key)) $params[$key] = $value;
     }
     
-    # Add "params" header as request params
-    useHTTP("params", $params);
+    # Add route params as state
+    useState("route-params", $params);
 }
