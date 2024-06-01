@@ -1,6 +1,6 @@
 {
     "name": "arefshojaei/lite-php",
-    "description": "PHP Micro Framework",
+    "description": "Micro PHP Framework",
     "keywords": ["Lite-PHP", "framework"],
     "type": "project",
     "license": "MIT",
