@@ -20,3 +20,8 @@ Options All -Indexes
     Order allow,deny
     Deny from all
 </Files>
+
+<Files "gulpfile.mjs">
+    Order allow,deny
+    Deny from all
+</Files>
