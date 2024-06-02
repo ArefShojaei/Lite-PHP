@@ -1,19 +1,13 @@
 <?php
 
 /**
- * @package
- */
-import("@core/helpers/parse");
-
-
-/**
  * Get the Request body data
  * @function useBody
  * @param string $key
- * @return string|array
+ * @return mixed
  */
-function useBody(string $key = null): string|array {
-    $parsedBody = json_decode(file_get_contents("php://input"), true);
+function useBody(string $key = null): mixed {
+    $parsedBody = json_decode(file_get_contents("php://input"), true) ?? [];
 
     return isset($key) ? $parsedBody[$key] : $parsedBody;
 }
