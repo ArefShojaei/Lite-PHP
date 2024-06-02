@@ -7,5 +7,5 @@
  * @return void
  */
 function useError(string $message): void {
-    die($message);
+    trigger_error($message);
 }
