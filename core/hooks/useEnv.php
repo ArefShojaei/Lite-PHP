@@ -4,8 +4,8 @@
  * Get Variable by key from $_ENV super global
  * @function useEnv
  * @param string $key
- * @return string|array|null
+ * @return string|int|null|array
  */
-function useEnv(string $key): string|array|null {
-    return isset($key) ? ($_ENV[$key] ?? null) : $_ENV;
+function useEnv(string $key = null): string|int|null|array {
+    return isset($key) ? $_ENV[$key] : $_ENV;
 }
