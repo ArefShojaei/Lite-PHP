@@ -1,7 +1,13 @@
 {
     "name": "arefshojaei/lite-php",
     "description": "Micro PHP Framework",
-    "keywords": ["Lite-PHP", "framework"],
+    "keywords": [
+        "Lite-PHP",
+        "Framework",
+        "Modular",
+        "Functional"
+    ],
+    "version": "3.5.7",
     "type": "project",
     "license": "MIT",
     "authors": [
