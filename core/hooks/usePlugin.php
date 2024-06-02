@@ -19,7 +19,7 @@ function usePlugin(string $name): array|string {
 
     # check to not exist the plugin
     if(!is_array($plugins)) {
-        useError("{$name} plugin doesn't eixst!");
+        useError("{$name} plugin doesn't exist!");
     }
 
     # Get the plugin

@@ -8,21 +8,24 @@
  * @param array $params Cookie options
  * @return mixed
  */
-function useCookie(string $key, mixed $defaultValue = null, array $params = []): mixed {
-    # Get cookie
+function useCookie(string $key = null, mixed $defaultValue = null, array $params = []): mixed {
+    # Get all Cookie
+    if(!isset($key)) return $_COOKIE;
+
+    # Get Cookie
     if(!isset($defaultValue)) {
         return $_COOKIE[$key];
     }
 
-    # Set cookie
+    # Set Cookie
     setcookie(
         $key, 
         $defaultValue,
-        time() * $params["expireTime"],
-        $params["path"] ?? "",
-        $params["domain"] ?? "",
-        $params["secure"] ?? false,
-        $params["httpOnly"] ?? false
+        isset($params["expireTime"]) ? time() * $params["expireTime"] : 0,
+        isset($params["path"]) ? $params["path"] : "",
+        isset($params["domain"]) ? $params["domain"] : "",
+        isset($params["secure"]) ? $params["secure"] : false,
+        isset($params["httpOnly"]) ? $params["httpOnly"] : false,
     );
 
     return true;

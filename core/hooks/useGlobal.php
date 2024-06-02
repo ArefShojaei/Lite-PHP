@@ -6,10 +6,13 @@
  * @param string $state
  * @return mixed
  */
-function useGlobal(string $state): mixed {
+function useGlobal(string $state = null): mixed {
     # Get container as global
     $container = $GLOBALS["container"];
 
+    # Get container as Global data
+    if (!isset($state)) return $GLOBALS["container"];
+    
     # Extract state keys
     $keys = explode(".", $state);
 

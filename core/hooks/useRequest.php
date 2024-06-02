@@ -6,7 +6,6 @@
 import("@core/shared/hooks/useRequest/_host");
 import("@core/shared/hooks/useRequest/_ip");
 import("@core/shared/hooks/useRequest/_method");
-import("@core/shared/hooks/useRequest/_params");
 import("@core/shared/hooks/useRequest/_protocol");
 import("@core/shared/hooks/useRequest/_query");
 import("@core/shared/hooks/useRequest/_route");

@@ -35,6 +35,6 @@ function createDatabase(string $host, string $username, string $password = "", s
         ];
 
         # Show the info as json content
-        useError(json_encode($response));
+        die(json_encode($response));
     }
 }

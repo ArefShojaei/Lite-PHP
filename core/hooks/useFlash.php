@@ -9,7 +9,7 @@
  * @return array|bool
  */
 function useFlash(string $key, string $message = null, string $type = FLASH_INFO_LEVEL): array|bool {
-    # get flash
+    # Get Flash
     if(empty($message) && isset($_SESSION["flash"][$key])) {
         $message = $_SESSION["flash"][$key];
 
@@ -18,7 +18,7 @@ function useFlash(string $key, string $message = null, string $type = FLASH_INFO
         return [$message, $type];
     }
 
-    # set falsh
+    # Set Falsh
     $_SESSION["flash"][$key] = $message;
 
     return true;

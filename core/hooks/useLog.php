@@ -3,8 +3,7 @@
 /**
  * @package
  */
-import("@plugins/logger/_enum");
-import("@core/hooks/useEnum");
+import("@core/helpers/build");
 
 
 /**
@@ -16,7 +15,7 @@ import("@core/hooks/useEnum");
  */
 function useLog(string $message, string $filename = "app"): void {
     # get file path
-    $filePath = useEnum("Logger@LOGS_PATH") . "/" . $filename . LOG_FILE_EXTENTION;
+    $filePath = buildPath(BASE_LOGS_PATH . "/", $filename, LOG_FILE_EXTENTION);
 
     # log content
     $content = "[INFO] {$message}";

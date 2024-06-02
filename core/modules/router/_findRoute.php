@@ -27,8 +27,10 @@ function _findRoute(array $routes, string $url): array {
         if(count($matches)) break;
     }
 
-    list($middlewares, $action) = $params;
-
     # Get the route data
-    return [$matches, $middlewares,$action];
+    return [
+        $matches, 
+        $params["middlewares"],
+        $params["action"]
+    ];
 }
