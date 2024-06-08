@@ -17,6 +17,11 @@ function setCustomError(int $type, string $message, string $file, int $line): vo
         "message" => $message,
         "file" => $file,
         "line" => $line,
+        "meta" => [
+            "scriptContent" => explode("\r", htmlspecialchars(file_get_contents($file))),
+            "beforeScriptLines" => $line - 5,
+            "afterScriptLines" => $line + 5,
+        ]
     ];
 
     # Set HTTP status code

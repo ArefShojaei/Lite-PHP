@@ -19,6 +19,11 @@ function setCustomException(object $exception): void {
         "message" => $exception[$prefix . "message"],
         "file" => $exception[$prefix . "file"],
         "line" => $exception[$prefix . "line"],
+        "meta" => [
+            "scriptContent" => explode("\r", htmlspecialchars(file_get_contents($exception[$prefix . "file"]))),
+            "beforeScriptLines" => $exception[$prefix . "line"] - 5,
+            "afterScriptLines" => $exception[$prefix . "line"] + 5,
+        ]
     ];
 
     # Extract the Exception data to use in template

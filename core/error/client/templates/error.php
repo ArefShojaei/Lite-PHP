@@ -17,37 +17,17 @@
                     <p>Line: <?php echo $line ?></p>
                 </div>
                 <code>
-                    <?php
+                    <?php foreach ($meta['scriptContent'] as $scriptLine => $scriptContent): $scriptLine++; ?>
+                        <?php if ($scriptLine < $meta['beforeScriptLines']) continue; ?>
+                        <?php if ($scriptLine > $meta['afterScriptLines']) continue; ?>
 
-                    $script = explode("\r", htmlspecialchars(file_get_contents($file)));
-
-                    $befrore = $line - 5;
-                    $after = $line + 5;
-
-                    foreach ($script as $scriptLine => $scriptContent) {
-                        $scriptLine++;
-                        if ($scriptLine < $befrore) continue;
-                        if ($scriptLine > $after) continue;
-
-                        if ($scriptLine == $line) {
-                            echo "<p style='color:red;'>{$scriptLine} | {$scriptContent}</p>";
-                        } else {
-                            echo "<p>{$scriptLine} | {$scriptContent}</p>";
-                        }
-                    }
-
-                    ?>
-
-
-
-                    <!-- <?php $script = explode("\r", htmlspecialchars(file_get_contents($file))); ?>
-                    <?php foreach ($script as $scriptLine => $scriptContent) : $scriptLine++; ?>
-                        <?php if ($line === $scriptLine) : ?>
-                            <p style="color:red;"><?php echo "{$scriptLine} | {$scriptContent}"; ?></p>
-                        <?php else : ?>
-                            <p><?php echo "{$scriptLine} | {$scriptContent}"; ?></p>
+                        <?php if ($scriptLine == $line): ?>
+                            <p style='color:red;'><?php echo $scriptLine ?> | <?php echo $scriptContent ?></p>
+                        <?php else: ?>
+                            <p><?php echo $scriptLine ?> | <?php echo $scriptContent ?></p>
                         <?php endif; ?>
-                    <?php endforeach; ?> -->
+                        
+                    <?php endforeach; ?>
                 </code>
             </div>
         </div>
