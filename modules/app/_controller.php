@@ -10,7 +10,9 @@ import("@core/hooks/useConfig");
 
 
 /**
- * GET - Show welcome page
+ * GET
+ * 
+ * Show welcome page
  * @function index
  * @return void
  */
@@ -21,7 +23,9 @@ function index(): void {
 }
 
 /**
- * GET - Show (404 | Not-found) page
+ * GET
+ * 
+ * Show (404 | Not-found) page
  * @function show404
  * @return void
  */
