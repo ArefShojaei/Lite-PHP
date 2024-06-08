@@ -22,7 +22,7 @@ function view(string $name, array $data = []): void {
     $filePath = buildPath(BASE_VIEWS_PATH, "/{$name}");
 
     # Show error when the view (template) doesn't exist
-    if(!file_exists($filePath)) useError("The \"{$name}\" view not found!");
+    if(!file_exists($filePath)) useError("\"{$name}\" view not found!");
 
     # Extract array of "key & value" as view data to "variable"
     extract($data);
