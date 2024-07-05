@@ -24,7 +24,6 @@ const FLASH_SUCCESS_LEVEL = "success";
  * @constant string
  * @return string
  */
-
 const FLASH_ERROR_LEVEL = "error";
 
 /**
