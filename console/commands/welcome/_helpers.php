@@ -33,7 +33,7 @@ function welcomeCommand(): string {
 
 
 📌 Usage:
-    🏷️  php cli [command] [args]
+    🏷️  php cli [command] [args] [flag]
 
 
 🧩 Use \"php cli list\" command
