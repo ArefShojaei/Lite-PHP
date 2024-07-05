@@ -1,9 +1,10 @@
 <?php
 
 /**
- * start session
+ * Session setup
  */
 session_start();
+session_regenerate_id();
 
 
 /**
