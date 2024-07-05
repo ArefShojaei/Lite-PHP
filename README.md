@@ -366,7 +366,7 @@ addRoute("GET", "/user", "showUser"); # /user
 
 
 # Group Route
-addGroupRoute("/page", function() {
+groupRoute("/page", function() {
     addRoute("GET", "/home", "showHome"); # /page/home
     addRoute("GET", "/users", "showUsers"); # /page/users
     addRoute("GET", "/courses", "showCourses"); # /page/courses
@@ -445,7 +445,7 @@ addCommand("sayHi", fn() => "Hi from Lite PHP", "show Framework"); # php cli say
 
 
 # Group Command
-addGroupCommand("fake:", function() {
+groupCommand("fake:", function() {
     addCommand("city", "action", "description"); # php cli fake:city
     addCommand("company", "action", "description"); # php cli fake:company
     addCommand("user", "action", "description"); # php cli fake:user
