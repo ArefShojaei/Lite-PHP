@@ -8,5 +8,5 @@ import("@modules/app/_controller");
 /**
  * Routes
  */
-addRoute("GET", "/", "index");
-addRoute("GET", "/404", "show404");
+addRoute("GET", "/", "__app__index");
+addRoute("GET", "/404", "__app__404");
