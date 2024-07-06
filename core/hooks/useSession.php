@@ -16,8 +16,6 @@ function useSession(string $key = null, mixed $defaultValue = null): mixed {
         return $_SESSION[$key];
     }
 
-    # Regenerate session ID
-    session_regenerate_id(true);
 
     # Set session
     $_SESSION[$key] = $defaultValue;
