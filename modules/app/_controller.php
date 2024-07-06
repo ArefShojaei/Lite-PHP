@@ -7,17 +7,17 @@ import("@core/hooks/useConfig");
 
 
 /**
- * GET - Show welcome page
+ * GET - show welcome page
  */
-function index(): void {
+function __app__index(): void {
     view("welcome", [
         "title" => useConfig("app.name"),
     ]);
 }
 
 /**
- * GET - Show (404 | Not-found) page
+ * GET - show 404 page
  */
-function show404(): void {
+function __app__404(): void {
     abort(404, "Page Not Found!");
 }
