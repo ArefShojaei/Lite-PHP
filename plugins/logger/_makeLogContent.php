@@ -1,19 +1,12 @@
 <?php
 
-/**
- * @package
- */
 import("@plugins/logger/_enum");
 import("@core/hooks/useEnum");
 import("@core/hooks/useHTTP");
 
 
 /**
- * Mmake log content
- * @function _makeLogContent
  * @private
- * @param string $level Log level
- * @return string
  */
 function _makeLogContent(string $level): string {
     # Log level

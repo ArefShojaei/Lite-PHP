@@ -1,17 +1,11 @@
 <?php
 
-/**
- * @package
- */
 require_once dirname(__DIR__, 3) . "/helpers/element.php";
 
 
 /**
- * Render template to show info by params
- * @function _render
+ * Render template to dump data
  * @private
- * @param array $params
- * @return string
  */
 function _render(array $params): string {
     list($input, $styles) = $params; 

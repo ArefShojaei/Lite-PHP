@@ -1,16 +1,10 @@
 <?php
 
-/**
- * @package
- */
 import("@core/hooks/useGlobal");
 
 
 /**
- * Find exact command
- * @function _findCommand
- * @param array $input input data about command
- * @return array
+ * @private
  */
 function _findCommand(array $input): array {
     # List of command patterns

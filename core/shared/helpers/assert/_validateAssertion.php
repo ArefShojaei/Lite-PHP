@@ -1,16 +1,12 @@
 <?php
 
 /**
- * Validate assertion
- * @function _validateAssertion
  * @private
- * @param bool $result
- * @return void
  */
 function _validateAssertion(bool $result): void {
     global $passedTests, $failedTests;
 
-    # Check to not be valid result as falsly value
+    # Is not valid result
     if (!$result) {
         $failedTests++;
 

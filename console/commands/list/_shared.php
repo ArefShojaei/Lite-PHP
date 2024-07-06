@@ -1,11 +1,5 @@
 <?php
 
-
-/**
- * Get all plugins
- * @function getAllPlugins
- * @return array
- */
 function getAllPlugins(): array {
     # Scan plugins DIR to get module names
     $plugins = scandir("plugins");

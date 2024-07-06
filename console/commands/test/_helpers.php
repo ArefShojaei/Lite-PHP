@@ -1,16 +1,8 @@
 <?php
 
-/**
- * @package
- */
 import("@commands/test/_shared");
 
 
-/**
- * Test all modules
- * @function testAllModules
- * @return void
- */
 function testAllModules(): void {
     global $passedTests, $failedTests;
 
@@ -36,13 +28,7 @@ function testAllModules(): void {
 }
 
 
-/**
- * Test module by name
- * @function testModule
- * @param string $moudle module name
- * @return void
- */
-function testModule($module): void {
+function testModule(string $module): void {
     global $passedTests, $failedTests;
 
     $startTime = microtime(true);

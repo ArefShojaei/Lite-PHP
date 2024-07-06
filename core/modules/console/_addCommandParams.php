@@ -1,10 +1,7 @@
 <?php
 
 /**
- * Add command params
- * @function _addCommandParams
- * @param array $data command data
- * @return array
+ * @private
  */
 function _addCommandParams(array $command): array {
     $params = [];

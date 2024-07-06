@@ -1,23 +1,15 @@
 <?php
 
-/**
- * @package
- */
 import("@core/helpers/build");
 
 
 /**
  * Add custom Log message
- * @function useLog
- * @param string $message
- * @param string $filename
- * @return void
  */
 function useLog(string $message, string $filename = "app"): void {
-    # get file path
-    $filePath = buildPath(BASE_LOGS_PATH . "/", $filename, LOG_FILE_EXTENTION);
+    $filePath = buildPath(LOGS_PATH . "/", $filename, LOG_FILE_EXTENTION);
 
-    # log content
+    # Log content
     $content = "[INFO] {$message}";
 
     # append the log content to the file

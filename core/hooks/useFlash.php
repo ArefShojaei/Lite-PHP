@@ -2,11 +2,6 @@
 
 /**
  * Get & Set Flash message
- * @function useFlash
- * @param string $key Flash key
- * @param string $message Flash message
- * @param string $type Flash level
- * @return array|bool
  */
 function useFlash(string $key, string $message = null, string $type = FLASH_INFO_LEVEL): array|bool {
     # Get Flash

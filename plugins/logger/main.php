@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/modules/plugin/createPlugin");
 import("@core/hooks/useHTTP");
 import("@core/hooks/useEnum");
@@ -14,7 +11,6 @@ import("@plugins/logger/_clearLogs");
 
 
 /**
- * Logger plugin
  * @type Runner
  */
 createPlugin("logger", function($params) {
@@ -22,7 +18,7 @@ createPlugin("logger", function($params) {
     $filename = $params["name"] ?? useEnum("Logger::NAME");
 
     # Log file path
-    $filePath = buildPath(BASE_LOGS_PATH, "/{$filename}", LOG_FILE_EXTENTION);
+    $filePath = buildPath(LOGS_PATH, "/{$filename}", LOG_FILE_EXTENTION);
 
     # Log level
     $level = strtolower($params['level']) ?? useEnum("Logger::DEFAULT_LEVEL");

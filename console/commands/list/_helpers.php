@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/hooks/useGlobal");
 import("@core/helpers/table");
 import("@commands/test/_shared");
@@ -12,8 +9,6 @@ import("@commands/list/_shared");
 
 /**
  * Show list of routes
- * @function listRoute
- * @return void
  */
 function listRoute(): void {
     $routes = useGlobal("routes");
@@ -53,8 +48,6 @@ function listRoute(): void {
 
 /**
  * Show list of aliases
- * @function listAlias
- * @return void
  */
 function listAlias(): void {
     $aliases = useGlobal("aliases");
@@ -92,8 +85,6 @@ function listAlias(): void {
 
 /**
  * Show list of commands
- * @function listCommand
- * @return void
  */
 function listCommand(): void {
     $commands = useGlobal("commands");
@@ -131,8 +122,6 @@ function listCommand(): void {
 
 /**
  * Show list of ENV
- * @function listEnv
- * @return void
  */
 function listEnv(): void {
     # Table chilren index
@@ -168,8 +157,6 @@ function listEnv(): void {
 
 /**
  * Show list of modules
- * @function listModule
- * @return void
  */
 function listModule(): void {
     $modules = getAllModules();
@@ -204,8 +191,6 @@ function listModule(): void {
 
 /**
  * Show list of plugins
- * @function listPlugin
- * @return void
  */
 function listPlugin(): void {
     $plugins = getAllPlugins();

@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/hooks/useGlobal");
 import("@core/hooks/useMatch");
 import("@core/shared/hooks/useQuery/_escapeQuery");
@@ -11,29 +8,21 @@ import("@core/shared/hooks/useQuery/_getDataFromDatabase");
 
 /**
  * Query to database
- * @function useQuery
- * @param string $query SQL query
- * @return bool|array
  */
-function useQuery(string $query, array $params = []): bool|array {
-    # Get database connection
+function useQuery(string $sql, array $params = []): bool|array {
     $connection = useGlobal("database");
 
-    # Decalre regex as pattern for the select query
     $pattern = "/select|SELECT/";
 
-    # Declare pattern for the "select" query
-    $isMatch = useMatch($pattern, $query);
+    $isMatch = useMatch($pattern, $sql);
 
-    # Escape the query
-    if (count($params)) _escapeQuery($connection, $query, $params);
+    if (count($params)) _escapeQuery($connection, $sql, $params);
 
-    # Run the query
-    $result = mysqli_query($connection, $query);
+    $result = mysqli_query($connection, $sql);
 
     # Is the "select" query
     if ((bool) $isMatch) return _getDataFromDatabase($result);
 
-    # Signal message: The query was run successfully
+    # Signal message: The query was execute successfully
     return true;
 }

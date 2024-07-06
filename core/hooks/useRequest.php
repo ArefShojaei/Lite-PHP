@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/shared/hooks/useRequest/_host");
 import("@core/shared/hooks/useRequest/_ip");
 import("@core/shared/hooks/useRequest/_method");
@@ -14,9 +11,6 @@ import("@core/shared/hooks/useRequest/_userAgent");
 
 /**
  * Request info
- * @function useRequest
- * @param string $action
- * @return string|array
  */
 function useRequest(string $action): string|array {
     # Call $aciton dynamicly

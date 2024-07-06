@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 require_once __DIR__ . "/_error.php";
 require_once __DIR__ . "/_exception.php";
 

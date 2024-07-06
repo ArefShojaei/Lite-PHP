@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/helpers/view");
 import("@core/helpers/abort");
 import("@core/hooks/useEnum");
@@ -10,11 +7,7 @@ import("@core/hooks/useConfig");
 
 
 /**
- * GET
- * 
- * Show welcome page
- * @function index
- * @return void
+ * GET - Show welcome page
  */
 function index(): void {
     view("welcome", [
@@ -23,11 +16,7 @@ function index(): void {
 }
 
 /**
- * GET
- * 
- * Show (404 | Not-found) page
- * @function show404
- * @return void
+ * GET - Show (404 | Not-found) page
  */
 function show404(): void {
     abort(404, "Page Not Found!");

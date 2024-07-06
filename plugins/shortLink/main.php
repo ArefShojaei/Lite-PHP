@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/modules/plugin/createPlugin");
 import("@core/hooks/useEnum");
 import("@core/hooks/useRequest");
@@ -12,7 +9,6 @@ import("@plugins/shortLink/_enum");
 
 
 /**
- * Short link plugin
  * @type Usage
  */
 createPlugin("shortLink", function() {

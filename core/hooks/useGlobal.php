@@ -1,22 +1,17 @@
 <?php
 
 /**
- * Get State from $_GLOBALS super global
- * @function useGlobal
- * @param string $state
- * @return mixed
+ * Get State from $_GLOBALS
  */
 function useGlobal(string $state = null): mixed {
-    # Get container as global
     $container = $GLOBALS["container"];
 
-    # Get container as Global data
-    if (!isset($state)) return $GLOBALS["container"];
+    if (!isset($state)) return $container;
     
-    # Extract state keys
+
     $keys = explode(".", $state);
 
-    # Dive into nested keys to find the state
+    # Dive into nested keys
     foreach ($keys as $key) {
         if(!isset($container[$key])) {
             return null;

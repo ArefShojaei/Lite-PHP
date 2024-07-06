@@ -1,14 +1,8 @@
 <?php
 
-/**
- * @package
- */
 import("@core/modules/enum/createEnum");
 
 
-/**
- * Logger enums
- */
 createEnum("Logger", [
     "NAME" => "app",
     "LEVELS" => [

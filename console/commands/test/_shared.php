@@ -1,30 +1,14 @@
 <?php
 
-/**
- * @package
- */
 import("@core/helpers/table");
 
 
-/**
- * Load module
- * @function loadModule
- * @param string $module module name
- * @return void
- */
 function loadModule(string $module): void {
     $path = "modules/{$module}/_test.php";
     
     file_exists($path) && require_once $path;
 }
 
-
-/**
- * Make table
- * @function makeTable
- * @param array $params
- * @return void
- */
 function makeTable(array $params): void {
     list($passedTests, $failedTests) = $params;
 
@@ -46,13 +30,6 @@ function makeTable(array $params): void {
     }, $length);
 }
 
-
-
-/**
- * Get all modules
- * @function getAllModules
- * @return array
- */
 function getAllModules(): array {
     # Scan modules DIR to get module names
     $modules = scandir("modules");

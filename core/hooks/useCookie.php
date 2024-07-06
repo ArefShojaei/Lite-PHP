@@ -2,11 +2,6 @@
 
 /**
  * Get & Set cookie
- * @function useCookie
- * @param string $key 
- * @param mixed $defaultValue
- * @param array $params Cookie options
- * @return mixed
  */
 function useCookie(string $key = null, mixed $defaultValue = null, array $params = []): mixed {
     # Get all Cookie

@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@modules/database/_config");
 import("@core/modules/database/createDatabase");
 import("@core/hooks/useConfig");

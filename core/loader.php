@@ -1,9 +1,7 @@
 <?php
 
 /**
- * @package
- * 
- * Init base files 
+ * Init base files
  */
 require_once __DIR__ . "/error/main.php";
 require_once __DIR__ . "/constants/main.php";
@@ -14,7 +12,8 @@ require_once dirname(__DIR__) . "/bootstrap/alias.php";
 require_once dirname(__DIR__) . "/bootstrap/autoload.php";
 
 
+
 /**
- * Init Env
+ * Init base modules
  */
 createEnv();

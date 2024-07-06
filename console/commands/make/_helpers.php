@@ -1,19 +1,9 @@
 <?php
 
-/**
- * @package
- */
 import("@commands/make/_shared");
 
 
-
-/**
- * Make command by name
- * @function makeCommand
- * @param string $name command name
- * @return void
- */
-function makeCommand($name): void {
+function makeCommand(string $name): void {
     # Define tag
     $tag = "command";
 
@@ -45,14 +35,7 @@ function makeCommand($name): void {
     _showCompletedTaskMessage($tag, $DIR);
 }
 
-
-/**
- * Make module by name
- * @function makeModule
- * @param string $name module name
- * @return void
- */
-function makeModule($name): void {
+function makeModule(string $name): void {
     # Define tag
     $tag = "module";
 
@@ -88,15 +71,10 @@ function makeModule($name): void {
     _showCompletedTaskMessage($tag, $DIR);
 }
 
-
 /**
- * Make plugin by name
- * @function makePlugin
- * @param string $name Plugin name
- * @param string $type Types like "--runner" & "--usage" 
- * @return void
+ * @param $type Types like "--runner" & "--usage" 
  */
-function makePlugin($name, $type): void {
+function makePlugin(string $name, string $type): void {
     # Define tag
     $tag = "plugin";
 
@@ -126,14 +104,7 @@ function makePlugin($name, $type): void {
     _showCompletedTaskMessage($tag, $DIR);
 }
 
-
-/**
- * Make hook by name
- * @function makeHook
- * @param string $name Hook name
- * @return void
- */
-function makeHook($name): void {
+function makeHook(string $name): void {
     # Define tag
     $tag = "hook";
 
@@ -157,14 +128,7 @@ function makeHook($name): void {
     _showCompletedTaskMessage($tag, $DIR);
 }
 
-
-/**
- * Make view by name
- * @function makeView
- * @param string $name View name
- * @return void
- */
-function makeView($name): void {
+function makeView(string $name): void {
     # Define tag
     $tag = "view";
 

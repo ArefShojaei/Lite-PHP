@@ -1,18 +1,14 @@
 <?php
 
 /**
- * Validate file size
- * @function _validateFileSize
- * @param int $fileSize
- * @param int|float $size
- * @return array
+ * @private
  */
 function _validateFileSize(int $fileSize, int|float $size): array {
-    // Size types
+    # File size types
     $KB_SIZE = 1024;
     $MB_SIZE = 1024;
 
-    // file size in MB
+    # File size in MB
     $fileSize = number_format($fileSize / ($KB_SIZE * $MB_SIZE), 2);
 
 

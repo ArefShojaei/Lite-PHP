@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/hooks/useGlobal");
 import("@core/modules/console/_loadCommands");
 import("@core/modules/console/_findCommand");
@@ -12,18 +9,13 @@ import("@core/modules/console/_executeCommand");
 
 
 /**
- * Setup CLI
- * @param array $input Command input data
- * @return void
+ * @param $input Command input data
  */
 function createCli(array $input): void {
-    # Load comamnds
     _loadCommands();
 
-    # Find command
     list($command, $data) = _findCommand($input);
 
-    # Check to match command 
     _isMatchedCommand($command);
 
     # Add command params
@@ -32,6 +24,5 @@ function createCli(array $input): void {
     $params = (count($command) > $minCommandParamCount) ? _addCommandParams($command) : [];
 
 
-    # Run command 
     _executeCommand($data, $params);
 }

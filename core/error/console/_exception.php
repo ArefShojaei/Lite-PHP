@@ -1,42 +1,31 @@
 <?php
 
-/**
- * @package
- */
 require_once dirname(__DIR__, 2) . "/helpers/table.php";
 
 
-/**
- * Set custom Exception handler
- * @function setCustomException
- * @param object $exception
- * @return void 
- */
 function setCustomException(object $exception): void {
-    # Convert to Array Exception data
-    $exception = (array) $exception;
+    $exceptionData = (array) $exception;
 
     # Define prefix to access private property in the exception data
     $prefix = chr(0) . "*" . chr(0);
 
-    # Decalre Exception report data
-    $exceptionReport = [
+    $exception = [
         "title" => "Exception",
-        "message" => $exception[$prefix . "message"],
-        "file" => $exception[$prefix . "file"],
-        "line" => $exception[$prefix . "line"],
+        "message" => $exceptionData[$prefix . "message"],
+        "file" => $exceptionData[$prefix . "file"],
+        "line" => $exceptionData[$prefix . "line"],
     ];
 
-    # Extract Error report message
-    $extractedMessage = explode(": ", $exceptionReport["message"]);
+    $extractedMessage = explode(": ", $exception["message"]);
 
+    
     # Table structure
     $tableLength = 85; 
 
-    createTable(function () use ($exceptionReport, $extractedMessage, $tableLength) {
-        echo addRow("PHP Debugger - {$exceptionReport['title']}", length: $tableLength);
+    createTable(function () use ($exception, $extractedMessage, $tableLength) {
+        echo addRow("PHP Debugger - {$exception['title']}", length: $tableLength);
         echo addSeparator(length:$tableLength);
-        echo addColumn("File: {$exceptionReport['file']}", length:$tableLength - 5) . addColumn("Line: {$exceptionReport['line']}", STR_PAD_BOTH, $tableLength - 71) . "|" . PHP_EOL;
+        echo addColumn("File: {$exception['file']}", length:$tableLength - 5) . addColumn("Line: {$exception['line']}", STR_PAD_BOTH, $tableLength - 71) . "|" . PHP_EOL;
         echo addSeparator("-", length:$tableLength);
         
         foreach ($extractedMessage as $msg) {

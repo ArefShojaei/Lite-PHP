@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/helpers/command");
 import("@commands/list/_helpers");
 

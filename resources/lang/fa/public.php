@@ -2,7 +2,6 @@
 
 /**
  * Public Persian words
- * @return array
  */
 return [
     "docs" => "داکیونت",

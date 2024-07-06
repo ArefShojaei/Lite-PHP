@@ -1,12 +1,8 @@
 <?php
 
 /**
- * Run command in console
- * @function _executeCommand
- * @param array $command command data
- * @param array $params command params
- * @return void
+ * @private
  */
-function _executeCommand($command, $params): void {
+function _executeCommand(array $command, array $params): void {
     echo call_user_func($command["action"], ...$params);
 }

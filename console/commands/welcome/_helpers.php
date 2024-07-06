@@ -2,8 +2,6 @@
 
 /**
  * Show welcome message
- * @function welcomeCommand
- * @return string
  */
 function welcomeCommand(): string {
     # Composer Config File

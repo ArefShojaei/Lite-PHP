@@ -2,11 +2,7 @@
 
 /**
  * Clean log file content every on 24h
- * @function _clearLogs
  * @private
- * @param string $filePath
- * @param int $expireTime
- * @return void
  */
 function _clearLogs(string $filePath, int $expireTime): void {
     if(file_exists($filePath)) {

@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @package
- */
 import("@core/shared/hooks/useResponse/_json");
 import("@core/shared/hooks/useResponse/_html");
 import("@core/shared/hooks/useResponse/_text");
@@ -10,11 +7,6 @@ import("@core/shared/hooks/useResponse/_text");
 
 /**
  * Response info
- * @function useResponse
- * @param string $action
- * @param string|array $value
- * @param int $code HTTP status code
- * @return string
  */
 function useResponse(string $action, string|array $value, int $code = 200): string {
     # Set http status code
