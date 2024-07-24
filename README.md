@@ -220,10 +220,7 @@ import("@commands/package/_main") # without using '.php' ext
 Move to **"bootstrap/alias.php"**
 Then, register an Alias by this way :
 
-```php
-/**
- * init aliases
- */
+```php²
 createAlias([
    # Guide
    "@<alias-name>" => dirname(__DIR__) . "path",
@@ -367,9 +364,9 @@ addRoute("GET", "/user", "showUser"); # /user
 
 # Group Route
 groupRoute("/page", function() {
-    addRoute("GET", "/home", "showHome"); # /page/home
-    addRoute("GET", "/users", "showUsers"); # /page/users
-    addRoute("GET", "/courses", "showCourses"); # /page/courses
+    addRoute("GET", "/", "__app__index"); # /page/home
+    addRoute("GET", "/users", "__user__index"); # /page/users
+    addRoute("GET", "/courses", "__course__index"); # /page/courses
 });
 ```
 
@@ -441,7 +438,7 @@ import("@core/helpers/command");
 
 
 # Single Command
-addCommand("sayHi", fn() => "Hi from Lite PHP", "show Framework"); # php cli sayHi
+addCommand("database", fn() => "Hi from Lite PHP", "Database status"); # php cli database
 
 
 # Group Command
