@@ -10,8 +10,8 @@ DirectoryIndex server.php
 # Hide root web-server folders
 Options All -Indexes
 
-# Protect specific file extentions
-<FilesMatch "\.(log|htaccess|env|gitignore|json)$">
+# Protect specific files
+<FilesMatch "\.(log|htaccess|env|env.example|gitignore|json)$">
     Order allow,deny
     Deny from all
 </FilesMatch>
@@ -21,7 +21,27 @@ Options All -Indexes
     Deny from all
 </Files>
 
+<Files "init">
+    Order allow,deny
+    Deny from all
+</Files>
+
 <Files "gulpfile.mjs">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "composer.json">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "package.json">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "README.md">
     Order allow,deny
     Deny from all
 </Files>
