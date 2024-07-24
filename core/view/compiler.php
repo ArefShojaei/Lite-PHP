@@ -6,7 +6,7 @@ import("@core/shared/view/_replaceTemplateDirective");
 import("@core/shared/view/_replaceTemplateSyntax");
 
 
-function compileView() {
+function compileView(): void {
     $files = _getTemplateFiles();
 
     foreach ($files as $file) {
