@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @private
- */
 function _escapeQuery(object $connection, string &$sql, array $params): void {
     $sql = str_replace("?", "'?'", $sql);
 

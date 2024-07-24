@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @private
- */
 function _validateFileExtention(string $fileExt, array $ext): array {
     if(!in_array($fileExt, $ext)) {
         return [

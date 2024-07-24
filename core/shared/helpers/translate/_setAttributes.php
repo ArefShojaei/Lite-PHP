@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Set word attributes
- * @private
- */
 function _setAttributes(array $attributes, string $translatedWord): string {
     $pattern = "/\:(?<attribute>\w+)/";
 

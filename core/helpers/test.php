@@ -3,7 +3,7 @@
 /**
  * Add test wrapper
  */
-function describe(string $description, callable $action): void {
+function describe(string $description, callable $callback): void {
     # Test states
     static $passedTests = 0;
     static $failedTests = 0;
@@ -11,15 +11,15 @@ function describe(string $description, callable $action): void {
     
     echo "\n📌 Describing \"{$description}\":" . PHP_EOL;
 
-    $action();
+    $callback();
 }
 
 
 /**
  * Add test
  */
-function it(string $description, callable $action) {
+function it(string $description, callable $callback) {
     echo "  🧪️ Running {$description}:" . PHP_EOL;
 
-    $action();
+    $callback();
 }

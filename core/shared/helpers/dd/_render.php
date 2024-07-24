@@ -5,7 +5,6 @@ require_once dirname(__DIR__, 3) . "/helpers/element.php";
 
 /**
  * Render template to dump data
- * @private
  */
 function _render(array $params): string {
     list($input, $styles) = $params; 

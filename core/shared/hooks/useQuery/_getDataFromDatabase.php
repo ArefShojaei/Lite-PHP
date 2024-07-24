@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @private
- */
 function _getDataFromDatabase(object $result): array {
     $response = [];
 

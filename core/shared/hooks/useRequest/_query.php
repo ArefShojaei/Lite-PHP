@@ -5,7 +5,6 @@ import("@core/hooks/useHTTP");
 
 /**
  * Request query
- * @private
  */
 function _query(): array {
     parse_str(useHTTP("QUERY_STRING"), $queries);

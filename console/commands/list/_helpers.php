@@ -7,9 +7,6 @@ import("@commands/list/_shared");
 
 
 
-/**
- * Show list of routes
- */
 function listRoute(): void {
     $routes = useGlobal("routes");
     
@@ -46,9 +43,6 @@ function listRoute(): void {
 }
 
 
-/**
- * Show list of aliases
- */
 function listAlias(): void {
     $aliases = useGlobal("aliases");
     
@@ -83,9 +77,6 @@ function listAlias(): void {
 }
 
 
-/**
- * Show list of commands
- */
 function listCommand(): void {
     $commands = useGlobal("commands");
     
@@ -120,9 +111,6 @@ function listCommand(): void {
 }
 
 
-/**
- * Show list of ENV
- */
 function listEnv(): void {
     # Table chilren index
     $count = 0;
@@ -155,9 +143,6 @@ function listEnv(): void {
 }
 
 
-/**
- * Show list of modules
- */
 function listModule(): void {
     $modules = getAllModules();
 
@@ -189,9 +174,6 @@ function listModule(): void {
 }
 
 
-/**
- * Show list of plugins
- */
 function listPlugin(): void {
     $plugins = getAllPlugins();
     

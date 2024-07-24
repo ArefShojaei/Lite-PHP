@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @private
- */
 function _validateAssertion(bool $result): void {
     global $passedTests, $failedTests;
 

@@ -5,7 +5,6 @@ import("@core/hooks/useType");
 
 /**
  * HTML content
- * @private
  */
 function _html(string $value): string {
     useType("text/html");

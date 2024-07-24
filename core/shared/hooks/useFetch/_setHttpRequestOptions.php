@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @private
- */
 function _setHttpRequestOptions(object $curl, array $params): void {
     list($url, $method, $body, $headers) = $params;
 

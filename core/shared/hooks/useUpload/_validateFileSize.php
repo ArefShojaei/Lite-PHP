@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @private
- */
 function _validateFileSize(int $fileSize, int|float $size): array {
     # File size types
     $KB_SIZE = 1024;

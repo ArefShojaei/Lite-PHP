@@ -5,7 +5,6 @@ import("@core/hooks/useType");
 
 /**
  * JSON content
- * @private
  */
 function _json(array $value): string {
     useType("application/json");
