@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * This file is basic setup to configure app
+ * 
+ * -- SETUP-1 ----------------------
+ *              * ENV
+ * ---------------------------------
+ */
+$dotEnvFile = __DIR__ . "/.env";
+$dotEnvExampleFile = __DIR__ . "/.env.example";
+
+
+$status = !file_exists($dotEnvFile) && rename($dotEnvExampleFile, $dotEnvFile);
+
+echo $status ? "ENV setup was done successfully." : "All things is OK";
