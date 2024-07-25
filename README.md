@@ -52,7 +52,7 @@
     * [useHTTP](#usehttp)
     * [useGET](#useget)
     * [usePOST](#usepost)
-    * [useFetch](#usefetch---needs-to-refactore)
+    * [useFetch](#usefetch)
     * [useID](#useid)
     * [useConfig](#useconfig)
     * [useEnum](#useenum)
@@ -192,7 +192,7 @@ can be provided base files for every projects!
 ## **Root Files**
 
 ### .env.example
-> **This is a config for env** , Then before starting the project you must changed it from **.env.example** to **.env** file! 
+> **This is a config for ENV** , Then before starting the project you must changed it from **.env.example** to **.env** file! 
 
 ### .gitignore
 > This is a config to **hide 
@@ -250,7 +250,7 @@ Then, register an Alias by this way :
 ```php
 createAlias([
    # Guide
-   "@<alias-name>" => dirname(__DIR__) . "path",
+   "@<alias>" => dirname(__DIR__) . "path",
 
    # Example
     "@core" => dirname(__DIR__) . "/core",
@@ -260,14 +260,14 @@ createAlias([
 ```
 
 ### Config
-> This module registers new configuration for a module
+> Registers new configuration for a module
 
 #### 1-How can I create a config ?
 
 ```php
 import("@core/modules/config/createConfig");
 
-createConfig("config-name", [
+createConfig("name", [
     "key" => "value"
 ])
 ```
@@ -279,18 +279,18 @@ import("@core/hooks/useConfig");
 
 
 # Usage
-useConfig("config-name.key")
+useConfig("name.key")
 ```
 
 ### Enum
-> This module registers an Enum as constant
+> Registers an Enum as constant
 
 #### 1-How can I create an Enum ?
 
 ```php
 import("@core/modules/enum/createEnum");
 
-createEnum("enum-name", [
+createEnum("name", [
     "KEY" => "value"
 ])
 ```
@@ -302,11 +302,11 @@ import("@core/hooks/useEnum");
 
 
 # Usage
-useEnum("enum-name::KEY")
+useEnum("name::KEY")
 ```
 
 ### Plugin
-> This module registers new Plugin
+> Registers new Plugin
 
 Note: We have **two types** for using plugin :
 
@@ -320,7 +320,7 @@ Note: We have **two types** for using plugin :
 import("@core/modules/plugin/createPlugin");
 
 # Usage
-createPlugin("plugin-name", function ($params) {}, false);
+createPlugin("name", function ($params) {}, false);
 ```
 
 #### 2-How can I use the Runner Plugin ?
@@ -328,13 +328,14 @@ Move to **"bootstrap/providers.php"** , then use this way to register the Runner
 
 ```php
 "plugins" => [
+    # Usage
+    registerPlugin("name"),
+    
+    
     # Examples
     registerPlugin("logger", ["level" => "short"]),
     registerPlugin("security"),
     registerPlugin("cors"),
-
-    # Usage
-    registerPlugin("plugin-name"),
 ],
 ```
 
@@ -344,7 +345,7 @@ Move to **"bootstrap/providers.php"** , then use this way to register the Runner
 import("@core/modules/plugin/createPlugin");
 
 # Usage
-createPlugin("plugin-name", function () {});
+createPlugin("name", function () {});
 ```
 
 #### 4-How can I use the Usage Plugin ?
@@ -355,7 +356,7 @@ import("@core/hooks/usePlugin");
 
 
 # Usage
-list(...) = usePlugin("plugin-name");
+list(...) = usePlugin("name");
 ```
 
 <br/>
@@ -363,7 +364,7 @@ list(...) = usePlugin("plugin-name");
 ## **Helpers**
 
 ### import
-> This helper loads file by Alias
+> Loads file by Alias
 
 ```php
 import("@modules/user/_controller")
@@ -375,7 +376,7 @@ print_r($user);
 ```
 
 ### Route
-> This helper lets you to add a new Route in a module
+> Adds new Route in a module
 
 Note: You can use it by two ways: <br>
 
@@ -401,7 +402,7 @@ groupRoute("/page", function() {
 ```
 
 ### DD
-> This helper lets you to dump and die an Array in Browser as Client
+> Dumps and dies an Array in browser
 
 > Note : You don't need to load the helper, Because the helper has loaded ! 
 
@@ -419,7 +420,7 @@ dd($user, false); # just to dump and no die
 ```
 
 ### Parse
-> This helper lets you to get file content
+> Gets file content
 
 ```php
 import("@core/helpers/parse");
@@ -436,7 +437,7 @@ forach ($links as $link) {
 ```
 
 ### View
-> This helper lets you to render view template
+> Renders view template
 
 ```php
 import("@core/helpers/view");
@@ -455,7 +456,7 @@ view("user", $user);
 ```
 
 ### Command
-> This helper lets you to add a new Command to use in console
+> Adds new Command to use in console
 
 Note: You can use it by two ways: <br>
 
@@ -482,7 +483,7 @@ groupCommand("fake:", function() {
 ```
 
 ### Test
->This helper lets you to test module
+> Tests module
 
 Note: You can test by two ways: <br>
 
@@ -514,7 +515,7 @@ describe('test-info', function() {
 ```
 
 ### Build
-> This helper lets you to build new path & URL
+> Builds new path & URL
 
 ```php
 import("@core/helpers/build");
@@ -535,7 +536,7 @@ buildPath("/resources", "/lang/en/public"); # base path + path + file ext
 <br />
 
 ### UseHTTP
-> This hook provides to use http as **$_SERVER** super global
+> Provides to use http as **$_SERVER** super global
 
 ```php
 import("@core/hooks/useHTTP");
@@ -549,7 +550,7 @@ function inspectRequest() {
 ```
 
 ### UseGET
-> This hook provides to use **$_GET** super global
+> Provides to use **$_GET** super global
 
 ```php
 import("@core/hooks/useGET");
@@ -568,7 +569,7 @@ function inspectRequest() {
 ```
 
 ### UsePOST
-> This hook provides to use **$_POST** super global
+> Provides to use **$_POST** super global
 
 ```php
 import("@core/hooks/usePOST");
@@ -582,66 +583,78 @@ function inspectRequest() {
 ```
 
 ### UseFetch
-> This hook provides to send http request
+> Provides to send http request
+
+### Examples :
 
 ```php
+# Send GET Request
 import("@core/hooks/useFetch");
 
-# Examples
-
-# Send GET Request
-function sendGetRequest() {
-    $response = useFetch("http://domain.com/end-point");
+$response = useFetch("http://domain.com/end-point");
 
 
-    dd($response);
-}
+dd($response);
+```
 
-// Send POST Request
-function sendPostRequest() {
-    $params = [
-        "method" => "POST",
-        "body" => [],
-        "headers" => [],
-    ];
+```php
+# Send POST Request
+$params = [
+    "method" => "POST",
+    "body" => [],
+    "headers" => [],
+];
 
-    $response = useFetch("http://domain.com/end-point", $params);
-
-
-    dd($response);
-}
-
-// Send PUT Request
-function sendPutRequest() {
-    $params = [
-        "method" => "PUT",
-        "body" => [],
-        "headers" => [],
-    ];
-
-    $response = useFetch("http://domain.com/end-point", $params);
+$response = useFetch("http://domain.com/end-point", $params);
 
 
-    dd($response);
-}
+dd($response);
+```
 
-// Send PATCH Request
-function sendPatchRequest() {
-    $params = [
-        "method" => "PATCH",
-        "body" => [],
-        "headers" => [],
-    ];
+```php
+# Send PUT Request
+$params = [
+    "method" => "PUT",
+    "body" => [],
+    "headers" => [],
+];
 
-    $response = useFetch("http://domain.com/end-point", $params);
+$response = useFetch("http://domain.com/end-point", $params);
 
 
-    dd($response);
-}
+dd($response);
+```
+
+```php
+# Send PATCH Request
+$params = [
+    "method" => "PATCH",
+    "body" => [],
+    "headers" => [],
+];
+
+$response = useFetch("http://domain.com/end-point", $params);
+
+
+dd($response);
+```
+
+```php
+# Send DELETE Request
+$params = [
+    "method" => "DELETE",
+    "body" => [],
+    "headers" => [],
+];
+
+$response = useFetch("http://domain.com/end-point", $params);
+
+
+dd($response);
 ```
 
 ### UseID
-> This hooks provides to get random number ID
+> Provides to get random number ID
 
 ```php
 import("@core/hooks/useID");
@@ -655,9 +668,9 @@ function createUser($name, $email, $passowrd) {
 ```
 
 ### UseConfig
-> This hooks provides to get Config by key
+> Provides to get Config by key
 
->Note: sometimes you dont' want to get error for getting value from the hook usage, First you should load target module configuration in current file or script !
+>Note: Sometimes you don't want to get error for getting value from the hook usage, First you should load target module configuration in current file or script !
 
 ```php
 import("@core/hooks/useConfig");
@@ -671,7 +684,7 @@ function createUser($name, $email, $passowrd) {
 ```
 
 ### UseEnum
-> This hooks provides to get Enum by key
+> Provides to get Enum by key
 
 > Note: sometimes you dont' want to get error for getting value from the hook usage, First you should load target module configuration in current file or script !
 
@@ -694,7 +707,7 @@ function createUser($name, $email, $passowrd) {
 
 
 ### UseState
-> This hooks provides to define state in **container** as **$GLOBALS['container']** super global
+> Provides to define state in **container** as **$GLOBALS['container']** super global
 
 Note: The hook has more option that you will like that
 
@@ -736,7 +749,7 @@ function createUser($id, $name, $email, $password) {
 ```
 
 ### UseGlobal
-> This hooks provides to get value from **container** as **$GLOBALS['container']** super global
+> Provides to get value from **container** as **$GLOBALS['container']** super global
 
 ```php
 import("@core/hooks/useGlobal");
@@ -753,7 +766,7 @@ function listComamnds() {
 
 
 ### UseHash
-> This hooks provides to hash password
+> Provides to hash password
 
 ```php
 import("@core/hooks/useHash");
@@ -767,7 +780,7 @@ function createUser($name, $email, $passowrd) {
 ```
 
 ### UseVerifyPassword
-> This hooks provides to verify hashed password
+> Provides to verify hashed password
 
 ```php
 import("@core/hooks/useVerifyPassword");
@@ -781,7 +794,7 @@ function checkPassword($password,  $hashedPassowrd) {
 ```
 
 ### UseVerifyPassword
-> This hooks provides to verify hashed password
+> Provides to verify hashed password
 
 ```php
 import("@core/hooks/useVerifyPassword");
@@ -795,7 +808,7 @@ function checkPassword($password,  $hashedPassowrd) {
 ```
 
 ### UseHTML
-> This hooks provides to get html content by url
+> Provides to get html content by url
 
 ```php
 import("@core/hooks/useHTML");
@@ -809,7 +822,7 @@ function getSiteHtmlContent($url) {
 ```
 
 ### UseMode
-> This hooks provides to get current app mode from ".env" as APP_MODE **( Production | Development )**
+> Provides to get current app mode from ".env" as APP_MODE **( Production | Development )**
 
 ```php
 import("@core/hooks/useMode");
@@ -823,7 +836,7 @@ function getApplicationModeStatus() {
 ```
 
 ### UseEnv
-> This hooks provides to get env from ".env" by key
+> Provides to get env from ".env" by key
 
 ```php
 import("@core/hooks/useEnv");
@@ -840,7 +853,7 @@ function createDatabaseConnection() {
 ```
 
 ### UseLog
-> This hooks provides to put log message
+> Provides to put log message
 
 ```php
 import("@core/hooks/useLog");
@@ -854,7 +867,7 @@ function showDashboardPage() {
 ```
 
 ### UsePlugin
-> This hooks provides to use plugins that has **usage type**
+> Provides to use plugins that has **usage type**
 
 ```php
 import("@core/hooks/usePlugin");
@@ -868,7 +881,7 @@ function getShortLink($longURL) {
 ```
 
 ### UseQuery
-> This hooks provides to run **SQL query**
+> Provides to run **SQL query**
 
 ```php
 import("@core/hooks/useQuery");
@@ -889,7 +902,7 @@ function doLogin($email, $passowrd) {
 ```
 
 ### UseResponse
-> This hooks provides to return content output to the response as JSON | HTML | TEXT
+> Provides to return content output to the response as JSON | HTML | TEXT
 
 > Note : You don't need to set content-type in header, Because the hook has done it 
 
@@ -914,7 +927,7 @@ function showLoginPage() {
 ```
 
 ### UseRequest
-> This hooks provides the request data
+> Provides the request data
 
 ```php
 import("@core/hooks/useRequest");
@@ -936,7 +949,7 @@ function inspectRequest() {
 ```
 
 ### UseRedirect
-> This hooks provides to redirect to a route
+> Provides to redirect to a route
 
 ```php
 import("@core/hooks/useRedirect");
@@ -954,7 +967,7 @@ function inspectRequest() {
 ```
 
 ### UseURL
-> This hooks provides to parse URL
+> Provides to parse URL
 
 ```php
 import("@core/hooks/useURL");
@@ -969,7 +982,7 @@ function inspectRequest() {
 ```
 
 ### UseBody
-> This hooks provides to get the request body data
+> Provides to get the request body data
 
 ```php
 import("@core/hooks/useBody");
@@ -983,7 +996,7 @@ function inspectRequest() {
 ```
 
 ### UseHeader
-> This hooks provides to add & remove header by **key and value**
+> Provides to add & remove header by **key and value**
 
 ```php
 import("@core/hooks/useHeader");
@@ -1004,7 +1017,7 @@ function inspectRequest() {
 ```
 
 ### UseMatch
-> This hooks provides to use regex
+> Provides to use regex
 
 ```php
 import("@core/hooks/useMatch");
@@ -1022,7 +1035,7 @@ function isValidEmail($email) {
 ```
 
 ### UseFlash
-> This hooks provides to add & remove falsh message
+> Provides to add & remove falsh message
 
 ```php
 import("@core/hooks/useFlash");
