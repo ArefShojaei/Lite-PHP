@@ -1,13 +1,11 @@
 ![Picture](https://github.com/user-attachments/assets/a1250cea-a46a-4ee9-ab5b-657d08a0cbe7)
 
-
----
-### Categories :
+##  Tutorial :
 1. [Introduction](#introduction)
     * [What is Lite-PHP ?](#what-is-lite-php)
     * [Why Lite-PHP ?](#why-lite-php)
-    * [How can I use Lite-PHP ?](#how-can-i-use-lite-php)
-2. [Folder Structure](#folder-structure)
+2. [Installation](#installation)
+3. [Folder Structure](#folder-structure)
     * [core/](#core)
     * [bootstrap/](#bootstrap)
     * [public/](#public)
@@ -17,7 +15,7 @@
     * [resources/](#resources)
     * [hooks/](#hooks)
     * [storage/](#storage)
-3. [Root Files](#root-files)
+4. [Root Files](#root-files)
     * [.env.example](#envexample)
     * [.gitignore](#gitignore)
     * [.htaccess](#htaccess)
@@ -26,12 +24,12 @@
     * [package.json](#packagejson)
     * [README.md](#readmemd)
     * [server.php](#serverphp)
-4. [Modules](#modules)
+5. [Modules](#modules)
     * [alias](#Alias)
     * [config](#config)
     * [enum](#enum)
     * [plugin](#plugin)
-5. [Helpers](#helpers)
+6. [Helpers](#helpers)
     * [import](#import)
     * [route](#route)
     * [dd](#dd)
@@ -47,7 +45,7 @@
     * [assets]()
     * [validator]()
     * [assert]()
-6. [Hooks]()
+7. [Hooks]()
     * [useHTTP](#usehttp)
     * [useGET](#useget)
     * [usePOST](#usepost)
@@ -81,39 +79,50 @@
     * [useSession]()
 ---
 
-## > Introduction
+##  **Introduction**
 
 ### What is Lite-PHP ?
-Lite-PHP is a Micro Freamework 
+> Lite-PHP is a Micro Freamework 
 for developing Back-end Applications
 
 ### Why Lite-PHP ?
 Because Lite-PHP has:
 
-1. **Simple & Fast Development Env**
-2. **Modular Strucutre**
-3. **DBMS Like Mysql**
-4. **Testing Module**
-5. **Custom Plugins & Hooks**
-6. **Custom Command-line in console**
-7. **REST API Development**
-8. **Functional Programming Structure**
-9. **Folder Strucutre**
-10. **No OOP & No Object & No Class**
+> **Simple & Fast Development Env**
 
-## How can I use Lite-PHP ?
+> **Modular Strucutre**
 
-**Note**: 
-1. Your PHP version must be **8.0 >=**
+> **DBMS Like Mysql**
 
-2. Clone this framework in a folder then run that by a Web-server + Mysql 
+> **Testing Module**
 
+> **Custom Plugins & Hooks**
+
+> **Custom Command-line in console**
+
+> **REST API Development**
+
+> **Functional Programming Structure**
+
+> **Folder Strucutre**
+
+> **No OOP & No Object & No Class**
+
+<br />
+
+## **Installation**
+
+#### Using GIT
 ```bash
 git clone https://github.com/ArefShojaei/Lite-PHP
 ```
-Finally , you will see the welcome page
+#### Using Composer
+```bash
+composer create-project arefshojaei/lite-php
+```
+<br />
 
-## > Folder Structure
+## **Folder Structure**
 Here is default folder structure for starting new project !
 
 ```bash
@@ -139,69 +148,73 @@ Here is default folder structure for starting new project !
 |- .env.example
 |- .gitignore
 |- .htaccess
-|- .cli
+|- cli
+|- composer.json
 |- gulpfile.mjs
+|- init
 |- package.json
-|- .README.md
+|- README.md
+|- robots.txt
 |- server.php
 ```
 
 ### core/
-This folder is main files or **Lite-PHP core** files that
+> This folder is main files or **Lite-PHP core** files that
 can be provided base files for every projects!
 
 ### bootstrap/
-This folder is base files to **init the app**
+> This folder is base files to **init the app**
 
 ### modules/
-This folder is modules that the app needs to run as main file
+> This folder is modules that the app needs to run as main file
 
 ### hooks/
-This folder lets you to development **custom hooks**
+> This folder lets you to development **custom hooks**
 
 ### plugins/
-This folder lets you to development **custom plugin**
+> This folder lets you to development **custom plugin**
 
 ### public/
-**This folder is entry point to run the app**
+> **This folder is entry point to run the app**
 
 ### resources/
-**This folder is asset and view files**
+> **This folder is asset and view files**
 
 ### storage/
-This folder management the **log, cache and upload files**
+> This folder management the **log, cache and upload files**
 
----
+<br/>
 
-## > Root Files
+## **Root Files**
 
 ### .env.example
-**This is a config for env** , Then before starting the project you must changed it from **.env.example** to **.env** file! 
+> **This is a config for env** , Then before starting the project you must changed it from **.env.example** to **.env** file! 
 
 ### .gitignore
-This is a config to **hide 
+> This is a config to **hide 
 files** to not push on Github
 
 ### .htaccess
-This is a config for **Apache web-server**
+> This is a config for **Apache web-server**
 
 ### Cli
-This is console configuration to **use commands**
+> This is console configuration to **use commands**
 
 ### Gulpfile.mjs
-This is **Task-runner configuration** for assets
+> This is **Task-runner configuration** for assets
 
 ### Package.json
-This is list of **pacakge dependencies that the Task-runner needs to run**
+> This is list of **pacakge dependencies that the Task-runner needs to run**
 
 ### README.md
-**This is an info about Lite-PHP**
+> **This is an info about Lite-PHP**
 
 ### server.php
-This is **main file for launching the app**
+> This is **main file for launching the app**
 
----
-## > Modules
+<br/>
+
+## **Modules**
 
 ### Alias
 This module provides to register custom Alias
