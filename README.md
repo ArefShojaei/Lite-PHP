@@ -32,7 +32,8 @@
     * [config](#config)
     * [enum](#enum)
     * [plugin](#plugin)
-6. [Helpers](#helpers)
+6. [Template Engine](#template-engine)
+7. [Helpers](#helpers)
     * [import](#import)
     * [route](#route)
     * [dd](#dd)
@@ -48,7 +49,7 @@
     * [assets]()
     * [validator]()
     * [assert]()
-7. [Hooks]()
+8. [Hooks]()
     * [useHTTP](#usehttp)
     * [useGET](#useget)
     * [usePOST](#usepost)
@@ -358,6 +359,174 @@ import("@core/hooks/usePlugin");
 # Usage
 list(...) = usePlugin("name");
 ```
+
+<br/>
+
+## **Template Engine**
+> Provides to work as **professional** with templates instead of using usual php template engine !
+
+### Examples :
+> **Before** - views/user.php
+```php
+<?php foreach ($users as $user): ?>
+    <div class="user-card">
+        <span>ID: <?php echo $user['id'] ?> </span>
+        <h3>Name: <?php echo $user['name'] ?> </h3>
+        <p>CV: <?php echo $user['cv'] ?> </p>
+    </div>
+<?php endforeach; ?>
+```
+
+> **After** - views/user.hbs
+```hbs
+@foreach ($users as $user)
+    <div class="user-card">
+        <span>ID: {{ $user['id'] }} </span>
+        <h3>Name: {{ $user['name'] }} </h3>
+        <p>CV: {{ $user['cv'] }} </p>
+    </div>
+@endforeach
+```
+> NOTE:  We want to work it as professional with customized **.hbs** template engine and we don't have this like JS lib ( handlebars ) template engine and you should know about it that we have a customized template engine !
+
+
+### Syntaxes
+```bash
+{{ $variable }} # to Protect XSS attack 
+{{{ $variable }}} # Not to Protect XSS attack
+{{{!-- comment message --}}} # Writing Comment
+```
+
+
+### Directives
+
+> Condition
+```bash
+# Directives
+@if(expression)
+@elseif
+@else
+@endif
+```
+
+```hbs
+{{!-- Example --}}
+@if ($role == 'manager')
+    <h3>Welcome Manager</h3>
+@elseif ($role == 'admin')
+    <h3>Welcome Admin</h3>
+@else
+    <h3>The Role is not valid!</h3>
+@endif
+```
+
+
+> Loop
+```bash
+# Directives
+@foreach(expression)
+@endforeach
+
+@while(expression)
+@endwhile
+
+@break(expression)
+@continue(expression)
+```
+
+```hbs
+{{!-- Example-1 --}}
+@foreach($users as $user)
+    <div>
+        <h3>Name: {{ $user['name'] }} </h3>
+        <p>Email: {{ $user['email'] }} </p>
+    </div>
+@endforeach
+
+
+{{!-- Example-2 --}}
+@while($count < 100)
+    <p>Count: {{ $count }}</p>
+
+    @countinue($count < 10)
+
+    @break($count == 90)
+
+    $count++;
+@endwhile
+```
+
+> Partial
+```bash
+# Directives
+@include(partialPath)
+```
+
+```hbs
+{{!-- Example --}}
+@include("/includes/header")
+    <h1>Welcome Page</h1>
+@include("/includes/footer")
+```
+
+> Script
+```bash
+# Directives
+@style
+@endstyle
+@linkStyle
+
+@script
+@endScript
+@linkScript
+```
+
+```hbs
+{{!-- Example-1 --}}
+@style
+* {
+    box-sizing: border-box;
+    color : #e5e5e5;
+}
+@endStyle
+
+@linkStyle("https://domain.com/bootstrap/styles/grid.min.css")
+
+
+{{!-- Example-2 --}}
+@script
+    const username = promt('Enter your userName:')
+
+    alert(username)
+@endscript
+
+
+@linkScript("https://domain.com/jquery/jquery.min.css")
+```
+
+> Validation
+```bash
+# Directives
+@isset(expression)
+@endisset
+
+@empty(expression)
+@endempty
+```
+
+```hbs
+{{!-- Example-1 --}}
+@isset($user['isCheckedRole'])
+    <p>User role is checked</p>
+@endisset
+
+
+{{!-- Example-2 --}}
+@empty($posts)
+    <p>Here we don't have any posts!</p>
+@endempty
+```
+
 
 <br/>
 
