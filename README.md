@@ -163,29 +163,29 @@ Here is default folder structure for starting new project !
 ```
 
 ### core/
-> This folder is main files or **Lite-PHP core** files that
+> Main files or **Lite-PHP core** files that
 can be provided base files for every projects!
 
 ### bootstrap/
-> This folder is base files to **init the app**
+> Base files to **boot the app**
 
 ### modules/
-> This folder is modules that the app needs to run as main file
+> Modules that the app needs to run as main file
 
 ### hooks/
-> This folder lets you to development **custom hooks**
+> Lets you to development **custom hooks**
 
 ### plugins/
-> This folder lets you to development **custom plugin**
+> Lets you to development **custom plugin**
 
 ### public/
-> **This folder is entry point to run the app**
+> **Static files in production** with entry point file ( index.php )
 
 ### resources/
-> **This folder is asset and view files**
+> **Asset and View** files
 
 ### storage/
-> This folder management the **log, cache and upload files**
+> Local folder & files like **Log, Cache & Upload** ...
 
 <br/>
 
@@ -199,38 +199,38 @@ can be provided base files for every projects!
 files** to not push on Github
 
 ### .htaccess
-> This is a config for **Apache web-server**
+> **Apache** web server config
 
 ### cli
-> This is console configuration to **use commands**
+> Console configuration to **use commands**
 
 ### composer.json
-> This is passport of package info
+> Passport of package info
 
 ### gulpfile.mjs
-> This is **Task-runner configuration** for assets
+> **Task-runner** configuration for assets
 
 ### init
-> This is basic setup configuration to **use app**
+> Basic setup configuration to **development app**
 
 ### package.json
-> This is list of **pacakge dependencies that the Task-runner needs to run**
+> List of **pacakge dependencies that the Task-runner needs to run**
 
 ### README.md
-> **This is an info about Lite-PHP**
+> **Lite-PHP** Package info
 
 ### robots.txt
 > **This is configuration for crawlers of Google**
 
 ### server.php
-> This is **main file for launching the app**
+> **Main file** for launching the app
 
 <br/>
 
 ## **Modules**
 
 ### Alias
-> This module provides to register custom Alias
+> Provides to register custom Alias
 
 #### 1-Example:
 ```php
@@ -247,7 +247,7 @@ import("@commands/package/_main")
 Move to **"bootstrap/alias.php"**
 Then, register an Alias by this way :
 
-```php²
+```php
 createAlias([
    # Guide
    "@<alias-name>" => dirname(__DIR__) . "path",
@@ -348,7 +348,7 @@ createPlugin("plugin-name", function () {});
 ```
 
 #### 4-How can I use the Usage Plugin ?
-Note: for using the plugin, you should use this way 
+> Note: for using the plugin, you should use this way 
 
 ```php
 import("@core/hooks/usePlugin");
