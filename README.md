@@ -479,6 +479,13 @@ list(...) = usePlugin("name");
 @script
 @endScript
 @linkScript
+
+@php
+@endphp
+
+@dump
+
+@dd
 ```
 
 ```hbs
@@ -502,6 +509,20 @@ list(...) = usePlugin("name");
 
 
 @linkScript("https://domain.com/jquery/jquery.min.css")
+
+
+{{!-- Example-3 --}}
+@php
+    $message = "Welcome to Lite PHP"
+
+    echo $message;
+@endphp
+
+
+{{!-- Example-4 --}}
+@dump($message, true, [])
+
+@dd([1,2,3,4,5])
 ```
 
 > Validation
