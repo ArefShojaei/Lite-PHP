@@ -554,6 +554,9 @@ list(...) = usePlugin("name");
 @auth
 @endauth
 
+@authRole
+@endauthRole
+
 @guest
 @endguest
 ```
@@ -564,8 +567,13 @@ list(...) = usePlugin("name");
     <a href="...">Dashboard Panel</a>
 @endauth
 
-
 {{!-- Example-2 --}}
+@authRole("admin")
+    <a href="...">Admin Dashboard</a>
+@endauthRole
+
+
+{{!-- Example-3 --}}
 @guest
     <a href="...">Login</a>
     <a href="...">Register</a>
