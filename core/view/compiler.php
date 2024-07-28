@@ -19,16 +19,8 @@ function compileView(): void {
         $compiledTPL = preg_replace("/\s{2,}/", "", $compiledTPL);
 
 
-        $fileInfo = pathinfo($file);
+        $filename = pathinfo($file)['filename'];
 
-        [$_, $folder] = explode("/views",$fileInfo['dirname']);
-
-
-        if(!$folder) file_put_contents(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/" . $fileInfo['filename'] . PHP_FILE_EXTENTION, $compiledTPL);
-        
-        if(!is_dir(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/{$folder}")) mkdir(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/{$folder}");
-        
-        
-        file_put_contents(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/{$folder}/" . $fileInfo['filename'] . PHP_FILE_EXTENTION, $compiledTPL);
+        file_put_contents(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/" . md5($filename) . PHP_FILE_EXTENTION, $compiledTPL);
     }
 }
