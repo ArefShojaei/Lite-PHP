@@ -16,7 +16,12 @@ function compileView(): void {
         
         $compiledTPL = _replaceTemplateSyntax($compiledTPL);
         
-        $compiledTPL = preg_replace("/\s{2,}/", "", $compiledTPL);
+        
+        if(useMode() !== DEV_MODE) {
+            $minifyedTPL = preg_replace("/\s{2,}/", "", $compiledTPL);
+            
+            $compiledTPL = $minifyedTPL;
+        }
 
 
         $filename = pathinfo($file)['filename'];
