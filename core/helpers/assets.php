@@ -3,13 +3,20 @@
 import("@core/helpers/build");
 import("@core/hooks/useMode");
 import("@core/shared/helpers/assets/_mix");
+import("@core/shared/view/_encryptView");
 
 
 /**
  * Get views path to include partial file
  */
 function partial(string $path): string {
-    return dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . $path . PHP_FILE_EXTENTION;
+    [$encryptedViewName, $viewName] = _encryptView($path);
+
+    $filePath = buildPath(COMPILED_VIEWS_PATH, "/" . $encryptedViewName);
+
+    if(!file_exists($filePath)) useError("\"{$viewName}\" view not found!");
+
+    return $filePath;
 }
 
 /**
