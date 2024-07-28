@@ -12,5 +12,5 @@ function abort(int $code, string $message, $data = []): void {
     http_response_code($code);
 
     # Render template
-    view("errors/{$code}", array_merge(["title" => $code, "message" => $message], $data));
+    view("errors.{$code}", array_merge(["title" => $code, "message" => $message], $data));
 }
