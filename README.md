@@ -548,6 +548,30 @@ list(...) = usePlugin("name");
 @endempty
 ```
 
+> Auth
+```bash
+# Directives
+@auth
+@endauth
+
+@guest
+@endguest
+```
+
+```hbs
+{{!-- Example-1 --}}
+@auth
+    <a href="...">Dashboard Panel</a>
+@endauth
+
+
+{{!-- Example-2 --}}
+@guest
+    <a href="...">Login</a>
+    <a href="...">Register</a>
+@endguest
+```
+
 
 <br/>
 
