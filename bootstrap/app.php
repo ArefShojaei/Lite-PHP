@@ -3,6 +3,7 @@
 import("@core/modules/router/createRouter");
 import("@core/hooks/useMode");
 import("@bootstrap/providers");
+import("@core/view/main");
 
 
 /**

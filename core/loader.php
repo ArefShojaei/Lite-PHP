@@ -10,7 +10,6 @@ require_once __DIR__ . "/helpers/dd.php";
 require_once __DIR__ . "/modules/env/createEnv.php";
 require_once dirname(__DIR__) . "/bootstrap/alias.php";
 require_once dirname(__DIR__) . "/bootstrap/autoload.php";
-require_once __DIR__ . "/view/main.php";
 
 
 /**
