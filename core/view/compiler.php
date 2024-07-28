@@ -18,7 +18,7 @@ function compileView(): void {
         
         
         if(useMode() !== DEV_MODE) {
-            $minifyedTPL = preg_replace("/\s{2,}/", "", $compiledTPL);
+            $minifyedTPL = preg_replace("/\s{2,}/", " ", $compiledTPL);
             
             $compiledTPL = $minifyedTPL;
         }
