@@ -394,7 +394,7 @@ list(...) = usePlugin("name");
 ```bash
 {{ $variable }} # to Protect XSS attack 
 {{{ $variable }}} # Not to Protect XSS attack
-{{{!-- comment message --}}} # Writing Comment
+{{!-- comment message --}} # Writing Comment
 ```
 
 
