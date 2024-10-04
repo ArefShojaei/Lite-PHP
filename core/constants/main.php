@@ -13,6 +13,8 @@ const PROD_MODE = "production";
 
 const MAIN_EXECUTABLE_FILE = "main";
 
+const ERROR_REPORTER_INACTIVATION = 0;
+
 /**
  * Security Tip
  */
