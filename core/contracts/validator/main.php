@@ -20,6 +20,8 @@ createValidatorContract("required", function(string $schemaKey, mixed $schemaVal
     ];
     
     if(empty($schemaValue)) $reports[$schemaKey]["required"] = $result;
+
+    return $reports;
 });
 
 createValidatorContract("type", function(string $schemaKey, mixed $schemaValue, string $validationType) use (&$reports) {
@@ -31,6 +33,8 @@ createValidatorContract("type", function(string $schemaKey, mixed $schemaValue, 
 
 
     if(!$type) $reports[$schemaKey]["type"] = $result;
+
+    return $reports;
 });
 
 createValidatorContract("min", function(string $schemaKey, mixed $schemaValue, string $validationType) use (&$reports) {
@@ -38,7 +42,9 @@ createValidatorContract("min", function(string $schemaKey, mixed $schemaValue, s
         "message" => "Min Length should not be less than {$validationType}!",
     ];
 
-    if(strlen($schemaValue) < $validationType) $reports[$schemaKey]["minLength"] = $result;
+    if(strlen($schemaValue) < $validationType) $reports[$schemaKey]["min"] = $result;
+
+    return $reports;
 });
 
 createValidatorContract("max", function(string $schemaKey, mixed $schemaValue, string $validationType) use (&$reports) {
@@ -46,5 +52,7 @@ createValidatorContract("max", function(string $schemaKey, mixed $schemaValue, s
         "message" => "Max Length should not be grater than {$validationType}!",
     ];
 
-    if(strlen($schemaValue) > $validationType) $reports[$schemaKey]["maxLength"] = $result;
+    if(strlen($schemaValue) > $validationType) $reports[$schemaKey]["max"] = $result;
+
+    return $reports;
 });
