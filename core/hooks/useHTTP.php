@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Get HTTP header by name
+ * Get & Set HTTP header
  */
 function useHTTP(string $key = null, mixed $defaultValue = null): mixed {
     # Get all Headers
