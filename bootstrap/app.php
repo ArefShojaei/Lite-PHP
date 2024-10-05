@@ -19,6 +19,12 @@ date_default_timezone_set("America/New_York");
 
 
 /**
+ * Init View engine
+ */
+runViewEngine();
+
+
+/**
  * Init Router system
  */
 createRouter();

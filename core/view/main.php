@@ -4,6 +4,8 @@ import("@core/shared/view/_loadDirectives");
 import("@core/view/compiler");
 
 
-_loadDirectives();
+function runViewEngine(): void {
+    _loadDirectives();
 
-compileView();
+    compileView();
+}
