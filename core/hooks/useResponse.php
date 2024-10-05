@@ -6,7 +6,7 @@ import("@core/shared/hooks/useResponse/_text");
 
 
 /**
- * Response info
+ * Send HTTP Response
  */
 function useResponse(string $action, string|array $value, int $code = 200): string {
     # Set http status code

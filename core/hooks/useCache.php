@@ -15,13 +15,13 @@ function useCache(string $file, mixed $data = null): mixed {
     
     $filePath = buildPath(CACHE_PATH . "/", $filename, $fileExt);
     
-    # Get cache data
+    # Get the cached data
     if(!$data) {
         !file_exists($filePath) && useError("\"{$file}\" file doesn't exist!");
 
         return parse($filePath);
     }
     
-    # Set cache data
+    # Set the cache data
     return file_put_contents($filePath, $data);
 }

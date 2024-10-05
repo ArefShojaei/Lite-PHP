@@ -10,7 +10,7 @@ import("@core/shared/hooks/useRequest/_userAgent");
 
 
 /**
- * Request info
+ * Get HTTP Request info
  */
 function useRequest(string $action): string|array {
     # Call $aciton dynamicly

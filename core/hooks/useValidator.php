@@ -4,6 +4,9 @@ import("@core/hooks/useGlobal");
 import("@core/contracts/validator/main");
 
 
+/**
+ * Validate input data
+ */
 function useValidator(string $name, array $data): array {
     $reports = [];
 

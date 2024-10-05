@@ -20,7 +20,7 @@ function useUpload(array $file, array $ext = ['jpeg', 'jpg'], float|int $size = 
 
     $distPath = buildPath(UPLOADS_PATH . "/", $fileInfo["filename"], "." . $fileInfo["extension"]);
     
-    // Move to uploads folder by dist path
+    # Move to uploads folder by dist path
     $status = move_uploaded_file($file["tmp_name"], $distPath);
 
 

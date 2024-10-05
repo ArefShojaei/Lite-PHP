@@ -3,6 +3,9 @@
 import("@core/helpers/base64Url");
 
 
+/**
+ * Verify token
+ */
 function useVerifyToken(string $token, string $secretKey): array|bool|null {
     list($headerBase64Url, $payloadBase64Url, $signatureBase64Url) = explode(".", $token);
 
