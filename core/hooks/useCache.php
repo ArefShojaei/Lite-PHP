@@ -10,7 +10,7 @@ import("@core/hooks/useTable");
 /**
  * Get & Set cache data
  */
-function useCache(string $name, array $data = null, int $expireTime = 3600): string|bool {
+function useCache(string $name, array $data = null, int $expireTime = TIME_ONE_HOURE): string|bool {
     $filename = md5($name);
 
     $filePath = buildPath(CACHE_PATH . "/", $filename, JSON_FILE_EXTENTION);
