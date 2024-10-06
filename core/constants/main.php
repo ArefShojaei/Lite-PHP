@@ -7,6 +7,7 @@ require_once __DIR__ . "/include.php";
 require_once __DIR__ . "/plugin.php";
 require_once __DIR__ . "/jwt.php";
 require_once __DIR__ . "/table.php";
+require_once __DIR__ . "/time.php";
 
 
 const DEV_MODE = "development";
