@@ -18,3 +18,5 @@ const LOGS_PATH = "/storage/logs";
 const UPLOADS_PATH = "/storage/uploads";
 
 const COMPILED_VIEWS_PATH = "/storage/views";
+
+const DATABASE_PATH = "/storage/database";
