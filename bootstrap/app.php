@@ -9,7 +9,13 @@ import("@core/view/main");
 /**
  * Disable to show errors in "Production mode"
  */
-if (useMode() !== DEV_MODE) error_reporting(ERROR_REPORTER_INACTIVATION);
+error_reporting(ERROR_REPORTER_INACTIVATION);
+
+if (useMode() === DEV_MODE) {
+    error_reporting(E_ALL);
+    
+    import("@core/error/client/main");
+}
 
 
 /**
