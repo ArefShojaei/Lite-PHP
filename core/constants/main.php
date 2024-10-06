@@ -6,6 +6,7 @@ require_once __DIR__ . "/flash.php";
 require_once __DIR__ . "/include.php";
 require_once __DIR__ . "/plugin.php";
 require_once __DIR__ . "/jwt.php";
+require_once __DIR__ . "/table.php";
 
 
 const DEV_MODE = "development";
