@@ -4,6 +4,7 @@ import("@core/shared/view/_getTemplateFiles");
 import("@core/shared/view/_getTemplateContent");
 import("@core/shared/view/_replaceTemplateDirective");
 import("@core/shared/view/_replaceTemplateSyntax");
+import("@core/hooks/useRecord");
 
 
 function compileView(): void {
@@ -28,4 +29,6 @@ function compileView(): void {
 
         file_put_contents(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/" . md5($filename) . PHP_FILE_EXTENTION, $compiledTPL);
     }
+
+    useRecord("timestamps", "view", time() + TIME_ONE_MINUTE);
 }
