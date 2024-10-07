@@ -9,7 +9,10 @@ import("@core/helpers/build");
 function useTable(string $name, string $key, string $action = TABLE_GET_ACTION): string|array|bool {
     $filePath = buildPath(DATABASE_PATH . "/tables/", $name, JSON_FILE_EXTENTION);
     
-    $data = file_exists($filePath) && json_decode(file_get_contents($filePath), true);
+    $data = null;
+
+    if (file_exists($filePath)) $data = json_decode(file_get_contents($filePath), true);
+
     
     $index = strlen($key) % 10;
 
