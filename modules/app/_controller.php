@@ -21,3 +21,10 @@ function __app__index(): void {
 function __app__404(): void {
     abort(404, "Page Not Found!");
 }
+
+/**
+ * GET - show 500 page
+ */
+function __app__500(): void {
+    abort(500, "Internal Server Error!");
+}
