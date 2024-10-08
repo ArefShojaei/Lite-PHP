@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Get random number ID
+ * Get random ID
  */
-function useID(): int {
-    return rand();
+function useID(): string {
+    return md5(rand());
 }
