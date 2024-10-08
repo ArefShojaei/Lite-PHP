@@ -8,17 +8,12 @@ require_once __DIR__ . "/plugin.php";
 require_once __DIR__ . "/jwt.php";
 require_once __DIR__ . "/table.php";
 require_once __DIR__ . "/time.php";
+require_once __DIR__ . "/log.php";
+require_once __DIR__ . "/mode.php";
+require_once __DIR__ . "/permission.php";
 
 
-const DEV_MODE = "development";
-
-const PROD_MODE = "production";
 
 const MAIN_EXECUTABLE_FILE = "main";
 
 const ERROR_REPORTER_INACTIVATION = 0;
-
-/**
- * Security Tip
- */
-const IS_ACCESSED_FILE = true;
