@@ -17,7 +17,7 @@ function useFetch(string $url, array $params = []): array {
     $body = $params['body'] ?? [];
 
     
-    # Start request process
+    # Start the request process
     $curl = _openHttpRequest();
     
     _setHttpRequestOptions($curl, [$url, $method, $body, $headers]);
@@ -28,6 +28,6 @@ function useFetch(string $url, array $params = []): array {
     _closeHttpRequest($curl);
 
 
-    # Get response
+    # Get the response
     return json_decode($response, true);
 }

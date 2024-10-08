@@ -11,7 +11,7 @@ function useGlobal(string $state = null): mixed {
 
     $keys = explode(".", $state);
 
-    # Dive into nested keys
+    # Set nested keys
     foreach ($keys as $key) {
         if(!isset($container[$key])) {
             return null;
