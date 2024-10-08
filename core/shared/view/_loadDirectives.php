@@ -1,11 +1,11 @@
 <?php
 
 function _loadDirectives(): void {
-    $directives = glob(dirname(__DIR__, 2) . "/view/directives/*.php");
+    $directives = glob(dirname(__DIR__, 2) . "/contracts/view/directives/*.php");
 
     foreach ($directives as $directive) {
         $filename = pathinfo($directive)['filename'];
 
-        import("@core/view/directives/{$filename}");
+        import("@core/contracts/view/directives/{$filename}");
     }
 }
