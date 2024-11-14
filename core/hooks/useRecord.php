@@ -7,21 +7,16 @@ import("@core/helpers/build");
  * Save data in local database
  */
 function useRecord(string $table, string $key, string|array|bool $value): void {
-    $localDB = &$GLOBALS["container"]["localDB"] ?? [];
+    $filePath = buildPath(DATABASE_PATH . "/tables/", $table, JSON_FILE_EXTENTION);
+    
+    $data = json_decode(file_get_contents($filePath), true) ?? [];
 
-    # Hash key
+    # Hash key to find data like Hash table data structure
     $index = strlen($key) % 10;
 
-    # Escape input data for string type
-    $value = is_string($value) ? htmlspecialchars($value) : $value; 
+    # Add data
+    $data[$index][] = [$key => $value];
 
-    # Set data
-    $localDB["tables"][$table][$index][$key] = $value;
-
-
-    $filePath = buildPath(DATABASE_PATH . "/tables/", $table, JSON_FILE_EXTENTION);
-
-
-    # Apply Data to the DB
-    file_put_contents($filePath, json_encode($localDB["tables"][$table]));
+    # Save data
+    file_put_contents($filePath, json_encode($data));
 }
