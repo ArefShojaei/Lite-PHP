@@ -34,7 +34,7 @@ function _makeLogContent(string $level): string {
     $host = useHTTP("HTTP_HOST");
     
     # Current date
-    $date = date("Y:m:d H:i:s -");
+    $date = date("Y/m/d H:i:s -");
 
 
     # Return log content
