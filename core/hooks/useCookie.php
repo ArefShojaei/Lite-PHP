@@ -1,16 +1,15 @@
 <?php
 
 /**
- * Get & Set cookie
+ * Get & Set Cookie
  */
 function useCookie(string $key = null, mixed $defaultValue = null, array $params = []): mixed {
     # Get all Cookie
     if(!isset($key)) return $_COOKIE;
 
     # Get Cookie
-    if(!isset($defaultValue)) {
-        return $_COOKIE[$key];
-    }
+    if(!isset($defaultValue)) return $_COOKIE[$key];
+
 
     # Set Cookie
     setcookie(

@@ -7,7 +7,7 @@ import("@core/shared/hooks/useFetch/_setHttpRequestOptions");
 
 
 /**
- * Send http request
+ * Send Http request
  */
 function useFetch(string $url, array $params = []): array {
     $method = $params['method'] ?? "GET";
@@ -24,7 +24,7 @@ function useFetch(string $url, array $params = []): array {
 
     $response = _sendHttpRequest($curl);
 
-    # End the request process
+    # Finish the request process
     _closeHttpRequest($curl);
 
 
