@@ -10,10 +10,10 @@ function addRoute(string $method, string $route, string $action, array $middlewa
     useRoute($method, $prefix . $route, $action, $middlewares);
 }
 
-function groupRoute(string $prefix, callable $action): void {
+function groupRoute(string $prefix, callable $callback): void {
     useState("route-prefix", $prefix);
 
-    $action();
+    $callback();
 
     # Set empty value to the state
     useState("route-prefix", "");

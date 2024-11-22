@@ -15,10 +15,10 @@ function addCommand(string $command, string|callable $action, string $descriptio
     ]);
 }
 
-function groupCommand(string $preifx, callable $aciton): void {
+function groupCommand(string $preifx, callable $callback): void {
     useState("command-prefix", $preifx);
     
-    $aciton();
+    $callback();
     
     useState("command-prefix", "");
 }
