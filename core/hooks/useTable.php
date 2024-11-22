@@ -30,11 +30,7 @@ function useTable(string $name, string $key, string $action = TABLE_GET_ACTION):
     }
 
     # Get the data
-    $count = 0;
-
-    foreach ($data[$index] as $dataKey => $dataValue) $count =  $dataKey;
-
-    $result = $data[$index][$count][$key] ?? false;
+    $result = $data[$index][$key] ?? false;
 
     return is_string($result) ? htmlspecialchars($result) : $result;
 }

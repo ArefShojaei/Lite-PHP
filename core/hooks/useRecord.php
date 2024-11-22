@@ -16,7 +16,7 @@ function useRecord(string $table, string $key, string|array|bool $value): void {
     $index = strlen($key) % 10;
 
     # Add data
-    $data[$index][] = [$key => $value];
+    $data[$index] = [$key => $value];
 
     # Save data
     file_put_contents($filePath, json_encode($data));
