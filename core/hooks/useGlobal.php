@@ -9,17 +9,21 @@ function useGlobal(string $state = null): mixed {
     if (!isset($state)) return $container;
     
 
-    $keys = explode(".", $state);
-
+    
     # Set nested keys
-    foreach ($keys as $key) {
-        if(!isset($container[$key])) {
-            return null;
+    $keys = explode(".", $state);
+    $hasNestedKeyCount = 1;
+
+    if (count($keys) > $hasNestedKeyCount) {
+        foreach ($keys as $key) {
+            if(!isset($container[$key])) {
+                return null;
+            }
+
+            $container = &$container[$key];
         }
-
-        $container = &$container[$key];
     }
-
+    
     # Get the state
     return isset($container) ? $container : $GLOBALS[$state];
 }

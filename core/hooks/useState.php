@@ -11,16 +11,20 @@ function useState(string $state, mixed $value): void {
         $container = [];
     }
 
-    $keys = explode(".", $state);
     
     # Add nested keys to the state
-    foreach ($keys as $key) {
-        if (!isset($container[$key])) {
-            $container[$key] = [];
-        }
+    $keys = explode(".", $state);
+    $hasNestedKeyCount = 1;
 
-        $container = &$container[$key];
-    }
+    if (count($keys) > $hasNestedKeyCount) {
+        foreach ($keys as $key) {
+            if (!isset($container[$key])) {
+                $container[$key] = [];
+            }
+    
+            $container = &$container[$key];
+        }
+    }    
 
     # Set value to the state
     $container = $value;

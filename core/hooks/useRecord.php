@@ -1,6 +1,7 @@
 <?php
 
 import("@core/helpers/build");
+import("@core/helpers/parse");
 
 
 /**
@@ -9,7 +10,7 @@ import("@core/helpers/build");
 function useRecord(string $table, string $key, string|array|bool $value): void {
     $filePath = buildPath(DATABASE_PATH . "/tables/", $table, JSON_FILE_EXTENTION);
     
-    $data = json_decode(file_get_contents($filePath), true) ?? [];
+    $data = json_decode(parse($filePath), true) ?? [];
 
     # Hash key to find data like Hash table data structure
     $index = strlen($key) % 10;

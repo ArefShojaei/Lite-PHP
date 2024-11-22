@@ -14,14 +14,14 @@ function useQuery(string $sql, array $params = []): bool|array {
 
     $pattern = "/select|SELECT/";
 
-    $isMatch = useMatch($pattern, $sql);
+    $isMatched = useMatch($pattern, $sql);
 
     if (count($params)) _escapeQuery($connection, $sql, $params);
 
     $result = mysqli_query($connection, $sql);
 
     # Is the "select" query
-    if ((bool) $isMatch) return _getDataFromDatabase($result);
+    if ((bool) $isMatched) return _getDataFromDatabase($result);
 
     # Signal message: The query was execute successfully
     return true;

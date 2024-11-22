@@ -1,17 +1,18 @@
 <?php
 
 import("@core/helpers/build");
+import("@core/helpers/parse");
 
 
 /**
- * Get data form local database by key
+ * Get & Delete data form local database
  */
 function useTable(string $name, string $key, string $action = TABLE_GET_ACTION): string|array|bool {
-    $filePath = buildPath(DATABASE_PATH . "/tables/", $name, JSON_FILE_EXTENTION);
-    
     $data = null;
 
-    if (file_exists($filePath)) $data = json_decode(file_get_contents($filePath), true);
+    $filePath = buildPath(DATABASE_PATH . "/tables/", $name, JSON_FILE_EXTENTION);
+
+    if (file_exists($filePath)) $data = json_decode(parse($filePath), true);
 
     
     $index = strlen($key) % 10;
