@@ -18,13 +18,14 @@ createPlugin("localDatabaseCleaner", function($params) {
     $expireTime = $params["expireTime"];
 
     $currentTimestamp = time();
-
-    $futureTimestamp = $currentTimestamp + $expireTime;
     
-    useRecord("timestamps", "localDB", $futureTimestamp);
     
-    $cachedTimestamp = useTable("timestamps", "localDB");
-    # ----------------------------------------
+    foreach ($files as $file) {
+        $fileCreationTime = fileatime($file);
 
-    if ($currentTimestamp > $cachedTimestamp) foreach ($files as $file) file_put_contents($file, "");
+        $futureTimestamp = $fileCreationTime + $expireTime;
+        
+        # Delete the file
+        if (file_exists($file)) $currentTimestamp > $futureTimestamp && unlink($file);
+    }
 }, false);
