@@ -12,16 +12,13 @@ function useGlobal(string $state = null): mixed {
     
     # Set nested keys
     $keys = explode(".", $state);
-    $hasNestedKeyCount = 1;
 
-    if (count($keys) > $hasNestedKeyCount) {
-        foreach ($keys as $key) {
-            if(!isset($container[$key])) {
-                return null;
-            }
-
-            $container = &$container[$key];
+    foreach ($keys as $key) {
+        if(!isset($container[$key])) {
+            return null;
         }
+
+        $container = &$container[$key];
     }
     
     # Get the state
