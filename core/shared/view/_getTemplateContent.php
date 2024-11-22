@@ -1,5 +1,8 @@
 <?php
 
+import("@core/helpers/parse");
+
+
 function _getTemplateContent(string $file): string {
-    return file_get_contents($file);
+    return parse($file);
 }
