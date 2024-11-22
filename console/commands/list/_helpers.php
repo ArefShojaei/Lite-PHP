@@ -50,12 +50,12 @@ function listAlias(): void {
     $count = 0;
 
     # Table size
-    $length = 40;
+    $length = 83;
 
     # Column sizes
     $firstColumn = 5;
     $secoundColumn = 16;
-    $thirdColumn = 20;
+    $thirdColumn = 60;
 
 
     # Table structure
