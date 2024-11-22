@@ -7,7 +7,8 @@ return [
     "plugins" => [
         registerPlugin("logger", ["level" => "combined"]), # Log Level:  short | common | combined
         registerPlugin("security"),
-        registerPlugin("cors")
+        registerPlugin("cors"),
+        registerPlugin("localDatabaseCleaner", ["expireTime" => TIME_ONE_HOURE]),
     ],
     "modules" => [
         registerModule("database"),
