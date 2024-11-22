@@ -1,6 +1,7 @@
 <?php
 
 import("@core/hooks/useGlobal");
+import("@core/hooks/useMatch");
 
 
 /**
@@ -18,7 +19,7 @@ function _findCommand(array $input): array {
         $pattern = "/^" . str_replace(["{", "}"], ["(?<", ">(\w|[-_:\/.?=&])+)"], $command) . "$/";
 
         # Is matched comamnd with the regex
-        preg_match($pattern, join(" ", $input), $result);
+        $result = useMatch($pattern, join(" ", $input));
 
         # Get matched command
         if(count($result)) break;
