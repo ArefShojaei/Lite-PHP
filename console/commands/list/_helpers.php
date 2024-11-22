@@ -181,11 +181,11 @@ function listPlugin(): void {
     $count = 0;
 
     # Table size
-    $length = 21;
+    $length = 30;
 
     # Column sizes
     $firstColumn = 5;
-    $secoundColumn = 15;
+    $secoundColumn = 24;
 
 
     # Table
