@@ -10,6 +10,8 @@ import("@core/helpers/parse");
 function useRecord(string $table, string $key, string|array|bool $value): void {
     $filePath = buildPath(DATABASE_PATH . "/tables/", $table, JSON_FILE_EXTENTION);
     
+    if (!file_exists($filePath)) file_put_contents($filePath, "");
+
     $data = json_decode(parse($filePath), true) ?? [];
 
     # Hash key to find data like Hash table data structure

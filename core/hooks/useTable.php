@@ -12,6 +12,9 @@ function useTable(string $name, string $key, string $action = TABLE_GET_ACTION):
 
     $filePath = buildPath(DATABASE_PATH . "/tables/", $name, JSON_FILE_EXTENTION);
 
+    
+    if (!file_exists($filePath)) file_put_contents($filePath, "");
+    
     if (file_exists($filePath)) $data = json_decode(parse($filePath), true);
 
     
