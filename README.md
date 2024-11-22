@@ -32,6 +32,7 @@
     * [config](#config)
     * [enum](#enum)
     * [plugin](#plugin)
+    * [validator]()
 6. [Template Engine](#template-engine)
 7. [Helpers](#helpers)
     * [import](#import)
@@ -81,14 +82,20 @@
     * [useCache]()
     * [useCookie]()
     * [useSession]()
+    * [useToken](#usetoken)
+    * [useVerifyToken](#useverifytoken)
+    * [useValidator]()
 
+    * [useAction]()
+    * [useTable]()
+    * [useRecord]()
 <br/>
 
 ##  **Introduction**
 
 ### What is Lite-PHP ?
 > Lite-PHP is a Micro Freamework 
-for developing Back-end Applications
+for developing Back-end applications
 
 ### Why Lite-PHP ?
 Because Lite-PHP has:
@@ -117,13 +124,14 @@ Because Lite-PHP has:
 
 ## **Installation**
 
-#### Using GIT
-```bash
-git clone https://github.com/ArefShojaei/Lite-PHP
-```
 #### Using Composer
 ```bash
 composer create-project arefshojaei/lite-php
+```
+
+#### Using GIT
+```bash
+git clone https://github.com/ArefShojaei/Lite-PHP
 ```
 <br />
 
@@ -231,7 +239,7 @@ files** to not push on Github
 ## **Modules**
 
 ### Alias
-> Provides to register custom Alias
+> Registers custom Alias
 
 #### 1-Example:
 ```php
@@ -270,7 +278,7 @@ import("@core/modules/config/createConfig");
 
 createConfig("name", [
     "key" => "value"
-])
+]);
 ```
 
 #### 2-How can I use the config ?
@@ -280,7 +288,7 @@ import("@core/hooks/useConfig");
 
 
 # Usage
-useConfig("name.key")
+useConfig("name.key");
 ```
 
 ### Enum
@@ -293,7 +301,7 @@ import("@core/modules/enum/createEnum");
 
 createEnum("name", [
     "KEY" => "value"
-])
+]);
 ```
 
 #### 2-How can I use the Enum ?
@@ -303,7 +311,7 @@ import("@core/hooks/useEnum");
 
 
 # Usage
-useEnum("name::KEY")
+useEnum("name::KEY");
 ```
 
 ### Plugin
@@ -313,9 +321,9 @@ Note: We have **two types** for using plugin :
 
 > 1. **Runner Type** needs to register in         **"bootstrap/providers.php"**
 
-> 2. **Usage Type** needs to use in **logic code**
+> 2. **Usage Type** needs to use in **function or logic code**
 
-#### 1-How can I create a Runner Plugin ?
+#### 1-How can I create a **Runner type** Plugin ?
 
 ```php
 import("@core/modules/plugin/createPlugin");
@@ -340,7 +348,7 @@ Move to **"bootstrap/providers.php"** , then use this way to register the Runner
 ],
 ```
 
-#### 3-How can I create a Usage Plugin ?
+#### 3-How can I create a **Usage type** Plugin ?
 
 ```php
 import("@core/modules/plugin/createPlugin");
@@ -638,7 +646,7 @@ $user = [
 # Usage
 dd($user); # to dump and die
 
-dd($user, false); # just to dump and no die
+dd($user, false); # just to dump and no die process
 ```
 
 ### Parse
@@ -651,7 +659,7 @@ $file = "links.txt";
 
 # Usage
 $links = prase($file);
-$links = @prase($file); # use @ to get boolean or content if you don't want to get error
+$links = @prase($file); # use the @ to get boolean or content if you don't want to get error
 
 forach ($links as $link) {
     echo "[Link] {$link}" . PHP_EOL;
@@ -821,6 +829,9 @@ dd($response);
 
 ```php
 # Send POST Request
+import("@core/hooks/useFetch");
+
+
 $params = [
     "method" => "POST",
     "body" => [],
@@ -835,6 +846,9 @@ dd($response);
 
 ```php
 # Send PUT Request
+import("@core/hooks/useFetch");
+
+
 $params = [
     "method" => "PUT",
     "body" => [],
@@ -849,6 +863,9 @@ dd($response);
 
 ```php
 # Send PATCH Request
+import("@core/hooks/useFetch");
+
+
 $params = [
     "method" => "PATCH",
     "body" => [],
@@ -863,6 +880,9 @@ dd($response);
 
 ```php
 # Send DELETE Request
+import("@core/hooks/useFetch");
+
+
 $params = [
     "method" => "DELETE",
     "body" => [],
@@ -951,19 +971,14 @@ function createUser($id, $name, $email, $password) {
     ];
 
 
-    # First Way => Key & Value
-    useState("users", [], $user);
+    # First way => key & value
+    useState("users", $user);
     
-    # Second Way => Key & Value
-    useState("users", [$name], $user);
+    # Second way => nested keys & value
+    useState("users.{$name}", $user);
     
-    # Third Way => Nested Keys & Value
-    useState("users", [$id, $name], $user);
-
-
-    # Then inspect $GLOBALS['container']['users']
-
-
+    # Third way => nested keys & value
+    useState("users.{$id}.{$name}", $user);
 
 
     # logic code ...
@@ -977,8 +992,14 @@ function createUser($id, $name, $email, $password) {
 import("@core/hooks/useGlobal");
 
 
-function listComamnds() {
-    $comamnds = useGlobal("commands"); # $GLOBALS['container']['commands']
+function getPlugins() {
+    # First way => without nested key
+    $plugins = useGlobal("plugins"); # $GLOBALS['container']['plugins']
+    
+    # Second way => with nested keys
+    $runnerPlugins = useGlobal("plugins.runner"); # $GLOBALS['container']['plugins']['runner']
+    
+    $usagePlugins = useGlobal("plugins.usage"); # $GLOBALS['container']['plugins']['usage']
 
 
     # logic code ...
@@ -996,20 +1017,6 @@ import("@core/hooks/useHash");
 
 function createUser($name, $email, $passowrd) {
     $hashedPassword = useHash($password);
-
-    # logic code ...
-}
-```
-
-### UseVerifyPassword
-> Provides to verify hashed password
-
-```php
-import("@core/hooks/useVerifyPassword");
-
-
-function checkPassword($password,  $hashedPassowrd) {
-    $isValidPassword = useVerifyPassword($password, $hashedPassword);
 
     # logic code ...
 }
@@ -1266,6 +1273,44 @@ import("@core/hooks/useFlash");
 function doLogin() {
     useFlash("login", "Invalid Email or Password!");
     
+    # logic code ...
+}
+```
+
+### UseToken
+> Provides to generate new token
+
+```php
+import("@core/hooks/useToken");
+
+
+function doLogin() {
+    $user = [
+        "username" => "Robert",
+        "password" => 12345
+    ];
+
+
+    $token = useToken($user, "secretKey");
+
+
+    # logic code ...
+}
+```
+
+### UseVerifyToken
+> Provides to verify token
+
+```php
+import("@core/hooks/useVerifyToken");
+
+
+function exportLogs() {
+    $token = "...";
+
+    $isValidUser = useVerifyToken($token,"secretKey");
+
+
     # logic code ...
 }
 ```
