@@ -47,9 +47,9 @@
     * [translate](#translate)
     * [url](#url)
     * [assets](#assets)
-    * [validator]()
-    * [assert]()
-8. [Hooks]()
+    * [validator](#validator-1)
+    * [assert](#assert)
+8. [Hooks](#hooks)
     * [useHTTP](#usehttp)
     * [useGET](#useget)
     * [usePOST](#usepost)
@@ -866,6 +866,51 @@ img("user.jpeg"); # resources/assets/img/user.jpeg
 
 # Icon asset path
 icon("logo.svg"); # resources/assets/img/logo.svg
+```
+
+### Validator
+> Provides to validate data
+
+```php
+import("@core/helpers/validator");
+
+# Email validation
+$email_1 = "Robert@gmail.com";
+$email_2 = "Kevin@yahoo.com";
+
+isEmail($email_1); # true
+isEmail($email_2); # false
+
+
+# URL validation
+$url_1 = "http://localhost:5000";
+$url_2 = "/categories/mobile/54673124";
+
+isURL($url_1); # true
+isURL($url_2); # false
+```
+
+### Assert
+> Provides to assert data in **unit test**
+
+* Note: You must use it when you are writing tests that exists in every modules of app with **_test.php** file! 
+
+* If you like to use more asserts, you should move to **"core/helpers/assert.php"** file  
+
+```php
+import("@core/helpers/asserts");
+
+
+assertTrue(""); # false
+assertTrue("This is a message"); # true
+assertTrue(0); # false
+assertTrue(1); # true
+
+
+assertEmpty([]) # true
+assertEmpty([1,2,3]) # false
+
+# and more assert functions....
 ```
 
 <br />
