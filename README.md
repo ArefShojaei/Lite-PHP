@@ -32,7 +32,7 @@
     * [config](#config)
     * [enum](#enum)
     * [plugin](#plugin)
-    * [validator]()
+    * [validator](#validator)
 6. [Template Engine](#template-engine)
 7. [Helpers](#helpers)
     * [import](#import)
@@ -84,11 +84,10 @@
     * [useSession]()
     * [useToken](#usetoken)
     * [useVerifyToken](#useverifytoken)
-    * [useValidator]()
-
-    * [useAction]()
+    * [useValidator](#usevalidator)
+    * [useAction](#useaction)
     * [useTable]()
-    * [useRecord]()
+    * [useRecord](#userecord)
 <br/>
 
 ##  **Introduction**
@@ -367,6 +366,45 @@ import("@core/hooks/usePlugin");
 # Usage
 list(...) = usePlugin("name");
 ```
+
+### Validator
+> Defines Schema for input data 
+
+#### 1-How can I create a Schema ?
+
+```php
+import("@core/modules/validator/createValidator");
+
+createValidator("post", [
+    "id" => [
+        "type" => "int",
+        "required" => true,
+    ],
+
+    "title" => [
+        "type" => "string",
+        "min" => 20,
+    ]
+]);
+```
+
+#### 2-How can I use that ?
+
+```php
+import("@core/hooks/useValidator");
+
+
+# Usage
+$schema = "post",
+
+$post = [
+    "id" => 1,
+    "title" => "Thanks for using the Micro Framework.",
+];
+
+$isValid = useValidator($schema, $post);
+```
+
 
 <br/>
 
@@ -1310,6 +1348,67 @@ function exportLogs() {
 
     $isValidUser = useVerifyToken($token,"secretKey");
 
+
+    # logic code ...
+}
+```
+
+### useValidator
+> Provides to validate input data
+
+```php
+import("@core/hooks/useValidator");
+
+
+function validatePost() {
+    $schema = "post";
+
+    $post = [
+        "id" => 1,
+        "title" => "What is LITE PHP?",
+        "body" => "Micro PHP Freamework!"
+    ];
+
+    $isValid = useValidator($schema, $post);
+
+    # logic code ...
+}
+```
+
+### useAction
+> Provides to save action in local database
+
+```php
+import("@core/hooks/useAction");
+
+
+function addTodo() {
+    useAction("ADD_TODO");
+
+    $todo = [
+        "id" => rand(),
+        "title" => "Done login page",
+        "timestamp" => time()
+    ];
+    
+    # logic code ...
+}
+```
+
+### useRecord
+> Provides to save data in local database
+
+```php
+import("@core/hooks/useRecord");
+
+
+function addTodo() {
+    $todo = [
+        "id" => rand(),
+        "timestamp" => time()
+    ];
+
+    useRecord("todos", $todo["title"], $todo["timestamp"]);
 
     # logic code ...
 }
