@@ -42,12 +42,11 @@
     * [view](#view)
     * [command](#command)
     * [test](#test)
-    * [abort]()
-    * [build]()
-    * [table]()
-    * [translate]()
-    * [url]()
-    * [assets]()
+    * [abort](#abort)
+    * [build](#build)
+    * [translate](#translate)
+    * [url](#url)
+    * [assets](#assets)
     * [validator]()
     * [assert]()
 8. [Hooks]()
@@ -86,7 +85,7 @@
     * [useVerifyToken](#useverifytoken)
     * [useValidator](#usevalidator)
     * [useAction](#useaction)
-    * [useTable]()
+    * [useTable](#usetable)
     * [useRecord](#userecord)
 <br/>
 
@@ -782,6 +781,19 @@ describe('test-info', function() {
     php cli test [module-name]
 ```
 
+### Abort
+> Throw HTTP error as Rendered page to show Error message
+
+```php
+import("@core/helpers/abort");
+
+
+# Usage
+function bootstrap() {
+    abort(500, "Internal Server Error", ["package" => "LITE PHP"]);
+}
+```
+
 ### Build
 > Builds new path & URL
 
@@ -793,6 +805,67 @@ buildURL("/products"); # [pre defined => (host:port)] + route
 
 
 buildPath("/resources", "/lang/en/public"); # base path + path + file ext
+```
+
+### Translate
+> Translates content
+
+```php
+import("@core/helpers/translate");
+
+# Text: Welcome message
+"Translated: " . __("welcome");  # پیام خوش آمد گویی
+
+# Text: Thanks :name for using :product
+"Translated: " . __("introduce", [
+    "name" => "رابرت", 
+    "product" => "This package"
+    ]);  # ممنون رابرت برای استفاده کردن از این پکیج
+
+```
+
+### URL
+> Provides to use helper functions for URL, Route and ...
+
+```php
+import("@core/helpers/url");
+
+
+# Get base URL
+baseURL(); # Http://localhost:5000
+
+# Get current route
+url(); # /product/257
+
+# Get current url
+origin(); # Http://localhost:5000/product/257
+
+# Build pointer Route to redirect to another route 
+toRoute("/users"); # Http://localhost:5000/users
+```
+
+### Assets
+> Provides to use helper functions for Asset files
+
+```php
+import("@core/helpers/assets");
+
+# Get asset path
+asset("/css/grid.css"); # resources/assets/css/grid.css
+
+# CSS asset path
+asset("/css/grid.css"); # resources/assets/css/grid.css
+css("grid"); # resources/assets/css/grid.css
+
+# JS asset path
+asset("/js/state.js"); # resources/assets/js/state.js
+js("state"); # resources/assets/js/state.js
+
+# Image asset path
+img("user.jpeg"); # resources/assets/img/user.jpeg
+
+# Icon asset path
+icon("logo.svg"); # resources/assets/img/logo.svg
 ```
 
 <br />
@@ -1411,5 +1484,34 @@ function addTodo() {
     useRecord("todos", $todo["title"], $todo["timestamp"]);
 
     # logic code ...
+}
+```
+
+### useTable
+> Provides to get & delete data in local database
+
+#### 1-Getting data:
+
+```php
+import("@core/hooks/useTable");
+
+
+function getTimestamp() {
+    $result = useTable('actions', 'NEW_TASK');
+
+    # Logic code ...
+}
+```
+
+#### 2-Deleteing data:
+
+```php
+import("@core/hooks/useTable");
+
+
+function deleteAction() {
+    $result = useTable('actions', 'NEW_TASK', $action = TABLE_DELETE_ACTION);
+
+    # Logic code ...
 }
 ```
