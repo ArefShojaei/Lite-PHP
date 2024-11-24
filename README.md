@@ -76,11 +76,11 @@
     * [useHeader](#useheader)
     * [useMatch](#usematch)
     * [useFlash](#useflash)
-    * [useFile]()
-    * [useUpload]()
-    * [useCache]()
-    * [useCookie]()
-    * [useSession]()
+    * [useFile](#usefile)
+    * [useUpload](#useupload)
+    * [useCache](#usecache)
+    * [useCookie](#usecookie)
+    * [useSession](#usesession)
     * [useToken](#usetoken)
     * [useVerifyToken](#useverifytoken)
     * [useValidator](#usevalidator)
@@ -1431,6 +1431,100 @@ function doLogin() {
     
     # logic code ...
 }
+```
+
+### useFile
+> Provides to get file from $_FILES
+
+```php
+import("@core/hooks/useFile");
+
+
+function addProfile() {
+    $profile = useFile("profile");
+
+    # logic code ...
+}
+```
+
+### useUpload
+> Provides to upload file in local stroage
+
+```php
+import("@core/hooks/useFile");
+import("@core/hooks/useUpload");
+
+
+function uploadProfile() {
+    $profile = useFile("profile");
+
+    $result = useUpload($profile);
+
+    # logic code ...
+}
+```
+
+### useCache
+> Provides to cache data
+
+```php
+import("@core/hooks/useCache");
+
+
+# Cache Data
+function cachePostsData() {
+    $posts = [...];
+
+    useCache("posts", $posts);
+    # logic code ...
+}
+
+# Get cached data
+function getCachedPostsData() {
+    $posts = useCache("posts");
+    
+    # logic code ...
+}
+```
+
+### useCookie
+> Provides to use cookie in process of app
+
+```php
+import("@core/hooks/useCookie");
+
+
+# Set cookie
+useCookie("darkMode", true);
+
+# Get the cookie
+$darkModeState = useCookie("darkMode"); # true
+
+# Set cookie params
+useCookie("darkMode", rand(), [
+    "expireTime" => "",
+    "path" => "",
+    "domain" => "",
+    "secure" => "",
+    "httpOnly" => ""
+]);
+```
+
+### useSession
+> Provides to use session in process of app
+
+```php
+import("@core/hooks/useSession");
+
+
+# Set session
+useSession("isLoggedIn", true);
+
+# Get the session
+$loginState = useSession("isLoggedIn"); # true
+
+# Get list of all sessions
+$sessions = useSession();
 ```
 
 ### UseToken
