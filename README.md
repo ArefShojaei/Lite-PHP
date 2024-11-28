@@ -134,7 +134,7 @@ git clone https://github.com/ArefShojaei/Lite-PHP
 ```
 <br />
 
-## View of LITE PHP process in application
+## **View of LITE PHP process in application**
 ![flow](https://github.com/user-attachments/assets/ad9d887d-79d2-4036-a384-b3c6abe08836)
 
 
