@@ -5,7 +5,7 @@
     * [What is Lite-PHP ?](#what-is-lite-php)
     * [Why Lite-PHP ?](#why-lite-php)
 2. [Installation](#installation)
-3. [Flow chart of process]()
+3. [Flow chart of process](#view-of-lite-php-process-in-application)
 4. [Folder Structure](#folder-structure)
     * [core/](#core)
     * [bootstrap/](#bootstrap)
