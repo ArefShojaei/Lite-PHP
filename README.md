@@ -5,7 +5,8 @@
     * [What is Lite-PHP ?](#what-is-lite-php)
     * [Why Lite-PHP ?](#why-lite-php)
 2. [Installation](#installation)
-3. [Folder Structure](#folder-structure)
+3. [Flow chart of process]()
+4. [Folder Structure](#folder-structure)
     * [core/](#core)
     * [bootstrap/](#bootstrap)
     * [public/](#public)
@@ -15,7 +16,7 @@
     * [resources/](#resources)
     * [hooks/](#hooks)
     * [storage/](#storage)
-4. [Root Files](#root-files)
+5. [Root Files](#root-files)
     * [.env.example](#envexample)
     * [.gitignore](#gitignore)
     * [.htaccess](#htaccess)
@@ -27,14 +28,14 @@
     * [README.md](#readmemd)
     * [robots.txt](#robotstxt)
     * [server.php](#serverphp)
-5. [Modules](#modules)
+6. [Modules](#modules)
     * [alias](#Alias)
     * [config](#config)
     * [enum](#enum)
     * [plugin](#plugin)
     * [validator](#validator)
-6. [Template Engine](#template-engine)
-7. [Helpers](#helpers)
+7. [Template Engine](#template-engine)
+8. [Helpers](#helpers)
     * [import](#import)
     * [route](#route)
     * [dd](#dd)
@@ -49,7 +50,7 @@
     * [assets](#assets)
     * [validator](#validator-1)
     * [assert](#assert)
-8. [Hooks](#hooks)
+9. [Hooks](#hooks)
     * [useHTTP](#usehttp)
     * [useGET](#useget)
     * [usePOST](#usepost)
@@ -132,6 +133,10 @@ composer create-project arefshojaei/lite-php
 git clone https://github.com/ArefShojaei/Lite-PHP
 ```
 <br />
+
+## View of LITE PHP process in application
+![flow](https://github.com/user-attachments/assets/ad9d887d-79d2-4036-a384-b3c6abe08836)
+
 
 ## **Folder Structure**
 Here is default folder structure for starting new project !
