@@ -4,7 +4,7 @@ import("@core/helpers/view");
 
 
 /**
- * Throw HTTP exception
+ * Throw HTTP error page
  * @param $data View data
  */
 function abort(int $code, string $message, $data = []): void {
