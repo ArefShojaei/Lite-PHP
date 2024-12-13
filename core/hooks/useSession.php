@@ -8,7 +8,7 @@ function useSession(string $key = null, mixed $defaultValue = null): mixed {
     if(!isset($key)) return $_SESSION; 
     
     # Get Session by key 
-    if(!isset($defaultValue)) return $_SESSION[$key];
+    if(isset($key) && !isset($defaultValue)) return $_SESSION[$key] ?? null;
 
 
     # Set session
