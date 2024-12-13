@@ -23,9 +23,16 @@ function compileView(): void {
             
             $compiledTPL = $minifyedTPL;
         }
+        
+        
+        $dirname = pathinfo($file)["dirname"]; 
 
-
-        $filename = pathinfo($file)['filename'];
+        $extractedDirname = explode("/", $dirname);
+        
+        
+        $subFolder = end($extractedDirname);
+        
+        $filename = $subFolder . "_" . pathinfo($file)['filename'];
 
         file_put_contents(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/" . md5($filename) . PHP_FILE_EXTENTION, $compiledTPL);
     }
