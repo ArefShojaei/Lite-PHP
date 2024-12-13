@@ -3,15 +3,15 @@
 /**
  * Get & Set HTTP header
  */
-function useHTTP(string $key = null, mixed $defaultValue = null): mixed {
+function useHTTP(string $key = null, mixed $value = null): mixed {
     # Get all Headers
     if(!isset($key)) return $_SERVER;
     
     # Get Header by key
-    if(!isset($defaultValue)) return $_SERVER[$key] ?? null;
+    if(!isset($value)) return $_SERVER[$key] ?? null;
 
     # Set Header by key & value
-    $_SERVER[$key] = $defaultValue;
+    $_SERVER[$key] = $value;
 
     return true;
 }

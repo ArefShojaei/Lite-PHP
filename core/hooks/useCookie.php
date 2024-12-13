@@ -3,18 +3,18 @@
 /**
  * Get & Set Cookie
  */
-function useCookie(string $key = null, mixed $defaultValue = null, array $params = []): mixed {
+function useCookie(string $key = null, mixed $value = null, array $params = []): mixed {
     # Get all Cookie
     if(!isset($key)) return $_COOKIE;
 
     # Get Cookie
-    if(!isset($defaultValue)) return $_COOKIE[$key];
+    if(!isset($value)) return $_COOKIE[$key];
 
 
     # Set Cookie
     setcookie(
         $key, 
-        $defaultValue,
+        $value,
         isset($params["expireTime"]) ? time() * $params["expireTime"] : 0,
         isset($params["path"]) ? $params["path"] : "",
         isset($params["domain"]) ? $params["domain"] : "",
