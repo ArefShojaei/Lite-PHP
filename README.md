@@ -35,7 +35,8 @@
     * [plugin](#plugin)
     * [validator](#validator)
 7. [Template Engine](#template-engine)
-8. [Helpers](#helpers)
+8. [Cli ( console )](#cli-1)
+9. [Helpers](#helpers)
     * [import](#import)
     * [route](#route)
     * [dd](#dd)
@@ -50,7 +51,7 @@
     * [assets](#assets)
     * [validator](#validator-1)
     * [assert](#assert)
-9. [Hooks](#hooks)
+10. [Hooks](#hooks)
     * [useHTTP](#usehttp)
     * [useGET](#useget)
     * [usePOST](#usepost)
@@ -409,6 +410,24 @@ $post = [
 $isValid = useValidator($schema, $post);
 ```
 
+<br/>
+
+## **Cli**
+These are list of commands that can be done works to develop your application! 
+```bash
+> php cli
+
+
+░░      ░░ ░░░░░░░░ ░░░░░░░     ░░░░░░  ░░   ░░ ░░░░░░
+▒▒      ▒▒    ▒▒    ▒▒          ▒▒   ▒▒ ▒▒   ▒▒ ▒▒   ▒▒
+▒▒      ▒▒    ▒▒    ▒▒▒▒▒       ▒▒▒▒▒▒  ▒▒▒▒▒▒▒ ▒▒▒▒▒▒
+▓▓      ▓▓    ▓▓    ▓▓          ▓▓      ▓▓   ▓▓ ▓▓
+███████ ██    ██    ███████     ██      ██   ██ ██
+
+                    Micro PHP Framework
+
+                        Welcome 🎉
+```
 
 <br/>
 
