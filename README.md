@@ -428,6 +428,11 @@ These are list of commands that can be done works to develop your application!
 
                         Welcome 🎉
 ```
+![carbon (2)](https://github.com/user-attachments/assets/4979f1ff-552f-44f2-820b-7541a3350b4e)
+![carbon (1)](https://github.com/user-attachments/assets/17b7c886-05f8-4a95-afa7-6756c2a79a97)
+![carbon (3)](https://github.com/user-attachments/assets/be1f3b8b-a880-4cc4-8a84-d390a6cd3ccd)
+
+
 
 <br/>
 
