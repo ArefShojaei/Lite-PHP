@@ -9,13 +9,13 @@ import("@core/hooks/useHeader");
  * @summary Adding and removing specific headers for attacks!
  */
 createPlugin("security", function() {
-    # ADD
+    # Add headers
     useHeader("X-Frame-Options", "DENY");
     useHeader("X-XSS-Protection", "1");
     useHeader("X-Content-Type-Options", "nosniff");
     useHeader("Content-Type", "text/html; charset=UTF-8");
 
-    # REMOVE
+    # Remove headers
     useHeader("X-Powered-By");
     useHeader("Server");
 }, false);

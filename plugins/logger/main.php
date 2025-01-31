@@ -14,19 +14,14 @@ import("@plugins/logger/_clearLogs");
  * @type Runner
  */
 createPlugin("logger", function($params) {
-    # Log filename
     $filename = $params["name"] ?? useEnum("Logger::NAME");
 
-    # Log file path
     $filePath = buildPath(LOGS_PATH, "/{$filename}", LOG_FILE_EXTENTION);
 
-    # Log level
     $level = strtolower($params['level']) ?? useEnum("Logger::DEFAULT_LEVEL");
     
-    # Log expire time
     $expireTime = $params['expireTime'] ?? useEnum("Logger::EXPIRE_TIME_FOR_24H");
 
-    # Log content as string
     $content = _makeLogContent($level);
 
     # Add the log content to the file
