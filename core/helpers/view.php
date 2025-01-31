@@ -17,11 +17,19 @@ function view(string $name, array $data = []): void {
 
     $filePath = buildPath(COMPILED_VIEWS_PATH, "/" . $encryptedViewName);
 
+    # View validation file
     if(!file_exists($filePath)) useError("\"{$name}\" view not found!");
     
     # Extract data to use in template engine
     extract($data);
 
+
     # Render template
+    ob_start();
+
     require_once $filePath;
+
+    $page = ob_get_clean();
+
+    echo $page;
 } 
