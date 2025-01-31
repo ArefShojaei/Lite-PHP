@@ -8,6 +8,7 @@ function testAllModules(): void {
 
     $modules = getAllModules();
 
+    
     $startTime = microtime(true);
 
     # Load all modules
@@ -19,8 +20,9 @@ function testAllModules(): void {
 
     $timeDuration = number_format(abs($startTime - $endTime), 2);
 
+
     # Show result
-    echo "Finished Tests." . PHP_EOL;
+    echo "[INFO] Finished Tests." . PHP_EOL;
     echo "\r\nDuration: {$timeDuration} sec" . PHP_EOL;
 
 
@@ -42,7 +44,7 @@ function testModule(string $module): void {
     $timeDuration = number_format(abs($startTime - $endTime), 2);
 
     # Show result
-    echo "Finished Test." . PHP_EOL;
+    echo "[INFO] Finished Test." . PHP_EOL;
     echo "\r\nDuration: {$timeDuration} sec" . PHP_EOL;
 
 

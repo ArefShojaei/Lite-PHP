@@ -21,15 +21,15 @@ import("@commands/list/_helpers");
 addCommand("list", "listCommand", "list commands");
 
 groupCommand("list:", function() {
-    addCommand("command", "listCommand", "list of Commands");
+    addCommand("command", "listCommand", "List of Commands");
 
-    addCommand("route", "listRoute", "list of Routes");
+    addCommand("route", "listRoute", "List of Routes");
 
-    addCommand("alias", "listAlias", "list of Aliases");
+    addCommand("alias", "listAlias", "List of Aliases");
 
-    addCommand("env", "listEnv", "list of Enums");
+    addCommand("env", "listEnv", "List of Enums");
 
-    addCommand("module", "listModule", "list of Modules");
+    addCommand("module", "listModule", "List of Modules");
 
-    addCommand("plugin", "listPlugin", "list of Plugins");
+    addCommand("plugin", "listPlugin", "List of Plugins");
 });

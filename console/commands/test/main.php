@@ -13,6 +13,6 @@ import("@commands/test/_helpers");
  ** php cli test [module]
  * --------------------------------
  */
-addCommand("test", "testAllModules", "test all modules");
+addCommand("test", "testAllModules", "Test all modules");
 
-addCommand("test {module}", "testModule", "test module by name");
+addCommand("test {module}", "testModule", "Test module by name");

@@ -1,12 +1,9 @@
 <?php
 
 function _getPathInfo(string $DIR, string $filename = MAIN_EXECUTABLE_FILE): array {
-    # Filename + file ext
     $file = $filename . PHP_FILE_EXTENTION;
 
-    # Full file path
     $src = "{$DIR}/{$file}";
-
 
     return [$src, $DIR];
 }
@@ -32,7 +29,7 @@ function _makeFiles(array $files): void {
 }
 
 function _showCompletedTaskMessage(string $tag, string $DIR): void {
-    echo ucfirst($tag) . " maked successfully." . PHP_EOL;
+    echo "[INFO] " . ucfirst($tag) . " maked successfully." . PHP_EOL;
     
     echo "Move to \"{$DIR}\"";
 }

@@ -14,7 +14,7 @@ import("@commands/welcome/_helpers");
  * --------------------------------
  */
 $action = "welcomeCommand";
-$description = "welcome message";
+$description = "Welcome message";
 
 
 addCommand("", $action, $description);

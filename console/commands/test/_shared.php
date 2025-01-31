@@ -12,9 +12,9 @@ function loadModule(string $module): void {
 function makeTable(array $params): void {
     list($passedTests, $failedTests) = $params;
 
+    
     # Table size
     $length = 18;
-
 
     # Table structure
     createTable(function() use ($passedTests, $failedTests) {
