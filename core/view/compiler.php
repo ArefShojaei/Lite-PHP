@@ -13,18 +13,19 @@ function compileView(): void {
     foreach ($files as $file) {
         $content = _getTemplateContent($file);
 
+        # Apply template directives and syntaxes
         $compiledTPL = _replaceTemplateDirective($content);
         
         $compiledTPL = _replaceTemplateSyntax($compiledTPL);
         
-        
+        # Minify template
         if(useMode() !== DEV_MODE) {
             $minifyedTPL = preg_replace("/\s{2,}/", " ", $compiledTPL);
             
             $compiledTPL = $minifyedTPL;
         }
-        
-        
+
+        # Move compiled template to the storage/views
         $dirname = pathinfo($file)["dirname"]; 
 
         $extractedDirname = explode("/", $dirname);
