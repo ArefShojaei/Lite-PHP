@@ -120,3 +120,19 @@ function makeView(string $name): void {
 
     _showCompletedTaskMessage($tag, $DIR);
 }
+
+function makeMigration(string $name): void {
+    $tag = "migration";
+
+    $filename = date("Y_m_d") . "_" . time() . "_" . $name;
+
+    list($src, $DIR) = _getPathInfo("migrations", $filename);
+
+    # Get file content by pre-defined templates
+    $content = file_get_contents("console/commands/make/templates/_migration-template.php");
+
+    
+    _makeFile($src, $content);
+
+    _showCompletedTaskMessage($tag, $DIR);
+}

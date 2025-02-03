@@ -22,4 +22,5 @@ groupCommand("make:", function() {
     addCommand("plugin {name} {type}", "makePlugin", "Make plugin by name & type");
     addCommand("hook {name}", "makeHook", "Make hook by name");
     addCommand("view {name}", "makeView", "Make view by name");
+    addCommand("migration {name}", "makeMigration", "Make migration by name");
 });
