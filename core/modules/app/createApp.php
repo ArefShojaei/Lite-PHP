@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Session setup
+ * Setup Session
  */
 session_start();
 session_regenerate_id();

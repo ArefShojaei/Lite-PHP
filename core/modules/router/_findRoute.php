@@ -4,9 +4,6 @@ import("@core/hooks/useMatch");
 import("@core/hooks/useURL");
 
 
-/**
- * @private
- */
 function _findRoute(array $routes, string $url): array {
     foreach ($routes as $route => $params) {
         $pattern = "/^" . str_replace(["/", "{", "}"], ["\/", "(?<", ">\w+)"], $route) . "$/";

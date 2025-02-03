@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @private
- */
 function _applyMiddlewares(array $middlewares): void {
     # Go to next middleware as handler
     $next = fn() => true;

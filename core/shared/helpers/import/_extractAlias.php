@@ -8,6 +8,6 @@ function _extractAlias(string $path): string {
 
     $matches = useMatch($pattern, $path);
     
-    # Get alias
+    # Get matched alias
     return $matches["alias"];
 }

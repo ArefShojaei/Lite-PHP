@@ -3,9 +3,6 @@
 import("@core/hooks/useState");
 
 
-/**
- * @private
- */
 function _addRouteParams(array $matches): void {
     $params = [];
 

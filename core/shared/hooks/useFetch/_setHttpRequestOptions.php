@@ -3,7 +3,6 @@
 function _setHttpRequestOptions(object $curl, array $params): void {
     list($url, $method, $body, $headers) = $params;
 
-    # Set options
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $method);

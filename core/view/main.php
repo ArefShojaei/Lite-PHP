@@ -18,20 +18,20 @@ function runViewEngine(): void {
     #            States                #
     # -------------------------------- #
     
-    # Render view every time
+    # Render the view every time
     if (useMode() !== PROD_MODE) {
         compileView();
 
         return;
     }
 
-    # Render view at the first time
+    # Render the view at the first time
     if (!$lastViewTimestamp) {
         compileView();
 
         return;
     }
 
-    # Rerender view after expired timestamp
+    # Rerender the view after expired timestamp
     if ($lastViewTimestamp < $currentTimestamp) compileView();
 }

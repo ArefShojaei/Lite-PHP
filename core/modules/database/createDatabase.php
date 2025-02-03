@@ -15,7 +15,6 @@ function createDatabase(string $host, string $username, string $password = "", s
     try {
         $connection = mysqli_connect($host, $username, $password, $db);
     
-        # Set state
         useState("database", $connection);
     } catch (Exception $e){
         useType("application/json");
