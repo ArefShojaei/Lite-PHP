@@ -4,7 +4,7 @@ import("@core/hooks/useQuery");
 
 
 function column_increment(string $table, string $column): void {
-    useQuery("ALTER TABLE {$table} MODIFY COLUMN {$column} INT AUTO_INCREMENT");
+    useQuery("ALTER TABLE {$table} MODIFY COLUMN {$column} INT AUTO_INCREMENT PRIMARY KEY");
 }
 
 function column_string(string $table, string $column, int $length = 255): void {
