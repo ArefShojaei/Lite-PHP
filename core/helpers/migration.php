@@ -26,3 +26,7 @@ function column_id(string $table, string $column): void {
 function column_timestamp(string $table, string $column): void {
     useQuery("ALTER TABLE {$table} ADD COLUMN IF NOT EXISTS {$column} timestamp");
 }
+
+function column_text(string $table, string $column): void {
+    useQuery("ALTER TABLE {$table} ADD COLUMN IF NOT EXISTS {$column} text");
+}
