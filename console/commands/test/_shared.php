@@ -3,13 +3,13 @@
 import("@core/helpers/table");
 
 
-function loadModule(string $module): void {
+function _loadModule(string $module): void {
     $path = "modules/{$module}/_test.php";
     
     file_exists($path) && require_once $path;
 }
 
-function makeTable(array $params): void {
+function _makeTable(array $params): void {
     list($passedTests, $failedTests) = $params;
 
     
@@ -30,7 +30,7 @@ function makeTable(array $params): void {
     }, $length);
 }
 
-function getAllModules(): array {
+function _getAllModules(): array {
     # Scan modules DIR to get module names
     $modules = scandir("modules");
 

@@ -6,14 +6,14 @@ import("@commands/test/_shared");
 function testAllModules(): void {
     global $passedTests, $failedTests;
 
-    $modules = getAllModules();
+    $modules = _getAllModules();
 
     
     $startTime = microtime(true);
 
     # Load all modules
     foreach ($modules as $module) {
-        loadModule($module);
+        _loadModule($module);
     }
 
     $endTime = microtime(true);
@@ -26,7 +26,7 @@ function testAllModules(): void {
     echo "\r\nDuration: {$timeDuration} sec" . PHP_EOL;
 
 
-    makeTable([$passedTests, $failedTests]);
+    _makeTable([$passedTests, $failedTests]);
 }
 
 
@@ -36,7 +36,7 @@ function testModule(string $module): void {
     $startTime = microtime(true);
 
     # Load moudle by name
-    loadModule($module);
+    _loadModule($module);
 
     $endTime = microtime(true);
 
@@ -48,5 +48,5 @@ function testModule(string $module): void {
     echo "\r\nDuration: {$timeDuration} sec" . PHP_EOL;
 
 
-    makeTable([$passedTests, $failedTests]);
+    _makeTable([$passedTests, $failedTests]);
 }
