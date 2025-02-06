@@ -1,6 +1,6 @@
 <?php
 
-import("@core/modules/createMigration");
+import("@core/modules/migration/createMigration");
 import("@core/helpers/migration");
 
 
