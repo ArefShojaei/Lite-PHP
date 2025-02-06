@@ -10,6 +10,8 @@ import("@commands/migrate/_helpers");
  * 
  * ----------- Comamnds -----------
  ** php cli migrate
+ ** php cli migrate:reset
  * --------------------------------
  */
 addCommand("migrate", "migrateTables", "Migrate tables");
+addCommand("migrate:reset", "resetTables", "Restart tables");

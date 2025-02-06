@@ -5,7 +5,7 @@ import("@core/hooks/useQuery");
 import("@commands/migrate/_shared");
 
 
-function migrateTables() {
+function migrateTables(): void {
     _loadMigrations();
 
     $migrations = useGlobal("migrations");
@@ -21,5 +21,21 @@ function migrateTables() {
 
 
         call_user_func($migrationHandler, $table);
+    }
+}
+
+function resetTables(): void {
+    _loadMigrations();
+
+    $migrations = useGlobal("migrations");
+
+    foreach ($migrations as $table => $actions) {
+        $migrationHandler = $actions["down"];
+
+        echo "[INFO] Restarting $table table ..." . PHP_EOL;
+        
+        call_user_func($migrationHandler, $table);
+
+        echo "[INFO] Restarting process done." . PHP_EOL;
     }
 }
