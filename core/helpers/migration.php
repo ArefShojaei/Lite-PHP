@@ -18,3 +18,7 @@ function column_integer(string $table, string $column, int $length): void {
 function column_date(string $table, string $column): void {
     useQuery("ALTER TABLE {$table} ADD COLUMN IF NOT EXISTS {$column} date");
 }
+
+function column_id(string $table, string $column): void {
+    useQuery("ALTER TABLE {$table} ADD PRIMARY KEY ($column)");
+}
