@@ -14,3 +14,7 @@ function column_string(string $table, string $column, int $length = 255): void {
 function column_integer(string $table, string $column, int $length): void {
     useQuery("ALTER TABLE {$table} ADD COLUMN IF NOT EXISTS {$column} int($length)");
 }
+
+function column_date(string $table, string $column): void {
+    useQuery("ALTER TABLE {$table} ADD COLUMN IF NOT EXISTS {$column} date");
+}
