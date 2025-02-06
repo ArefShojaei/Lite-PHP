@@ -23,6 +23,10 @@ function column_id(string $table, string $column): void {
     useQuery("ALTER TABLE {$table} ADD PRIMARY KEY ($column)");
 }
 
+function column_foreignID(string $table, string $column, string $referenceTable, string $referenceColumn): void {
+    useQuery("ALTER TABLE {$table} ADD FOREIGN KEY ($column) REFERENCES {$referenceTable}({$referenceColumn})");
+}
+
 function column_timestamp(string $table, string $column): void {
     useQuery("ALTER TABLE {$table} ADD COLUMN IF NOT EXISTS {$column} timestamp");
 }
