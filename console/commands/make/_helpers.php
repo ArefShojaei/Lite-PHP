@@ -124,7 +124,7 @@ function makeView(string $name): void {
 function makeMigration(string $name): void {
     $tag = "migration";
 
-    $filename = date("Y_m_d") . "_" . time() . "_" . $name;
+    $filename = date("Y_m_d") . "_" . $name;
 
     list($src, $DIR) = _getPathInfo("migrations", $filename);
 

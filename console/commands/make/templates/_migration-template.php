@@ -5,6 +5,10 @@ import("@core/helpers/migration");
 
 
 createMigration("", [
-    "up" => function($table) {},
-    "down" => function($table) {}
+    "up" => function($table) {
+        
+    },
+    "down" => function($table) {
+        table_dropIfExists($table);
+    }
 ]);
