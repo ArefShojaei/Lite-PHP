@@ -22,3 +22,7 @@ function column_date(string $table, string $column): void {
 function column_id(string $table, string $column): void {
     useQuery("ALTER TABLE {$table} ADD PRIMARY KEY ($column)");
 }
+
+function column_timestamp(string $table, string $column): void {
+    useQuery("ALTER TABLE {$table} ADD COLUMN IF NOT EXISTS {$column} timestamp");
+}
