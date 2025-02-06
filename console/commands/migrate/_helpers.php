@@ -39,3 +39,9 @@ function resetTables(): void {
         echo "[INFO] Restarting process done." . PHP_EOL;
     }
 }
+
+function refreshTables(): void {
+    resetTables();
+    
+    migrateTables();
+}
