@@ -2,6 +2,8 @@
 
 import("@core/modules/plugin/createPlugin");
 import("@core/hooks/useSession");
+import("@core/hooks/useHTTP");
+import("@core/hooks/usePOST");
 
 
 /**
@@ -16,4 +18,7 @@ createPlugin("csrf", function() {
     
         useSession("csrf-token", $token);
     }
+
+    if (useHTTP("REQUEST_METHOD") === "POST") 
+        !hash_equals(useSession("csrf-token"), usePOST("csrf-token")) && die("CSRF token isn't valid!");
 }, false);
