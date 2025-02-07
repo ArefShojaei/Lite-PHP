@@ -35,6 +35,18 @@ function column_text(string $table, string $column): void {
     useQuery("ALTER TABLE {$table} ADD COLUMN IF NOT EXISTS {$column} text");
 }
 
+function column_unique(string $table, string $column): void {
+    useQuery("ALTER TABLE {$table} ADD UNIQUE ($column)");
+}
+
+function column_default(string $table, string $column, string|int $value): void {
+    useQuery("ALTER TABLE {$table} ALTER {$column} SET DEFAULT {$value}");
+}
+
+function column_index(string $table, string $name, string $column): void {
+    useQuery("CREATE INDEX {$name} ON {$table} ({$column})");
+}
+
 function table_dropIfExists(string $table): void {
     useQuery("DROP TABLE IF EXISTS {$table}");
 }
