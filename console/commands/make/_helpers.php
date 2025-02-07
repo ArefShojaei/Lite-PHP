@@ -128,6 +128,9 @@ function makeMigration(string $name): void {
 
     list($src, $DIR) = _getPathInfo("migrations", $filename);
 
+
+    if (file_exists($src)) die("The `{$filename}` migration file has been exists!");
+
     # Get file content by pre-defined templates
     $content = file_get_contents("console/commands/make/templates/_migration-template.php");
 
