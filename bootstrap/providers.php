@@ -9,6 +9,7 @@ return [
         registerPlugin("security"),
         registerPlugin("cors"),
         registerPlugin("localDatabaseCleaner", ["expireTime" => TIME_ONE_HOURE]),
+        registerPlugin("csrf"),
     ],
     "modules" => [
         registerModule("database"),
