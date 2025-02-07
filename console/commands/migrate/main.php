@@ -5,7 +5,7 @@ import("@commands/migrate/_helpers");
 
 
 /**
- * [Description] command
+ * Migration command
  * 
  * 
  * ----------- Comamnds -----------
