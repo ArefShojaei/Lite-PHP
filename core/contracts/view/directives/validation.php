@@ -6,8 +6,12 @@ import("@core/helpers/directive");
 /**
  * @isset
  * @endisset
+ 
  * @empty
  * @endempty
+ 
+ * @error
+ * @enderror
  */
 directive("isset", fn(string $expression): string => "<?php if(isset({$expression})): ?>", true);
 directive("endisset", fn(): string => "<?php else: ?>");
