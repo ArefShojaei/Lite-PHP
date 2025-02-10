@@ -7,7 +7,7 @@ function _escapeQuery(object $connection, string &$sql, array $params): void {
         return mysqli_real_escape_string($connection, $param);
     }, $params);
 
-    $sql = preg_replace("/\?/", "%s", $sql);
+    $sql = preg_replace("/'\?'/", "%s", $sql);
 
     $sql = vsprintf($sql, $scapedParams);    
 }
