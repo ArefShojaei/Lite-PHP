@@ -14,7 +14,7 @@ function column_string(string $table, string $column, int $length = 255): void {
     useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? varchar(?)", [$table, $column, $length]);
 }
 
-function column_integer(string $table, string $column, int $length): void {
+function column_integer(string $table, string $column, int $length = 3): void {
     useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? int(?)", [$table, $column, $length]);
 }
 
@@ -42,16 +42,8 @@ function column_unique(string $table, string $column): void {
     useQuery("ALTER TABLE ? ADD UNIQUE (?)", [$table, $column]);
 }
 
-function column_default(string $table, string $column, string|int $value): void {
-    useQuery("ALTER TABLE ? MODIFY ? SET DEFAULT ?", [$table, $column, $value]);
-}
-
 function column_index(string $table, string $name, string $column): void {
     useQuery("CREATE INDEX ? ON ? (?)", [$name, $table, $column]);
-}
-
-function column_rename(string $table, string $oldName, string $newName): void {
-    useQuery("ALTER TABLE ? RENAME COLUMN ? to ?", [$table, $oldName, $newName]);
 }
 
 function column_drop(string $table, string $name): void {
@@ -80,8 +72,4 @@ function table_ifEmpty(string $table): void {
 
 function table_empty(string $table): void {
     useQuery("TRUNCATE TABLE ?", [$table]);
-}
-
-function table_rename(string $table, string $oldName, string $newName): void {
-    useQuery("RENAME TABLE ? to ?", [$table, $oldName, $newName]);
 }
