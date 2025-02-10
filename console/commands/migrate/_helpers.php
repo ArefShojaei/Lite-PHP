@@ -15,7 +15,7 @@ function migrateTables(): void {
 
         echo "[INFO] Migrating $table table ..." . PHP_EOL;
         
-        useQuery("CREATE TABLE IF NOT EXISTS {$table} ( `id` Integer )");
+        useQuery('CREATE TABLE IF NOT EXISTS ? ( `id` INT )', [$table]);
         
         echo "[INFO] Migration process done." . PHP_EOL;
 
