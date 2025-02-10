@@ -43,11 +43,23 @@ function column_unique(string $table, string $column): void {
 }
 
 function column_default(string $table, string $column, string|int $value): void {
-    useQuery("ALTER TABLE ? ALTER ? SET DEFAULT ?", [$table, $column, $value]);
+    useQuery("ALTER TABLE ? MODIFY ? SET DEFAULT ?", [$table, $column, $value]);
 }
 
 function column_index(string $table, string $name, string $column): void {
     useQuery("CREATE INDEX ? ON ? (?)", [$name, $table, $column]);
+}
+
+function column_rename(string $table, string $oldName, string $newName): void {
+    useQuery("ALTER TABLE ? RENAME COLUMN ? to ?", [$table, $oldName, $newName]);
+}
+
+function column_drop(string $table, string $name): void {
+    useQuery("ALTER TABLE ? DROP COLUMN ?", [$table, $name]);
+}
+
+function column_dropIndex(string $table, string $name): void {
+    useQuery("ALTER TABLE ? DROP INDEX ? ON ?", [$table, $name]);
 }
 
 
@@ -56,4 +68,20 @@ function column_index(string $table, string $name, string $column): void {
  */
 function table_dropIfExists(string $table): void {
     useQuery("DROP TABLE IF EXISTS ?", [$table]);
+}
+
+function table_drop(string $table): void {
+    useQuery("DROP TABLE ?", [$table]);
+}
+
+function table_ifEmpty(string $table): void {
+    useQuery("TRUNCATE TABLE IF EXISTS ?", [$table]);
+}
+
+function table_empty(string $table): void {
+    useQuery("TRUNCATE TABLE ?", [$table]);
+}
+
+function table_rename(string $table, string $oldName, string $newName): void {
+    useQuery("RENAME TABLE ? to ?", [$table, $oldName, $newName]);
 }
