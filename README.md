@@ -15,6 +15,7 @@
     * [console/](#console)
     * [resources/](#resources)
     * [hooks/](#hooks)
+    * [migrations/](#migrations)
     * [storage/](#storage)
 5. [Root Files](#root-files)
     * [.env.example](#envexample)
@@ -151,6 +152,8 @@ Here is default folder structure for starting new project !
 |
 |- hooks/
 |
+|- migrations/
+|
 |- modules/
 |
 |- plugins/
@@ -187,6 +190,9 @@ can be provided base files for every projects!
 
 ### hooks/
 > Lets you to development **custom hooks**
+
+### migrations/
+> Lets you to work with database
 
 ### plugins/
 > Lets you to development **custom plugin**
@@ -316,6 +322,44 @@ import("@core/hooks/useEnum");
 
 # Usage
 useEnum("name::KEY");
+```
+
+### Migration
+> Registers a Migration
+
+#### 1-How can I create a Migration ?
+
+```bash
+php cli make:migration [migration-name]
+```
+
+```php
+import("@core/modules/migration/createMigration");
+import("@core/helpers/migration");
+
+createMigration("table-name", [
+    "up" => function(string $table) {
+        column_id(...);
+        column_string(...);
+    },
+    "down" => function(string $table) {
+        table_dropIfExists(...);
+    },
+]);
+```
+
+#### 2-How can I use the migration ?
+
+```bash
+php cli list
+    > php cli migrate
+    > php cli migrate [table-name]
+    
+    > php cli migrate:reset
+    > php cli migrate:reset [table-name]
+    > 
+    php cli migrate:refresh
+    > php cli migrate:refresh [table-name]
 ```
 
 ### Plugin
@@ -607,6 +651,15 @@ These are list of commands that can be done works to develop your application!
 
 @empty(expression)
 @endempty
+
+@error(flash)
+@enderror
+```
+
+> Form to protect attacks
+```bash
+# Directive
+@csrf
 ```
 
 ```hbs
@@ -680,6 +733,8 @@ Note: You can use it by two ways: <br>
 
 > 2. Group Routes
 
+> 3. Sign Route
+
 ```php
 # Usage
 import("@core/helpers/route");
@@ -695,6 +750,11 @@ groupRoute("/page", function() {
     addRoute("GET", "/users", "__user__index"); # /page/users
     addRoute("GET", "/courses", "__course__index"); # /page/courses
 });
+
+# Sign Route
+$secretKey = "...";
+
+$route = addSignedRoute("/admin?pid=fk921", $secretKey, ....);
 ```
 
 ### DD
@@ -917,6 +977,13 @@ $url_2 = "/categories/mobile/54673124";
 
 isURL($url_1); # true
 isURL($url_2); # false
+
+
+# Signed route validation
+$route = "/dashboard?pid=019231";
+$secretKey = "...";
+
+$isValidSignedRoute = validateSignedRoute($route, $secretKey);
 ```
 
 ### Assert
