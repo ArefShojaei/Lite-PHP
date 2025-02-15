@@ -14,19 +14,19 @@ function listRoute(): void {
     $count = 0;
 
     # Table size
-    $length = 45;
+    $length = 58;
 
     # Column sizes
     $firstColumn = 5;
     $secoundColumn = 16;
-    $thirdColumn = 22;
+    $thirdColumn = 35;
 
 
     # Table structure
     createTable(function () use ($length, $routes, $count, $firstColumn, $secoundColumn, $thirdColumn) {
-        echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
+        echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Method", length: $secoundColumn, position: STR_PAD_BOTH) .
-             addColumn("Method", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
+             addColumn("Route", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
 
         echo addSeparator(length: $length);
 
@@ -50,17 +50,17 @@ function listAlias(): void {
     $count = 0;
 
     # Table size
-    $length = 83;
+    $length = 117;
 
     # Column sizes
     $firstColumn = 5;
-    $secoundColumn = 16;
-    $thirdColumn = 60;
+    $secoundColumn = 30;
+    $thirdColumn = 80;
 
 
     # Table structure
     createTable(function () use ($length, $aliases, $count, $firstColumn, $secoundColumn, $thirdColumn) {
-        echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
+        echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Alias", length: $secoundColumn, position: STR_PAD_BOTH) .
              addColumn("Path", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
 
@@ -84,17 +84,17 @@ function listCommand(): void {
     $count = 0;
 
     # Table size
-    $length = 90;
+    $length = 117;
 
     # Column sizes
     $firstColumn = 5;
-    $secoundColumn = 40;
-    $thirdColumn = 43;
+    $secoundColumn = 50;
+    $thirdColumn = 60;
     
     
     # Table structure
     createTable(function () use ($length, $commands, $count, $firstColumn, $secoundColumn, $thirdColumn) {
-        echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
+        echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Command", length: $secoundColumn, position: STR_PAD_BOTH) .
              addColumn("Description", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
 
@@ -116,19 +116,19 @@ function listEnv(): void {
     $count = 0;
 
     # Table size
-    $length = 43;
+    $length = 77;
 
     # Column sizes
     $firstColumn = 5;
-    $secoundColumn = 16;
-    $thirdColumn = 20;
+    $secoundColumn = 30;
+    $thirdColumn = 40;
 
 
     # Table structure
     createTable(function () use ($length, $count, $firstColumn, $secoundColumn, $thirdColumn) {
-        echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
-             addColumn("Alias", length: $secoundColumn, position: STR_PAD_BOTH) .
-             addColumn("Path", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
+        echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
+             addColumn("Key", length: $secoundColumn, position: STR_PAD_BOTH) .
+             addColumn("Value", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
 
         echo addSeparator(length: $length);
 
@@ -144,22 +144,22 @@ function listEnv(): void {
 
 
 function listModule(): void {
-    $modules = getAllModules();
+    $modules = _getAllModules();
 
     # Table chilren index
     $count = 0;
 
     # Table size
-    $length = 21;
+    $length = 31;
 
     # Column sizes
     $firstColumn = 5;
-    $secoundColumn = 15;
+    $secoundColumn = 25;
 
 
     # Table structure
     createTable(function () use ($length, $count, $modules, $firstColumn, $secoundColumn) {
-        echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
+        echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Module", length: $secoundColumn, position: STR_PAD_BOTH, isLast:true) . PHP_EOL;
 
         echo addSeparator(length: $length);
@@ -175,22 +175,22 @@ function listModule(): void {
 
 
 function listPlugin(): void {
-    $plugins = getAllPlugins();
+    $plugins = _getAllPlugins();
     
     # Table chilren index
     $count = 0;
 
     # Table size
-    $length = 30;
+    $length = 41;
 
     # Column sizes
     $firstColumn = 5;
-    $secoundColumn = 24;
+    $secoundColumn = 35;
 
 
     # Table
     createTable(function () use ($length, $count, $plugins, $firstColumn, $secoundColumn) {
-        echo addColumn("Index", length: $firstColumn, position: STR_PAD_BOTH) .
+        echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
              addColumn("Plugin", length: $secoundColumn, position: STR_PAD_BOTH, isLast:true) . PHP_EOL;
 
         echo addSeparator(length: $length);

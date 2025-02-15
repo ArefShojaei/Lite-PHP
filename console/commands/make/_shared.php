@@ -10,7 +10,7 @@ function _getPathInfo(string $DIR, string $filename = MAIN_EXECUTABLE_FILE): arr
 
 function _checkFileToExist(string $src, string $filename, string $tag): bool {
     if(file_exists($src)) {
-        echo "\"{$filename}\" {$tag} already exists!";
+        echo "[WARNING] \"{$filename}\" {$tag} already exists!";
     
         return true;
     }
@@ -31,5 +31,5 @@ function _makeFiles(array $files): void {
 function _showCompletedTaskMessage(string $tag, string $DIR): void {
     echo "[INFO] " . ucfirst($tag) . " maked successfully." . PHP_EOL;
     
-    echo "Move to \"{$DIR}\"";
+    echo "> Move to \"{$DIR}\"";
 }
