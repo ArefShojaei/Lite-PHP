@@ -8,8 +8,8 @@ return [
         registerPlugin("security"),
         registerPlugin("csrf"),
         registerPlugin("cors"),
-        registerPlugin("logger", ["level" => "combined"]), # Log Level:  short | common | combined
-        registerPlugin("rateLimiter", ["limit" => 5, "timeFrame" => 10]),
+        registerPlugin("logger", ["level" => "short"]), # Log Level:  short | common | combined
+        registerPlugin("rateLimiter", ["limit" => 100, "timeFrameInMinutes" => TIME_ONE_HOURE]),
         registerPlugin("localDatabaseCleaner", ["expireTime" => TIME_ONE_HOURE]),
     ],
     "modules" => [

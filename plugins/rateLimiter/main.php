@@ -10,7 +10,6 @@ import("@core/helpers/abort");
  * @type Runner
  */
 createPlugin("rateLimiter", function(array $params): void {
-    # Init state
     $requests = useSession("requests");
     
     if (!isset($requests) || empty($requests)) useSession("requests", []);
@@ -23,7 +22,7 @@ createPlugin("rateLimiter", function(array $params): void {
 
     # Filter states by timestamp
     $filteredTimestamps = array_filter(useSession("requests"), function($timestamp) use ($currentTimestamp, $params) {
-        return ($currentTimestamp - $timestamp) < $params["timeFrame"];
+        return ($currentTimestamp - $timestamp) < $params["timeFrameInMinutes"];
     });
 
     useSession("requests", $filteredTimestamps);
