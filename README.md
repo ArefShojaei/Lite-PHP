@@ -652,8 +652,8 @@ These are list of commands that can be done works to develop your application!
 @empty(expression)
 @endempty
 
-@error(flash)
-@enderror
+@flash(flash)
+@endflash
 ```
 
 > Form to protect attacks
