@@ -5,8 +5,8 @@ function _encryptView(string $path): array {
     
     if(count($extractedViewPath) < 2) array_unshift($extractedViewPath, "views");
 
-    $viewName = current($extractedViewPath) . "_" . end($extractedViewPath);
-    
+    $viewName = implode("_", $extractedViewPath);
+
     $encryptedViewName = md5($viewName); 
 
 

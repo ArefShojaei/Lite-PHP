@@ -1,19 +1,22 @@
 <?php
 
-function _getTemplateFiles(int $maxDeepLevel = 7): array {
-    $files = [];
-    
-    $separator = "/*";
+function _getTemplateFiles(string $path): array {
+    static $files = [];
 
+    $folders = scandir($path);
 
-    for ($count = 0; $count < $maxDeepLevel; $count++) {
-        $pattern = dirname(__DIR__, 3) . VIEWS_PATH . $separator . VIEW_FILE_EXTENTION;
+    array_shift($folders);
+    array_shift($folders);
+
+    foreach ($folders as $folder) {
+        $nestedFolder = $path . "/" . $folder;
         
-        $separator .= $separator;
+        if (is_dir($nestedFolder)) _getTemplateFiles($nestedFolder);
 
-        $files = array_merge($files, glob($pattern));
+        if (!preg_match("/\.hbs/", $nestedFolder)) continue;
+    
+        $files[] = $nestedFolder;
     }
 
-    
     return $files;
 }

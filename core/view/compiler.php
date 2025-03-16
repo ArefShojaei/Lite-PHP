@@ -8,7 +8,9 @@ import("@core/hooks/useRecord");
 
 
 function compileView(): void {
-    $files = _getTemplateFiles();
+    $path = dirname(__DIR__, 2) . VIEWS_PATH;
+    
+    $files = _getTemplateFiles($path);
 
     foreach ($files as $file) {
         $content = _getTemplateContent($file);
@@ -28,12 +30,11 @@ function compileView(): void {
         # Move compiled template to the storage/views
         $dirname = pathinfo($file)["dirname"]; 
 
-        $extractedDirname = explode("/", $dirname);
-        
-        
+        $extractedDirname = explode("/views", $dirname);
+
         $subFolder = end($extractedDirname);
-        
-        $filename = $subFolder . "_" . pathinfo($file)['filename'];
+
+        $filename = "views" . implode("_", explode("/", $subFolder)) . "_" . pathinfo($file)['filename'];
 
         file_put_contents(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/" . md5($filename) . PHP_FILE_EXTENTION, $compiledTPL);
     }
