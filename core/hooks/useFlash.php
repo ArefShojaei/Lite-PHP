@@ -6,8 +6,10 @@ import("@core/hooks/useSession");
 /**
  * Get & Set Flash message
  */
-function useFlash(string $key, string $message = null, string $type = FLASH_INFO_LEVEL): array|bool {
+function useFlash(string $key = null, string $message = null, string $type = FLASH_INFO_LEVEL): array|bool {
     $flashes = useSession("flashes") ?? [];
+
+    if (!isset($key) && !isset($message)) return $flashes;
 
     # Get the flash
     if (!isset($message)) {
