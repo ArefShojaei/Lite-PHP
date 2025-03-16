@@ -7,9 +7,9 @@ import("@core/helpers/url");
 
 function addRoute(string $method, string $route, string $action, array $middlewares = []): void {
     $prefix = useGlobal("route-prefix");
-    $globalMiddlewares = useGlobal("route-middlewares");
+    $globalMiddlewares = useGlobal("route-middlewares") ?? [];
 
-    useRoute($method, $prefix . $route, $action, [...$globalMiddlewares, $middlewares]);
+    useRoute($method, $prefix . $route, $action, [...$globalMiddlewares, ...$middlewares]);
 }
 
 function groupRoute(string $prefix, callable $callback, array $middlewares = []): void {
