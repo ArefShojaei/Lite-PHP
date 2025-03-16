@@ -7,17 +7,20 @@ import("@core/helpers/url");
 
 function addRoute(string $method, string $route, string $action, array $middlewares = []): void {
     $prefix = useGlobal("route-prefix");
+    $globalMiddlewares = useGlobal("route-middlewares");
 
-    useRoute($method, $prefix . $route, $action, $middlewares);
+    useRoute($method, $prefix . $route, $action, [...$globalMiddlewares, $middlewares]);
 }
 
-function groupRoute(string $prefix, callable $callback): void {
+function groupRoute(string $prefix, callable $callback, array $middlewares = []): void {
     useState("route-prefix", $prefix);
-
+    useState("route-middlewares", $middlewares);
+    
     $callback();
-
+    
     # Set empty value to the state
     useState("route-prefix", "");
+    useState("route-middlewares", []);
 }
 
 function addSignedRoute(string $route, string $secretKey, array $params = [], int $expireTime = TIME_ONE_MINUTE): string {
