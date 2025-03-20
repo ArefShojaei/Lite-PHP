@@ -4,7 +4,6 @@
  * Setup Session
  */
 session_start();
-session_regenerate_id();
 
 
 function createApp(): void {
