@@ -10,15 +10,18 @@ import("@core/hooks/usePOST");
  * @type Runner
  */
 createPlugin("csrf", function() {
-    $token = useSession("csrf-token");
+    $key = "csrf-token";
+
+    $token = useSession($key);
 
     # Set CSRF token
     if (!isset($token) || empty($token)) {
         $token = bin2hex(random_bytes(32));
     
-        useSession("csrf-token", $token);
+        useSession($key, $token);
     }
 
-    if (useHTTP("REQUEST_METHOD") === "POST") 
-        !hash_equals(useSession("csrf-token"), usePOST("csrf-token")) && die("CSRF token isn't valid!");
+    (useHTTP("REQUEST_METHOD") === "POST" && count(usePOST()) && array_key_exists($key, usePOST())) ?
+        !hash_equals(useSession($key), (string) usePOST($key)) && die("CSRF token is not valid!")
+    : die("Access denied!");
 }, false);
