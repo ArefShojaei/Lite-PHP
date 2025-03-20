@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @private
- */
+
 function _loadCommands(): void {
     $commands = scandir("console/commands");
 

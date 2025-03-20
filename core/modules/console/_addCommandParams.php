@@ -1,8 +1,6 @@
 <?php
 
-/**
- * @private
- */
+
 function _addCommandParams(array $command): array {
     $params = [];
 

@@ -6,10 +6,11 @@ import("@core/hooks/useError");
 
 
 /**
- * @param $host Mysql host
- * @param $username Mysql username
- * @param $passowrd Mysql password
- * @param $db mysql Mysql database name
+ * Mysql database configuration
+ * @param $host host
+ * @param $username username
+ * @param $passowrd password
+ * @param $db mysql database name
  */
 function createDatabase(string $host, string $username, string $password = "", string $db = null): void {
     try {

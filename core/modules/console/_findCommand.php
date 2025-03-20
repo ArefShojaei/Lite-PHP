@@ -4,9 +4,6 @@ import("@core/hooks/useGlobal");
 import("@core/hooks/useMatch");
 
 
-/**
- * @private
- */
 function _findCommand(array $input): array {
     # List of command patterns
     $commands = useGlobal("commands");

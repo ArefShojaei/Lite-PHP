@@ -6,11 +6,11 @@ require_once dirname(__DIR__, 2) . "/hooks/useMatch.php";
 
 function createEnv(): void {
     # Get '.env' file content
-    $prasedContent = parse(dirname(__DIR__, 3) . "\\" . ENV_FILE_EXTENTION);
+    $fileContent = parse(dirname(__DIR__, 3) . "\\" . ENV_FILE_EXTENTION);
 
     $pattern = "/(?<key>[A-Z_]+)\s*=\s*?(?<value>.+)/";
 
-    $matches = useMatch($pattern, $prasedContent, true);
+    $matches = useMatch($pattern, $fileContent, true);
 
     $keys = $matches["key"];
     
