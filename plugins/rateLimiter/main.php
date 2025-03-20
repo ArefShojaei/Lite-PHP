@@ -4,6 +4,8 @@ import("@core/modules/plugin/createPlugin");
 import("@core/hooks/useSession");
 import("@core/hooks/useHTTP");
 import("@core/helpers/abort");
+import("@modules/app/_enum");
+import("@core/hooks/useEnum");
 
 
 /**
@@ -27,13 +29,6 @@ createPlugin("rateLimiter", function(array $params): void {
 
     useSession("requests", $filteredTimestamps);
 
-
     # Validate request count (limit)
-    if (count(useSession("requests")) >= $params["limit"]) {
-        http_response_code(429);
-        
-        abort(429, "To many requests"); 
-        
-        exit;
-    }
+    if (count(useSession("requests")) >= $params["limit"]) die(abort(429, useEnum("HTTP::429")));
 }, false);
