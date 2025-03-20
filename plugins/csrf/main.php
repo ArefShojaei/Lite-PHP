@@ -21,7 +21,7 @@ createPlugin("csrf", function() {
         useSession($key, $token);
     }
 
-    (useHTTP("REQUEST_METHOD") === "POST" && count(usePOST()) && array_key_exists($key, usePOST())) ?
-        !hash_equals(useSession($key), (string) usePOST($key)) && die("CSRF token is not valid!")
-    : die("Access denied!");
+    # Validate CSRF token
+    if (useHTTP("REQUEST_METHOD") === "POST" && array_key_exists($key, usePOST()))
+        !hash_equals(useSession($key), usePOST($key)) && die("CSRF token is not valid!");
 }, false);
