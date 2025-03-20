@@ -1,5 +1,8 @@
 <?php
 
+import("@commands/storage/_shared");
+
+
 function cleanViews(): void {
     _cleanStorageFile("views", "compiled view");
 }
