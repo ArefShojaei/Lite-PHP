@@ -15,8 +15,10 @@ function useUpload(array $file, array $ext = ['jpeg', 'jpg'], float|int $size = 
     
     _validateFileExtention($fileInfo["extension"], $ext);
 
-    _validateFileSize($file['size'], $size);
+    $fileSizeValidationResult = _validateFileSize($file['size'], $size);
 
+    if (count($fileSizeValidationResult)) return $fileSizeValidationResult;
+    
 
     $distPath = buildPath(UPLOADS_PATH . "/", $fileInfo["filename"], "." . $fileInfo["extension"]);
     

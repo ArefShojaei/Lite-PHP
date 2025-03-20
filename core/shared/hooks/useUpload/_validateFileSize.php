@@ -15,4 +15,6 @@ function _validateFileSize(int $fileSize, int|float $size): array {
             "message" => "Invalid file size!"
         ];
     }
+
+    return [];
 }
