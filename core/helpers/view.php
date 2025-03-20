@@ -12,8 +12,8 @@ import("@core/shared/view/_encryptView");
  * Render view
  * @param $data view data
  */
-function view(string $name, array $data = []): void {
-    [$encryptedViewName, $viewName] = _encryptView($name);
+function view(string $name, array $data = []): string {
+    [$encryptedViewName, $_] = _encryptView($name);
 
     $filePath = buildPath(COMPILED_VIEWS_PATH, "/" . $encryptedViewName);
 
@@ -31,5 +31,5 @@ function view(string $name, array $data = []): void {
 
     $page = ob_get_clean();
 
-    echo $page;
-} 
+    return $page;
+}

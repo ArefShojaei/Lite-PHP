@@ -34,7 +34,7 @@ function compileView(): void {
 
         $subFolder = end($extractedDirname);
 
-        $filename = "views" . implode("_", explode("/", $subFolder)) . "_" . pathinfo($file)['filename'];
+        $filename = "views" . implode(".", explode("/", $subFolder)) . "." . pathinfo($file)['filename'];
 
         file_put_contents(dirname(__DIR__, 2) . COMPILED_VIEWS_PATH . "/" . md5($filename) . PHP_FILE_EXTENTION, $compiledTPL);
     }
