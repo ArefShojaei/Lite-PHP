@@ -10,9 +10,9 @@ import("@core/hooks/useConfig");
  * App namespace handlers
  */
 function __app__index(): string {
-    return view("welcome", [
-        "title" => useConfig("app.name"),
-    ]);
+   return view("welcome", [
+      "title" => useConfig("app.name"),
+   ]);
 }
 
 /**
