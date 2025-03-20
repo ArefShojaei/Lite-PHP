@@ -582,9 +582,9 @@ These are list of commands that can be done works to develop your application!
 
 ```hbs
 {{!-- Example --}}
-@include("/includes/header")
+@include("includes.header") # include views/includes/header.hbs
     <h1>Welcome Page</h1>
-@include("/includes/footer")
+@include("includes.footer") # include views/includes/footer.hbs
 ```
 
 > Script
@@ -656,12 +656,6 @@ These are list of commands that can be done works to develop your application!
 @endflash
 ```
 
-> Form to protect attacks
-```bash
-# Directive
-@csrf
-```
-
 ```hbs
 {{!-- Example-1 --}}
 @isset($user['isCheckedRole'])
@@ -673,6 +667,23 @@ These are list of commands that can be done works to develop your application!
 @empty($posts)
     <p>Here we don't have any posts!</p>
 @endempty
+```
+
+> CSRF token to protect attacks
+```bash
+# Directive
+@csrf
+```
+
+```hbs
+<form>
+    @csrf
+
+    <input type="text" name="username" />
+    <input type="password" name="password" />
+
+    <button>Login</button>
+</form>
 ```
 
 > Auth
