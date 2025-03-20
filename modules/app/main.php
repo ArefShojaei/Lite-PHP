@@ -7,7 +7,7 @@ import("@modules/app/_controller");
 
 
 /**
- * Routes
+ * App routes
  */
 addRoute("GET", "/", "__app__index");
 addRoute("GET", "/500", "__app_500__index");

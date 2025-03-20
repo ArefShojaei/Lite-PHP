@@ -7,7 +7,7 @@ import("@core/hooks/useConfig");
 
 
 /**
- * App routes
+ * App namespace handlers
  */
 function __app__index(): string {
     return view("welcome", [
