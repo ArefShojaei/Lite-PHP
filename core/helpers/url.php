@@ -1,6 +1,7 @@
 <?php
 
 import("@core/hooks/useHTTP");
+import("@core/hooks/useGlobal");
 
 
 /**
@@ -29,4 +30,21 @@ function origin(): string {
  */
 function toRoute(string $route): string {
     return baseURL() . $route;    
+}
+
+/**
+ * Bind route by name
+ */
+function route(string $name, array $params = []): ?string {
+    $route = useGlobal("routes.names.{$name}") ?? false;
+
+    if (!$route) return null;
+
+    if (!count($params)) return $route;
+
+    return preg_replace_callback("/\{(?<key>[\w_-]+)\}/", function($matches) use ($params) {
+        $key = $matches["key"];
+        
+        return $params[$key];
+    }, $route);
 }
