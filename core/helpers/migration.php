@@ -31,7 +31,7 @@ function column_foreignID(string $table, string $column, string $referenceTable,
 }
 
 function column_timestamp(string $table, string $column): void {
-    useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? timestamp", [$table, $column]);
+    useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? timestamp default current_timestamp", [$table, $column]);
 }
 
 function column_text(string $table, string $column): void {
