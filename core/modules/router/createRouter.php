@@ -17,7 +17,7 @@ function createRouter(): void {
     
     $method = useHTTP("REQUEST_METHOD");
 
-    $routes = useGlobal("routes.{$method}") ?? useError("`{$method}` method is not supported!");
+    $routes = useGlobal("routes.{$method}") ?? useRedirect("/404");
 
     list($matches, $middlewares, $action) = _findRoute($routes, $url);
 
