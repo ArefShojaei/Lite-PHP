@@ -31,6 +31,6 @@ function _makeLogContent(string $level): string {
     return match ($level) {
         LOGGER_SHORT_LEVEL => "[$date] {$method} \"{$url}\"" . PHP_EOL,
         LOGGER_COMMON_LEVEL => "[{$date}] {$ip} {$protocol} {$method} \"{$url}\"" . PHP_EOL,
-        LOGGER_COMBINED_LEVEL => "[{$date}] {$ip} {$protocol} {$httpVersion} {$host} {$method} \"{$url}\" {$userAgent}" . PHP_EOL,
+        LOGGER_COMBINED_LEVEL => "[{$date}] {$ip} {$protocol} {$httpVersion} {$host} {$method} \"{$url}\" \"{$userAgent}\"" . PHP_EOL,
     };
 }
