@@ -5,9 +5,6 @@ import("@core/hooks/useEnum");
 import("@core/hooks/useHTTP");
 
 
-/**
- * @private
- */
 function _makeLogContent(string $level): string {
     $level = useEnum("Logger::LEVELS")[$level];
     
@@ -27,13 +24,13 @@ function _makeLogContent(string $level): string {
     $host = useHTTP("HTTP_HOST");
     
     # Current date
-    $date = date("Y/m/d H:i:s -");
+    $date = date("Y-m-d H:i:s");
 
 
     # Get log content by level
     return match ($level) {
-        LOGGER_SHORT_LEVEL => "[{$level}] {$date} {$method} {$url}" . PHP_EOL,
-        LOGGER_COMMON_LEVEL => "[{$level}] {$date} {$ip} {$protocol} {$method} {$url}" . PHP_EOL,
-        LOGGER_COMBINED_LEVEL => "[{$level}] {$date} {$ip} {$protocol} {$httpVersion} {$host} {$method} {$url} -- {$userAgent}" . PHP_EOL,
+        LOGGER_SHORT_LEVEL => "[$date] {$method} \"{$url}\"" . PHP_EOL,
+        LOGGER_COMMON_LEVEL => "[{$date}] {$ip} {$protocol} {$method} \"{$url}\"" . PHP_EOL,
+        LOGGER_COMBINED_LEVEL => "[{$date}] {$ip} {$protocol} {$httpVersion} {$host} {$method} \"{$url}\" {$userAgent}" . PHP_EOL,
     };
 }
