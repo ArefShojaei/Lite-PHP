@@ -14,6 +14,7 @@ import("@commands/make/_helpers");
  ** php cli make:plugin [name]
  ** php cli make:hook [name]
  ** php cli make:view [name]
+ ** php cli make:migration [name]
  * --------------------------------
  */
 groupCommand("make:", function() {
