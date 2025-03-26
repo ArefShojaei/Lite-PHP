@@ -1,9 +1,21 @@
-@include("includes.header")
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ $title }}</title>
+    <link rel="stylesheet" href="{{ css("styles") }}" />
+    <link rel="shortcut icon" href="{{ icon(" php.svg") }}" type="image/x-icon" />
+</head>
+
+<body>
     <div id="container">
         <img src="{{ img("logo.png") }}" alt="logo" width="80%" />
-        
+
         <h1>LITE PHP</h1>
-        
+
         <ul class="links">
             <li>
                 <a href="https://github.com/ArefShojaei/Lite-PHP#categories-">{{ __("public.docs") }}</a>
@@ -16,4 +28,7 @@
             </li>
         </ul>
     </div>
-@include("includes.footer")
+    <script src="{{ js("app") }}"></script>
+</body>
+
+</html>
