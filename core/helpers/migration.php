@@ -11,15 +11,15 @@ function column_increment(string $table, string $column): void {
 }
 
 function column_string(string $table, string $column, int $length = 255): void {
-    useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? varchar(?)", [$table, $column, $length]);
+    useQuery("ALTER TABLE ? ADD COLUMN ? varchar(?)", [$table, $column, $length]);
 }
 
 function column_integer(string $table, string $column, int $length = 3): void {
-    useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? int(?)", [$table, $column, $length]);
+    useQuery("ALTER TABLE ? ADD COLUMN ? int(?)", [$table, $column, $length]);
 }
 
 function column_date(string $table, string $column): void {
-    useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? date", [$table, $column]);
+    useQuery("ALTER TABLE ? ADD COLUMN ? date", [$table, $column]);
 }
 
 function column_id(string $table, string $column): void {
@@ -31,11 +31,11 @@ function column_foreignID(string $table, string $column, string $referenceTable,
 }
 
 function column_timestamp(string $table, string $column): void {
-    useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? timestamp default current_timestamp", [$table, $column]);
+    useQuery("ALTER TABLE ? ADD COLUMN ? timestamp default current_timestamp", [$table, $column]);
 }
 
 function column_text(string $table, string $column): void {
-    useQuery("ALTER TABLE ? ADD COLUMN IF NOT EXISTS ? text", [$table, $column]);
+    useQuery("ALTER TABLE ? ADD COLUMN ? text", [$table, $column]);
 }
 
 function column_unique(string $table, string $column): void {
