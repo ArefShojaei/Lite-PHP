@@ -942,6 +942,11 @@ origin(); # Http://localhost:5000/product/257
 
 # Build pointer Route to redirect to another route 
 toRoute("/users"); # Http://localhost:5000/users
+
+# Bind route by name
+addRoute("GET", "/dashboard/admin/page/users", "__admin_user__edit", name: "user")
+
+route("users") # "/dashboard/admin/page/users"
 ```
 
 ### Assets
