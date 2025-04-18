@@ -33,3 +33,7 @@ function _showCompletedTaskMessage(string $tag, string $DIR): void {
     
     echo "> Move to \"{$DIR}\"";
 }
+
+function _getBaseCommandTemplatesPath(): string {
+    return "console/commands/make/templates";
+}

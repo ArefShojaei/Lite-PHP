@@ -1,7 +1,6 @@
 <?php
 
 function _getAllPlugins(): array {
-    # Scan plugins DIR to get module names
     $plugins = scandir("plugins");
 
     # Remove "." & ".." to clean $plugins

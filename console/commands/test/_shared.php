@@ -31,7 +31,6 @@ function _makeTable(array $params): void {
 }
 
 function _getAllModules(): array {
-    # Scan modules DIR to get module names
     $modules = scandir("modules");
 
     # Remove "." & ".." to clean $modules

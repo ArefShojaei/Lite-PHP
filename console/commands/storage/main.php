@@ -5,7 +5,7 @@ import("@commands/storage/_helpers");
 
 
 /**
- * [Description] command
+ * Storage command
  * 
  * 
  * ----------- Comamnds -----------

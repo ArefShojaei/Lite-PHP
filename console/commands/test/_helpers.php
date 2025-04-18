@@ -18,11 +18,12 @@ function testAllModules(): void {
 
     $endTime = microtime(true);
 
+
     $timeDuration = number_format(abs($startTime - $endTime), 2);
 
 
-    # Show result
     echo "[INFO] Finished Tests." . PHP_EOL;
+
     echo "\r\nDuration: {$timeDuration} sec" . PHP_EOL;
 
 
@@ -35,7 +36,7 @@ function testModule(string $module): void {
 
     $startTime = microtime(true);
 
-    # Load moudle by name
+    # Load single module
     _loadModule($module);
 
     $endTime = microtime(true);
@@ -43,8 +44,9 @@ function testModule(string $module): void {
 
     $timeDuration = number_format(abs($startTime - $endTime), 2);
 
-    # Show result
+    
     echo "[INFO] Finished Test." . PHP_EOL;
+    
     echo "\r\nDuration: {$timeDuration} sec" . PHP_EOL;
 
 

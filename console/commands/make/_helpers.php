@@ -16,8 +16,8 @@ function makeCommand(string $name): void {
     
     mkdir($DIR);
 
-    # Get file content by pre-defined templates
-    $content = file_get_contents("console/commands/make/templates/_command-template.php");
+    # Get the file content by pre-defined templates
+    $content = file_get_contents(_getBaseCommandTemplatesPath() . "/_command-template.php");
 
 
     _makeFiles([
@@ -36,13 +36,13 @@ function makeModule(string $name): void {
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # Stop proccess if file exists!
+    # Stop proccess if the file exists!
     if($fileStatus) return;
 
     mkdir($DIR);
 
-    # Get file content by pre-defined templates
-    $content = file_get_contents("console/commands/make/templates/_module-template.php");
+    # Get the file content by pre-defined templates
+    $content = file_get_contents(_getBaseCommandTemplatesPath() . "/_module-template.php");
 
 
     _makeFiles([
@@ -68,7 +68,7 @@ function makePlugin(string $name, string $type): void {
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # Stop proccess if file exists!
+    # Stop proccess if the file exists!
     if($fileStatus) return;
 
 
@@ -77,8 +77,8 @@ function makePlugin(string $name, string $type): void {
 
     $pluginType = $type == "--usage" ? "usage" : "runner";
     
-    # Get file content by pre-defined templates
-    $content = file_get_contents("console/commands/make/templates/_plugin-{$pluginType}-template.php");
+    # Get the file content by pre-defined templates
+    $content = file_get_contents(_getBaseCommandTemplatesPath() . "/_plugin-{$pluginType}-template.php");
 
 
     _makeFile($src, $content);
@@ -93,12 +93,12 @@ function makeHook(string $name): void {
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # Stop proccess if file exists!
+    # Stop proccess if the file exists!
     if($fileStatus) return;
 
 
-    # Get file content by pre-defined templates
-    $content = file_get_contents("console/commands/make/templates/_hook-template.php");
+    # Get the file content by pre-defined templates
+    $content = file_get_contents(_getBaseCommandTemplatesPath() . "/_hook-template.php");
 
     _makeFile($src, $content);
 
@@ -108,7 +108,7 @@ function makeHook(string $name): void {
 function makeView(string $name): void {
     $tag = "view";
 
-    list($src, $DIR) = _getPathInfo("resources/views", $name);
+    list($src, $DIR) = _getPathInfo(VIEWS_PATH, $name);
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
@@ -131,8 +131,8 @@ function makeMigration(string $name): void {
 
     if (file_exists($src)) die("The `{$filename}` migration file has been exists!");
 
-    # Get file content by pre-defined templates
-    $content = file_get_contents("console/commands/make/templates/_migration-template.php");
+    # Get the file content by pre-defined templates
+    $content = file_get_contents(_getBaseCommandTemplatesPath() . "/_migration-template.php");
 
     
     _makeFile($src, $content);

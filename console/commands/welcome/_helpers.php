@@ -4,7 +4,7 @@
  * Show welcome message
  */
 function welcomeCommand(): string {
-    # Composer Config File
+    # Composer configs
     $config = json_decode(file_get_contents(dirname(__DIR__, 3) . "/composer.json"), true);
   
     # App version info
