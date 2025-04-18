@@ -1,6 +1,7 @@
 <?php
 
 import("@core/helpers/directive");
+import("@core/hooks/useSession");
 
 
 /**
@@ -15,13 +16,13 @@ import("@core/helpers/directive");
  
  * csrf
  */
-directive("authRole", fn(string $role): string => '<?php if(in_array("isLoggedIn", $_SESSION) && isset($_SESSION["isLoggedIn"]) && (bool) $_SESSION["isLoggedIn"] && isset($_SESSION[' . $role . '])): ?>', true);
+directive("authRole", fn(string $role): string => '<?php if(useSession("isLoggedIn") && (bool) useSession("isLoggedIn") && useSession(' . $role . ') ): ?>', true);
 directive("endauthRole", fn(): string => "<?php endif; ?>");
 
-directive("auth", fn(): string => '<?php if(in_array("isLoggedIn", $_SESSION) && isset($_SESSION["isLoggedIn"]) && (bool) $_SESSION["isLoggedIn"]): ?>');
+directive("auth", fn(): string => '<?php if(useSession("isLoggedIn") && (bool) useSession("isLoggedIn")): ?>');
 directive("endauth", fn(): string => "<?php endif; ?>");
 
-directive("guest", fn(): string => '<?php if(!in_array("isLoggedIn", $_SESSION)): ?>');
+directive("guest", fn(): string => '<?php if(!useSession("isLoggedIn")): ?>');
 directive("endguest", fn(): string => "<?php endif; ?>");
 
-directive("csrf", fn(): string => '<input type="hidden" name="csrf-token" value="<?php echo "' .  $_SESSION["csrf-token"] . '" ?>" />');
+directive("csrf", fn(): string => '<input type="hidden" name="_token" value="<?php echo "' .  useSession("_token") . '" ?>" />');
