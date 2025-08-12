@@ -1,4 +1,5 @@
-![Picture](https://github.com/user-attachments/assets/a1250cea-a46a-4ee9-ab5b-657d08a0cbe7)
+<img width="1856" height="1170" alt="Poster" src="https://github.com/user-attachments/assets/70f51422-ef52-4239-b89e-12c6f0de0836" />
+
 
 ##  Tutorial :
 1. [Introduction](#introduction)
@@ -95,7 +96,7 @@
 ##  **Introduction**
 
 ### What is Lite-PHP ?
-> Lite-PHP is a Micro Freamework 
+> Lite-PHP is a Micro Framework
 for developing Back-end applications
 
 ### Why Lite-PHP ?
