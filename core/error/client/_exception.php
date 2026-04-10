@@ -18,12 +18,9 @@ function setCustomException(object $exception): void {
         ]
     ];
 
-    # Extract data to use in view as template engine
     extract($exception);
 
-    # Render template
     require_once __DIR__ . "/templates/exception.php";
 
-    # Stop process
     exit;
 }

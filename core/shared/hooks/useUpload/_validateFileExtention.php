@@ -7,4 +7,9 @@ function _validateFileExtention(string $fileExt, array $ext): array {
             "message" => "Invalid file extention!"
         ];
     }
+
+    return [
+        "status" => true,
+        "message" => "Valid file extention"
+    ]; 
 }

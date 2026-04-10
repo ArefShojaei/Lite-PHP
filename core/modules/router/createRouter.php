@@ -23,7 +23,6 @@ function createRouter(): void {
 
     $isMatchedRoute = _isMatchedRoute($matches);
 
-
     # Is 404
     if(!$isMatchedRoute) useRedirect("/404");
 
@@ -31,6 +30,5 @@ function createRouter(): void {
 
     if(count($matches) >= 3) _addRouteParams($matches);
 
-    
     _executeRoute($action);
 }

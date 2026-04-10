@@ -11,6 +11,5 @@ function _getDataFromDatabase(object $result): array {
     if(!count($response)) return $response;
 
     
-    # Get the response
     return count($response) > 1 ? $response : $response[0];    
 }

@@ -14,15 +14,11 @@ function setCustomError(int $type, string $message, string $file, int $line): vo
         ]
     ];
 
-    # Set HTTP status code
     http_response_code(500);
 
-    # Extract data to use in view as template engine
     extract($error);
 
-    # Render template
     require_once __DIR__ . "/templates/error.php";
 
-    # Stop process
     exit;
 }

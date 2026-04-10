@@ -15,7 +15,6 @@ function createSingleElement(string $tag, array $attributes): string {
     # Close the tag
     $element .= " />";
 
-    # Get the element
     return $element;
 }
 
@@ -35,6 +34,5 @@ function createElement(string $tag, array $attributes, array $children): string 
     # Close the after tag
     $element .= "</{$tag}>";
 
-    # Get the element
     return $element;
 }

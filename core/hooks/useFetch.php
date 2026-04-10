@@ -17,17 +17,14 @@ function useFetch(string $url, array $params = []): array {
     $body = $params['body'] ?? [];
 
     
-    # Start the request process
     $curl = _openHttpRequest();
     
     _setHttpRequestOptions($curl, [$url, $method, $body, $headers]);
 
     $response = _sendHttpRequest($curl);
 
-    # Finish the request process
     _closeHttpRequest($curl);
 
 
-    # Get the response
     return json_decode($response, true);
 }

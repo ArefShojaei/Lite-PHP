@@ -29,6 +29,5 @@ function setCustomError(int $type, string $message, string $file, int $line): vo
         }
     }, $tableLength);
 
-    # Stop process
     exit;
 }

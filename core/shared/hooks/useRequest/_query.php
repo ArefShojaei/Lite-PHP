@@ -12,6 +12,5 @@ function _query(): array {
     # Remove first data from the $queries
     array_shift($queries);
 
-    # Get the queries
     return $queries;
 }

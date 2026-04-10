@@ -18,7 +18,7 @@ function groupRoute(string $prefix, callable $callback, array $middlewares = [])
     
     $callback();
     
-    # Set empty value to the state
+    # Reset the state
     useState("route-prefix", "");
     useState("route-middlewares", []);
 }

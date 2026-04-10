@@ -7,6 +7,5 @@ function _getAllPlugins(): array {
     array_shift($plugins);
     array_shift($plugins);   
     
-    
     return $plugins;
 }

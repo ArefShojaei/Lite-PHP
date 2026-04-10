@@ -27,7 +27,6 @@ function useCache(string $name, array $data = null, int $expireTime = TIME_ONE_H
 
     # Delete the cached file & record
     if (file_exists($filePath) && isset($cachedTimestamp) && $cachedTimestamp < $futureTimestamp) {
-        # Delete the file
         unlink($filePath);
 
         # Delete the cached timestamp data from local database

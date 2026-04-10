@@ -8,8 +8,6 @@ function useGlobal(string $state = null): mixed {
 
     if (!isset($state)) return $container;
     
-
-    
     # Set nested keys
     $keys = explode(".", $state);
 

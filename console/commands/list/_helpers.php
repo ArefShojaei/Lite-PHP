@@ -25,8 +25,8 @@ function listRoute(): void {
     # Table structure
     createTable(function () use ($length, $routes, $count, $firstColumn, $secoundColumn, $thirdColumn) {
         echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
-             addColumn("Method", length: $secoundColumn, position: STR_PAD_BOTH) .
-             addColumn("Route", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
+            addColumn("Method", length: $secoundColumn, position: STR_PAD_BOTH) .
+            addColumn("Route", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
 
         echo addSeparator(length: $length);
 
@@ -35,8 +35,8 @@ function listRoute(): void {
                 $count++;
 
                 echo addColumn($count, length: $firstColumn, position: STR_PAD_BOTH) .
-                     addColumn($method, length: $secoundColumn, position: STR_PAD_BOTH) .
-                     addColumn($route, length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
+                    addColumn($method, length: $secoundColumn, position: STR_PAD_BOTH) .
+                    addColumn($route, length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
             }
         }
     }, $length);
@@ -61,8 +61,8 @@ function listAlias(): void {
     # Table structure
     createTable(function () use ($length, $aliases, $count, $firstColumn, $secoundColumn, $thirdColumn) {
         echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
-             addColumn("Alias", length: $secoundColumn, position: STR_PAD_BOTH) .
-             addColumn("Path", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
+            addColumn("Alias", length: $secoundColumn, position: STR_PAD_BOTH) .
+            addColumn("Path", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
 
         echo addSeparator(length: $length);
 
@@ -70,8 +70,8 @@ function listAlias(): void {
             $count++;
 
             echo addColumn($count, length: $firstColumn, position:STR_PAD_BOTH) .
-                 addColumn($alias, length: $secoundColumn) .
-                 addColumn($path, length: $thirdColumn, isLast: true) . PHP_EOL;
+                addColumn($alias, length: $secoundColumn) .
+                addColumn($path, length: $thirdColumn, isLast: true) . PHP_EOL;
         }
     }, $length);
 }
@@ -95,8 +95,8 @@ function listCommand(): void {
     # Table structure
     createTable(function () use ($length, $commands, $count, $firstColumn, $secoundColumn, $thirdColumn) {
         echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
-             addColumn("Command", length: $secoundColumn, position: STR_PAD_BOTH) .
-             addColumn("Description", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
+            addColumn("Command", length: $secoundColumn, position: STR_PAD_BOTH) .
+            addColumn("Description", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
 
         echo addSeparator(length: $length);
 
@@ -104,8 +104,8 @@ function listCommand(): void {
             $count++;
 
             echo addColumn($count, length: $firstColumn, position:STR_PAD_BOTH) .
-                 addColumn($command, length: $secoundColumn) .
-                 addColumn($params['description'], length: $thirdColumn, isLast: true) . PHP_EOL;
+                addColumn($command, length: $secoundColumn) .
+                addColumn($params['description'], length: $thirdColumn, isLast: true) . PHP_EOL;
         }
     }, $length);
 }
@@ -127,8 +127,8 @@ function listEnv(): void {
     # Table structure
     createTable(function () use ($length, $count, $firstColumn, $secoundColumn, $thirdColumn) {
         echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
-             addColumn("Key", length: $secoundColumn, position: STR_PAD_BOTH) .
-             addColumn("Value", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
+            addColumn("Key", length: $secoundColumn, position: STR_PAD_BOTH) .
+            addColumn("Value", length: $thirdColumn, position: STR_PAD_BOTH, isLast: true) . PHP_EOL;
 
         echo addSeparator(length: $length);
 
@@ -136,8 +136,8 @@ function listEnv(): void {
             $count++;
 
             echo addColumn($count, length: $firstColumn, position:STR_PAD_BOTH) .
-                 addColumn($key, length: $secoundColumn) .
-                 addColumn($value, length: $thirdColumn, isLast: true) . PHP_EOL;
+                addColumn($key, length: $secoundColumn) .
+                addColumn($value, length: $thirdColumn, isLast: true) . PHP_EOL;
         }
     }, $length);
 }
@@ -160,7 +160,7 @@ function listModule(): void {
     # Table structure
     createTable(function () use ($length, $count, $modules, $firstColumn, $secoundColumn) {
         echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
-             addColumn("Module", length: $secoundColumn, position: STR_PAD_BOTH, isLast:true) . PHP_EOL;
+            addColumn("Module", length: $secoundColumn, position: STR_PAD_BOTH, isLast:true) . PHP_EOL;
 
         echo addSeparator(length: $length);
 
@@ -168,7 +168,7 @@ function listModule(): void {
             $count++;
 
             echo addColumn($count, length: $firstColumn, position:STR_PAD_BOTH) .
-                 addColumn($module, length: $secoundColumn, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
+                addColumn($module, length: $secoundColumn, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
         }
     }, $length);
 }
@@ -191,7 +191,7 @@ function listPlugin(): void {
     # Table
     createTable(function () use ($length, $count, $plugins, $firstColumn, $secoundColumn) {
         echo addColumn("Row", length: $firstColumn, position: STR_PAD_BOTH) .
-             addColumn("Plugin", length: $secoundColumn, position: STR_PAD_BOTH, isLast:true) . PHP_EOL;
+            addColumn("Plugin", length: $secoundColumn, position: STR_PAD_BOTH, isLast:true) . PHP_EOL;
 
         echo addSeparator(length: $length);
 
@@ -199,7 +199,7 @@ function listPlugin(): void {
             $count++;
 
             echo addColumn($count, length: $firstColumn, position:STR_PAD_BOTH) .
-                 addColumn($plugin, length: $secoundColumn, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
+                addColumn($plugin, length: $secoundColumn, position:STR_PAD_BOTH, isLast:true) . PHP_EOL;
         }
     }, $length);
 }

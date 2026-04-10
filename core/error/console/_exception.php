@@ -34,6 +34,5 @@ function setCustomException(object $exception): void {
         }
     }, $tableLength);
 
-    # Stop proccess
     exit;
 }

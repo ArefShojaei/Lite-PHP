@@ -10,10 +10,9 @@ function makeCommand(string $name): void {
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # Stop proccess if the file exists!
+    # Terminate proccess if the file exists!
     if($fileStatus) return;
 
-    
     mkdir($DIR);
 
     # Get the file content by pre-defined templates
@@ -36,7 +35,7 @@ function makeModule(string $name): void {
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # Stop proccess if the file exists!
+    # Terminate proccess if the file exists!
     if($fileStatus) return;
 
     mkdir($DIR);
@@ -68,12 +67,10 @@ function makePlugin(string $name, string $type): void {
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # Stop proccess if the file exists!
+    # Terminate proccess if the file exists!
     if($fileStatus) return;
 
-
     mkdir($DIR);
-
 
     $pluginType = $type == "--usage" ? "usage" : "runner";
     
@@ -93,9 +90,8 @@ function makeHook(string $name): void {
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # Stop proccess if the file exists!
+    # Terminate proccess if the file exists!
     if($fileStatus) return;
-
 
     # Get the file content by pre-defined templates
     $content = file_get_contents(_getBaseCommandTemplatesPath() . "/_hook-template.php");
@@ -112,10 +108,9 @@ function makeView(string $name): void {
 
     $fileStatus = _checkFileToExist($src, $name, $tag);
     
-    # Stop proccess if file exists!
+    # Terminate proccess if file exists!
     if($fileStatus) return;
 
-    
     _makeFile($src, content: "");
 
     _showCompletedTaskMessage($tag, $DIR);
@@ -128,12 +123,10 @@ function makeMigration(string $name): void {
 
     list($src, $DIR) = _getPathInfo("migrations", $filename);
 
-
     if (file_exists($src)) die("The `{$filename}` migration file has been exists!");
 
     # Get the file content by pre-defined templates
     $content = file_get_contents(_getBaseCommandTemplatesPath() . "/_migration-template.php");
-
     
     _makeFile($src, $content);
 

@@ -17,6 +17,6 @@ function dd(array $input, bool $isDied = true): void {
     # Render HTML template
     echo _render([$input, $styles]);
 
-    # Stop process
+    # Terminate process
     if ($isDied) exit;
 }
