@@ -1,13 +1,84 @@
+<div align="center">
+
+# 🔥 Lite-PHP | Micro Framework 🔥
+
+[![PHP Version](https://img.shields.io/badge/php-%5E8.0-blue.svg)](https://php.net)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![GitHub](https://img.shields.io/badge/github-Lite--PHP-blue?logo=github)](https://github.com/ArefShojaei/Lite-PHP)
+
+A modern, elegant PHP directory listing application with file browsing, file viewing, and file downloading capabilities. Built with a beautiful UI using Tailwind CSS and JavaScript for an interactive experience.
+
 <img width="1856" height="1170" alt="Poster" src="https://github.com/user-attachments/assets/70f51422-ef52-4239-b89e-12c6f0de0836" />
 
+</div>
 
-##  Tutorial :
-1. [Introduction](#introduction)
-    * [What is Lite-PHP ?](#what-is-lite-php)
-    * [Why Lite-PHP ?](#why-lite-php)
-2. [Installation](#installation)
-3. [Flow chart of process](#view-of-lite-php-process-in-application)
-4. [Folder Structure](#folder-structure)
+---
+
+## ✨ Features
+
+> Lightweight and fast development environment
+
+> Functional programming architecture (No classes & OOP)
+
+> Modular project structure
+
+> MySQL database support
+
+> Custom hooks and plugins
+
+> Command-line interface (CLI)
+
+> REST API development
+
+> Custom template engine
+
+> Testing system
+
+> Environment configuration support
+
+---
+
+## 📦 Installation & Setup
+
+### Requirements
+
+* PHP 8.0 or higher
+* Composer
+
+---
+
+### Install using Composer
+
+```bash
+composer create-project arefshojaei/lite-php my-app
+```
+
+Move into your project:
+
+```bash
+cd my-app
+```
+
+---
+
+### Clone from GitHub
+
+```bash
+git clone https://github.com/ArefShojaei/Lite-PHP.git
+cd Lite-PHP
+```
+
+Install dependencies:
+
+```bash
+composer install
+```
+
+---
+
+##  📚 Tutorial :
+1. [Flow chart of process](#view-of-lite-php-process-in-application)
+2. [Folder Structure](#folder-structure)
     * [core/](#core)
     * [bootstrap/](#bootstrap)
     * [public/](#public)
@@ -18,7 +89,7 @@
     * [hooks/](#hooks)
     * [migrations/](#migrations)
     * [storage/](#storage)
-5. [Root Files](#root-files)
+3. [Root Files](#root-files)
     * [.env.example](#envexample)
     * [.gitignore](#gitignore)
     * [.htaccess](#htaccess)
@@ -30,15 +101,15 @@
     * [README.md](#readmemd)
     * [robots.txt](#robotstxt)
     * [server.php](#serverphp)
-6. [Modules](#modules)
+4. [Modules](#modules)
     * [alias](#Alias)
     * [config](#config)
     * [enum](#enum)
     * [plugin](#plugin)
     * [validator](#validator)
-7. [Template Engine](#template-engine)
-8. [Cli ( console )](#cli-1)
-9. [Helpers](#helpers)
+5. [Template Engine](#template-engine)
+6. [Cli ( console )](#cli-1)
+7. [Helpers](#helpers)
     * [import](#import)
     * [route](#route)
     * [dd](#dd)
@@ -53,7 +124,7 @@
     * [assets](#assets)
     * [validator](#validator-1)
     * [assert](#assert)
-10. [Hooks](#hooks)
+8. [Hooks](#hooks)
     * [useHTTP](#usehttp)
     * [useGET](#useget)
     * [usePOST](#usepost)
@@ -91,51 +162,8 @@
     * [useAction](#useaction)
     * [useTable](#usetable)
     * [useRecord](#userecord)
-<br/>
 
-##  **Introduction**
-
-### What is Lite-PHP ?
-> Lite-PHP is a Micro Framework
-for developing Back-end applications
-
-### Why Lite-PHP ?
-Because Lite-PHP has:
-
-> **Simple & Fast Development Env**
-
-> **Modular Strucutre**
-
-> **DBMS Like Mysql**
-
-> **Testing Module**
-
-> **Custom Plugins & Hooks**
-
-> **Custom Command-line in console**
-
-> **REST API Development**
-
-> **Functional Programming Structure**
-
-> **Folder Strucutre**
-
-> **No OOP & No Object & No Class**
-
-<br />
-
-## **Installation**
-
-#### Using Composer
-```bash
-composer create-project arefshojaei/lite-php
-```
-
-#### Using GIT
-```bash
-git clone https://github.com/ArefShojaei/Lite-PHP
-```
-<br />
+---
 
 ## **View of LITE PHP process in application**
 ![flow](https://github.com/user-attachments/assets/ad9d887d-79d2-4036-a384-b3c6abe08836)
@@ -458,25 +486,11 @@ $isValid = useValidator($schema, $post);
 <br/>
 
 ## **Cli**
-These are list of commands that can be done works to develop your application! 
-```bash
-> php cli
+These photos are demo of commands that can be done to develop your application! 
 
-
-░░      ░░ ░░░░░░░░ ░░░░░░░     ░░░░░░  ░░   ░░ ░░░░░░
-▒▒      ▒▒    ▒▒    ▒▒          ▒▒   ▒▒ ▒▒   ▒▒ ▒▒   ▒▒
-▒▒      ▒▒    ▒▒    ▒▒▒▒▒       ▒▒▒▒▒▒  ▒▒▒▒▒▒▒ ▒▒▒▒▒▒
-▓▓      ▓▓    ▓▓    ▓▓          ▓▓      ▓▓   ▓▓ ▓▓
-███████ ██    ██    ███████     ██      ██   ██ ██
-
-                    Micro PHP Framework
-
-                        Welcome 🎉
-```
 ![carbon (2)](https://github.com/user-attachments/assets/4979f1ff-552f-44f2-820b-7541a3350b4e)
 ![carbon (1)](https://github.com/user-attachments/assets/17b7c886-05f8-4a95-afa7-6756c2a79a97)
 ![carbon (3)](https://github.com/user-attachments/assets/be1f3b8b-a880-4cc4-8a84-d390a6cd3ccd)
-
 
 
 <br/>
@@ -1767,3 +1781,20 @@ function deleteAction() {
     # Logic code ...
 }
 ```
+---
+
+# 👨‍💻 Author
+
+**Aref Shojaei**
+- 📧 Email: [arefshojaei82@gmail.com](mailto:arefshojaei82@gmail.com)
+- 🐙 GitHub: [@ArefShojaei](https://github.com/ArefShojaei)
+- 📦 Packagist: [arefshojaei/lite-php](https://packagist.org/packages/arefshojaei/lite-php)
+
+
+---
+
+# ⭐ Show Your Support
+
+If this project helps you understand web crawling, HTML parsing, and DOM manipulation, consider giving it a **Star ⭐ on GitHub**.
+
+Your support motivates future improvements.
