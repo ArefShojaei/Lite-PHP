@@ -1,22 +1,31 @@
 {
     "name": "arefshojaei/lite-php",
     "description": "Micro PHP Framework",
-    "keywords": [
-        "Lite-PHP",
-        "Framework",
-        "Modular",
-        "Functional"
-    ],
-    "version": "7.7.1",
+    "version": "7.7.2",
     "type": "project",
     "license": "MIT",
+    "minimum-stability": "stable",
+    "keywords": [
+        "framework",
+        "functional",
+        "modular",
+        "hook",
+        "plugin",
+        "module",
+        "routing",
+        "template",
+        "migration",
+        "database",
+        "console",
+        "cli",
+        "mvc"
+    ],
     "authors": [
         {
             "name": "ArefShojaei",
             "email": "arefshojaei82@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "php": "^8.0"
     }
